@@ -1,0 +1,36 @@
+.toggleButtonC{
+    width:70px;
+    height: 36px;
+    border-radius: 20px;
+    background-color: #e0e0e0;
+    margin-right: 80px;
+    padding: 0 2px;
+    display: flex;
+    align-items: center;
+}
+.toggleButtonD{
+    width:60px;
+    height: 32px;
+    border-radius: 20px;
+    background-color: #e0e0e0;
+    padding: 0 2px;
+    display: flex;
+    align-items: center;
+}
+
+.tbutton{
+    width: 30px;
+    height: 90%;
+    border-radius: 20px;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.tbuttonD{
+    width: 30px;
+    height: 90%;
+    border-radius: 20px;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
