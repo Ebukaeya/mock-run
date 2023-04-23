@@ -4,7 +4,7 @@ const Tab = ({updatePage}) => {
     let movingTap = document.querySelector(".movingTap");
     let parentNode = document.querySelector(".TabTrain");
     if (tab === "feedBack") {
-      movingTap.style.transform = `translateX(196px)`;
+      movingTap.style.transform = `translateX(98%)`;
       parentNode.children[0].id = "";
       parentNode.children[1].id = "selectTab";
       updatePage("feedBack")
