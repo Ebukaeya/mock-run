@@ -5,7 +5,7 @@ import { useState } from "react";
 import Feedback from "./Feeback";
 
 const Home = () => {
-  const [page, setPage] = useState("feedBack");
+  const [page, setPage] = useState("wishList");
   return <>
       <Narbar/>
       <div className="wishesListWrapper">
