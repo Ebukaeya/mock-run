@@ -19,7 +19,7 @@ const Tab = ({updatePage}) => {
     <>
       <div className='TabWraper'>
         <div className='TabTrain'>
-          <p onClick={() => swtichTab("trainingWish")} className='AllWishes12'>
+          <p id="selectTab" onClick={() => swtichTab("trainingWish")} className='AllWishes12'>
             Training Wish
           </p>
           <p onClick={() => swtichTab("feedBack")} className='AllWishes12'>
