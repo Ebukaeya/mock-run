@@ -3,7 +3,7 @@ import "../styles/webstore.css";
 /* import productDetails from "../assessStatic/pictures/product_details.png"; */
 /* import testImg from "../assessStatic/pictures/testingG.png";
 import bigDisplay from "../assessStatic/pictures/webstoreIm/image_2120_1984.png"; */
-import midDisplay from "../assessStatic/pictures/webstoreIm/storelenseBImage.png";
+import midDisplay from "../assessStatic/pictures/webstoreIm/storelenseBImage.webp";
 import frontView from "../assessStatic/pictures/posImage/frontView.png";
 import sideView from "../assessStatic/pictures/posImage/sideView.png";
 import backView from "../assessStatic/pictures/posImage/backView.png";
