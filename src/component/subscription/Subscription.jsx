@@ -157,7 +157,7 @@ const Subscription = () => {
         <div className='futuristic-bottom-section'>
           <div className='futuristic-trial-info'>
             <p>
-              Not sure which plan fits? Start with a <span className='futuristic-highlight'>free 2-day trial</span> or{" "}
+              Not sure which plan fits? Start with a <span className='futuristic-highlight'>30 days free trial</span> or{" "}
               <span className='futuristic-link'>contact our support team</span>
             </p>
           </div>

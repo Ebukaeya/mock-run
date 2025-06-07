@@ -5,6 +5,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useLayoutEffect } from "react";
 import Webstore from "./component/Webstore.jsx";
 import PosSetup from "./component/PosSetup/PosSetup.jsx";
+import Services from "./component/Services.jsx";
+import Contact from "./component/Contact.jsx";
 
 function App() {
   useLayoutEffect(() => {
@@ -24,6 +26,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Webstore />} />
         <Route path='/pos-setup' element={<PosSetup />} />
+        <Route path='/services' element={<Services />} />
+        {/* Add more routes as needed */}
+        /* <Route path='/contact' element={<Contact />} />
       </Routes>
     </BrowserRouter>
   );

@@ -608,7 +608,7 @@ const Webstore = () => {
 
       {/*  <OurPackages /> */}
       {/* subscription */}
-      <section className='subModi4745'>
+      <section id='pricing' className='subModi4745'>
         <div className=' '>
           <div className='planUdvg sl-animate'>
             <h2 style={{ color: "black" }} className='main-title'>

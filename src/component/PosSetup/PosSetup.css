@@ -1,7 +1,12 @@
+/* body {
+  font-family: "Nunito", sans-serif;
+} */
+
 .sl-pos-setup {
   min-height: 100vh;
   background: #fafbfc;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 /* Navigation */
@@ -31,7 +36,7 @@
   color: #3b82f6;
   text-decoration: none;
   font-weight: 500;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1rem;
   border-radius: 12px;
   transition: all 0.3s ease;
   background: rgba(59, 130, 246, 0.05);
@@ -461,6 +466,8 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  display: flex;
+  justify-content: center;
 }
 
 .sl-in-stock {
@@ -534,6 +541,7 @@
   border-radius: 12px;
   color: white;
   font-family: "Nunito", sans-serif;
+  font-size: 1rem;
 }
 
 .sl-cta-secondary {
@@ -543,6 +551,7 @@
   font-weight: 600;
   border-radius: 12px;
   font-family: "Nunito", sans-serif;
+  font-size: 1rem;
 }
 
 /* Animations */

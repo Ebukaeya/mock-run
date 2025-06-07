@@ -25,14 +25,17 @@ const Navbar = () => {
           <a href='#home' className='nav-link'>
             Home
           </a>
-          <a href='#features' className='nav-link'>
+          <a href='#heroSections' className='nav-link'>
             Features
           </a>
-          <a href='#services' className='nav-link'>
+          <a href='/services' className='nav-link'>
             Services
           </a>
+          <a href='#pricing' className='nav-link'>
+            Pricing
+          </a>
 
-          <a href='#contact' className='nav-link'>
+          <a href='/contact' className='nav-link'>
             Contact
           </a>
         </div>
@@ -53,16 +56,16 @@ const Navbar = () => {
         <a href='#home' className='mobile-nav-link' onClick={toggleMenu}>
           Home
         </a>
-        <a href='#features' className='mobile-nav-link' onClick={toggleMenu}>
+        <a href='#heroSections' className='mobile-nav-link' onClick={toggleMenu}>
           Features
         </a>
-        <a href='#services' className='mobile-nav-link' onClick={toggleMenu}>
+        <a href='/services' className='mobile-nav-link' onClick={toggleMenu}>
           Services
         </a>
-        <a href='#about' className='mobile-nav-link' onClick={toggleMenu}>
-          About
+        <a href='#pricing' className='mobile-nav-link' onClick={toggleMenu}>
+          Pricing
         </a>
-        <a href='#contact' className='mobile-nav-link' onClick={toggleMenu}>
+        <a href='/contact' className='mobile-nav-link' onClick={toggleMenu}>
           Contact
         </a>
         <button className='mobile-cta-button'>Get Started</button>

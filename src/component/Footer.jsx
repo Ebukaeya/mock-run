@@ -44,16 +44,19 @@ const Footer = () => {
                 <a href='#home'>Home</a>
               </li>
               <li>
-                <a href='#features'>Features</a>
+                <a href='#heroSections'>Features</a>
               </li>
               <li>
-                <a href='#services'>Services</a>
+                <a href='/services'>Services</a>
               </li>
               <li>
                 <a href='#about'>About Us</a>
               </li>
               <li>
-                <a href='#contact'>Contact</a>
+                <a href='#about'>Pricing</a>
+              </li>
+              <li>
+                <a href='/contact'>Contact</a>
               </li>
             </ul>
           </div>
@@ -66,16 +69,19 @@ const Footer = () => {
                 <a href='#retail'>Retail Stores</a>
               </li>
               <li>
-                <a href='#warehouse'>Warehouses</a>
+                <a href='#warehouse'>Warehouse Integration</a>
               </li>
               <li>
-                <a href='#restaurants'>Restaurants</a>
+                <a href='#restaurants'>Inventory management</a>
               </li>
               <li>
                 <a href='#pos'>POS Systems</a>
               </li>
               <li>
                 <a href='#analytics'>Analytics</a>
+              </li>
+              <li>
+                <a href='#analytics'>E commerce</a>
               </li>
             </ul>
           </div>
@@ -86,11 +92,11 @@ const Footer = () => {
             <div className='contact-info'>
               <div className='contact-item'>
                 <Mail size={16} />
-                <span>info@stockscout.com</span>
+                <span>admin@pragmasolutions.co</span>
               </div>
               <div className='contact-item'>
                 <Phone size={16} />
-                <span>+1 (555) 123-4567</span>
+                <span>+234 70 3333 3452</span>
               </div>
               <div className='contact-item'>
                 <MapPin size={16} />

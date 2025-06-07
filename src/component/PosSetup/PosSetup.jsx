@@ -41,50 +41,62 @@ const PosSetup = () => {
   const posSetups = [
     {
       id: "laptop-pro",
-      title: "Professional Laptop Station",
-      price: "$2,499",
-      originalPrice: "$2,799",
+      title: "Laptop Combo Station",
+      price: "₦550,000",
+      originalPrice: "₦605,000",
       badge: "Most Popular",
-      description: "Complete laptop-based POS solution with enterprise-grade performance",
-      features: ["High-Performance Laptop", "80mm Thermal Printer", "2D Barcode Scanner", "Professional Setup & Training", "1-Year Warranty"],
+      description: "Our Performance/User laptop with our POS system for a seamless experience",
+      features: ["Any User Laptop", "80mm Thermal Printer", "2D Barcode Scanner", "Professional Setup & Training", "Label Printer", "24/7 Support"],
       icon: Monitor,
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&h=500",
+      image: "https://res.cloudinary.com/ebuka1122/image/upload/v1749333563/Ihub/LaptopSetup_gvcalp.webp",
       rating: 4.9,
     },
     {
       id: "android-touch",
       title: "Android Touch Terminal",
-      price: "$1,899",
-      originalPrice: "$2,199",
+      price: "₦475,000",
+      originalPrice: "₦505,000",
       badge: "Best Value",
       description: "Sleek Android terminal with intuitive touch interface",
-      features: ["Android POS Terminal", "80mm Receipt Printer", "Omnidirectional Scanner", "Cloud Integration", "6-Month Support"],
+      features: ["Android POS Terminal", "80mm Receipt Printer", "Omnidirectional Scanner", "Label Printer", "24/7 Support"],
       icon: Smartphone,
-      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&h=500",
+      image: "https://res.cloudinary.com/ebuka1122/image/upload/v1749334767/Ihub/AndriodPOS_mtw05f.webp",
       rating: 4.7,
     },
     {
       id: "windows-powerstation",
-      title: "Windows Power Station",
-      price: "$2,199",
-      originalPrice: "$2,499",
+      title: "Windows Touch Terminal",
+      price: "₦360,000",
+      originalPrice: "₦400,000",
       badge: "Enterprise",
-      description: "Robust Windows system for high-volume retail operations",
-      features: ["Windows POS Computer", "Advanced Barcode Scanner", "High-Speed Printer", "Analytics Dashboard", "Premium Support"],
+      description: "Robust Windows Touch system for high-volume retail operations",
+      features: ["Windows POS Computer", "Touch Screen", "Advanced Barcode Scanner", "High-Speed thermal Printer", "Label Printer", "24/7 Support"],
       icon: Monitor,
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&h=500",
+      image: "https://res.cloudinary.com/ebuka1122/image/upload/v1749333566/Ihub/windowsSetup_ptaxnp.webp",
       rating: 4.8,
     },
     {
       id: "tablet-mobility",
       title: "Mobile Tablet Station",
-      price: "$1,299",
-      originalPrice: "$1,599",
+      price: "₦180,000",
+      originalPrice: "#220,000",
       badge: "Portable",
-      description: "Flexible tablet solution with adjustable mounting system",
-      features: ["Premium Tablet Device", "Adjustable Stand", "Wireless Connectivity", "Mobile App Integration", "Basic Support"],
+      description: "Our Flexible tablet solution with adjustable mounting system",
+      features: ["Premium Tablet Device", "Adjustable Stand", "Software Integration", "24/7 Support"],
       icon: Tablet,
       image: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=800&h=500",
+      rating: 4.6,
+    },
+    {
+      id: "tablet-mobility",
+      title: "Z 100 Android POS",
+      price: "₦650,000",
+      originalPrice: "₦700,000",
+      badge: "Portable",
+      description: "Portable Android POS with integrated payment solutions and sleek design",
+      features: ["Android POS Tablet", "SIM card compatibilty", "4G Network", "In-built printer", "Advanced Barcode Scanner", "24/7 Support"],
+      icon: Tablet,
+      image: "https://res.cloudinary.com/ebuka1122/image/upload/v1749333564/Ihub/Z-100_lteagi.webp",
       rating: 4.6,
     },
   ];
@@ -92,31 +104,31 @@ const PosSetup = () => {
   const accessories = [
     {
       name: "80mm Thermal Printer",
-      price: "$349",
+      price: "₦45,000",
       description: "High-speed thermal printing with auto-cutter functionality",
       icon: Printer,
       inStock: true,
     },
     {
       name: "2D Barcode Scanner",
-      price: "$199",
+      price: "₦25,000",
       description: "Omnidirectional 2D scanner with USB/Bluetooth connectivity",
       icon: Scan,
       inStock: true,
     },
     {
-      name: "Heavy-Duty Cash Drawer",
-      price: "$159",
-      description: "Secure cash management with 5-bill/5-coin compartments",
-      icon: ShoppingCart,
+      name: "Tablet Stand",
+      price: "₦15,000",
+      description: "Adjustable stand for tablets with secure locking mechanism",
+      icon: Tablet,
       inStock: true,
     },
     {
       name: "Thermal Paper Rolls",
-      price: "$89",
+      price: "₦10,000 per box",
       description: "Premium quality paper - 50 rolls per box",
       icon: Printer,
-      inStock: false,
+      inStock: true,
     },
   ];
 
@@ -176,8 +188,8 @@ const PosSetup = () => {
       <section className='sl-systems'>
         <div className='sl-container'>
           <div className='sl-section-header sl-animate'>
-            <h2 className='sl-section-title'>Complete POS Systems</h2>
-            <p className='sl-section-subtitle'>Everything you need to start processing transactions immediately</p>
+            <h2 className='sl-section-title'>Available POS Setups</h2>
+            <p className='sl-section-subtitle'>Explore our range of point-of-sale systems designed to meet the needs of your retail store.</p>
           </div>
 
           <div className='sl-systems-grid'>
@@ -265,9 +277,9 @@ const PosSetup = () => {
                         </div>
                       </div>
 
-                      <button className='sl-accessory-button' disabled={!item.inStock}>
+                      {/*  <button className='sl-accessory-button' disabled={!item.inStock}>
                         {item.inStock ? "Add to Cart" : "Notify Me"}
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                 </Card>
