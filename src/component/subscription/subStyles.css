@@ -1,0 +1,694 @@
+.mSubscriptionWrapper {
+  width: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 2vw 10px 2vw;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.mSubscriptionWrapper > p {
+  width: 60%;
+  margin: 30px 0;
+  text-align: center;
+  font-size: 00.9rem;
+  color: rgb(59, 57, 57);
+}
+
+.subPlanWrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  /* justify-content: space-between; */
+}
+
+.subPlanWrapper > div {
+  /*  background-color: firebrick; */
+  width: 30%;
+  max-width: 330px;
+  flex: 1 1 250px;
+  margin-bottom: 30px;
+}
+.subPlanWrapper > div:nth-child(3) {
+  max-width: 90%;
+}
+
+.subscriptionCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* width: 100%; */
+  background-color: rgb(255, 255, 255);
+  min-height: 250px;
+  border-radius: 10px;
+  padding: 20px 20px 30px;
+  box-shadow: 1px 1px 50px 10px rgb(232, 242, 255);
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.subscriptionCard:hover {
+  box-shadow: 1px 1px 50px 10px rgb(232, 242, 255);
+  transform: scale(1.06);
+}
+
+.subscriptionCard > p:first-of-type {
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+  color: rgb(32, 62, 88);
+  color: rgb(39, 119, 189);
+  color: #b6a843;
+}
+
+.subscriptionCard > div:first-of-type {
+  min-width: 70px;
+  height: 30px;
+  background-color: rgb(39, 38, 38);
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 0.85rem;
+  padding: 14px;
+}
+.subscriptionCard > div:first-of-type + div {
+  margin-top: 20px;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: rgb(32, 62, 88);
+  position: relative;
+  font-weight: 600;
+  min-width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.currencySubCard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgb(37, 37, 37);
+  font-weight: 700;
+}
+
+.subscriptionCard > div:first-of-type + div + p {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgb(27, 27, 27);
+}
+.subscriptionCard > div:first-of-type + div + p + p {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgb(27, 27, 27);
+  margin-top: 10px;
+  align-self: flex-start;
+  margin-bottom: 6px;
+}
+
+.packageIncludes {
+  width: 100%;
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.packageIncludes > div {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.packageIncludes + button {
+  position: absolute;
+  bottom: -10px;
+  width: 110px;
+  height: 30px;
+  background-color: #0e49b5;
+  border-radius: 50px;
+  color: white;
+  font-size: 0.8rem;
+  font-family: "Nunito", sans-serif;
+  border: none;
+}
+
+.recommenedPack {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-size: 0.74rem;
+  font-family: "Nunito", sans-serif;
+  color: rgb(41, 41, 41);
+  background-color: #ffe70e;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  padding: 2px;
+}
+.userIsSubscribedDIv {
+  background-color: rgb(255, 255, 255);
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+}
+.userISSUbDetailsDIv {
+  width: 336px;
+
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.userISSUbDetailsDIv > div {
+  font-size: 0.9rem;
+  color: #262727;
+}
+.userISSUbDetailsDIv > div > p {
+  margin-bottom: 6px;
+}
+.upgradeSub {
+  margin: 60px 0 8px 0;
+  width: 250px;
+  height: 40px;
+  background-color: #0e49b5;
+  border-radius: 10px;
+  color: white;
+  font-size: 0.95rem;
+  font-family: "Nunito", sans-serif;
+  border: none;
+  cursor: pointer;
+}
+.upgradeSub:hover {
+  background-color: #043083;
+  box-shadow: 1px 1px 50px 10px rgb(232, 242, 255);
+}
+.cancelSubButton {
+  text-decoration: underline;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: "Nunito", sans-serif;
+}
+
+/* media */
+
+@media screen and (max-width: 1660px) {
+  .mSubscriptionWrapper {
+    padding: 18px 0vw 10px 0vw;
+  }
+}
+
+/* new */
+
+.futuristic-pricing-wrapper {
+  background: #ffffff;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.futuristic-pricing-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(37, 99, 235, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.futuristic-pricing-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.futuristic-pricing-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.futuristic-main-title {
+  font-size: 4rem;
+  font-weight: 900;
+  color: #1f2937;
+  margin-bottom: 1rem;
+  letter-spacing: -2px;
+}
+
+.futuristic-subtitle {
+  font-size: 1.25rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.futuristic-plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.futuristic-plan-card {
+  background: #f8fafc;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 2.5rem;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: cardSlideIn 0.6s ease-out forwards;
+  animation-delay: calc(var(--card-index) * 0.1s);
+  opacity: 0;
+  transform: translateY(30px);
+  overflow: hidden;
+}
+
+@keyframes cardSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.futuristic-plan-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.futuristic-plan-popular {
+  border: 1px solid #374151;
+  background: #374151;
+  transform: scale(1.05);
+  color: white;
+}
+
+.futuristic-plan-popular .futuristic-plan-title {
+  color: #ffffff;
+}
+
+.futuristic-plan-popular .futuristic-description {
+  color: #d1d5db;
+}
+
+.futuristic-plan-popular .futuristic-feature-text {
+  color: #e5e7eb;
+}
+
+.futuristic-plan-popular .futuristic-price {
+  color: #ffffff;
+}
+
+.futuristic-plan-popular .futuristic-currency {
+  color: #ffffff;
+}
+
+.futuristic-plan-popular .futuristic-period {
+  color: #d1d5db;
+}
+
+.futuristic-plan-popular .futuristic-pricing-display {
+  background: #4b5563;
+  border: 1px solid #6b7280;
+}
+
+.futuristic-popular-ribbon {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fbbf24;
+  color: #1f2937;
+  padding: 0.5rem 1.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+  z-index: 10;
+}
+
+.futuristic-star-icon {
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.futuristic-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.futuristic-plan-icon {
+  background: #374151;
+  border-radius: 24px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.futuristic-plan-info {
+  flex: 1;
+}
+
+.futuristic-badge {
+  background: #fbbf24;
+  color: #1f2937;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.futuristic-plan-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  text-transform: lowercase;
+  margin: 0;
+}
+
+.futuristic-pricing-display {
+  text-align: center;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.futuristic-price-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.futuristic-currency {
+  font-size: 1.5rem;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.futuristic-price {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 0.9;
+}
+
+.futuristic-period {
+  color: #6b7280;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.futuristic-description {
+  color: #4b5563;
+  font-size: 0.875rem;
+  text-align: left;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.futuristic-features-list {
+  margin-bottom: 2.5rem;
+}
+
+.futuristic-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem 0;
+  animation: featureSlideIn 0.5s ease-out forwards;
+  animation-delay: calc(var(--feature-index) * 0.1s + 0.3s);
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+@keyframes featureSlideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.futuristic-check-container {
+  background: #10b981;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.futuristic-check-container svg {
+  color: white;
+  stroke-width: 3;
+  width: 12px;
+  height: 12px;
+}
+
+.futuristic-feature-text {
+  color: #4b5563;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.futuristic-select-button {
+  width: 100%;
+  background: #3b82f6;
+  /* background: #0e49b5; */
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  font-family: "Nunito", sans-serif;
+}
+
+.futuristic-button-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.futuristic-button-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.futuristic-select-button:hover .futuristic-button-glow {
+  left: 100%;
+}
+
+.futuristic-select-button:hover {
+  background: #2563eb;
+}
+
+.futuristic-bottom-section {
+  margin-top: 4rem;
+}
+
+.futuristic-trial-info {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.futuristic-trial-info p {
+  color: #6b7280;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.futuristic-highlight {
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.futuristic-link {
+  color: #3b82f6;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.futuristic-link:hover {
+  color: #2563eb;
+}
+
+.futuristic-testimonial-section {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.futuristic-testimonial-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.futuristic-testimonial-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+
+.futuristic-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.futuristic-stat {
+  text-align: center;
+}
+
+.futuristic-stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.futuristic-stat-label {
+  color: #6b7280;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .futuristic-pricing-container {
+    padding: 0 1rem 2rem 1rem;
+  }
+
+  .futuristic-main-title {
+    font-size: 2.5rem;
+  }
+
+  .futuristic-plans-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .futuristic-plan-card {
+    padding: 2rem;
+  }
+
+  .futuristic-plan-popular {
+    transform: none;
+  }
+
+  .futuristic-price {
+    font-size: 2.5rem;
+  }
+
+  .futuristic-testimonial-title {
+    font-size: 1.5rem;
+  }
+  .planUdvg {
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .futuristic-plan-card {
+    padding: 1.5rem;
+  }
+
+  .futuristic-card-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .futuristic-price {
+    font-size: 2rem;
+  }
+
+  .futuristic-main-title {
+    font-size: 2rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .futuristic-plan-card,
+  .futuristic-select-button,
+  .futuristic-star-icon,
+  .futuristic-feature-item {
+    animation: none;
+    transition: none;
+  }
+
+  .futuristic-plan-card:hover {
+    transform: none;
+  }
+}

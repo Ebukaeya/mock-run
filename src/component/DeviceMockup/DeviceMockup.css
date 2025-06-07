@@ -1,0 +1,182 @@
+/* DeviceMockup Component Styles */
+
+.device-mockup-container {
+  position: relative;
+  transition: all 1s ease-out;
+}
+
+.device-mockup-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeIn 1s ease-out 0.5s both;
+}
+
+.device-mockup-container.hidden {
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+.device-mockup-wrapper {
+  position: relative;
+  margin: 0 auto;
+}
+
+.device-mockup-placeholder {
+  width: 100%;
+  max-width: 1000px;
+  aspect-ratio: 1000 / 818;
+  background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  border: 1px solid #d1d5db;
+  position: relative;
+}
+
+.device-mockup-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+
+.device-mockup-text {
+  text-align: center;
+  padding: 1rem;
+}
+
+.device-mockup-icon {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1rem;
+  background-color: #9ca3af;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.device-mockup-svg {
+  width: 2rem;
+  height: 2rem;
+  color: #6b7280;
+}
+
+.device-mockup-labels {
+  margin-top: 0.5rem;
+}
+
+.device-mockup-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 0.5rem 0;
+}
+
+.device-mockup-dimensions {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0 0 0.25rem 0;
+}
+
+.device-mockup-instruction {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin: 0;
+}
+
+/* Glow Effect */
+.device-mockup-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, rgba(55, 180, 197, 0.2) 0%, rgba(14, 73, 181, 0.2) 100%);
+  filter: blur(3rem);
+  transform: scale(1.1);
+  z-index: -1;
+  animation: pulse 2s infinite;
+}
+
+/* Ambient Light */
+.device-mockup-ambient {
+  position: absolute;
+  top: -2.5rem;
+  left: -2.5rem;
+  right: -2.5rem;
+  bottom: -2.5rem;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.1) 0%, transparent 100%);
+  filter: blur(2rem);
+  z-index: -2;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .device-mockup-placeholder {
+    border-radius: 0.75rem;
+  }
+
+  .device-mockup-icon {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .device-mockup-svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .device-mockup-title {
+    font-size: 1rem;
+  }
+
+  .device-mockup-dimensions {
+    font-size: 0.8rem;
+  }
+
+  .device-mockup-instruction {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .device-mockup-text {
+    padding: 0.5rem;
+  }
+
+  .device-mockup-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .device-mockup-svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
