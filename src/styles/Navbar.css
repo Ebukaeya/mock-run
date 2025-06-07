@@ -211,3 +211,33 @@
     display: none;
   }
 }
+
+/* Discount notifier */
+.dc-banner {
+  /*  position: fixed; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #ff416c, #ff4b2b);
+  color: #fff;
+  font-family: sans-serif;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.dc-off {
+  font-weight: bold;
+  margin: 0 0.25rem;
+}
+
+.dc-countdown {
+  font-family: monospace;
+  margin-left: 0.25rem;
+}
+
+/* Make sure your content isn't hidden behind the banner */
+body {
+  margin-top: 3rem; /* adjust if you change banner height */
+}

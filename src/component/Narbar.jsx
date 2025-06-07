@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Menu, X, Shield } from "lucide-react";
 import "../styles/Navbar.css";
+import DiscountBanner from "./ui/DiscountCOmp";
 /* import "../styles/navBarCss.css"; */
 
 const Navbar = () => {
@@ -12,6 +13,7 @@ const Navbar = () => {
 
   return (
     <nav className='navbar'>
+      <DiscountBanner endDate='2025-10-31T23:59:59' />
       <div className='nav-container'>
         {/* Logo */}
         <div className='nav-logo'>
