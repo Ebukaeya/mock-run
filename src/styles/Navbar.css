@@ -239,5 +239,5 @@
 
 /* Make sure your content isn't hidden behind the banner */
 body {
-  margin-top: 3rem; /* adjust if you change banner height */
+  margin-top: 0.1rem; /* adjust if you change banner height */
 }
