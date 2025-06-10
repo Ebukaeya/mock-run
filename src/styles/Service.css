@@ -672,6 +672,7 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
   backdrop-filter: blur(15px);
+  font-family: "Nunito", sans-serif;
 }
 
 .services-cta-button:hover {

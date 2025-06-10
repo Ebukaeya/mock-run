@@ -1,6 +1,7 @@
 {
-  "name": "mock-run",
+  "name": "StoreLense",
   "version": "0.1.0",
+  "description": "StoreLense - Manage your inventory in real-time",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

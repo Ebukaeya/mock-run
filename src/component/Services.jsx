@@ -259,7 +259,12 @@ const Services = () => {
           <p className='services-cta-description'>
             Contact us today for your free POS installation and setup. Let's get your business running efficiently with our comprehensive solutions.
           </p>
-          <button className='services-cta-button'>
+          <button
+            onClick={() => {
+              window.location.href = "/contact"; // Redirect to contact page
+            }}
+            className='services-cta-button'
+          >
             Contact Us Today
             <ArrowRight className='services-cta-button-icon' />
           </button>

@@ -102,7 +102,14 @@ const Webstore = () => {
               Manage your store inventory in <br /> <p className='h1Intro3874'> Real Time</p>{" "}
             </h1>
             <div className='intBtnD223'>
-              <button className='intBtn3874'>Get Started</button>
+              <button
+                onClick={() => {
+                  window.location.href = "https://www.app.storelense.com/sign-up";
+                }}
+                className='intBtn3874'
+              >
+                Get Started
+              </button>
               <button className='intBtn3874'>Demo</button>
             </div>
           </div>
@@ -325,7 +332,7 @@ const Webstore = () => {
               <img className='busImag3he' src={cryptoP} alt='restaurant' />
               <div className='ubhfys7e4'>
                 <h3>Payout in Crypto</h3>
-                <p>You can choose to get paid out in crypto (Jema coin)</p>
+                <p>You can choose to get paid out in crypto (Coming soon)</p>
               </div>
             </div>
           </div>
@@ -373,7 +380,13 @@ const Webstore = () => {
                   </p>
                 </div>
 
-                <button>Get Started</button>
+                <button
+                  onClick={() => {
+                    window.location.href = "/sign-up";
+                  }}
+                >
+                  Get Started
+                </button>
               </div>
             </div>
             <div>
@@ -543,8 +556,14 @@ const Webstore = () => {
                   terminal, thermal printer, barcode scanner and more. Software can also be used independently. .
                 </p>
               </div>
-              <span id='tikdu8' className='inboxBtn'>
-                Order both <FaLongArrowAltRight />
+              <span
+                onClick={() => {
+                  window.location.href = "/pos-setup";
+                }}
+                id='tikdu8'
+                className='inboxBtn'
+              >
+                Check POS Setups <FaLongArrowAltRight />
               </span>
             </div>
             <div>
@@ -578,7 +597,13 @@ const Webstore = () => {
                 <div>1</div>
                 <div>1</div> */}
               </div>
-              <span style={{ color: "white" }} className='whitBtn364'>
+              <span
+                onClick={() => {
+                  window.location.href = "/sign-up";
+                }}
+                style={{ color: "white" }}
+                className='whitBtn364'
+              >
                 Sign up now
               </span>
             </div>
@@ -600,8 +625,22 @@ const Webstore = () => {
           <h2 className='Ctit3y73 sl-animate'>Set up and access your store in real time</h2>
 
           <div className='regBtnDIv sl-animate'>
-            <button className='RegBtn'>Set up store now</button>
-            <button className='COntSbtn'>Contact sales</button>
+            <button
+              onClick={() => {
+                window.location.href = "https://www.app.storelense.com/sign-up";
+              }}
+              className='RegBtn'
+            >
+              Set up store now
+            </button>
+            <button
+              onClick={() => {
+                window.location.href = "/contact";
+              }}
+              className='COntSbtn'
+            >
+              Contact sales
+            </button>
           </div>
         </div>
       </section>
@@ -628,8 +667,20 @@ const Webstore = () => {
           <div className='ContactSalesT sl-animate'>
             {/* <h1>Join many business who already use our platform and tools to improve their business and increase revenue !! </h1> */}
             <div className='btnDib45 sl-animate'>
-              <button>Start free trial</button>
-              <button>Contact sales</button>
+              <button
+                onClick={() => {
+                  window.location.href = "https://www.app.storelense.com/sign-up";
+                }}
+              >
+                Start free trial
+              </button>
+              <button
+                onClick={() => {
+                  window.location.href = "/contact";
+                }}
+              >
+                Contact sales
+              </button>
             </div>
           </div>
         </div>
