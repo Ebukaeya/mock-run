@@ -1,3 +1,6 @@
+body {
+  margin: 0;
+}
 .get-started-container {
   min-height: 100vh;
   background: linear-gradient(135deg, #1a2b42 0%, #0f1419 100%);
