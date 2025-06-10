@@ -98,6 +98,16 @@
     margin: 1px 3.8vw;
   }
 }
+@media screen and (max-width: 900px) {
+  .gtaBtn {
+    padding: 10px 20px !important;
+    font-size: 0.92rem !important;
+  }
+  .nav-links {
+    gap: 30px;
+    font-size: 0.95rem;
+  }
+}
 
 @media (min-width: 768px) {
   .nav-links {

@@ -44,7 +44,14 @@ const Navbar = () => {
 
         {/* CTA Button */}
         <div className='nav-cta'>
-          <button className='cta-button'>Get Started</button>
+          <button
+            onClick={() => {
+              window.location.href = "https://www.app.storelense.com/sign-up";
+            }}
+            className='cta-button gtaBtn'
+          >
+            Get Started
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -70,7 +77,14 @@ const Navbar = () => {
         <a href='/contact' className='mobile-nav-link' onClick={toggleMenu}>
           Contact
         </a>
-        <button className='mobile-cta-button'>Get Started</button>
+        <button
+          onClick={() => {
+            window.location.href = "https://www.app.storelense.com/sign-up";
+          }}
+          className='mobile-cta-button'
+        >
+          Get Started
+        </button>
       </div>
     </nav>
   );

@@ -58,7 +58,7 @@ const Subscription = () => {
   const plans = [
     {
       id: "basic",
-      name: "basic",
+      name: "Basic",
       price: "1000",
       period: "per month",
       description: "For basic users and it includes:",
@@ -66,10 +66,12 @@ const Subscription = () => {
       badge: "Saver",
       icon: Shield,
       features: ["One month free", "Create one store", "List only 10 products", "24/7 support", "Access to hub platform"],
+      plan: "Basic",
+      planCode: "PLN_lbro2p90abucr1i",
     },
     {
       id: "super",
-      name: "super",
+      name: "Super",
       price: "15000",
       period: "per month",
       description: "For super users and it includes:",
@@ -77,10 +79,12 @@ const Subscription = () => {
       badge: "Saver",
       icon: Crown,
       features: ["Basic user Ad ons", "Create two stores", "Create one warehouse", "24 hours free Ad", "List upto 100 products"],
+      plan: "Super",
+      planCode: "PLN_gz3p2q94b9r0apg",
     },
     {
       id: "premium",
-      name: "premium",
+      name: "Premium",
       price: "51000",
       period: "per month",
       description: "For premium users and it includes:",
@@ -88,6 +92,8 @@ const Subscription = () => {
       badge: "Saver",
       icon: Rocket,
       features: ["Super user Ad ons", "Create upto ten stores", "Create five warehouses", "50 free Ad", "Unlimited product listing"],
+      plan: "Premium",
+      planCode: "PLN_o0yjesxw73ffcvr",
     },
   ];
 
@@ -142,7 +148,12 @@ const Subscription = () => {
                   ))}
                 </div>
 
-                <button className='futuristic-select-button'>
+                <button
+                  onClick={() => {
+                    window.location.href = `/sign-up`;
+                  }}
+                  className='futuristic-select-button'
+                >
                   <div className='futuristic-button-content'>
                     <Zap size={18} />
                     <span>Select Plan</span>

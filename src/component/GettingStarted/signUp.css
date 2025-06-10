@@ -1,0 +1,359 @@
+.get-started-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a2b42 0%, #0f1419 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  /*  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  */
+  font-family: "Nunito", sans-serif;
+}
+
+.get-started-header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.back-button {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.get-started-title {
+  color: white;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.get-started-subtitle {
+  color: #8b9dc3;
+  font-size: 16px;
+  margin: 0;
+}
+
+.get-started-form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 16px 20px;
+  background: #2a3441;
+  border: 1px solid #3a4651;
+  border-radius: 12px;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+  font-family: "Nunito", sans-serif;
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.form-input::placeholder {
+  color: #8b9dc3;
+}
+
+.form-input:focus {
+  border-color: #4285f4;
+}
+
+.phone-input-container {
+  display: flex;
+  gap: 0;
+  position: relative;
+}
+
+.country-selector {
+  position: relative;
+}
+
+.country-code {
+  padding: 16px 15px;
+  background: #2a3441;
+  border: 1px solid #3a4651;
+  border-right: none;
+  border-radius: 12px 0 0 12px;
+  color: white;
+  font-size: 16px;
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  user-select: none;
+}
+
+.country-code:hover {
+  background: #3a4651;
+  border-color: #4a5561;
+}
+
+.country-code:focus {
+  border-color: #4285f4;
+  outline: none;
+}
+
+.country-flag {
+  width: 20px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.dropdown-arrow {
+  font-size: 12px;
+  margin-left: auto;
+  transition: transform 0.2s;
+  color: #8b9dc3;
+}
+
+.dropdown-arrow.rotate {
+  transform: rotate(180deg);
+}
+
+.country-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: #2a3441;
+  border: 1px solid #4a5561;
+  border-radius: 12px;
+  max-height: 300px;
+  overflow: hidden;
+  z-index: 1000;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  min-width: 280px;
+}
+
+.search-container {
+  position: relative;
+  padding: 12px;
+  border-bottom: 1px solid #3a4651;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 40px 12px 16px;
+  background: #1a2b42;
+  border: 1px solid #3a4651;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-input::placeholder {
+  color: #8b9dc3;
+}
+
+.search-input:focus {
+  border-color: #4285f4;
+}
+
+.search-icon {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #8b9dc3;
+  font-size: 14px;
+}
+
+.country-option {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  color: white;
+  border-bottom: 1px solid rgba(58, 70, 81, 0.3);
+}
+
+.country-option:last-child {
+  border-bottom: none;
+}
+
+.country-option:hover {
+  background: #3a4651;
+}
+
+.country-option:active {
+  background: #4a5561;
+}
+
+.country-option .country-flag {
+  width: 24px;
+  height: 18px;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.country-name {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dial-code {
+  font-size: 14px;
+  color: #8b9dc3;
+  font-weight: 500;
+  min-width: 50px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.phone-input {
+  flex: 1;
+  padding: 16px 20px;
+  background: #2a3441;
+  border: 1px solid #3a4651;
+  border-left: none;
+  border-radius: 0 12px 12px 0;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+  font-family: "Nunito", sans-serif;
+}
+
+.phone-input::placeholder {
+  color: #8b9dc3;
+}
+
+.phone-input:focus {
+  border-color: #4285f4;
+}
+
+.divider {
+  text-align: center;
+  color: #8b9dc3;
+  margin: 20px 0;
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 45%;
+  height: 1px;
+  background: #3a4651;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+.social-button {
+  width: 100%;
+  padding: 16px 20px;
+  background: #2a3441;
+  border: 1px solid #3a4651;
+  border-radius: 12px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: background-color 0.2s;
+  margin-bottom: 12px;
+  font-family: "Nunito", sans-serif;
+}
+
+.social-button:hover {
+  background: #3a4651;
+}
+
+.continue-button {
+  width: 100%;
+  padding: 16px 20px;
+  background: #8b9dc3;
+  border: none;
+  border-radius: 12px;
+  color: #1a2b42;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.2s;
+  font-family: "Nunito", sans-serif;
+}
+
+.continue-button:hover {
+  background: #9caac7;
+}
+
+.continue-button:disabled {
+  background: #4a5561;
+  color: #8b9dc3;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Scrollbar styling for country dropdown */
+.country-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.country-dropdown::-webkit-scrollbar-track {
+  background: #1a2b42;
+  border-radius: 3px;
+}
+
+.country-dropdown::-webkit-scrollbar-thumb {
+  background: #4a5561;
+  border-radius: 3px;
+}
+
+.country-dropdown::-webkit-scrollbar-thumb:hover {
+  background: #5a6571;
+}
+
+/* Firefox scrollbar */
+.country-dropdown {
+  scrollbar-width: thin;
+  scrollbar-color: #4a5561 #1a2b42;
+}
+
+/* Scrollable area for country options */
+.country-dropdown {
+  overflow-y: auto;
+}
