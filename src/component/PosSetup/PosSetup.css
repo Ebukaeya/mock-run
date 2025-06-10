@@ -1,6 +1,11 @@
 /* body {
   font-family: "Nunito", sans-serif;
 } */
+button {
+  cursor: pointer;
+
+  font-family: "Nunito", sans-serif;
+}
 
 .sl-pos-setup {
   min-height: 100vh;

@@ -232,8 +232,14 @@ const PosSetup = () => {
                       ))}
                     </div>
 
-                    <Button className='sl-card-button'>
-                      Get Started
+                    <Button
+                      onClick={() => {
+                        alert(`You selected the ${setup.title} setup!, talk to us`); /* Replace with actual navigation or action */
+                        window.location.href = "/contact"; /* Redirect to contact page or order form */
+                      }}
+                      className='sl-card-button'
+                    >
+                      Order Now
                       <ArrowLeft className='w-4 h-4 sl-button-icon' />
                     </Button>
                   </CardContent>

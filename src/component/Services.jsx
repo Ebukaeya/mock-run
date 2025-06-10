@@ -151,8 +151,13 @@ const Services = () => {
           </p>
 
           <div className='services-hero-cta'>
-            <button className='services-hero-button'>
-              Get Started Today
+            <button
+              onClick={() => {
+                window.location.href = "/contact"; // Redirect to sign-up page
+              }}
+              className='services-hero-button'
+            >
+              Talk to us Today
               <ArrowRight className='services-hero-button-icon' />
             </button>
           </div>
