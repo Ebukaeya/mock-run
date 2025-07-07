@@ -41,25 +41,6 @@ import ProductHistorySection from "./HistorySect.jsx";
 import Footer from "./Footer.jsx";
 import BusinessShowcase from "./BusinessShowcase.jsx";
 import ScrollAnimationsProvider from "../tools/ScrollAnimationProvider.jsx";
-/* import OnlineStoreSection from "./OnlineStoreSection.jsx"; */
-
-/* 
-
-  useEffect(() => {
-    let ImgaeSlider = document.querySelector(".prodImagDivFlex");
-    console.log(product.productImage.length, ImageCount);
-    let count = 0;
-    const interval = setInterval(() => {
-      if (count < ImageCount) {
-        ImgaeSlider.style.transform = `translateX(${-100 * count}%)`;
-        count++;
-      } else {
-        ImgaeSlider.style.transform = `translateX(0%)`;
-        count = 1;
-      }
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [ImageCount]);*/
 
 const posImages = [frontView, sideView, backView];
 const Webstore = () => {
@@ -110,7 +91,9 @@ const Webstore = () => {
               >
                 Get Started
               </button>
-              <button className='intBtn3874'>Demo</button>
+              <button onClick={() => (window.location.href = "/demo")} className='intBtn3874'>
+                Demo
+              </button>
             </div>
           </div>
           <div className='intImag38'>

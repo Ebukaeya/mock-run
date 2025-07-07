@@ -235,7 +235,7 @@ const PosSetup = () => {
                     <Button
                       onClick={() => {
                         alert(`You selected the ${setup.title} setup!, talk to us`); /* Replace with actual navigation or action */
-                        window.location.href = "/contact"; /* Redirect to contact page or order form */
+                        window.location.href = `/contact?subject=${setup.title}`; /* Redirect to contact page or order form */
                       }}
                       className='sl-card-button'
                     >

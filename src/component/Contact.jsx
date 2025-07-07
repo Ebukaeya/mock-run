@@ -6,14 +6,17 @@ import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import "../styles/Contact.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Contact = () => {
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const subject = params.get("subject");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    subject: "",
+    subject: subject ? `Inquiry about ${subject}` : "", // Use the subject from URL params if available
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -32,22 +35,53 @@ const Contact = () => {
     setIsSubmitting(true);
 
     // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    // await new Promise((resolve) => setTimeout(resolve, 1500));
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    // submit form
+    const endpoint = process.env.REACT_APP_Back_end_api_root + "/contactUs";
+    const payload = {
+      name: formData.name,
+      subject: formData.subject,
+      customerEmail: formData.email,
+      message: formData.message,
+      phone: formData.phone,
+    };
 
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
+    try {
+      let response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
       });
-    }, 3000);
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      let data = await response.json();
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      }, 3000);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      // Optionally, you can set an error state here to show an error message to the user
+      alert(" Error sending message try again later ");
+      setIsSubmitting(false);
+      return;
+    }
   };
 
   const contactInfo = [

@@ -8,6 +8,7 @@ import PosSetup from "./component/PosSetup/PosSetup.jsx";
 import Services from "./component/Services.jsx";
 import Contact from "./component/Contact.jsx";
 import SignUp from "./component/GettingStarted/SignUp.jsx";
+import Demo from "./component/demo/Demo.jsx";
 
 function App() {
   useLayoutEffect(() => {
@@ -43,8 +44,9 @@ function App() {
         <Route path='/pos-setup' element={<PosSetup />} />
         <Route path='/services' element={<Services />} />
         {/* Add more routes as needed */}
-        /* <Route path='/contact' element={<Contact />} />
+        <Route path='/contact' element={<Contact />} />
         <Route path='/sign-up/' element={<SignUp />} />
+        <Route path='/demo' element={<Demo />} />
       </Routes>
     </BrowserRouter>
   );
