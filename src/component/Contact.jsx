@@ -12,12 +12,13 @@ const Contact = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const subject = params.get("subject");
+  const message = params.get("message");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     subject: subject ? `Inquiry about ${subject}` : "", // Use the subject from URL params if available
-    message: "",
+    message: message || "", // Use the message from URL params if available
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -88,20 +89,20 @@ const Contact = () => {
     {
       icon: <Phone className='contact-info-icon' />,
       title: "Phone",
-      content: "+1 (555) 123-4567",
+      content: "+234 801 59273522",
       description: "Call us Monday to Friday 9AM-6PM",
     },
     {
       icon: <Mail className='contact-info-icon' />,
       title: "Email",
-      content: "contact@possolutions.com",
+      content: "storelense@pragmasolutions.co",
       description: "We'll respond within 24 hours",
     },
     {
       icon: <MapPin className='contact-info-icon' />,
-      title: "Office",
-      content: "123 Business Street, Suite 100",
-      description: "Downtown Business District",
+      title: "Branch Office",
+      content: "Spera in Deo Park, block 38",
+      description: "Abakaliki Ebonyi State, Nigeria",
     },
     {
       icon: <Clock className='contact-info-icon' />,

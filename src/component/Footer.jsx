@@ -92,15 +92,15 @@ const Footer = () => {
             <div className='contact-info'>
               <div className='contact-item'>
                 <Mail size={16} />
-                <span>admin@pragmasolutions.co</span>
+                <span>storelense@pragmasolutions.co</span>
               </div>
               <div className='contact-item'>
                 <Phone size={16} />
-                <span>+234 70 3333 3452</span>
+                <span>+234 81 59273522</span>
               </div>
               <div className='contact-item'>
                 <MapPin size={16} />
-                <span>123 Business Ave, City, State 12345</span>
+                <span>Spera in Deo park, block 38, Abakaliki Ebonyi state</span>
               </div>
             </div>
           </div>
