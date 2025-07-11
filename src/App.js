@@ -50,6 +50,7 @@ function App() {
         <Route path='/sign-up/' element={<SignUp />} />
         <Route path='/demo' element={<Demo />} />
         <Route path='/demo/spashScreen/display' element={<MainSplashScreen />} />
+        <Route path='*' element={<div> 404 Not Found</div>} />
       </Routes>
     </BrowserRouter>
   );
