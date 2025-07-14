@@ -18,7 +18,12 @@ const DemoCTA = () => {
           </p>
 
           <div className='demo-cta__buttons'>
-            <button className='demo-cta__primary-btn'>
+            <button
+              onClick={() => {
+                window.location.href = "https://storelense.com/sign-up/"; // Redirect to sign-up page
+              }}
+              className='demo-cta__primary-btn'
+            >
               Start Free Trial
               <ArrowRight className='demo-cta__btn-icon' />
             </button>
@@ -29,7 +34,7 @@ const DemoCTA = () => {
           </div>
 
           <div className='demo-cta__features'>
-            <div className='demo-cta__feature'>✓ 14-day free trial</div>
+            <div className='demo-cta__feature'>✓ 7-day free trial</div>
             <div className='demo-cta__feature'>✓ No credit card required</div>
             <div className='demo-cta__feature'>✓ Full feature access</div>
             <div className='demo-cta__feature'>✓ 24/7 customer support</div>

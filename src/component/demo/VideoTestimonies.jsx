@@ -4,23 +4,23 @@ import { Star, Quote } from "lucide-react";
 const DemoTestimonials = () => {
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      role: "CTO, TechFlow Inc.",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=64&h=64&fit=crop&crop=face",
+      name: "Mrs Eucharia",
+      role: "Manager Chy CHy Global Co.",
+      avatar: "https://res.cloudinary.com/ebuka1122/image/upload/v1752509951/Ihub/6f4bf1a3-6545-44cb-b758-794607088adb_qfeya9.png",
       content: "This platform transformed how we handle our workflows. The demo videos made onboarding incredibly smooth for our entire team.",
       rating: 5,
     },
     {
-      name: "Michael Chen",
-      role: "Product Manager, StartupXYZ",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=face",
+      name: "Michael",
+      role: "Shop Owner, Alaba Int. Mrk",
+      avatar: "https://res.cloudinary.com/ebuka1122/image/upload/v1752510159/Ihub/bae19d07-d35c-486b-a42a-666a12de6eab_v17ckw.png",
       content: "The comprehensive video tutorials helped us implement advanced features we never knew existed. ROI was visible within the first month.",
       rating: 5,
     },
     {
-      name: "Emily Rodriguez",
-      role: "Operations Director, ScaleUp Co.",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=64&h=64&fit=crop&crop=face",
+      name: "Abiola Adeyemi",
+      role: "Sales Manager, Tech Solutions Ltd.",
+      avatar: "https://res.cloudinary.com/ebuka1122/image/upload/v1752510400/Ihub/25aab000-43c4-40de-adb3-0903bf813323_gtetee.png",
       content:
         "Outstanding platform with excellent documentation. The demo videos are professionally made and incredibly helpful for training new team members.",
       rating: 5,

@@ -27,6 +27,8 @@ const DemoHero = () => {
   const toggleFullscreen = () => {
     setIsFullscreen(!isFullscreen);
   };
+  const subject = "I would like a demo";
+  const message = "Hi, Please can we arrange a demo for your product.";
   return (
     <>
       <nav className='sl-nav'>
@@ -75,7 +77,13 @@ const DemoHero = () => {
             </div>
 
             <div className='demo-hero__cta'>
-              <button className='demo-hero__primary-btn'>
+              <button
+                onClick={() => {
+                  window.location.href =
+                    "https://storelense.com/contact" + "?subject=" + encodeURIComponent(subject) + "&message=" + encodeURIComponent(message); // Redirect to demo page
+                }}
+                className='demo-hero__primary-btn'
+              >
                 <Play className='demo-hero__btn-icon' />
                 Contact us for a Demo
               </button>
