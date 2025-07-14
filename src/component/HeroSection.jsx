@@ -26,7 +26,7 @@ const HeroSection = () => {
 
           {/* Subtitle */}
           <p style={{ marginBottom: "40px" }} className='subtitle sl-animate'>
-            When sales personnel steal products without the owner knowing
+            When sales personnel misappropriate inventory without the owner's knowledge
           </p>
 
           {/* Feature Cards */}
