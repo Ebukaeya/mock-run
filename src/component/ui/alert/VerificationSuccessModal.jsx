@@ -20,7 +20,7 @@ export function VerificationSuccessModal({ isOpen, onClose }) {
   }
   const onProceed = () => {
     // Redirect to login page or perform any action needed
-    window.location.href = "https://www.app.storelense.com/signIn"; // Adjust the URL as needed
+    window.location.href = "https://www.app.storelense.com/sign-in"; // Adjust the URL as needed
   };
 
   return ReactDOM.createPortal(
