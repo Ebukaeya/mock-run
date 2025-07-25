@@ -104,21 +104,21 @@ const PosSetup = () => {
   const accessories = [
     {
       name: "80mm Thermal Printer",
-      price: "₦45,000",
+      price: "₦75,000",
       description: "High-speed thermal printing with auto-cutter functionality",
       icon: Printer,
       inStock: true,
     },
     {
       name: "2D Barcode Scanner",
-      price: "₦25,000",
+      price: "₦55,000",
       description: "Omnidirectional 2D scanner with USB/Bluetooth connectivity",
       icon: Scan,
       inStock: true,
     },
     {
       name: "Tablet Stand",
-      price: "₦15,000",
+      price: "₦35,000",
       description: "Adjustable stand for tablets with secure locking mechanism",
       icon: Tablet,
       inStock: true,
