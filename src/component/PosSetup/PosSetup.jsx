@@ -54,8 +54,8 @@ const PosSetup = () => {
     {
       id: "android-touch",
       title: "Android Touch Terminal",
-      price: "₦475,000",
-      originalPrice: "₦505,000",
+      price: "₦601,000",
+      originalPrice: "₦655,000",
       badge: "Best Value",
       description: "Sleek Android terminal with intuitive touch interface",
       features: ["Android POS Terminal", "80mm Receipt Printer", "Omnidirectional Scanner", "Label Printer", "24/7 Support"],
@@ -66,8 +66,8 @@ const PosSetup = () => {
     {
       id: "windows-powerstation",
       title: "Windows Touch Terminal",
-      price: "₦360,000",
-      originalPrice: "₦400,000",
+      price: "₦490,000",
+      originalPrice: "₦580,000",
       badge: "Enterprise",
       description: "Robust Windows Touch system for high-volume retail operations",
       features: ["Windows POS Computer", "Touch Screen", "Advanced Barcode Scanner", "High-Speed thermal Printer", "Label Printer", "24/7 Support"],
@@ -90,8 +90,8 @@ const PosSetup = () => {
     {
       id: "tablet-mobility",
       title: "Z 100 Android POS",
-      price: "₦650,000",
-      originalPrice: "₦700,000",
+      price: "₦440,000",
+      originalPrice: "₦550,000",
       badge: "Portable",
       description: "Portable Android POS with integrated payment solutions and sleek design",
       features: ["Android POS Tablet", "SIM card compatibilty", "4G Network", "In-built printer", "Advanced Barcode Scanner", "24/7 Support"],
