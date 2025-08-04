@@ -10,7 +10,7 @@ const DemoHero = () => {
       id: "1",
       title: "Getting Started - Complete Setup Guide",
       description: "Learn how to set up your account and configure your first project in under 5 minutes.",
-      youtubeId: "dQw4w9WgXcQ",
+      youtubeId: "LF2JI-w97YA",
       duration: "4:32",
       category: "getting-started",
       views: "15.2K",
@@ -93,12 +93,20 @@ const DemoHero = () => {
 
           <div onClick={openVideoModal} className='demo-hero__visual'>
             <div className='demo-hero__video-preview'>
-              <div className='demo-hero__video-thumbnail'>
-                <Play className='demo-hero__play-icon' />
+              <div
+                style={{
+                  backgroundImage: `url("https://res.cloudinary.com/ebuka1122/image/upload/v1754337726/static%20images%20storelens/bdd4ae94-94a5-4983-9706-9699ea2c062f.png")`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                }}
+                className='demo-hero__video-thumbnail'
+              >
+                <Play color='red' className='demo-hero__play-icon' />
               </div>
               <div className='demo-hero__video-info'>
-                <span className='demo-hero__video-title'>Product Overview</span>
-                <span className='demo-hero__video-duration'>3:45</span>
+                <span className='demo-hero__video-title'>StoreLense:- Your store inventory manager</span>
+                <span className='demo-hero__video-duration'>1:41</span>
               </div>
             </div>
           </div>
