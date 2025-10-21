@@ -11,6 +11,7 @@ import SignUp from "./component/GettingStarted/SignUp.jsx";
 import Demo from "./component/demo/Demo.jsx";
 import SplashScreen from "./component/splashDisplay/SplashDisplay.jsx";
 import MainSplashScreen from "./component/splashDisplay/SplashDisplay.jsx";
+import PortalSelection from "./component/ChoosePortal/ChoosePortal.jsx";
 
 function App() {
   useLayoutEffect(() => {
@@ -50,6 +51,7 @@ function App() {
         <Route path='/sign-up/' element={<SignUp />} />
         <Route path='/demo' element={<Demo />} />
         <Route path='/demo/spashScreen/display' element={<MainSplashScreen />} />
+        <Route path='/portals' element={<PortalSelection />} />
         <Route path='*' element={<div> 404 Not Found</div>} />
       </Routes>
     </BrowserRouter>

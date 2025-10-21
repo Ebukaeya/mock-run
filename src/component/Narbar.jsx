@@ -3,9 +3,11 @@ import { Menu, X, Shield } from "lucide-react";
 import "../styles/Navbar.css";
 import DiscountBanner from "./ui/DiscountCOmp";
 /* import "../styles/navBarCss.css"; */
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -13,7 +15,7 @@ const Navbar = () => {
 
   return (
     <nav className='navbar'>
-      <DiscountBanner endDate='2025-10-31T23:59:59' />
+      <DiscountBanner endDate='2025-12-31T23:59:59' />
       <div className='nav-container'>
         {/* Logo */}
         <div className='nav-logo'>
@@ -46,7 +48,7 @@ const Navbar = () => {
         <div className='nav-cta'>
           <button
             onClick={() => {
-              window.location.href = "https://www.app.storelense.com/sign-up";
+              navigate("/portals");
             }}
             className='cta-button gtaBtn'
           >
@@ -79,7 +81,7 @@ const Navbar = () => {
         </a>
         <button
           onClick={() => {
-            window.location.href = "https://www.app.storelense.com/sign-up";
+            navigate("/portals");
           }}
           className='mobile-cta-button'
         >

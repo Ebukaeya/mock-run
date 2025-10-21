@@ -41,6 +41,7 @@ import ProductHistorySection from "./HistorySect.jsx";
 import Footer from "./Footer.jsx";
 import BusinessShowcase from "./BusinessShowcase.jsx";
 import ScrollAnimationsProvider from "../tools/ScrollAnimationProvider.jsx";
+import { useNavigate } from "react-router-dom";
 
 const posImages = [frontView, sideView, backView];
 const Webstore = () => {
@@ -59,6 +60,7 @@ const Webstore = () => {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
+  const navigate = useNavigate();
 
   const delayFunc = (ms) => {
     return new Promise((resolve, reject) => {
@@ -85,7 +87,7 @@ const Webstore = () => {
             <div className='intBtnD223'>
               <button
                 onClick={() => {
-                  window.location.href = "https://www.app.storelense.com/sign-up";
+                  navigate("/portals");
                 }}
                 className='intBtn3874'
               >
