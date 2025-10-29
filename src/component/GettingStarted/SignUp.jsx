@@ -5,6 +5,7 @@ import "./signUp.css";
 import countries from "./Countries";
 import BtnSpinner from "../ui/spinners/BtnSpinner";
 import { VerificationSuccessModal } from "../ui/alert/VerificationSuccessModal";
+import googleIco from "../../assessStatic/pictures/Google_G_Icon_40x40.png";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -367,13 +368,8 @@ const SignUp = () => {
               <div className='divider'>or</div>
 
               <button className='social-button' onClick={() => handleSocialSignup("Google")}>
-                <span>🔴</span>
-                Sign up with Google
-              </button>
-
-              <button className='social-button' onClick={() => handleSocialSignup("Facebook")}>
-                <span>🔵</span>
-                Sign up with Facebook
+                {" "}
+                <img src={googleIco} /> Sign up with Google
               </button>
             </>
           ) : (

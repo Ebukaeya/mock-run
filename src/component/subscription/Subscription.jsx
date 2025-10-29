@@ -60,7 +60,7 @@ const Subscription = () => {
       id: "basic",
       name: "Basic",
       price: "8000",
-      discountPrice: "4000",
+      discountPrice: "2500",
       period: "per month",
       description: "For basic users and it includes:",
       popular: false,
@@ -69,10 +69,10 @@ const Subscription = () => {
       features: [
         "Create one store",
         "Business KPI tracking",
-        "List only 60 products",
+        "List only 200 products",
         "Free support",
         "Access our E-Commerce Hub",
-        "Free hardware installation",
+        "Free Personel Training",
         "2% discount on extra services",
       ],
       plan: "Basic",
@@ -82,7 +82,7 @@ const Subscription = () => {
       id: "super",
       name: "Super",
       price: "17000",
-      discountPrice: "8500",
+      discountPrice: "5100",
       period: "per month",
       description: "For super users and it includes:",
       popular: true,
@@ -105,7 +105,7 @@ const Subscription = () => {
       id: "premium",
       name: "Premium",
       price: "42500",
-      discountPrice: "21250",
+      discountPrice: "12500",
       period: "per month",
       description: "For premium users and it includes:",
       popular: false,
@@ -133,6 +133,8 @@ const Subscription = () => {
           {/*  <h1 className='futuristic-main-title'>Choose Your Plan</h1> */}
           <p className='futuristic-subtitle'>Unlock the power of digital commerce with our cutting-edge platform</p>
         </div>
+
+        {/* starter banner */}
 
         <div className='futuristic-plans-grid'>
           {plans.map((plan, index) => {
@@ -193,6 +195,44 @@ const Subscription = () => {
               </div>
             );
           })}
+        </div>
+        <div class='starter-banner'>
+          <div class='starter-content'>
+            <div class='free-badge-large'>FREE FOREVER</div>
+            <h2 class='starter-title'>
+              <span class='starter-icon-large'>🚀</span>
+              <span>Starter Plan</span>
+            </h2>
+            <p class='starter-description'>Perfect for smaller retail shopsor online vendors</p>
+            <div class='starter-features-inline'>
+              <div class='starter-feature-item'>
+                <span class='starter-check'>✓</span>
+                <span>1 Store</span>
+              </div>
+              <div class='starter-feature-item'>
+                <span class='starter-check'>✓</span>
+                <span>Up to 60 Products</span>
+              </div>
+              <div class='starter-feature-item'>
+                <span class='starter-check'>✓</span>
+                <span>Basic Support</span>
+              </div>
+              <div class='starter-feature-item'>
+                <span class='starter-check'>✓</span>
+                <span>E commerce integration</span>
+              </div>
+            </div>
+          </div>
+          <div class='starter-cta'>
+            <button
+              onClick={() => {
+                window.location.href = `/sign-up`;
+              }}
+              class='starter-cta-button'
+            >
+              Start Free Now
+            </button>
+          </div>
         </div>
 
         <div className='futuristic-bottom-section'>

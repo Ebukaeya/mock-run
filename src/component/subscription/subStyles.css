@@ -703,3 +703,121 @@
     transform: none;
   }
 }
+
+/* starter banner */
+
+/* Starter Plan - Horizontal Card */
+.starter-banner {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  border-radius: 20px;
+  padding: 40px 50px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 40px rgba(44, 62, 80, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.starter-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(30%, -30%);
+}
+
+.starter-content {
+  flex: 1;
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+
+.free-badge-large {
+  display: inline-block;
+  background: #3db5b5;
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.starter-title {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.starter-icon-large {
+  font-size: 40px;
+}
+
+.starter-description {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 20px;
+}
+
+.starter-features-inline {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.starter-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.starter-check {
+  width: 20px;
+  height: 20px;
+  background: #3db5b5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: white;
+}
+
+.starter-cta {
+  position: relative;
+  z-index: 2;
+}
+
+.starter-cta-button {
+  background: #3db5b5;
+  color: white;
+  padding: 18px 45px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 5px 20px rgba(61, 181, 181, 0.4);
+}
+
+.starter-cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(61, 181, 181, 0.6);
+  background: #35a3a3;
+}

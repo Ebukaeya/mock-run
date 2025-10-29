@@ -32,7 +32,7 @@ export default function DiscountBanner({ endDate }) {
     <div className='dc-banner'>
       {timeLeft ? (
         <>
-          🎉 <span className='dc-off'>50% OFF</span> ends in
+          🎉 <span className='dc-off'>70% OFF</span> ends in
           <span className='dc-countdown'>{timeLeft}</span>
         </>
       ) : (
