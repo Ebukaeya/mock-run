@@ -54,7 +54,7 @@ const PosSetup = () => {
     {
       id: "android-touch",
       title: "Android Touch Terminal",
-      price: "₦601,000",
+      price: "₦451,000",
       originalPrice: "₦655,000",
       badge: "Best Value",
       description: "Sleek Android terminal with intuitive touch interface",
@@ -66,7 +66,7 @@ const PosSetup = () => {
     {
       id: "windows-powerstation",
       title: "Windows Touch Terminal",
-      price: "₦490,000",
+      price: "₦350,000",
       originalPrice: "₦580,000",
       badge: "Enterprise",
       description: "Robust Windows Touch system for high-volume retail operations",
@@ -89,9 +89,9 @@ const PosSetup = () => {
     },
     {
       id: "tablet-mobility",
-      title: "Z 100 Android POS",
-      price: "₦440,000",
-      originalPrice: "₦550,000",
+      title: "Storelense POS",
+      price: "₦340,000",
+      originalPrice: "₦450,000",
       badge: "Portable",
       description: "Portable Android POS with integrated payment solutions and sleek design",
       features: ["Android POS Tablet", "SIM card compatibilty", "4G Network", "In-built printer", "Advanced Barcode Scanner", "24/7 Support"],

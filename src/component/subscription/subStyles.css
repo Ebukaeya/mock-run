@@ -633,79 +633,6 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .futuristic-pricing-container {
-    padding: 0 1rem 2rem 1rem;
-  }
-
-  .futuristic-main-title {
-    font-size: 2.5rem;
-  }
-
-  .futuristic-plans-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .futuristic-plan-card {
-    padding: 2rem;
-  }
-
-  .futuristic-plan-popular {
-    transform: none;
-  }
-
-  .futuristic-price {
-    font-size: 2.5rem;
-  }
-
-  .futuristic-testimonial-title {
-    font-size: 1.5rem;
-  }
-  .planUdvg {
-    margin: 0;
-  }
-}
-
-@media (max-width: 480px) {
-  .futuristic-plan-card {
-    padding: 1.5rem;
-  }
-
-  .futuristic-card-header {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
-  }
-
-  .futuristic-price {
-    font-size: 2rem;
-  }
-
-  .futuristic-main-title {
-    font-size: 2rem;
-  }
-}
-
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-  .futuristic-plan-card,
-  .futuristic-select-button,
-  .futuristic-star-icon,
-  .futuristic-feature-item {
-    animation: none;
-    transition: none;
-  }
-
-  .futuristic-plan-card:hover {
-    transform: none;
-  }
-}
-
-/* starter banner */
-
 /* Starter Plan - Horizontal Card */
 .starter-banner {
   background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
@@ -753,7 +680,7 @@
 }
 
 .starter-title {
-  font-size: 36px;
+  font-size: clamp(28px, 5vw, 36px);
   font-weight: 800;
   margin-bottom: 10px;
   display: flex;
@@ -821,3 +748,86 @@
   box-shadow: 0 8px 30px rgba(61, 181, 181, 0.6);
   background: #35a3a3;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .futuristic-pricing-container {
+    padding: 0 1rem 2rem 1rem;
+  }
+
+  .futuristic-main-title {
+    font-size: 2.5rem;
+  }
+
+  .futuristic-plans-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .futuristic-plan-card {
+    padding: 2rem;
+  }
+
+  .futuristic-plan-popular {
+    transform: none;
+  }
+
+  .futuristic-price {
+    font-size: 2.5rem;
+  }
+
+  .futuristic-testimonial-title {
+    font-size: 1.5rem;
+  }
+  .planUdvg {
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .futuristic-plan-card {
+    padding: 1.5rem;
+  }
+
+  .futuristic-card-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .futuristic-price {
+    font-size: 2rem;
+  }
+
+  .futuristic-main-title {
+    font-size: 2rem;
+  }
+
+  .starter-features-inline {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  .starter-banner {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 20px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .futuristic-plan-card,
+  .futuristic-select-button,
+  .futuristic-star-icon,
+  .futuristic-feature-item {
+    animation: none;
+    transition: none;
+  }
+
+  .futuristic-plan-card:hover {
+    transform: none;
+  }
+}
+
+/* starter banner */
