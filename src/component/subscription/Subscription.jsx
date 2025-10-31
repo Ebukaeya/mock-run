@@ -203,7 +203,7 @@ const Subscription = () => {
               <span class='starter-icon-large'>🚀</span>
               <span>Starter Plan</span>
             </h2>
-            <p class='starter-description'>Perfect for smaller retail shopsor online vendors</p>
+            <p class='starter-description'>Perfect for smaller retail shops or online vendors</p>
             <div class='starter-features-inline'>
               <div class='starter-feature-item'>
                 <span class='starter-check'>✓</span>
