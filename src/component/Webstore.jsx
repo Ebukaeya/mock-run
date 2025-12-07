@@ -42,6 +42,10 @@ import Footer from "./Footer.jsx";
 import BusinessShowcase from "./BusinessShowcase.jsx";
 import ScrollAnimationsProvider from "../tools/ScrollAnimationProvider.jsx";
 import { useNavigate } from "react-router-dom";
+import POSScanningFeature from "./scanningAnimation/ScanningAnimation.jsx";
+import QRScanningFeature from "./scanningAnimation/ScanAndRetrive.jsx";
+import EmployeeActivitySection from "./employeeAndCustomer/Employeetracking.jsx";
+import CustomerEngagementSection from "./employeeAndCustomer/CustomerEngagment.jsx";
 
 const posImages = [frontView, sideView, backView];
 const Webstore = () => {
@@ -178,6 +182,13 @@ const Webstore = () => {
         </div>
       </section>
 
+      <section id={"DeviceScanningAnimation"}>
+        <POSScanningFeature />
+      </section>
+      <section id='scanAndRetrieveSection'>
+        <QRScanningFeature />
+      </section>
+
       <section id='heroSections'>
         <HeroSection />
       </section>
@@ -245,6 +256,8 @@ const Webstore = () => {
         </div>
       </section>
 
+      {/* scan and retrieve */}
+
       <div className=''>
         <div className='InventoryManagerWrapper'>
           <div>
@@ -273,6 +286,10 @@ const Webstore = () => {
           </div>
         </div>
       </div>
+      <section style={{ marginBottom: "6rem" }}>
+        <EmployeeActivitySection />
+        <CustomerEngagementSection />
+      </section>
 
       <div className='mycontainer'>
         {/*  <div className="WebStoreTiltle">
@@ -341,6 +358,7 @@ const Webstore = () => {
             </div>
           </div>
         </section>
+        {/* employee and customer section */}
 
         <section id='earnWhileShop'>
           <div className='earnWhileShioConnet sl-animate'>

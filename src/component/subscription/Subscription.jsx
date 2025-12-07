@@ -1,6 +1,7 @@
 import "./subStyles.css";
 import { BsCheck } from "react-icons/bs";
 import { Check, Star, Zap, Crown, Shield, Rocket } from "lucide-react";
+import PlanComparison from "./PlanComaprison";
 const SubCard = ({ name, price, includes, popular }) => {
   return (
     <div>
@@ -69,7 +70,7 @@ const Subscription = () => {
       features: [
         "Create one store",
         "Business KPI tracking",
-        "List only 200 products",
+        "List only 250 products",
         "Free support",
         "Access our E-Commerce Hub",
         "Free Personel Training",
@@ -93,7 +94,7 @@ const Subscription = () => {
         "Create two stores",
         "Create one warehouse",
         "24 hours free Ad monthly",
-        "List upto 550 products",
+        "List upto 1,500 products",
         "Free hardware installation",
         "10% discount on extra services",
         "Free personel training",
@@ -116,7 +117,7 @@ const Subscription = () => {
         "Create upto 5 stores",
         "Create 3 warehouses",
         "50 hours free Ad monthly",
-        "List up 2200 products",
+        "List up 11,200 products",
         "Free hardware installation",
         "30% discount on extra services",
         "Free personel training",
@@ -234,6 +235,10 @@ const Subscription = () => {
             </button>
           </div>
         </div>
+
+        {/* Plan comparison */}
+
+        <PlanComparison />
 
         <div className='futuristic-bottom-section'>
           <div className='futuristic-trial-info'>
