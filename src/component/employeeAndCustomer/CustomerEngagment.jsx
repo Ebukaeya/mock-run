@@ -161,7 +161,7 @@ const CustomerEngagementSection = () => {
           </div>
 
           {/* Campaign Actions */}
-          {selectedCustomers.length > 0 && (
+          {/* {selectedCustomers.length > 0 && (
             <div className='slcust-campaign-actions'>
               <div className='slcust-campaign-info'>
                 <Target size={24} />
@@ -187,7 +187,7 @@ const CustomerEngagementSection = () => {
                 </button>
               </div>
             </div>
-          )}
+          )} */}
 
           {/* Feature Highlights */}
           <div className='slcust-features-grid'>
