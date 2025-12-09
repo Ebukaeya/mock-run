@@ -67,7 +67,6 @@ const MobileAppDownload = () => {
               className='mockupImage34'
               src='https://res.cloudinary.com/ebuka1122/image/upload/v1765267753/allAssets/c219f3d56e6_20251209_061749_0000_koelmw.png'
               alt='StoreLense Mobile App Preview'
-              style={{ width: "100%", height: "100%", borderRadius: "28px" }}
             />
           </div>
           {/*  boxShadow: "0 30px 80px rgba(0, 0, 0, 0.5)" */}
@@ -318,6 +317,8 @@ const MobileAppDownload = () => {
           height: 560px;
         }
         .mockupImage34 {
+          width: 100%;
+          height: 100%;
           position: relative;
           background-color: transparent !important;
 
@@ -851,6 +852,15 @@ const MobileAppDownload = () => {
 
           .slapp-header-content {
             text-align: center;
+          }
+          .slapp-phone-mockup {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+          }
+          .mockupImage34 {
+            width: 240px;
+            height: 480px;
           }
 
           .slapp-title {

@@ -4,9 +4,11 @@ import { ArrowLeft, Monitor, Smartphone, Tablet, Printer, Scan, ShoppingCart, St
 import { Button } from "../../component/ui/button";
 import { Card, CardContent } from "../ui/card";
 import "./PosSetup.css";
+import { useNavigate } from "react-router-dom";
 
 const PosSetup = () => {
   const observerRef = useRef(null);
+  const Navigate = useNavigate();
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -235,7 +237,8 @@ const PosSetup = () => {
                     <Button
                       onClick={() => {
                         alert(`You selected the ${setup.title} setup!, talk to us`); /* Replace with actual navigation or action */
-                        window.location.href = `/contact?subject=${setup.title}`; /* Redirect to contact page or order form */
+                        // window.location.href = `/contact?subject=${setup.title}`; /* Redirect to contact page or order form */
+                        Navigate(`/check-out?device=${JSON.stringify(setup)}`);
                       }}
                       className='sl-card-button'
                     >
