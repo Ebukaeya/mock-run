@@ -63,20 +63,14 @@ const MobileAppDownload = () => {
         {/* Header */}
         <div className='slapp-header'>
           <div className='slapp-phone-mockup'>
-            <div className='slapp-phone-device'>
-              <div className='slapp-phone-notch'></div>
-              <div className='slapp-phone-screen'>
-                <div className='slapp-app-preview'>
-                  <div className='slapp-app-icon'>
-                    <Smartphone size={32} />
-                  </div>
-                  <div className='slapp-app-name'>StoreLense</div>
-                  <div className='slapp-app-tagline'>Business on the Go</div>
-                </div>
-              </div>
-            </div>
+            <img
+              className='mockupImage34'
+              src='https://res.cloudinary.com/ebuka1122/image/upload/v1765267753/allAssets/c219f3d56e6_20251209_061749_0000_koelmw.png'
+              alt='StoreLense Mobile App Preview'
+              style={{ width: "100%", height: "100%", borderRadius: "28px" }}
+            />
           </div>
-
+          {/*  boxShadow: "0 30px 80px rgba(0, 0, 0, 0.5)" */}
           <div className='slapp-header-content'>
             <div className='slapp-badge'>
               <Smartphone size={16} />
@@ -320,6 +314,24 @@ const MobileAppDownload = () => {
         .slapp-phone-mockup {
           display: flex;
           justify-content: center;
+          width: 280px;
+          height: 560px;
+        }
+        .mockupImage34 {
+          position: relative;
+          background-color: transparent !important;
+
+          box-shadow: 0 30px 80px rgba(0, 0, 0, 0.03);
+        }
+        .mockupImage34::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 28px;
+          box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
         }
 
         .slapp-phone-device {
@@ -328,9 +340,6 @@ const MobileAppDownload = () => {
           background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
           border-radius: 40px;
           padding: 12px;
-          box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-          border: 3px solid rgba(255, 255, 255, 0.1);
-          position: relative;
         }
 
         .slapp-phone-notch {
