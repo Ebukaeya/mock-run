@@ -288,19 +288,20 @@ const POSScanningFeature = () => {
           box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
           border: 1px solid rgba(255, 255, 255, 0.1);
           position: relative;
-          transform: rotateY(-5deg) rotateX(2deg);
+
           transition: transform 0.3s ease;
+          transform: rotateY(0deg) rotateX(0deg);
         }
 
         .slpos-machine:hover {
-          transform: rotateY(0deg) rotateX(0deg);
+          transform: rotateY(-5deg) rotateX(2deg);
         }
 
         .slpos-screen {
           background: linear-gradient(180deg, #0c1220 0%, #1a1f35 100%);
           border-radius: 16px;
           padding: 20px;
-          min-height: 400px;
+          height: 440px;
           border: 2px solid rgba(59, 130, 246, 0.2);
           box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
           position: relative;
@@ -754,7 +755,7 @@ const POSScanningFeature = () => {
 
           .slpos-screen {
             padding: 16px;
-            min-height: 350px;
+            height: 430px;
           }
 
           .slpos-feature-card {

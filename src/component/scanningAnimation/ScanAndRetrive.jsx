@@ -556,12 +556,15 @@ const QRScanningFeature = () => {
 
         .slqr-phone-container {
           position: absolute;
+          display: flex;
+          justify-content: center;
           left: 50%;
           bottom: -700px;
           transform: translateX(-50%);
           z-index: 10;
           opacity: 0;
           transition: all 1.5s ease-out;
+          min-width: 300px;
         }
 
         .slqr-phone-container.slqr-phone-appear {
