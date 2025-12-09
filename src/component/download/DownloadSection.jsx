@@ -26,7 +26,7 @@ const MobileAppDownload = () => {
   const handleAndroidDownload = () => {
     setDownloadStarted(true);
     // Replace with your actual APK download URL
-    const apkUrl = "/downloads/storelense.apk";
+    const apkUrl = "https://expo.dev/artifacts/eas/bnutrDS5sy2Y34XNcbekhP.apk";
     window.location.href = apkUrl;
 
     setTimeout(() => {
