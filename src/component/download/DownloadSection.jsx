@@ -859,8 +859,7 @@ const MobileAppDownload = () => {
             justify-content: center;
           }
           .mockupImage34 {
-            width: 240px;
-            height: 480px;
+            width: 290px;
           }
 
           .slapp-title {

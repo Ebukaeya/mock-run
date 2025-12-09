@@ -238,7 +238,7 @@ const PosSetup = () => {
                       onClick={() => {
                         alert(`You selected the ${setup.title} setup!, talk to us`); /* Replace with actual navigation or action */
                         // window.location.href = `/contact?subject=${setup.title}`; /* Redirect to contact page or order form */
-                        Navigate(`/check-out?device=${JSON.stringify(setup)}`);
+                        Navigate(`/check-out?device=${encodeURIComponent(JSON.stringify(setup))}`);
                       }}
                       className='sl-card-button'
                     >
