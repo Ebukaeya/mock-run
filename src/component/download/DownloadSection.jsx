@@ -1,37 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Smartphone, Download, Share, Home, CheckCircle, AlertCircle, ChevronRight } from "lucide-react";
 import QRCode from "react-qr-code";
-
-/* async function qrToPngDataURL(value, sizePx = 120) {
-  // 1️⃣ render the React component to an SVG string
-  const svgMarkup = renderToStaticMarkup(
-    <QRCode
-      value={value}
-      size={sizePx} // px width/height of SVG viewBox
-      level='M'
-      bgColor='#FFFFFF'
-      fgColor='#000000'
-    />
-  );
-
-  // 2️⃣ draw that SVG onto an off-screen canvas via canvg
-  const canvas = document.createElement("canvas");
-  canvas.width = sizePx;
-  canvas.height = sizePx;
-  const ctx = canvas.getContext("2d");
-  // canvg v4 (promise-based)
-  const v = await Canvg.fromString(ctx, svgMarkup);
-  await v.render(); // wait until painted
-
-  // 3️⃣ return PNG dataURL
-  return canvas.toDataURL("image/png");
-} */
 
 const MobileAppDownload = () => {
   const [deviceType, setDeviceType] = useState("unknown");
   const [showIOSGuide, setShowIOSGuide] = useState(false);
   const [downloadStarted, setDownloadStarted] = useState(false);
-  const barcodeRef = useRef(null);
 
   useEffect(() => {
     detectDevice();
@@ -61,6 +35,11 @@ const MobileAppDownload = () => {
   };
 
   const iosInstallSteps = [
+    {
+      icon: <Smartphone size={24} />,
+      title: "Open Safari Browser",
+      description: "Visit www.app.storelense.com in Safari browser (this feature only works in Safari)",
+    },
     {
       icon: <Share size={24} />,
       title: "Tap the Share button",
@@ -176,9 +155,16 @@ const MobileAppDownload = () => {
                 <div className='slapp-info-box slapp-info-primary'>
                   <AlertCircle size={20} />
                   <div>
-                    <strong>Use Safari Browser</strong>
-                    <p>This feature only works in Safari. If you're using another browser, please open this page in Safari.</p>
+                    <strong>Visit in Safari Browser</strong>
+                    <p>
+                      Open <strong>www.app.storelense.com</strong> in Safari to install the app on your home screen. This feature only works in Safari browser.
+                    </p>
                   </div>
+                </div>
+
+                <div className='slapp-url-box'>
+                  <div className='slapp-url-label'>Website URL:</div>
+                  <div className='slapp-url-value'>www.app.storelense.com</div>
                 </div>
 
                 <button className='slapp-guide-btn' onClick={() => setShowIOSGuide(!showIOSGuide)}>
@@ -219,14 +205,11 @@ const MobileAppDownload = () => {
               <div className='slapp-card-content'>
                 <div className='slapp-qr-container'>
                   <div className='slapp-qr-code'>
-                    <div ref={barcodeRef} className='slapp-qr-pattern'>
+                    <div className='slapp-qr-pattern'>
                       {/* Placeholder QR code pattern */}
-                      {/* <div className='slapp-qr-grid'>
-                        {Array.from({ length: 256 }).map((_, i) => (
-                          <div key={i} className={`slapp-qr-pixel ${Math.random() > 0.5 ? "slapp-qr-filled" : ""}`} />
-                        ))}
-                      </div> */}
-                      <QRCode value={"https://expo.dev/artifacts/eas/bnutrDS5sy2Y34XNcbekhP.apk"} size={200} level='M' bgColor='#FFFFFF' fgColor='#000000' />
+                      <div className='slapp-qr-grid'>
+                        <QRCode value={"https://expo.dev/artifacts/eas/bnutrDS5sy2Y34XNcbekhP.apk"} size={200} level='M' bgColor='#FFFFFF' fgColor='#000000' />
+                      </div>
                     </div>
                   </div>
                   <p className='slapp-qr-instruction'>Scan this QR code with your phone's camera to download the app</p>
@@ -541,6 +524,31 @@ const MobileAppDownload = () => {
           color: #475569;
           margin: 0;
           line-height: 1.5;
+        }
+
+        .slapp-url-box {
+          padding: 20px;
+          background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+          border: 2px solid #3b82f6;
+          border-radius: 12px;
+          text-align: center;
+        }
+
+        .slapp-url-label {
+          font-size: 12px;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          margin-bottom: 8px;
+          font-weight: 600;
+        }
+
+        .slapp-url-value {
+          font-size: 20px;
+          font-weight: 900;
+          color: #1e40af;
+          font-family: monospace;
+          letter-spacing: 0.5px;
         }
 
         .slapp-download-btn {
