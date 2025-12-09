@@ -46,6 +46,7 @@ import POSScanningFeature from "./scanningAnimation/ScanningAnimation.jsx";
 import QRScanningFeature from "./scanningAnimation/ScanAndRetrive.jsx";
 import EmployeeActivitySection from "./employeeAndCustomer/Employeetracking.jsx";
 import CustomerEngagementSection from "./employeeAndCustomer/CustomerEngagment.jsx";
+import MobileAppDownload from "./download/DownloadSection.jsx";
 
 const posImages = [frontView, sideView, backView];
 const Webstore = () => {
@@ -620,6 +621,10 @@ const Webstore = () => {
             </div>
           </div>
         </div>
+      </section>
+      {/* download section */}
+      <section>
+        <MobileAppDownload />
       </section>
       <Footer />
     </div>
