@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { X, ArrowLeft, Mail, User, ShoppingCart, ChevronRight, CheckCircle, Star, Package, Truck, CreditCard, MapPin, Phone } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 
@@ -15,19 +15,23 @@ const HardwareCheckoutPage = () => {
     country: "Nigeria",
     postalCode: "",
   });
+  const [user, setUser] = useState(null);
   const [userSubscription, setUserSubscription] = useState(null); // starter, basic, super, premium
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [searchParams] = useSearchParams();
 
   const rawDevice = searchParams.get("device") || "storelense-pos";
-  const device = JSON.parse(rawDevice);
 
-  if (!device) return <div>Invalid device data in URL</div>;
+  useEffect(() => {
+    const device = JSON.parse(rawDevice);
 
-  console.log("Device from URL:", device);
+    if (!device) return <div>Invalid device data in URL</div>;
+    setSelectedProduct(device);
+  }, [rawDevice]);
 
   // Sample product data
-  const selectedProduct = {
+  /*  const selectedProduct = {
     id: 2,
     name: "Storelense POS",
     price: 340000,
@@ -60,7 +64,7 @@ const HardwareCheckoutPage = () => {
       { id: 3, type: "back", label: "Back View" },
       { id: 4, type: "display", label: "Display" },
     ],
-  };
+  }; */
 
   // Discount structure based on subscription
   const discounts = {
@@ -113,6 +117,16 @@ const HardwareCheckoutPage = () => {
       }
 
       let data = await response.json();
+      setUser(data);
+      console.log("Fetched user data:", data);
+
+      setFormData({
+        ...formData,
+        fullName: data.fullName || "",
+        phone: data.phoneNumber || "",
+
+        country: data.userCountry || "Nigeria",
+      });
       hasAccount = true;
       console.log("Account check response data:", data);
     } catch (error) {
@@ -269,7 +283,11 @@ const HardwareCheckoutPage = () => {
                   {/* Product Images */}
                   <div className='slhw-product-images'>
                     <div className='slhw-main-image'>
-                      <img src={`/api/placeholder/500/500`} alt={selectedProduct.images[selectedImageIndex].label} className='slhw-image' />
+                      <img
+                        src={selectedProduct.images[selectedImageIndex].src || ""}
+                        alt={selectedProduct.images[selectedImageIndex].label}
+                        className='slhw-image'
+                      />
                       <div className='slhw-image-badge'>{selectedProduct.images[selectedImageIndex].label}</div>
                     </div>
                     <div className='slhw-image-thumbnails'>
@@ -279,49 +297,51 @@ const HardwareCheckoutPage = () => {
                           className={`slhw-thumbnail ${selectedImageIndex === index ? "slhw-thumbnail-active" : ""}`}
                           onClick={() => setSelectedImageIndex(index)}
                         >
-                          <img src={`/api/placeholder/120/120`} alt={img.label} />
+                          <img src={img.src || ""} alt={img.label} />
                         </div>
                       ))}
                     </div>
                   </div>
 
                   {/* Product Info */}
-                  <div className='slhw-product-info'>
-                    <div className='slhw-product-header'>
-                      <h2>{selectedProduct.name}</h2>
-                      <div className='slhw-rating'>
-                        <Star size={16} fill='#fbbf24' color='#fbbf24' />
-                        <span>{selectedProduct.rating}</span>
+                  {selectedProduct && (
+                    <div className='slhw-product-info'>
+                      <div className='slhw-product-header'>
+                        <h2>{selectedProduct.title}</h2>
+                        <div className='slhw-rating'>
+                          <Star size={16} fill='#fbbf24' color='#fbbf24' />
+                          <span>{selectedProduct.rating}</span>
+                        </div>
+                      </div>
+                      <p className='slhw-product-desc'>{selectedProduct.description}</p>
+
+                      {/* Features */}
+                      <div className='slhw-features'>
+                        <h4>Key Features</h4>
+                        <ul>
+                          {selectedProduct.features.map((feature, index) => (
+                            <li key={index}>
+                              <CheckCircle size={16} />
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* Specifications */}
+                      <div className='slhw-specifications'>
+                        <h4>Technical Specifications</h4>
+                        <div className='slhw-specs-grid'>
+                          {Object.entries(selectedProduct.specifications).map(([key, value]) => (
+                            <div key={key} className='slhw-spec-item'>
+                              <span className='slhw-spec-label'>{key}</span>
+                              <span className='slhw-spec-value'>{value}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                    <p className='slhw-product-desc'>{selectedProduct.description}</p>
-
-                    {/* Features */}
-                    <div className='slhw-features'>
-                      <h4>Key Features</h4>
-                      <ul>
-                        {selectedProduct.features.map((feature, index) => (
-                          <li key={index}>
-                            <CheckCircle size={16} />
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Specifications */}
-                    <div className='slhw-specifications'>
-                      <h4>Technical Specifications</h4>
-                      <div className='slhw-specs-grid'>
-                        {Object.entries(selectedProduct.specifications).map(([key, value]) => (
-                          <div key={key} className='slhw-spec-item'>
-                            <span className='slhw-spec-label'>{key}</span>
-                            <span className='slhw-spec-value'>{value}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
+                  )}
                 </div>
 
                 {/* Checkout Form Section */}
