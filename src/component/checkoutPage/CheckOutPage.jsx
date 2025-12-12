@@ -100,7 +100,7 @@ const HardwareCheckoutPage = () => {
     let hasAccount;
 
     try {
-      const endpoint = process.env.REACT_APP_Back_end_api_root + "/user/fetchUser/" + formData.email;
+      const endpoint = process.env.REACT_APP_Back_end_api_root + "/user/fetchUser/" + formData.email.toLowerCase();
 
       let response = await fetch(endpoint, {
         method: "GET",
