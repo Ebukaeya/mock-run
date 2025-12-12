@@ -20,13 +20,24 @@ const HardwareCheckoutPage = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [searchParams] = useSearchParams();
+  const rawDevice = searchParams.get("device");
+  console.log("Raw device param:", rawDevice);
 
   useEffect(() => {
-    const rawDevice = searchParams.get("device") || "storelense-pos";
-    const device = JSON.parse(rawDevice);
+    try {
+      let value = rawDevice;
 
-    if (!device) return <div>Invalid device data in URL</div>;
-    setSelectedProduct(device);
+      // Try parsing JSON
+      try {
+        value = JSON.parse(decodeURIComponent(rawDevice));
+      } catch (_) {
+        // Keep as normal string if parse fails
+      }
+
+      setSelectedProduct(value);
+    } catch (err) {
+      console.error("Failed to parse device:", err);
+    }
   }, [rawDevice]);
 
   // Sample product data
