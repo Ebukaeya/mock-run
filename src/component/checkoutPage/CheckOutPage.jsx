@@ -21,9 +21,8 @@ const HardwareCheckoutPage = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [searchParams] = useSearchParams();
 
-  const rawDevice = searchParams.get("device") || "storelense-pos";
-
   useEffect(() => {
+    const rawDevice = searchParams.get("device") || "storelense-pos";
     const device = JSON.parse(rawDevice);
 
     if (!device) return <div>Invalid device data in URL</div>;
@@ -109,7 +108,7 @@ const HardwareCheckoutPage = () => {
         },
       });
       if (response.status === 404) {
-        alert("No account found with this email. Continuing as guest.");
+        alert("No account found with this email. Continue as guest.");
         hasAccount = false;
         throw new Error("No account found");
       }
