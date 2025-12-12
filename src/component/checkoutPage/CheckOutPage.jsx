@@ -111,6 +111,7 @@ const HardwareCheckoutPage = () => {
       if (response.status === 404) {
         alert("No account found with this email. Continuing as guest.");
         hasAccount = false;
+        throw new Error("No account found");
       }
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -132,6 +133,7 @@ const HardwareCheckoutPage = () => {
     } catch (error) {
       console.log("Error checking account:", error);
       hasAccount = false;
+      return;
     }
 
     // Simulate account check
