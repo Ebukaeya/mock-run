@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <nav className='navbar'>
-      <DiscountBanner endDate='2025-12-31T23:59:59' />
+      {/*   <DiscountBanner endDate='2025-12-31T23:59:59' /> */}
       <div className='nav-container'>
         {/* Logo */}
         <div className='nav-logo'>
