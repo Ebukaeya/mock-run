@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import VerificationCode from "./verification/VerifyPhoneNumber";
 import "./signUp.css";
 import countries from "./Countries";
@@ -28,6 +28,13 @@ const SignUp = () => {
   const [loading, setLoading] = useState(false);
   const [generatedCode, setGeneratedCode] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
+
+  const [searchParams] = useSearchParams();
+
+  const agentEmail = searchParams.get("agentEmail");
+  const clientId = searchParams.get("client");
+
+  console.log(agentEmail, clientId);
 
   useEffect(() => {
     console.log("Modal open state changed:", modalOpen);
@@ -137,6 +144,8 @@ const SignUp = () => {
           .join(" "),
         email: formData.email.toLocaleLowerCase(),
         password: formData.password,
+        responsibleAgentEmail: agentEmail || null,
+        clientID: clientId || null,
       };
       const signUpUrl = `${process.env.REACT_APP_Back_end_api_root}/signUp`;
       console.log("Signing up with data:", data, signUpUrl);
@@ -361,7 +370,7 @@ const SignUp = () => {
                 {errors.password && <div className='error-message'>{errors.password}</div>}
               </div>
 
-              <button className='continue-button' onClick={handleSignupSubmit}>
+              <button disabled={loading} className='continue-button' onClick={handleSignupSubmit}>
                 {loading ? <BtnSpinner size={20} strokeWidth={3} color='#fff' /> : "Continue"}
               </button>
 
