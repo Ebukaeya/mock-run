@@ -44,8 +44,8 @@ const PosSetup = () => {
     {
       id: "laptop-pro",
       title: "Laptop Combo Station",
-      price: "₦550,000",
-      originalPrice: "₦605,000",
+      price: "₦750,000",
+      originalPrice: "₦805,000",
       badge: "Most Popular",
       description: "Our Performance/User laptop with our POS system for a seamless experience",
       features: ["Any User Laptop", "80mm Thermal Printer", "2D Barcode Scanner", "Professional Setup & Training", "Label Printer", "24/7 Support"],
@@ -72,7 +72,7 @@ const PosSetup = () => {
     {
       id: "android-touch",
       title: "Android Touch Terminal",
-      price: "₦451,000",
+      price: "₦651,000",
       originalPrice: "₦655,000",
       badge: "Best Value",
       description: "Sleek Android terminal with intuitive touch interface",
@@ -100,7 +100,7 @@ const PosSetup = () => {
     {
       id: "windows-powerstation",
       title: "Windows Touch Terminal",
-      price: "₦350,000",
+      price: "₦450,000",
       originalPrice: "₦580,000",
       badge: "Enterprise",
       description: "Robust Windows Touch system for high-volume retail operations",
@@ -128,8 +128,8 @@ const PosSetup = () => {
     {
       id: "tablet-mobility",
       title: "Mobile Tablet Station",
-      price: "₦180,000",
-      originalPrice: "#220,000",
+      price: "₦300,000",
+      originalPrice: "#320,000",
       badge: "Portable",
       description: "Our Flexible tablet solution with adjustable mounting system",
       features: ["Premium Tablet Device", "Adjustable Stand", "Software Integration", "24/7 Support"],
@@ -156,13 +156,13 @@ const PosSetup = () => {
     {
       id: "tablet-mobility",
       title: "Storelense POS",
-      price: "₦340,000",
+      price: "₦390,000",
       originalPrice: "₦450,000",
       badge: "Portable",
       description: "Portable Android POS with integrated payment solutions and sleek design",
       features: ["Android POS Tablet", "SIM card compatibilty", "4G Network", "In-built printer", "Advanced Barcode Scanner", "24/7 Support"],
       icon: Tablet,
-      image: "https://res.cloudinary.com/ebuka1122/image/upload/v1749333564/Ihub/Z-100_lteagi.webp",
+      image: "https://res.cloudinary.com/ebuka1122/image/upload/v1767477218/StorelenseLogos/storelenseImage_l4hyjj.jpg",
       rating: 4.6,
       specifications: {
         Display: '10.1" HD Touchscreen',
@@ -177,10 +177,31 @@ const PosSetup = () => {
         Scanner: "In-built 2D Scanner",
       },
       images: [
-        { id: 1, type: "front", src: "https://res.cloudinary.com/ebuka1122/image/upload/v1749333564/Ihub/Z-100_lteagi.webp", label: "Front View" },
-        { id: 2, type: "side", label: "Side View" },
-        { id: 3, type: "back", label: "Back View" },
-        { id: 4, type: "display", label: "Display" },
+        {
+          id: 1,
+          type: "front",
+          src: "https://res.cloudinary.com/ebuka1122/image/upload/v1767477218/StorelenseLogos/storelImage2_mrovbg.jpg",
+          label: "Front View",
+        },
+        {
+          id: 2,
+          type: "side",
+
+          label: "Side View",
+          src: "https://res.cloudinary.com/ebuka1122/image/upload/v1749333564/Ihub/Z-100_lteagi.webp",
+        },
+        {
+          id: 3,
+          type: "back",
+          src: "https://res.cloudinary.com/ebuka1122/image/upload/v1767477218/StorelenseLogos/storelensePos_ccdxb1.jpg",
+          label: "Back View",
+        },
+        {
+          id: 4,
+          type: "display",
+          src: "https://res.cloudinary.com/ebuka1122/image/upload/v1767477218/StorelenseLogos/storelenseImage_l4hyjj.jpg",
+          label: "Display",
+        },
       ],
     },
   ];
