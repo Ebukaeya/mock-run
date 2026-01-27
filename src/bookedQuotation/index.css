@@ -110,12 +110,6 @@
     font-size: 1rem;
   }
 }
-/* disable  button on number input */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
 
 .bok-close-btn {
   display: flex;
@@ -766,9 +760,6 @@ input[type="number"]::-webkit-outer-spin-button {
 @media (min-width: 1024px) {
   .bok-desktop-ctas {
     display: flex;
-    position: sticky;
-    bottom: 0;
-    background-color: white;
   }
 }
 
@@ -1119,4 +1110,74 @@ input[type="number"]::-webkit-outer-spin-button {
   background-color: hsl(210, 20%, 96%);
   cursor: not-allowed;
   opacity: 0.7;
+}
+
+/* Store Info Card */
+.bok-store-info-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background-color: hsl(174, 60%, 95%, 0.5);
+  border-radius: 0.5rem;
+  border: 1px solid hsl(174, 72%, 46%, 0.2);
+}
+
+@media (min-width: 640px) {
+  .bok-store-info-card {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    gap: 1rem;
+  }
+}
+
+.bok-store-info-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bok-store-info-icon {
+  height: 1rem;
+  width: 1rem;
+  color: hsl(174, 72%, 36%);
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .bok-store-info-icon {
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+}
+
+.bok-store-info-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: hsl(222, 47%, 11%);
+}
+
+@media (min-width: 640px) {
+  .bok-store-info-name {
+    font-size: 1rem;
+  }
+}
+
+.bok-store-info-phone {
+  font-size: 0.875rem;
+  color: hsl(174, 72%, 36%);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.bok-store-info-phone:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 640px) {
+  .bok-store-info-phone {
+    font-size: 1rem;
+  }
 }

@@ -172,6 +172,20 @@ const SendIcon = ({ className }) => (
     <path d='M22 2 11 13' />
   </svg>
 );
+const PhoneIcon = ({ className }) => (
+  <svg
+    className={className}
+    xmlns='http://www.w3.org/2000/svg'
+    viewBox='0 0 24 24'
+    fill='none'
+    stroke='currentColor'
+    strokeWidth='2'
+    strokeLinecap='round'
+    strokeLinejoin='round'
+  >
+    <path d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z' />
+  </svg>
+);
 
 const CreditCardIcon = ({ className }) => (
   <svg
@@ -513,6 +527,25 @@ function OrderStatus({ status, orderId, date }) {
     </div>
   );
 }
+// StoreInfo Component
+function StoreInfo({ storeName, phoneNumber }) {
+  return (
+    <div className='bok-store-info-card'>
+      <div className='bok-store-info-row'>
+        <BuildingIcon className='bok-store-info-icon' />
+        <span className='bok-store-info-name'>{storeName}</span>
+      </div>
+      {phoneNumber && (
+        <div className='bok-store-info-row'>
+          <PhoneIcon className='bok-store-info-icon' />
+          <a href={`tel:${phoneNumber}`} className='bok-store-info-phone'>
+            {phoneNumber}
+          </a>
+        </div>
+      )}
+    </div>
+  );
+}
 
 // Main BookOrder Component
 export default function BookOrder() {
@@ -665,6 +698,8 @@ export default function BookOrder() {
                 <XIcon className='bok-header-icon' />
               </button>
             </div>
+            {/* Store Info */}
+            <StoreInfo storeName={order.store.name} phoneNumber={order.webstoreUserPhoneNumber} />
 
             {/* Order Status */}
             <OrderStatus status={order.status} orderId={order.bookedOrderID} date={order.bookedOrderDetails.date} />
