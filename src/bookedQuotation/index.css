@@ -1,0 +1,1122 @@
+/* Book Order Page - Unique CSS Identifiers with bok- prefix */
+
+.bok-page {
+  min-height: 100vh;
+  background-color: hsl(0, 0%, 100%);
+  padding-bottom: 8rem;
+}
+
+@media (min-width: 1024px) {
+  .bok-page {
+    padding-bottom: 1.5rem;
+  }
+}
+
+.bok-container {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .bok-container {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .bok-container {
+    padding: 2.5rem 1rem;
+  }
+}
+
+/* Header */
+.bok-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .bok-header {
+    margin-bottom: 2rem;
+  }
+}
+
+.bok-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .bok-header-left {
+    gap: 0.75rem;
+  }
+}
+
+.bok-header-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 0.75rem;
+  background-color: hsl(174, 72%, 46%, 0.1);
+}
+
+@media (min-width: 640px) {
+  .bok-header-icon-wrapper {
+    height: 3rem;
+    width: 3rem;
+  }
+}
+
+.bok-header-icon {
+  height: 1.25rem;
+  width: 1.25rem;
+  color: hsl(174, 72%, 46%);
+}
+
+@media (min-width: 640px) {
+  .bok-header-icon {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+}
+
+.bok-header-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: hsl(222, 47%, 11%);
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .bok-header-title {
+    font-size: 1.5rem;
+  }
+}
+
+.bok-header-subtitle {
+  font-size: 0.875rem;
+  color: hsl(215, 16%, 47%);
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .bok-header-subtitle {
+    font-size: 1rem;
+  }
+}
+/* disable  button on number input */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.bok-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  width: 2rem;
+  border: none;
+  background: transparent;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: hsl(215, 16%, 47%);
+  transition: background-color 0.2s;
+}
+
+.bok-close-btn:hover {
+  background-color: hsl(210, 20%, 96%);
+}
+
+@media (min-width: 640px) {
+  .bok-close-btn {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+}
+
+/* Grid Layout */
+.bok-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .bok-grid {
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bok-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.bok-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .bok-column {
+    gap: 1.5rem;
+  }
+}
+
+/* Section Header */
+.bok-section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bok-section-icon {
+  height: 1rem;
+  width: 1rem;
+  color: hsl(174, 72%, 46%);
+}
+
+@media (min-width: 640px) {
+  .bok-section-icon {
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+}
+
+.bok-section-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .bok-section-title {
+    font-size: 1rem;
+  }
+}
+
+/* Order Item Card */
+.bok-item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.bok-item-card {
+  border-radius: 0.5rem;
+  border: 1px solid hsl(214, 32%, 91%);
+  background-color: hsl(0, 0%, 100%);
+  padding: 0.75rem;
+  transition: box-shadow 0.2s;
+}
+
+.bok-item-card:hover {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 640px) {
+  .bok-item-card {
+    padding: 1rem;
+  }
+}
+
+.bok-item-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .bok-item-header {
+    gap: 1rem;
+  }
+}
+
+.bok-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.bok-item-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: hsl(222, 47%, 11%);
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .bok-item-name {
+    font-size: 1rem;
+  }
+}
+
+.bok-item-price-info {
+  font-size: 0.75rem;
+  color: hsl(215, 16%, 47%);
+  margin: 0.25rem 0 0 0;
+}
+
+@media (min-width: 640px) {
+  .bok-item-price-info {
+    font-size: 0.875rem;
+  }
+}
+
+.bok-item-negotiated {
+  margin-left: 0.25rem;
+  color: hsl(174, 72%, 30%);
+}
+
+@media (min-width: 640px) {
+  .bok-item-negotiated {
+    margin-left: 0.5rem;
+  }
+}
+
+.bok-item-total {
+  font-size: 1rem;
+  font-weight: 600;
+  color: hsl(174, 72%, 46%);
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .bok-item-total {
+    font-size: 1.125rem;
+  }
+}
+
+.bok-item-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .bok-item-controls {
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+}
+
+.bok-quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+@media (min-width: 640px) {
+  .bok-quantity-controls {
+    gap: 0.5rem;
+  }
+}
+
+.bok-qty-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.75rem;
+  width: 1.75rem;
+  border: 1px solid hsl(214, 32%, 91%);
+  background: hsl(0, 0%, 100%);
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.bok-qty-btn:hover {
+  background-color: hsl(210, 20%, 96%);
+}
+
+@media (min-width: 640px) {
+  .bok-qty-btn {
+    height: 2rem;
+    width: 2rem;
+  }
+}
+
+.bok-qty-btn-icon {
+  height: 0.75rem;
+  width: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .bok-qty-btn-icon {
+    height: 1rem;
+    width: 1rem;
+  }
+}
+
+.bok-qty-input {
+  height: 1.75rem;
+  width: 3rem;
+  text-align: center;
+  font-size: 0.875rem;
+  border: 1px solid hsl(214, 32%, 91%);
+  border-radius: 0.375rem;
+  outline: none;
+}
+
+.bok-qty-input:focus {
+  border-color: hsl(174, 72%, 46%);
+  box-shadow: 0 0 0 2px hsl(174, 72%, 46%, 0.2);
+}
+
+@media (min-width: 640px) {
+  .bok-qty-input {
+    height: 2rem;
+    width: 4rem;
+  }
+}
+
+.bok-negotiate-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  height: 1.75rem;
+  padding: 0 0.5rem;
+  border: none;
+  background: transparent;
+  color: hsl(215, 16%, 47%);
+  font-size: 0.75rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.bok-negotiate-btn:hover {
+  background-color: hsl(174, 60%, 95%);
+  color: hsl(174, 72%, 30%);
+}
+
+@media (min-width: 640px) {
+  .bok-negotiate-btn {
+    height: 2rem;
+    padding: 0 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+
+.bok-negotiate-icon {
+  height: 0.75rem;
+  width: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .bok-negotiate-icon {
+    height: 1rem;
+    width: 1rem;
+  }
+}
+
+.bok-negotiate-panel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding: 0.5rem;
+  background-color: hsl(174, 60%, 95%, 0.5);
+  border-radius: 0.375rem;
+}
+
+@media (min-width: 640px) {
+  .bok-negotiate-panel {
+    padding: 0.75rem;
+  }
+}
+
+.bok-negotiate-label {
+  font-size: 0.75rem;
+  color: hsl(215, 16%, 47%);
+}
+
+@media (min-width: 640px) {
+  .bok-negotiate-label {
+    font-size: 0.875rem;
+  }
+}
+
+.bok-negotiate-input {
+  height: 1.75rem;
+  width: 6rem;
+  font-size: 0.875rem;
+  border: 1px solid hsl(214, 32%, 91%);
+  border-radius: 0.375rem;
+  padding: 0 0.5rem;
+  outline: none;
+}
+
+.bok-negotiate-input:focus {
+  border-color: hsl(174, 72%, 46%);
+  box-shadow: 0 0 0 2px hsl(174, 72%, 46%, 0.2);
+}
+
+@media (min-width: 640px) {
+  .bok-negotiate-input {
+    height: 2rem;
+    width: 7rem;
+  }
+}
+
+/* Price Summary */
+.bok-summary-card {
+  border-radius: 0.5rem;
+  border: 1px solid hsl(214, 32%, 91%);
+  background-color: hsl(0, 0%, 100%);
+  padding: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .bok-summary-card {
+    padding: 1rem;
+  }
+}
+
+.bok-summary-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.bok-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bok-summary-label {
+  font-size: 0.875rem;
+  color: hsl(215, 16%, 47%);
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .bok-summary-label {
+    font-size: 1rem;
+  }
+}
+
+.bok-summary-value {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .bok-summary-value {
+    font-size: 1rem;
+  }
+}
+
+.bok-summary-input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bok-summary-input {
+  height: 1.75rem;
+  width: 5rem;
+  text-align: right;
+  font-size: 0.875rem;
+  border: 1px solid hsl(214, 32%, 91%);
+  border-radius: 0.375rem;
+  padding: 0 0.5rem;
+  outline: none;
+}
+
+.bok-summary-input:focus {
+  border-color: hsl(174, 72%, 46%);
+  box-shadow: 0 0 0 2px hsl(174, 72%, 46%, 0.2);
+}
+
+@media (min-width: 640px) {
+  .bok-summary-input {
+    height: 2rem;
+    width: 6rem;
+  }
+}
+
+.bok-summary-divider {
+  height: 1px;
+  background-color: hsl(214, 32%, 91%);
+  margin: 0.5rem 0;
+}
+
+.bok-summary-total-label {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .bok-summary-total-label {
+    font-size: 1.125rem;
+  }
+}
+
+.bok-summary-total-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: hsl(174, 72%, 46%);
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .bok-summary-total-value {
+    font-size: 1.5rem;
+  }
+}
+
+/* Payment Details */
+.bok-payment-card {
+  border-radius: 0.5rem;
+  border: 1px solid hsl(214, 32%, 91%);
+  background-color: hsl(0, 0%, 100%);
+  padding: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .bok-payment-card {
+    padding: 1rem;
+  }
+}
+
+.bok-payment-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.bok-payment-icon {
+  height: 1rem;
+  width: 1rem;
+  color: hsl(174, 72%, 46%);
+}
+
+@media (min-width: 640px) {
+  .bok-payment-icon {
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+}
+
+.bok-payment-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .bok-payment-title {
+    font-size: 1rem;
+  }
+}
+
+.bok-payment-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bok-payment-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bok-payment-label {
+  font-size: 0.75rem;
+  color: hsl(215, 16%, 47%);
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .bok-payment-label {
+    font-size: 0.875rem;
+  }
+}
+
+.bok-payment-value {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .bok-payment-value {
+    font-size: 1rem;
+  }
+}
+
+.bok-copy-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bok-copy-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  width: 2rem;
+  border: 1px solid hsl(214, 32%, 91%);
+  background: hsl(0, 0%, 100%);
+  border-radius: 0.375rem;
+  cursor: pointer;
+  color: hsl(215, 16%, 47%);
+  transition: all 0.2s;
+}
+
+.bok-copy-btn:hover {
+  background-color: hsl(174, 60%, 95%);
+  color: hsl(174, 72%, 30%);
+}
+
+@media (min-width: 640px) {
+  .bok-copy-btn {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+}
+
+.bok-copy-icon {
+  height: 0.875rem;
+  width: 0.875rem;
+}
+
+@media (min-width: 640px) {
+  .bok-copy-icon {
+    height: 1rem;
+    width: 1rem;
+  }
+}
+
+/* Negotiation Banner */
+.bok-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.625rem 0.75rem;
+  background-color: hsl(174, 60%, 95%);
+  border-radius: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .bok-banner {
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+  }
+}
+
+.bok-banner-icon {
+  height: 1rem;
+  width: 1rem;
+  color: hsl(174, 72%, 30%);
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+@media (min-width: 640px) {
+  .bok-banner-icon {
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+}
+
+.bok-banner-text {
+  font-size: 0.75rem;
+  color: hsl(174, 72%, 30%);
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (min-width: 640px) {
+  .bok-banner-text {
+    font-size: 0.875rem;
+  }
+}
+
+/* Desktop CTAs */
+.bok-desktop-ctas {
+  display: none;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (min-width: 1024px) {
+  .bok-desktop-ctas {
+    display: flex;
+    position: sticky;
+    bottom: 0;
+    background-color: white;
+  }
+}
+
+.bok-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.bok-cta-primary {
+  background-color: hsl(174, 72%, 46%);
+  color: hsl(0, 0%, 100%);
+  border: none;
+}
+
+.bok-cta-primary:hover {
+  background-color: hsl(174, 72%, 40%);
+}
+
+.bok-cta-outline {
+  background-color: transparent;
+  color: hsl(174, 72%, 46%);
+  border: 1px solid hsl(174, 72%, 46%);
+}
+
+.bok-cta-outline:hover {
+  background-color: hsl(174, 72%, 46%);
+  color: hsl(0, 0%, 100%);
+}
+
+.bok-cta-icon {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.bok-negotiation-note {
+  display: none;
+  text-align: center;
+  font-size: 0.875rem;
+  color: hsl(215, 16%, 47%);
+}
+
+@media (min-width: 1024px) {
+  .bok-negotiation-note {
+    display: block;
+  }
+}
+
+/* Fixed Bottom CTAs */
+.bok-fixed-ctas {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid hsl(214, 32%, 91%);
+  background-color: hsl(0, 0%, 100%);
+  padding: 1rem;
+  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 1024px) {
+  .bok-fixed-ctas {
+    display: none;
+  }
+}
+
+.bok-fixed-ctas-inner {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.bok-mobile-cta {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+@media (min-width: 640px) {
+  .bok-mobile-cta {
+    font-size: 1rem;
+  }
+}
+
+.bok-mobile-cta-icon {
+  height: 1rem;
+  width: 1rem;
+}
+
+@media (min-width: 640px) {
+  .bok-mobile-cta-icon {
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+}
+
+/* Toast notification */
+.bok-toast {
+  position: fixed;
+  bottom: 6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: hsl(222, 47%, 11%);
+  color: hsl(0, 0%, 100%);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  z-index: 1000;
+  animation: bok-toast-in 0.3s ease-out;
+}
+
+@keyframes bok-toast-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@media (min-width: 1024px) {
+  .bok-toast {
+    bottom: 2rem;
+  }
+}
+
+/* Order Status Card */
+.bok-order-status-card {
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(214, 32%, 91%);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+  .bok-order-status-card {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.bok-order-status-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.bok-order-id {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+@media (min-width: 640px) {
+  .bok-order-id {
+    gap: 0.5rem;
+  }
+}
+
+.bok-order-id-label {
+  font-size: 0.75rem;
+  color: hsl(215, 16%, 47%);
+}
+
+@media (min-width: 640px) {
+  .bok-order-id-label {
+    font-size: 0.875rem;
+  }
+}
+
+.bok-order-id-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: hsl(222, 47%, 11%);
+}
+
+@media (min-width: 640px) {
+  .bok-order-id-value {
+    font-size: 1rem;
+  }
+}
+
+.bok-status-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+@media (min-width: 640px) {
+  .bok-status-badge {
+    font-size: 0.75rem;
+    padding: 0.375rem 1rem;
+  }
+}
+
+.bok-status-completed {
+  background-color: hsl(142, 69%, 90%);
+  color: hsl(142, 76%, 26%);
+}
+
+.bok-status-pending {
+  background-color: hsl(45, 93%, 90%);
+  color: hsl(45, 93%, 30%);
+}
+
+.bok-status-modified {
+  background-color: hsl(210, 79%, 90%);
+  color: hsl(210, 79%, 30%);
+}
+
+.bok-status-rejected {
+  background-color: hsl(0, 84%, 92%);
+  color: hsl(0, 84%, 36%);
+}
+
+.bok-order-date {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .bok-order-date {
+    gap: 0.5rem;
+  }
+}
+
+.bok-order-date-label {
+  font-size: 0.75rem;
+  color: hsl(215, 16%, 47%);
+}
+
+@media (min-width: 640px) {
+  .bok-order-date-label {
+    font-size: 0.875rem;
+  }
+}
+
+.bok-order-date-value {
+  font-size: 0.75rem;
+  color: hsl(222, 47%, 11%);
+}
+
+@media (min-width: 640px) {
+  .bok-order-date-value {
+    font-size: 0.875rem;
+  }
+}
+
+/* Item Category */
+.bok-item-category {
+  font-size: 0.625rem;
+  color: hsl(215, 16%, 57%);
+  margin: 0.125rem 0 0 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (min-width: 640px) {
+  .bok-item-category {
+    font-size: 0.75rem;
+  }
+}
+
+/* Disabled states */
+.bok-item-disabled {
+  opacity: 0.7;
+  background-color: hsl(210, 20%, 98%);
+}
+
+.bok-item-disabled .bok-qty-btn,
+.bok-item-disabled .bok-qty-input,
+.bok-item-disabled .bok-negotiate-btn {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.bok-item-disabled .bok-qty-btn:hover,
+.bok-item-disabled .bok-negotiate-btn:hover {
+  background-color: transparent;
+  color: inherit;
+}
+
+.bok-cta-disabled {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+}
+
+.bok-cta-disabled:hover {
+  background-color: inherit;
+  transform: none;
+}
+
+.bok-cta-outline.bok-cta-disabled:hover {
+  background-color: transparent;
+}
+
+.bok-cta-primary.bok-cta-disabled:hover {
+  background-color: hsl(174, 72%, 46%);
+}
+
+.bok-fixed-ctas-disabled {
+  opacity: 0.9;
+}
+
+/* Completed Banner */
+.bok-banner-completed {
+  background-color: hsl(142, 69%, 95%);
+  border-color: hsl(142, 69%, 70%);
+}
+
+.bok-banner-completed .bok-banner-icon {
+  color: hsl(142, 76%, 36%);
+}
+
+.bok-banner-completed .bok-banner-text {
+  color: hsl(142, 76%, 26%);
+}
+
+/* Summary input disabled */
+.bok-summary-input:disabled {
+  background-color: hsl(210, 20%, 96%);
+  cursor: not-allowed;
+  opacity: 0.7;
+}

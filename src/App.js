@@ -13,6 +13,7 @@ import SplashScreen from "./component/splashDisplay/SplashDisplay.jsx";
 import MainSplashScreen from "./component/splashDisplay/SplashDisplay.jsx";
 import PortalSelection from "./component/ChoosePortal/ChoosePortal.jsx";
 import HardwareCheckoutPage from "./component/checkoutPage/CheckOutPage.jsx";
+import BookOrder from "./bookedQuotation/BookedQuaution.jsx";
 
 function App() {
   useLayoutEffect(() => {
@@ -53,6 +54,7 @@ function App() {
         <Route path='/demo' element={<Demo />} />
         <Route path='/demo/spashScreen/display' element={<MainSplashScreen />} />
         <Route path='/portals' element={<PortalSelection />} />
+        <Route path='/bookedOrders/' element={<BookOrder />} />
         <Route path='/check-out/' element={<HardwareCheckoutPage />} />
         <Route path='*' element={<div> 404 Not Found</div>} />
       </Routes>
