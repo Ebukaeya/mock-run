@@ -6,8 +6,11 @@ import countries from "./Countries";
 import BtnSpinner from "../ui/spinners/BtnSpinner";
 import { VerificationSuccessModal } from "../ui/alert/VerificationSuccessModal";
 import googleIco from "../../assessStatic/pictures/Google_G_Icon_40x40.png";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 const SignUp = () => {
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
   const navigate = useNavigate();
   const [step, setStep] = useState("signup"); // 'signup', 'phone', or 'verification'
   const [formData, setFormData] = useState({
@@ -90,7 +93,8 @@ const SignUp = () => {
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+    const regexForPublicEmail = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|yahoo\.co\.uk|outlook\.com|hotmail\.com|icloud\.com|live\.com)$/;
+    return emailRegex.test(email) && regexForPublicEmail.test(email);
   };
 
   const validatePassword = (password) => {
@@ -113,7 +117,17 @@ const SignUp = () => {
   };
 
   const handleSignupSubmit = async () => {
-    console.log("Submitting signup form with data:", formData);
+    if (!executeRecaptcha) {
+      console.log("Recaptcha not ready");
+      return;
+    }
+
+    const token = await executeRecaptcha("signup");
+
+    if (!token) {
+      alert("Please complete the reCAPTCHA");
+      return;
+    }
 
     const newErrors = {};
 
@@ -146,6 +160,7 @@ const SignUp = () => {
         password: formData.password,
         responsibleAgentEmail: agentEmail || null,
         clientID: clientId || null,
+        reCaptchaToken: token,
       };
       const signUpUrl = `${process.env.REACT_APP_Back_end_api_root}/signUp`;
       console.log("Signing up with data:", data, signUpUrl);
