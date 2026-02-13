@@ -74,6 +74,26 @@ const SignUp = () => {
     };
 
     getUserLocation();
+
+    //enable bounse api
+    const script = document.createElement("script");
+    try {
+      window.bouncerConfig = {
+        apikey: process.env.REACT_APP_BOUNCER_API_KEY,
+        feedbackOverlayMessage: "Enter a real email",
+        feedbackOverlayPoweredBy: false,
+      };
+
+      script.src = "https://app.usebouncer.com/bouncer-script/bouncer-script-beta.js";
+      script.async = true;
+
+      document.head.appendChild(script);
+    } catch (error) {
+      console.log("errror enabling bouncer");
+    }
+    return () => {
+      document.head.removeChild(script);
+    };
   }, []);
 
   // Close dropdown when clicking outside
@@ -174,9 +194,15 @@ const SignUp = () => {
           },
           body: JSON.stringify(data),
         });
-        if (response.status === 400) {
-          setErrors({ general: "Email already exists. Please try another email." });
+
+        if (response.status === 403) {
+          setErrors({ email: "Email already exists. Please try another email." });
           alert("Email already exists. Please try another email.");
+          return;
+        }
+        if (response.status === 404) {
+          setErrors({ email: "Email is invalid try another email." });
+          alert("Email is invalid. Please try another email.");
           return;
         }
         if (!response.ok) {
@@ -365,6 +391,7 @@ const SignUp = () => {
 
               <div>
                 <input
+                  name='email'
                   type='email'
                   className='form-input'
                   placeholder='Enter your email'
