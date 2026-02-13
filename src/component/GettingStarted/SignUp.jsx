@@ -59,45 +59,22 @@ const SignUp = () => {
   }, []);
 
   // Get user's location and set default country
-  useEffect(() => {
-    const getUserLocation = async () => {
-      try {
-        const response = await fetch("https://ipapi.co/json/");
-        const data = await response.json();
-        const userCountry = countries.find((country) => country.code === data.country_code);
-        if (userCountry) {
-          setSelectedCountry(userCountry);
-        }
-      } catch (error) {
-        console.log("Could not detect location, using default US");
-      }
-    };
-
-    getUserLocation();
-
-    //enable bounse api
-    const script = document.createElement("script");
+  const getUserLocation = async () => {
     try {
-      window.bouncerConfig = {
-        apikey: process.env.REACT_APP_BOUNCER_API_KEY,
-        feedbackOverlayMessage: "Enter a real email",
-        feedbackOverlayPoweredBy: false,
-      };
-
-      script.src = "https://app.usebouncer.com/bouncer-script/bouncer-script-beta.js";
-      script.async = true;
-
-      document.head.appendChild(script);
+      const response = await fetch("https://ipapi.co/json/");
+      const data = await response.json();
+      const userCountry = countries.find((country) => country.code === data.country_code);
+      if (userCountry) {
+        setSelectedCountry(userCountry);
+      }
     } catch (error) {
-      console.log("errror enabling bouncer");
+      console.log("Could not detect location, using default US");
     }
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
+  };
 
   // Close dropdown when clicking outside
   useEffect(() => {
+    getUserLocation();
     const handleClickOutside = (event) => {
       if (!event.target.closest(".country-selector")) {
         setShowCountryDropdown(false);
