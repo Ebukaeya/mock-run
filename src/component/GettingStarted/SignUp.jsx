@@ -43,21 +43,6 @@ const SignUp = () => {
     console.log("Modal open state changed:", modalOpen);
   }, [modalOpen]);
 
-  // Handle ResizeObserver error
-  useEffect(() => {
-    const handleError = (e) => {
-      if (e.message === "ResizeObserver loop completed with undelivered notifications." || e.message === "ResizeObserver loop limit exceeded") {
-        e.stopImmediatePropagation();
-      }
-    };
-
-    window.addEventListener("error", handleError);
-
-    return () => {
-      window.removeEventListener("error", handleError);
-    };
-  }, []);
-
   // Get user's location and set default country
   const getUserLocation = async () => {
     try {
@@ -83,8 +68,18 @@ const SignUp = () => {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
+
+    // Handle ResizeObserver error
+    const handleError = (e) => {
+      if (e.message === "ResizeObserver loop completed with undelivered notifications." || e.message === "ResizeObserver loop limit exceeded") {
+        e.stopImmediatePropagation();
+      }
+    };
+
+    window.addEventListener("error", handleError);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("error", handleError);
     };
   }, []);
 
