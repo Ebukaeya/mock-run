@@ -14,6 +14,7 @@ import MainSplashScreen from "./component/splashDisplay/SplashDisplay.jsx";
 import PortalSelection from "./component/ChoosePortal/ChoosePortal.jsx";
 import HardwareCheckoutPage from "./component/checkoutPage/CheckOutPage.jsx";
 import BookOrder from "./bookedQuotation/BookedQuaution.jsx";
+import ResetPassword from "./forgotPassword/ForgotPassword.jsx";
 
 function App() {
   useLayoutEffect(() => {
@@ -48,6 +49,7 @@ function App() {
         <Route path='/' element={<Webstore />} />
         <Route path='/pos-setup' element={<PosSetup />} />
         <Route path='/services' element={<Services />} />
+        <Route path='/verify_email/' element={<ResetPassword />} />
         {/* Add more routes as needed */}
         <Route path='/contact' element={<Contact />} />
         <Route path='/sign-up/' element={<SignUp />} />
