@@ -15,6 +15,8 @@ import PortalSelection from "./component/ChoosePortal/ChoosePortal.jsx";
 import HardwareCheckoutPage from "./component/checkoutPage/CheckOutPage.jsx";
 import BookOrder from "./bookedQuotation/BookedQuaution.jsx";
 import ResetPassword from "./forgotPassword/ForgotPassword.jsx";
+import StorelensePrivacyPolicy from "./component/dataAndPolicy/StorelensePolicy.jsx";
+import TermsOfService from "./component/dataAndPolicy/TermsOfService.jsx";
 
 function App() {
   useLayoutEffect(() => {
@@ -48,6 +50,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Webstore />} />
         <Route path='/pos-setup' element={<PosSetup />} />
+        <Route path='/data-policy' element={<StorelensePrivacyPolicy />} />
+        <Route path='/terms' element={<TermsOfService />} />
         <Route path='/services' element={<Services />} />
         <Route path='/verify_email/' element={<ResetPassword />} />
         {/* Add more routes as needed */}

@@ -58,6 +58,9 @@ const Footer = () => {
               <li>
                 <a href='/contact'>Contact</a>
               </li>
+              <li>
+                <a href='/terms'>Terms of Service</a>
+              </li>
             </ul>
           </div>
 
@@ -82,6 +85,9 @@ const Footer = () => {
               </li>
               <li>
                 <a href='#analytics'>E commerce</a>
+              </li>
+              <li>
+                <a href='/data-policy'>Data Policy</a>
               </li>
             </ul>
           </div>
