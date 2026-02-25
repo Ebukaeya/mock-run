@@ -17,6 +17,7 @@ import BookOrder from "./bookedQuotation/BookedQuaution.jsx";
 import ResetPassword from "./forgotPassword/ForgotPassword.jsx";
 import StorelensePrivacyPolicy from "./component/dataAndPolicy/StorelensePolicy.jsx";
 import TermsOfService from "./component/dataAndPolicy/TermsOfService.jsx";
+import AccountDeletion from "./deleteAccount/DelectAccount.jsx";
 
 function App() {
   useLayoutEffect(() => {
@@ -54,6 +55,7 @@ function App() {
         <Route path='/terms' element={<TermsOfService />} />
         <Route path='/services' element={<Services />} />
         <Route path='/verify_email/' element={<ResetPassword />} />
+        <Route path='/delete-account' element={<AccountDeletion />} />
         {/* Add more routes as needed */}
         <Route path='/contact' element={<Contact />} />
         <Route path='/sign-up/' element={<SignUp />} />
