@@ -90,7 +90,7 @@ const HardwareCheckoutPage = () => {
 
   const calculatePrice = () => {
     if (userType === "guest" || !userSubscription) {
-      return selectedProduct.price;
+      return Number(selectedProduct.price.replace(/[^\d.]/g, ""));
     }
     const discount = discounts[userSubscription] || 0;
     return Number(selectedProduct.price.replace(/[^\d.]/g, "")) - (Number(selectedProduct.price.replace(/[^\d.]/g, "")) * discount) / 100;
@@ -218,6 +218,7 @@ const HardwareCheckoutPage = () => {
         productId: selectedProduct.id,
         userID: user ? user._id : null,
       };
+      console.log("Initiating payment with data:", paymentData, selectedProduct);
 
       let response = await fetch(paymentUrl, {
         method: "POST",
