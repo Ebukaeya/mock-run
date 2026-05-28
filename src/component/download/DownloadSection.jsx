@@ -26,7 +26,7 @@ const MobileAppDownload = () => {
   const handleAndroidDownload = () => {
     setDownloadStarted(true);
     // Replace with your actual APK download URL
-    const apkUrl = "https://expo.dev/artifacts/eas/n5R4jW9baaqQfyax77M2QW.tar.gz";
+    const apkUrl = "https://expo.dev/artifacts/eas/skfmDMtH1hazJVjdCtVtqi.tar.gz";
     window.location.href = apkUrl;
 
     setTimeout(() => {
