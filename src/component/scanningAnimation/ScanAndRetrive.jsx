@@ -346,7 +346,6 @@ const QRScanningFeature = () => {
           font-size: 14px;
           font-weight: 700;
           margin-bottom: 20px;
-          box-shadow: 0 4px 20px rgba(20, 184, 166, 0.3);
         }
 
         .slqr-main-title {

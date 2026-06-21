@@ -741,7 +741,6 @@
   transition: all 0.3s;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  box-shadow: 0 5px 20px rgba(61, 181, 181, 0.4);
 }
 
 .starter-cta-button:hover {

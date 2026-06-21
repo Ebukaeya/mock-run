@@ -47,10 +47,15 @@ import QRScanningFeature from "./scanningAnimation/ScanAndRetrive.jsx";
 import EmployeeActivitySection from "./employeeAndCustomer/Employeetracking.jsx";
 import CustomerEngagementSection from "./employeeAndCustomer/CustomerEngagment.jsx";
 import MobileAppDownload from "./download/DownloadSection.jsx";
+import HeroSectionNew from "./heroSectionNe/HeroSectionNew.jsx";
+
+import ClientShowcase from "./clientsShow/CLientSHow.jsx";
+import MoreFeatures from "./moreFeature/MoreFeatures.jsx";
+import POSShowcase from "./posShowCase/PosShowCase.jsx";
 
 const posImages = [frontView, sideView, backView];
 const Webstore = () => {
-  useLayoutEffect(() => {
+  /*  useLayoutEffect(() => {
     window.scrollTo(0, 0);
     let ImgaeSlider = document.querySelector(".PosImage343");
     let count = 0;
@@ -64,7 +69,7 @@ const Webstore = () => {
       }
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, []); */
   const navigate = useNavigate();
 
   const delayFunc = (ms) => {
@@ -80,7 +85,7 @@ const Webstore = () => {
       <Narbar />
       <ScrollAnimationsProvider />
       <section className='Intro'>
-        <div className='BIntroWrap'>
+        {/*  <div className='BIntroWrap'>
           <div className='intro3862'>
             <div className='logoIntrodi'>
               {logo}
@@ -104,9 +109,7 @@ const Webstore = () => {
             </div>
           </div>
           <div className='intImag38'>
-            {/*  srcSet={` https://dam-bs.azureedge.net/v-638437518409577577/c6/bc/3df3-47ef-4e07-951f-36ffa2015d04/Original%20JPG-100167008-fox5-gra-black-midnight-black-combi-1.jpg 800w, ${testImg} 1200w`}
-                sizes=' (max-width: 800px) 800px, 1200px'
-                src={testImg} */}
+          
             <img
               src={midDisplay}
               srcset={`  ${midDisplay} 3840w,
@@ -122,16 +125,22 @@ const Webstore = () => {
          33vw'
             />
           </div>
-        </div>
+        </div> */}
+        <HeroSectionNew
+          onGetStarted={() => {
+            navigate("/sign-up");
+          }}
+          onDemo={() => {
+            window.location.href = "/demo";
+          }}
+        />
         {/*  </div> */}
       </section>
+
       <section id='devIntro22229'>
         <div className='mycontainer'>
-          <div className='PMW3oe8 sl-animate'>
-            {/* <h1 style={{ color: "black", fontFamily: "Nunito" }} className='Ctit3y73'>
-              All in one POS terminal and inventory manager
-            </h1>
-            <p className='lefya6e'>With our POS terminal, you can manage your store inventory in real time, track sales and set up your store</p> */}
+          {/*  <div className='PMW3oe8 sl-animate'>
+           
             <div className='headline'>
               <h1 style={{ textAlign: "center" }}>
                 <span className='text-dark'>All in one POS terminal and</span>
@@ -143,7 +152,6 @@ const Webstore = () => {
               <div className='underline'></div>
             </div>
 
-            {/* Subtitle */}
             <p className='subtitle'>With our POS terminal, you can manage your store inventory in real time</p>
           </div>
           <div className='PTermPr33 sl-animate'>
@@ -179,9 +187,16 @@ const Webstore = () => {
             >
               View All Setup
             </button>
-          </div>
+          </div> */}
+          <POSShowcase />
         </div>
       </section>
+
+      <ClientShowcase
+        onGetStarted={() => {
+          navigate("/sign-up");
+        }}
+      />
 
       <section id={"DeviceScanningAnimation"}>
         <POSScanningFeature />
@@ -287,10 +302,19 @@ const Webstore = () => {
           </div>
         </div>
       </div>
-      <section style={{ marginBottom: "6rem" }}>
+      <section>
         <EmployeeActivitySection />
         <CustomerEngagementSection />
       </section>
+
+      <MoreFeatures
+        onGetStarted={() => {
+          navigate("/sign-up");
+        }}
+        onTalkToSales={() => {
+          window.location.href = "/contact";
+        }}
+      />
 
       <div className='mycontainer'>
         {/*  <div className="WebStoreTiltle">
@@ -298,11 +322,11 @@ const Webstore = () => {
           </div> */}
 
         <section id='InventoryManager'>
-          <h4 style={{ color: "black", margin: "20px 0", fontSize: "1.8rem", textAlign: "center", fontWeight: "800" }} className=' text-gradient sl-animate'>
+          {/*  <h4 style={{ color: "black", margin: "20px 0", fontSize: "1.8rem", textAlign: "center", fontWeight: "800" }} className=' text-gradient sl-animate'>
             More features
-          </h4>
+          </h4> */}
 
-          <div className='fBC874 sl-animate'>
+          {/*  <div className='fBC874 sl-animate'>
             <div className='sl-animate'>
               <img className='busImag3he' src={trackLoan} alt='restaurant' />
               <div className='ubhfys7e4'>
@@ -338,7 +362,7 @@ const Webstore = () => {
                 <p>You can choose to get paid out in crypto (Coming soon)</p>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className='RealTimeAnaWrapper'>
             <div className='sl-animate'>

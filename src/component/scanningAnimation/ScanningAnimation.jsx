@@ -243,7 +243,6 @@ const POSScanningFeature = () => {
           font-size: 14px;
           font-weight: 700;
           margin-bottom: 20px;
-          box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
         }
 
         .slpos-main-title {

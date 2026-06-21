@@ -270,7 +270,6 @@ const CustomerEngagementSection = () => {
           font-size: 14px;
           font-weight: 700;
           margin-bottom: 24px;
-          box-shadow: 0 4px 20px rgba(20, 184, 166, 0.4);
         }
 
         .slcust-title {
@@ -334,17 +333,14 @@ const CustomerEngagementSection = () => {
 
         .slcust-stat-teal .slcust-stat-icon {
           background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
-          box-shadow: 0 8px 24px rgba(20, 184, 166, 0.3);
         }
 
         .slcust-stat-orange .slcust-stat-icon {
           background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-          box-shadow: 0 8px 24px rgba(245, 158, 11, 0.3);
         }
 
         .slcust-stat-pink .slcust-stat-icon {
           background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
-          box-shadow: 0 8px 24px rgba(236, 72, 153, 0.3);
         }
 
         .slcust-stat-content {
@@ -707,17 +703,23 @@ const CustomerEngagementSection = () => {
 
         .slcust-icon-blue {
           background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-          box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+           {
+            /*    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3); */
+          }
         }
 
         .slcust-icon-purple {
           background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);
-          box-shadow: 0 8px 24px rgba(168, 85, 247, 0.3);
+           {
+            /*   box-shadow: 0 8px 24px rgba(168, 85, 247, 0.3); */
+          }
         }
 
         .slcust-icon-green {
           background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-          box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+           {
+            /*  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3); */
+          }
         }
 
         .slcust-feature-content {

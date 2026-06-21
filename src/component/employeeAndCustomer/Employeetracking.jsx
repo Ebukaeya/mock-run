@@ -281,7 +281,6 @@ const EmployeeActivitySection = () => {
           font-size: 14px;
           font-weight: 700;
           margin-bottom: 24px;
-          box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
         }
 
         .slemp-title {
@@ -345,17 +344,23 @@ const EmployeeActivitySection = () => {
 
         .slemp-stat-purple .slemp-stat-icon {
           background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);
-          box-shadow: 0 8px 24px rgba(168, 85, 247, 0.3);
+           {
+            /*  box-shadow: 0 8px 24px rgba(168, 85, 247, 0.3); */
+          }
         }
 
         .slemp-stat-blue .slemp-stat-icon {
           background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-          box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+           {
+            /*  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3); */
+          }
         }
 
         .slemp-stat-green .slemp-stat-icon {
           background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-          box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+           {
+            /*   box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3); */
+          }
         }
 
         .slemp-stat-content {
