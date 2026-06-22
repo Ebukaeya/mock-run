@@ -75,7 +75,8 @@
 
 .posshow__glow {
   position: absolute;
-  width: 560px;
+  max-width: 560px;
+  width: 99vw;
   height: 340px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(37, 99, 235, 0.14), transparent 70%);

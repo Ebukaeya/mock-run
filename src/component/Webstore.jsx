@@ -85,47 +85,6 @@ const Webstore = () => {
       <Narbar />
       <ScrollAnimationsProvider />
       <section className='Intro'>
-        {/*  <div className='BIntroWrap'>
-          <div className='intro3862'>
-            <div className='logoIntrodi'>
-              {logo}
-              <p className='parIntro3874'>Store lense app</p>
-            </div>
-            <h1 className='h1Intronr'>
-              Manage your store inventory in <br /> <p className='h1Intro3874'> Real Time</p>{" "}
-            </h1>
-            <div className='intBtnD223'>
-              <button
-                onClick={() => {
-                  navigate("/portals");
-                }}
-                className='intBtn3874'
-              >
-                Get Started
-              </button>
-              <button onClick={() => (window.location.href = "/demo")} className='intBtn3874'>
-                Demo
-              </button>
-            </div>
-          </div>
-          <div className='intImag38'>
-          
-            <img
-              src={midDisplay}
-              srcset={`  ${midDisplay} 3840w,
-    
-    ${midDisplay} 1920w,
- 
-    ${midDisplay} 1080w,
-    ${midDisplay} 828w,
-    ${midDisplay} 750w,
-    ${midDisplay} 640w`}
-              sizes='(max-width: 480px) 100vw, 
-         (max-width: 1024px) 100vw, 
-         33vw'
-            />
-          </div>
-        </div> */}
         <HeroSectionNew
           onGetStarted={() => {
             navigate("/sign-up");
@@ -134,60 +93,10 @@ const Webstore = () => {
             window.location.href = "/demo";
           }}
         />
-        {/*  </div> */}
       </section>
 
       <section id='devIntro22229'>
         <div className='mycontainer'>
-          {/*  <div className='PMW3oe8 sl-animate'>
-           
-            <div className='headline'>
-              <h1 style={{ textAlign: "center" }}>
-                <span className='text-dark'>All in one POS terminal and</span>
-                <br />
-                <span style={{ textAlign: "center" }} className='text-gradient'>
-                  Inventory manager
-                </span>
-              </h1>
-              <div className='underline'></div>
-            </div>
-
-            <p className='subtitle'>With our POS terminal, you can manage your store inventory in real time</p>
-          </div>
-          <div className='PTermPr33 sl-animate'>
-            <div className='PosImage343'>
-              {posImages.map((img, index) => (
-                <img src={img} key={index} />
-              ))}
-            </div>
-          </div>
-          <div className='smallCa3 adjustmi sl-animate'>
-            <div>
-              <h3>Print receipt</h3>
-              <p>80mm thermal printer</p>
-            </div>
-            <div>
-              <h3>Accept payment</h3>
-              <p>In-Built POS Terminal</p>
-            </div>
-            <div>
-              <h3>Portable</h3>
-              <p>Easy to carry around</p>
-            </div>
-            <div>
-              <h3>Inventory manager</h3>
-              <p>Sofware for IM</p>
-            </div>
-          </div>
-          <div className='viewAllDevicesDiv sl-animate'>
-            <button
-              onClick={() => {
-                window.location.href = "/pos-setup";
-              }}
-            >
-              View All Setup
-            </button>
-          </div> */}
           <POSShowcase />
         </div>
       </section>

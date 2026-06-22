@@ -117,8 +117,8 @@ const Footer = () => {
           <div className='footer-bottom-content'>
             <p className='copyright'>© 2025 Pragma Solutions. All rights reserved.</p>
             <div className='footer-bottom-links'>
-              <a href='#privacy'>Privacy Policy</a>
-              <a href='#terms'>Terms of Service</a>
+              <a href='/data-policy'>Privacy Policy</a>
+              <a href='/terms'>Terms of Service</a>
               <a href='#cookies'>Cookie Policy</a>
             </div>
           </div>
