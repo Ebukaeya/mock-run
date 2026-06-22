@@ -300,7 +300,7 @@
   position: absolute;
   top: 32px;
   left: 32px;
-  right: -32px;
+  right: -2px;
   bottom: -32px;
   background: linear-gradient(135deg, rgba(55, 180, 197, 0.1), rgba(14, 73, 181, 0.1));
   border-radius: 24px;
