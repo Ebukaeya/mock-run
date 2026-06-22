@@ -15,6 +15,7 @@
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 clamp(16px, 4.5vw, 32px);
+  overflow: hidden;
 }
 
 .mf__blob {

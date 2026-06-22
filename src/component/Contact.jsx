@@ -1,14 +1,13 @@
 import { useState } from "react";
-import { Mail, Phone, MapPin, Clock, Send, CheckCircle, ArrowLeft } from "lucide-react";
+/* import { Mail, Phone, MapPin, Clock, Send, CheckCircle, ArrowLeft } from "lucide-react"; */
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import "../styles/Contact.css";
-import { Link, useLocation } from "react-router-dom";
 
-const Contact = () => {
+/* const Contact = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const subject = params.get("subject");
@@ -127,7 +126,7 @@ const Contact = () => {
           />
         </div>
       </nav>
-      {/* Hero Section */}
+     
       <div className='contact-hero-section'>
         <div className='contact-hero-container'>
           <div className='contact-hero-content'>
@@ -139,7 +138,7 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* Contact Info Cards */}
+      
       <div className='contact-main-container'>
         <div className='contact-info-grid'>
           {contactInfo.map((info, index) => (
@@ -154,9 +153,9 @@ const Contact = () => {
           ))}
         </div>
 
-        {/* Main Content */}
+       
         <div className='contact-content-grid'>
-          {/* Contact Form */}
+         
           <Card className='contact-form-card'>
             <CardHeader>
               <CardTitle className='contact-form-title'>Send us a Message</CardTitle>
@@ -266,7 +265,7 @@ const Contact = () => {
             </CardContent>
           </Card>
 
-          {/* Additional Information */}
+        
           <div className='contact-sidebar'>
             <Card className='contact-features-card'>
               <CardHeader>
@@ -327,4 +326,381 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Contact; */
+
+import { Mail, Phone, MapPin, Clock, Send, CheckCircle, ArrowLeft, MessageCircle } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+
+const WHATSAPP_NUMBER = "2348159273522";
+const WHATSAPP_BASE = `https://wa.me/${WHATSAPP_NUMBER}`;
+
+const CONTACT_INFO = [
+  {
+    icon: Phone,
+    color: "#2563EB",
+    bg: "#EAF1FF",
+    title: "Call us",
+    content: "+234 801 59273522",
+    sub: "Mon – Fri, 9 AM – 6 PM",
+    href: "tel:+23480159273522",
+    cta: "Call now",
+  },
+  {
+    icon: MessageCircle,
+    color: "#16A34A",
+    bg: "#E7F8EE",
+    title: "WhatsApp",
+    content: "+234 801 59273522",
+    sub: "Fastest response guaranteed",
+    href: `${WHATSAPP_BASE}?text=Hi%20StoreLense%2C%20I%20have%20a%20question`,
+    cta: "Open WhatsApp",
+    whatsapp: true,
+  },
+  {
+    icon: Mail,
+    color: "#37B4C5",
+    bg: "#EAFBFD",
+    title: "Email",
+    content: "storelense@pragmasolutions.co",
+    sub: "We reply within 24 hours",
+    href: "mailto:storelense@pragmasolutions.co",
+    cta: "Send email",
+  },
+  {
+    icon: MapPin,
+    color: "#F5A623",
+    bg: "#FFF3E0",
+    title: "Branch office",
+    content: "Spera in Deo Park, Block 38",
+    sub: "Abakaliki, Ebonyi State, Nigeria",
+    href: "https://maps.google.com/?q=Abakaliki+Ebonyi+State+Nigeria",
+    cta: "Get directions",
+  },
+];
+
+const FEATURES = [
+  "Free installation and setup with zero downtime",
+  "Comprehensive staff training included",
+  "24/7 technical support and maintenance",
+  "Annual performance analysis and reporting",
+  "Flexible discount packages available",
+];
+
+const RESPONSE_TIMES = [
+  { label: "WhatsApp", time: "Within minutes" },
+  { label: "Phone calls", time: "Immediate (business hours)" },
+  { label: "Email inquiries", time: "Within 4 hours" },
+  { label: "On-site visits", time: "Within 24 – 48 hours" },
+];
+
+export default function Contact() {
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const urlSubject = params.get("subject");
+  const urlMessage = params.get("message");
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: urlSubject ? `Inquiry about ${urlSubject}` : "",
+    message: urlMessage || "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (error) setError("");
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError("");
+
+    const endpoint = process.env.REACT_APP_Back_end_api_root + "/contactUs";
+    const payload = {
+      name: formData.name,
+      subject: formData.subject,
+      customerEmail: formData.email,
+      message: formData.message,
+      phone: formData.phone,
+    };
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!response.ok) throw new Error("Network error");
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+      }, 4000);
+    } catch {
+      setIsSubmitting(false);
+      setError("Something went wrong. Please try again or reach us on WhatsApp.");
+    }
+  };
+
+  const whatsappFormLink = () => {
+    const msg = encodeURIComponent(
+      `Hi StoreLense! My name is ${formData.name || "..."}\n\n${formData.message || "I'd like to know more about your POS solutions."}`
+    );
+    return `${WHATSAPP_BASE}?text=${msg}`;
+  };
+
+  return (
+    <div className='ct'>
+      {/* Nav */}
+      <nav className='ct__nav'>
+        <div className='ct__nav-inner'>
+          <Link to='/' className='ct__nav-back'>
+            <ArrowLeft size={18} />
+            <span>Back to Home</span>
+          </Link>
+          <img
+            src='https://res.cloudinary.com/ebuka1122/image/upload/v1747600616/StorelenseLogos/Group_2823_fsprsy.png'
+            alt='StoreLense'
+            className='ct__nav-logo'
+          />
+        </div>
+      </nav>
+
+      {/* Hero */}
+      <div className='ct__hero'>
+        <div className='ct__hero-inner'>
+          <span className='ct__eyebrow'>
+            <span className='ct__eyebrow-dot' />
+            We're here to help
+          </span>
+          <h1 className='ct__hero-title'>
+            Get in touch with
+            <br />
+            <span className='ct__hero-accent'>our team</span>
+          </h1>
+          <p className='ct__hero-sub'>
+            Ready to transform your business with StoreLense? Reach us by phone, WhatsApp, or email — and expect a fast, human response.
+          </p>
+          <a href={`${WHATSAPP_BASE}?text=Hi%20StoreLense%2C%20I%20have%20a%20question`} target='_blank' rel='noopener noreferrer' className='ct__hero-wa'>
+            <MessageCircle size={18} />
+            Chat on WhatsApp
+          </a>
+        </div>
+        <div className='ct__hero-blob' aria-hidden='true' />
+      </div>
+
+      {/* Contact cards */}
+      <div className='ct__wrap'>
+        <div className='ct__cards'>
+          {CONTACT_INFO.map((info) => {
+            const Icon = info.icon;
+            return (
+              <a
+                key={info.title}
+                href={info.href}
+                target={info.whatsapp || info.href.startsWith("http") ? "_blank" : undefined}
+                rel='noopener noreferrer'
+                className={`ct__card${info.whatsapp ? " ct__card--wa" : ""}`}
+              >
+                <span className='ct__card-ic' style={{ background: info.bg }}>
+                  <Icon size={20} color={info.color} strokeWidth={2} />
+                </span>
+                <div className='ct__card-body'>
+                  <span className='ct__card-title'>{info.title}</span>
+                  <span className='ct__card-content'>{info.content}</span>
+                  <span className='ct__card-sub'>{info.sub}</span>
+                </div>
+                <span className='ct__card-cta' style={{ color: info.color }}>
+                  {info.cta} →
+                </span>
+              </a>
+            );
+          })}
+        </div>
+
+        {/* Main grid */}
+        <div className='ct__grid'>
+          {/* Form */}
+          <div className='ct__form-card'>
+            <div className='ct__form-header'>
+              <h2 className='ct__form-title'>Send us a message</h2>
+              <p className='ct__form-sub'>
+                Fill in the form and we'll get back to you as fast as possible. Prefer instant replies?{" "}
+                <a href={whatsappFormLink()} target='_blank' rel='noopener noreferrer' className='ct__inline-wa'>
+                  Message us on WhatsApp
+                </a>
+                .
+              </p>
+            </div>
+
+            {isSubmitted ? (
+              <div className='ct__success'>
+                <span className='ct__success-ic'>
+                  <CheckCircle size={36} color='#16A34A' />
+                </span>
+                <h3>Message sent!</h3>
+                <p>Thanks for reaching out. We'll reply within 24 hours.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className='ct__form' noValidate>
+                <div className='ct__form-row'>
+                  <div className='ct__field'>
+                    <label htmlFor='ct-name' className='ct__label'>
+                      Full name <span>*</span>
+                    </label>
+                    <input
+                      id='ct-name'
+                      name='name'
+                      type='text'
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      placeholder='John Doe'
+                      className='ct__input'
+                    />
+                  </div>
+                  <div className='ct__field'>
+                    <label htmlFor='ct-email' className='ct__label'>
+                      Email address <span>*</span>
+                    </label>
+                    <input
+                      id='ct-email'
+                      name='email'
+                      type='email'
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      placeholder='john@example.com'
+                      className='ct__input'
+                    />
+                  </div>
+                </div>
+
+                <div className='ct__form-row'>
+                  <div className='ct__field'>
+                    <label htmlFor='ct-phone' className='ct__label'>
+                      Phone number
+                    </label>
+                    <input
+                      id='ct-phone'
+                      name='phone'
+                      type='tel'
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder='+234 801 234 5678'
+                      className='ct__input'
+                    />
+                  </div>
+                  <div className='ct__field'>
+                    <label htmlFor='ct-subject' className='ct__label'>
+                      Subject <span>*</span>
+                    </label>
+                    <input
+                      id='ct-subject'
+                      name='subject'
+                      type='text'
+                      value={formData.subject}
+                      onChange={handleChange}
+                      required
+                      placeholder='POS Installation Inquiry'
+                      className='ct__input'
+                    />
+                  </div>
+                </div>
+
+                <div className='ct__field'>
+                  <label htmlFor='ct-message' className='ct__label'>
+                    Message <span>*</span>
+                  </label>
+                  <textarea
+                    id='ct-message'
+                    name='message'
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    placeholder='Tell us about your business needs and how we can help...'
+                    className='ct__textarea'
+                    rows={5}
+                  />
+                </div>
+
+                {error && <p className='ct__error'>{error}</p>}
+
+                <div className='ct__form-actions'>
+                  <button type='submit' disabled={isSubmitting} className='ct__submit'>
+                    {isSubmitting ? (
+                      <span className='ct__spinner' />
+                    ) : (
+                      <>
+                        <Send size={16} />
+                        Send Message
+                      </>
+                    )}
+                  </button>
+                  <a href={whatsappFormLink()} target='_blank' rel='noopener noreferrer' className='ct__wa-btn'>
+                    <MessageCircle size={16} />
+                    Send via WhatsApp
+                  </a>
+                </div>
+              </form>
+            )}
+          </div>
+
+          {/* Sidebar */}
+          <div className='ct__sidebar'>
+            {/* Why us */}
+            <div className='ct__sidebar-card'>
+              <h3 className='ct__sidebar-title'>Why choose StoreLense?</h3>
+              <ul className='ct__feature-list'>
+                {FEATURES.map((f) => (
+                  <li key={f} className='ct__feature-item'>
+                    <CheckCircle size={16} color='#37B4C5' strokeWidth={2.5} />
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Response times */}
+            <div className='ct__sidebar-card ct__sidebar-card--accent'>
+              <div className='ct__sidebar-card-header'>
+                <Clock size={18} color='#2563EB' />
+                <h3 className='ct__sidebar-title'>Response guarantee</h3>
+              </div>
+              <p className='ct__sidebar-sub'>Time is money — here's how fast we respond:</p>
+              <div className='ct__times'>
+                {RESPONSE_TIMES.map((r) => (
+                  <div key={r.label} className='ct__time-row'>
+                    <span className='ct__time-label'>{r.label}</span>
+                    <span className='ct__time-val'>{r.time}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* WhatsApp CTA */}
+            <a
+              href={`${WHATSAPP_BASE}?text=Hi%20StoreLense%2C%20I%27d%20like%20to%20know%20more%20about%20your%20POS%20solutions.`}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='ct__wa-card'
+            >
+              <MessageCircle size={28} color='#fff' />
+              <div>
+                <div className='ct__wa-card-title'>Chat on WhatsApp</div>
+                <div className='ct__wa-card-sub'>Fastest way to reach us — we reply in minutes</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
