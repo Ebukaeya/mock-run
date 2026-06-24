@@ -95,7 +95,7 @@ export default function Analytics() {
               }}
               className='slpsh__hero-sub'
             >
-              Sales trends, profit margins, peak hours, top products — every transaction becomes a dashboard insight you can act on.
+              Sales trends, profit margins, peak hours, top products; every transaction becomes a dashboard insight you can act on.
             </p>
             <div className='slpsh__actions'>
               <Link to='/sign-up/' className='slpsh__btn slpsh__btn--primary'>
