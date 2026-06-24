@@ -1,8 +1,10 @@
 import React from "react";
 import { Shield, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 import "../styles/Footer.css"; // Adjust the path as necessary
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <footer className='footer'>
       <div className='footer-container'>
@@ -40,14 +42,22 @@ const Footer = () => {
           <div className='footer-section'>
             <h3 className='footer-title'>Quick Links</h3>
             <ul className='footer-links'>
-              <li>
-                <a href='#home'>Home</a>
+              <li
+                onClick={() => {
+                  navigate("/");
+                }}
+              >
+                Home
               </li>
               <li>
                 <a href='#heroSections'>Features</a>
               </li>
-              <li>
-                <a href='/services'>Services</a>
+              <li
+                onClick={() => {
+                  navigate("/services");
+                }}
+              >
+                Services
               </li>
               <li>
                 <a href='#about'>About Us</a>
@@ -68,26 +78,56 @@ const Footer = () => {
           <div className='footer-section'>
             <h3 className='footer-title'>Solutions</h3>
             <ul className='footer-links'>
-              <li>
-                <a href='#retail'>Retail Stores</a>
+              <li
+                onClick={() => {
+                  navigate("/solutions/retail-stores");
+                }}
+              >
+                Retail Stores
               </li>
-              <li>
-                <a href='#warehouse'>Warehouse Integration</a>
+              <li
+                onClick={() => {
+                  navigate("/solutions/warehouse-integration");
+                }}
+              >
+                Warehouse Integration
               </li>
-              <li>
-                <a href='#restaurants'>Inventory management</a>
+              <li
+                onClick={() => {
+                  navigate("/solutions/inventory-management");
+                }}
+              >
+                Inventory management
               </li>
-              <li>
-                <a href='#pos'>POS Systems</a>
+
+              <li
+                onClick={() => {
+                  navigate("/pos-setup");
+                }}
+              >
+                POS Systems
               </li>
-              <li>
-                <a href='#analytics'>Analytics</a>
+
+              <li
+                onClick={() => {
+                  navigate("/solutions/analytics");
+                }}
+              >
+                Analytics
               </li>
-              <li>
-                <a href='#analytics'>E commerce</a>
+              <li
+                onClick={() => {
+                  navigate("/solutions/ecommerce");
+                }}
+              >
+                E commerce
               </li>
-              <li>
-                <a href='/data-policy'>Data Policy</a>
+              <li
+                onClick={() => {
+                  navigate("/data-policy");
+                }}
+              >
+                Data Policy
               </li>
             </ul>
           </div>

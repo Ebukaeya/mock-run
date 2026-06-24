@@ -139,6 +139,10 @@
 
 .footer-links li {
   margin-bottom: 10px;
+  cursor: pointer;
+}
+.footer-links li:hover {
+  color: #37b4c5;
 }
 
 @media (min-width: 768px) {

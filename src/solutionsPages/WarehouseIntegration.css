@@ -1,0 +1,131 @@
+/* ============================================================
+   slpwi__ — Warehouse Integration Page  (LIGHT THEME)
+   ============================================================ */
+.slpwi__page {
+  background: #f7f9fc;
+}
+.slpwi__hero-blob {
+  position: absolute;
+  top: -180px;
+  right: -140px;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(37, 99, 235, 0.12), transparent 65%),
+    radial-gradient(circle at 70% 70%, rgba(55, 180, 197, 0.07), transparent 60%);
+  pointer-events: none;
+}
+.slpwi__section {
+  padding: clamp(52px, 8vw, 96px) 0;
+  background: #f7f9fc;
+}
+.slpwi__section-alt {
+  padding: clamp(52px, 8vw, 96px) 0;
+  background: #fff;
+}
+.slpwi__loc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 2vw, 16px);
+}
+.slpwi__loc-card {
+  background: #fff;
+  border: 1px solid #e4e9f0;
+  border-radius: 14px;
+  padding: clamp(14px, 2.5vw, 18px);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.slpwi__loc-card:hover {
+  box-shadow: 0 14px 28px -14px rgba(15, 23, 42, 0.15);
+  border-color: #d6e4fe;
+}
+.slpwi__loc-hdr {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.slpwi__loc-ic {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.slpwi__loc-name {
+  font-size: clamp(13px, 2vw, 14px);
+  font-weight: 600;
+  color: #11161d;
+}
+.slpwi__loc-type {
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  color: #5b6472;
+}
+.slpwi__loc-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: clamp(11.5px, 1.8vw, 12.5px);
+  margin-bottom: 8px;
+  color: #5b6472;
+}
+.slpwi__loc-row b {
+  color: #11161d;
+  font-weight: 600;
+}
+.slpwi__loc-bar {
+  height: 4px;
+  background: #f0f3f7;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+.slpwi__loc-fill {
+  height: 100%;
+  border-radius: 2px;
+}
+.slpwi__sync {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  color: #16a34a;
+  background: #e7f8ee;
+  padding: 3px 9px;
+  border-radius: 100px;
+  margin-top: 10px;
+}
+.slpwi__sync-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #16a34a;
+  animation: slpwiPulse 1.6s ease-in-out infinite;
+}
+@keyframes slpwiPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+@media (max-width: 768px) {
+  .slpwi__loc-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .slpwi__loc-grid {
+    grid-template-columns: 1fr;
+  }
+  .slpwi__loc-card {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+}

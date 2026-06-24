@@ -1,0 +1,37 @@
+/* ============================================================
+   slpgl__ — StoreLense Page Globe Component
+   Position: absolute inside .slpsh__hero (overflow:hidden)
+   Parent must have position:relative.
+   ============================================================ */
+
+.slpgl__root {
+  position: absolute;
+  top: 50%; right: -8%;
+  transform: translateY(-50%);
+  width: min(680px, 92vw);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+  animation: slpglSpin 60s linear infinite;
+}
+.slpgl__root--light { opacity: 0.18; }
+
+@keyframes slpglSpin {
+  from { transform: translateY(-50%) rotate(0deg);   }
+  to   { transform: translateY(-50%) rotate(360deg); }
+}
+
+@media (max-width: 1024px) {
+  .slpgl__root { right: -16%; width: min(560px, 88vw); opacity: 0.45; }
+  .slpgl__root--light { opacity: 0.14; }
+}
+@media (max-width: 768px) {
+  .slpgl__root { right: -28%; top: 10%; transform: none; width: min(460px, 80vw); opacity: 0.28; }
+  .slpgl__root--light { opacity: 0.1; }
+}
+@media (max-width: 580px) {
+  .slpgl__root { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .slpgl__root { animation: none; }
+}

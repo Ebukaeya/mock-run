@@ -5,6 +5,7 @@ import { Button } from "../../component/ui/button";
 import { Card, CardContent } from "../ui/card";
 import "./PosSetup.css";
 import { useNavigate } from "react-router-dom";
+import Footer from "../Footer";
 
 const PosSetup = () => {
   const observerRef = useRef(null);
@@ -402,7 +403,7 @@ const PosSetup = () => {
       </section>
 
       {/* CTA Section */}
-      <section className='sl-cta'>
+      {/*  <section className='sl-cta'>
         <div className='sl-container'>
           <div className='sl-cta-content sl-animate'>
             <h2 className='sl-cta-title'>Ready to Revolutionize Your Business?</h2>
@@ -417,7 +418,8 @@ const PosSetup = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+      <Footer />
     </div>
   );
 };

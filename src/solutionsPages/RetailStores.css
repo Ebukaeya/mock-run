@@ -1,0 +1,139 @@
+/* ============================================================
+   slprs__ — Retail Stores Page  (DARK THEME)
+   ============================================================ */
+
+.slprs__page {
+  background: #0c0e14;
+  color: #d7e2ee;
+}
+.slprs__page .slpsh__nav {
+  background: rgba(12, 14, 20, 0.95);
+  border-bottom-color: rgba(255, 255, 255, 0.07);
+}
+
+/* stats band */
+.slprs__stats-band {
+  padding: clamp(30px, 5vw, 48px) 0;
+  background: #111520;
+}
+.slprs__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.slprs__stat {
+  background: #181c28;
+  padding: clamp(18px, 3vw, 26px) clamp(14px, 2.5vw, 24px);
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+.slprs__stat:last-child {
+  border-right: none;
+}
+.slprs__stat-val {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(22px, 3.5vw, 36px);
+  font-weight: 700;
+  color: #e6e7e9;
+  /* font-weight: 700; color: #2563EB; */
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.slprs__stat-label {
+  font-size: clamp(11.5px, 1.8vw, 13px);
+  color: #7b89a8;
+  line-height: 1.4;
+}
+
+/* sections */
+.slprs__section {
+  padding: clamp(52px, 8vw, 96px) 0;
+  background: #0c0e14;
+}
+.slprs__section-alt {
+  padding: clamp(52px, 8vw, 96px) 0;
+  background: #111520;
+}
+
+/* feature cards */
+.slprs__page .slpsh__feat-card {
+  background: #181c28;
+  border-color: rgba(255, 255, 255, 0.07);
+}
+.slprs__page .slpsh__feat-card:hover {
+  border-color: rgba(55, 180, 197, 0.3);
+  box-shadow: 0 0 0 1px rgba(55, 180, 197, 0.15), 0 20px 40px -20px rgba(0, 0, 0, 0.55);
+}
+.slprs__page .slpsh__feat-card h3 {
+  color: #f0f4ff;
+}
+.slprs__page .slpsh__feat-card p {
+  color: #7b89a8;
+}
+.slprs__page .slpsh__section-title {
+  color: #f0f4ff;
+}
+.slprs__page .slpsh__section-sub {
+  color: #7b89a8;
+}
+.slprs__page .slpsh__step-content h3 {
+  color: #f0f4ff;
+}
+.slprs__page .slpsh__step-content p {
+  color: #7b89a8;
+}
+.slprs__page .slpsh__step-line {
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.3), transparent);
+}
+
+/* shift summary vis */
+.slprs__shift-rows {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.slprs__shift-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: "DM Mono", monospace;
+  font-size: clamp(11px, 1.8vw, 12px);
+  color: #7b89a8;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.slprs__shift-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.slprs__shift-row b {
+  color: #f0f4ff;
+  font-weight: 500;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .slprs__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .slprs__stat:nth-child(2) {
+    border-right: none;
+  }
+}
+@media (max-width: 580px) {
+  .slprs__stats {
+    grid-template-columns: 1fr 1fr;
+    border-radius: 12px;
+  }
+  .slprs__stat {
+    padding: 16px 12px;
+  }
+}
+@media (max-width: 380px) {
+  .slprs__stat-val {
+    font-size: 20px;
+  }
+}

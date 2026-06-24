@@ -51,7 +51,6 @@ const POSScanningFeature = () => {
   return (
     <div className='slpos-feature-wrapper'>
       <div className='slpos-feature-container'>
-        {/* Section Header */}
         <div className='slpos-header-section'>
           <div className='slpos-badge'>
             <Zap size={16} />
@@ -63,12 +62,9 @@ const POSScanningFeature = () => {
           </p>
         </div>
 
-        {/* Main Content */}
         <div className='slpos-content-grid'>
-          {/* Left Side - POS Device Visual */}
           <div className='slpos-device-section'>
             <div className='slpos-device-frame'>
-              {/* POS Machine */}
               <div className='slpos-machine'>
                 <div className='slpos-screen'>
                   <div className='slpos-screen-header'>
@@ -76,7 +72,6 @@ const POSScanningFeature = () => {
                     <div className='slpos-time'>{new Date().toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })}</div>
                   </div>
 
-                  {/* Cart Items Display */}
                   <div className='slpos-cart-display'>
                     {scannedItems.length === 0 ? (
                       <div className='slpos-empty-cart'>
@@ -98,7 +93,6 @@ const POSScanningFeature = () => {
                     )}
                   </div>
 
-                  {/* Total Display */}
                   {scannedItems.length > 0 && (
                     <div className='slpos-total-section'>
                       <div className='slpos-total-row'>
@@ -112,7 +106,6 @@ const POSScanningFeature = () => {
                     </div>
                   )}
 
-                  {/* Completion State */}
                   {scanStep === 5 && (
                     <div className='slpos-complete-state'>
                       <CheckCircle size={64} className='slpos-success-icon' />
@@ -122,7 +115,6 @@ const POSScanningFeature = () => {
                   )}
                 </div>
 
-                {/* Scanner Area with Animation */}
                 <div className='slpos-scanner-area'>
                   <div className={`slpos-scan-line ${isAnimating ? "slpos-scanning" : ""}`}></div>
                   {currentProduct && (
@@ -142,7 +134,6 @@ const POSScanningFeature = () => {
                   </div>
                 </div>
 
-                {/* Receipt Printer */}
                 <div className='slpos-printer-slot'>
                   {scanStep === 5 && (
                     <div className='slpos-receipt-printing'>
@@ -152,12 +143,10 @@ const POSScanningFeature = () => {
                 </div>
               </div>
 
-              {/* Decorative Elements */}
               <div className='slpos-glow-effect'></div>
             </div>
           </div>
 
-          {/* Right Side - Feature Highlights */}
           <div className='slpos-features-section'>
             <div className='slpos-feature-card'>
               <div className='slpos-feature-icon slpos-icon-blue'>
@@ -715,7 +704,6 @@ const POSScanningFeature = () => {
           line-height: 1.7;
         }
 
-        /* Responsive Design */
         @media (max-width: 1024px) {
           .slpos-content-grid {
             grid-template-columns: 1fr;
@@ -808,3 +796,493 @@ const POSScanningFeature = () => {
 };
 
 export default POSScanningFeature;
+/* 
+import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { QrCode, Smartphone, ShieldCheck } from "lucide-react";
+import "./ReceiptScanSection.css";
+
+// ─── inline QR SVG (no lib needed) ────────────────────────
+const QR_MODULES = [
+  [38, 5],
+  [46, 5],
+  [54, 5],
+  [62, 5],
+  [38, 13],
+  [54, 13],
+  [46, 21],
+  [62, 13],
+  [38, 21],
+  [62, 21],
+  [5, 38],
+  [13, 38],
+  [21, 38],
+  [38, 38],
+  [46, 38],
+  [62, 38],
+  [70, 38],
+  [86, 38],
+  [54, 38],
+  [78, 38],
+  [5, 46],
+  [21, 46],
+  [46, 46],
+  [62, 46],
+  [78, 46],
+  [86, 46],
+  [13, 54],
+  [38, 54],
+  [54, 54],
+  [70, 54],
+  [86, 54],
+  [5, 62],
+  [21, 62],
+  [46, 62],
+  [62, 62],
+  [78, 62],
+  [38, 70],
+  [54, 70],
+  [62, 70],
+  [70, 70],
+  [86, 70],
+  [38, 78],
+  [54, 78],
+  [78, 78],
+  [46, 86],
+  [62, 86],
+  [70, 86],
+  [86, 86],
+  [38, 33],
+  [54, 33],
+  [33, 38],
+  [33, 54],
+];
+const QR_WHITE = [
+  [46, 33],
+  [62, 33],
+  [33, 46],
+  [33, 62],
+];
+
+function QRSvg({ bg = "#FAFAF7", size = 72 }) {
+  const fill = "#1A1A1A";
+  return (
+    <svg viewBox='0 0 100 100' width={size} height={size} style={{ display: "block" }}>
+      <rect width='100' height='100' fill={bg} />
+      
+      <rect x='5' y='5' width='28' height='28' fill={fill} />
+      <rect x='8' y='8' width='22' height='22' fill={bg} />
+      <rect x='11' y='11' width='16' height='16' fill={fill} />
+    
+      <rect x='67' y='5' width='28' height='28' fill={fill} />
+      <rect x='70' y='8' width='22' height='22' fill={bg} />
+      <rect x='73' y='11' width='16' height='16' fill={fill} />
+     
+      <rect x='5' y='67' width='28' height='28' fill={fill} />
+      <rect x='8' y='70' width='22' height='22' fill={bg} />
+      <rect x='11' y='73' width='16' height='16' fill={fill} />
+      {QR_MODULES.map(([x, y], i) => (
+        <rect key={i} x={x} y={y} width='5' height='5' fill={fill} />
+      ))}
+      {QR_WHITE.map(([x, y], i) => (
+        <rect key={i} x={x} y={y} width='5' height='5' fill={bg} />
+      ))}
+    </svg>
+  );
+}
+
+// ─── Receipt ───────────────────────────────────────────────
+/* function Receipt({ scanned }) {
+  return (
+    <div className='rss__receipt-wrap'>
+      <motion.div
+        className='rss__receipt'
+        initial={{ clipPath: "inset(0 0 100% 0)", y: -6 }}
+        animate={{ clipPath: "inset(0 0 0% 0)", y: 0 }}
+        transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.4 }}
+      >
+        <div className='r-logo'>StoreLense</div>
+        <div className='r-store'>CJP WATCHES</div>
+        <div className='r-addr'>
+          Lekki Phase 1, Lagos
+          <br />
+          +234 801 592 7352
+        </div>
+        <div className='r-div' />
+        <div className='r-row'>
+          <span>Receipt</span>
+          <span>
+            <b>#SL-241128-047</b>
+          </span>
+        </div>
+        <div className='r-row'>
+          <span>Date</span>
+          <span>
+            <b>28 Nov 2024</b>
+          </span>
+        </div>
+        <div className='r-row'>
+          <span>Time</span>
+          <span>
+            <b>14:32 PM</b>
+          </span>
+        </div>
+        <div className='r-row'>
+          <span>Cashier</span>
+          <span>
+            <b>Adaeze O.</b>
+          </span>
+        </div>
+        <div className='r-div' />
+        <table className='r-table'>
+          <thead>
+            <tr>
+              <th>ITEM</th>
+              <th>QTY</th>
+              <th>AMT</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Casio G-Shock</td>
+              <td>×1</td>
+              <td>₦45,000</td>
+            </tr>
+            <tr>
+              <td>Seiko Presage</td>
+              <td>×1</td>
+              <td>₦120,000</td>
+            </tr>
+            <tr>
+              <td>Leather Strap</td>
+              <td>×2</td>
+              <td>₦8,000</td>
+            </tr>
+          </tbody>
+        </table>
+        <div className='r-div' />
+        <table className='r-totals'>
+          <tbody>
+            <tr>
+              <td>Subtotal</td>
+              <td>₦173,000</td>
+            </tr>
+            <tr>
+              <td>VAT (7.5%)</td>
+              <td>₦12,975</td>
+            </tr>
+            <tr className='r-grand'>
+              <td>TOTAL</td>
+              <td>₦185,975</td>
+            </tr>
+          </tbody>
+        </table>
+        <div className='r-div' />
+        <div className='r-paid'>
+          Paid <b>Card (Contactless)</b> · Auth <b>7892</b>
+        </div>
+        <div className='r-div' />
+        <div className='r-scan-lbl'>Scan QR to view transaction</div>
+        <div className={`r-qr-zone${scanned ? " r-qr-zone--scanned" : ""}`}>
+          <QRSvg size={72} />
+        </div>
+        <div className='r-div' />
+        <div className='r-addr' style={{ textAlign: "center" }}>
+          Thank you · Powered by StoreLense
+        </div>
+      </motion.div>
+    </div>
+  );
+} */
+
+// ─── Phone: Camera view ────────────────────────────────────
+/* function CameraView({ scanning }) {
+  return (
+    <div className='rss__cam'>
+      <div className='rss__cam-bar'>
+        <span className='rss__cam-time'>14:32</span>
+        <div className='rss__cam-icons'>
+          <svg width='10' height='8' viewBox='0 0 10 8' fill='rgba(255,255,255,.7)'>
+            <rect x='0' y='2' width='2' height='6' rx='1' />
+            <rect x='3' y='1' width='2' height='7' rx='1' />
+            <rect x='6' y='0' width='2' height='8' rx='1' />
+          </svg>
+          <svg width='10' height='8' viewBox='0 0 10 8' fill='none' stroke='rgba(255,255,255,.7)' strokeWidth='1.2'>
+            <rect x='1' y='2' width='7' height='5' rx='1' />
+            <path d='M8 4h1.5' />
+          </svg>
+        </div>
+      </div>
+      <div className='rss__cam-label'>CAMERA · QR SCAN</div>
+      <div className='rss__cam-body'>
+       
+        <div className='rss__cam-feed'>
+          <div className='rss__cf-lines'>
+            <div className='rss__cf-line' style={{ width: "60%", margin: "0 auto" }} />
+            <div className='rss__cf-line' style={{ width: "80%", margin: "0 auto" }} />
+            <div className='rss__cf-divider' />
+            {[
+              ["30%", "20%", "22%"],
+              ["35%", "8%", "22%"],
+              ["30%", "8%", "20%"],
+            ].map(([a, b, c], i) => (
+              <div key={i} className='rss__cf-row'>
+                <span style={{ width: a }} />
+                <span style={{ width: b }} />
+                <span style={{ width: c }} />
+              </div>
+            ))}
+            <div className='rss__cf-divider' />
+            <div className='rss__cf-row'>
+              <span style={{ width: "22%" }} />
+              <span style={{ width: "25%" }} />
+            </div>
+            <div className='rss__cf-row' style={{ marginTop: 2 }}>
+              <span style={{ width: "14%", background: "rgba(26,26,26,.5)", height: 4 }} />
+              <span style={{ width: "28%", background: "rgba(26,26,26,.5)", height: 4 }} />
+            </div>
+          </div>
+          <div className='rss__cf-qr'>
+            <div className='rss__cf-qr-lbl'>SCAN QR TO VIEW TRANSACTION</div>
+            <QRSvg bg='#E8E5DF' size={36} />
+          </div>
+        </div>
+
+        
+        <div className='rss__cam-overlay'>
+          <div className='rss__focus-zone'>
+            <span className='rss__fz-s' />
+            {scanning && <div className='rss__scan-beam' />}
+          </div>
+          {!scanning && (
+            <div className='rss__scan-ok show'>
+              <div className='rss__scan-ok-ring'>
+                <svg viewBox='0 0 24 24' width='55%' fill='none' stroke='#fff' strokeWidth='3.5' strokeLinecap='round' strokeLinejoin='round'>
+                  <polyline points='20 6 9 17 4 12' />
+                </svg>
+              </div>
+              <div className='rss__scan-ok-lbl'>QR DECODED</div>
+            </div>
+          )}
+        </div>
+      </div>
+      <div className='rss__cam-foot'>
+        <div className='rss__shutter' />
+      </div>
+    </div>
+  );
+}
+
+// ─── Phone: Detail view ────────────────────────────────────
+function DetailView() {
+  return (
+    <div className='rss__detail'>
+      <div className='rss__dh'>
+        <div className='rss__dh-row'>
+          <div className='rss__dh-ic rss__dh-back'>
+            <svg width='8' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,.5)' strokeWidth='2.5' strokeLinecap='round'>
+              <polyline points='15 18 9 12 15 6' />
+            </svg>
+          </div>
+          <div className='rss__dh-t'>Transaction</div>
+          <div className='rss__dh-ic rss__dh-share'>
+            <svg width='8' viewBox='0 0 24 24' fill='none' stroke='#37B4C5' strokeWidth='2.5' strokeLinecap='round' strokeLinejoin='round'>
+              <path d='M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8' />
+              <polyline points='16 6 12 2 8 6' />
+              <line x1='12' y1='2' x2='12' y2='15' />
+            </svg>
+          </div>
+        </div>
+        <div className='rss__damt'>
+          <div className='rss__damt-n'>₦185,975</div>
+          <div className='rss__damt-l'>TOTAL PAID</div>
+          <span className='rss__damt-badge'>Completed</span>
+        </div>
+      </div>
+      <div className='rss__dbody'>
+        <div className='rss__dcard'>
+          <div className='rss__dcard-lbl'>Transaction Info</div>
+          {[
+            ["Receipt", "#SL-241128-047"],
+            ["Date", "28 Nov · 14:32"],
+            ["Store", "CJP Watches"],
+            ["Cashier", "Adaeze O."],
+            ["Payment", "Card · 7892", "ok"],
+          ].map(([k, v, cls]) => (
+            <div className='rss__dr' key={k}>
+              <span className='rss__drk'>{k}</span>
+              <span className={`rss__drv${cls ? ` ${cls}` : ""}`}>{v}</span>
+            </div>
+          ))}
+        </div>
+        <div className='rss__dcard'>
+          <div className='rss__dcard-lbl'>Items</div>
+          {[
+            ["Casio G-Shock", "×1", "₦45,000"],
+            ["Seiko Presage", "×1", "₦120,000"],
+            ["Leather Strap", "×2", "₦8,000"],
+          ].map(([n, q, p]) => (
+            <div className='rss__ditem' key={n}>
+              <div>
+                <div className='rss__din'>{n}</div>
+                <div className='rss__dim'>{q}</div>
+              </div>
+              <div className='rss__dip'>{p}</div>
+            </div>
+          ))}
+        </div>
+        <div className='rss__dcard'>
+          <div className='rss__dcard-lbl'>Summary</div>
+          <div className='rss__dr'>
+            <span className='rss__drk'>Subtotal</span>
+            <span className='rss__drv'>₦173,000</span>
+          </div>
+          <div className='rss__dr'>
+            <span className='rss__drk'>VAT 7.5%</span>
+            <span className='rss__drv'>₦12,975</span>
+          </div>
+          <div className='rss__dr'>
+            <span className='rss__drk' style={{ color: "#C9D6E4", fontWeight: 700 }}>
+              Total
+            </span>
+            <span className='rss__drv' style={{ color: "#fff", fontWeight: 700 }}>
+              ₦185,975
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Phase machine ─────────────────────────────────────────
+const PHASES = [
+  { id: "scanning", dur: 3400 },
+  { id: "scanned", dur: 900 },
+  { id: "detail", dur: 4400 },
+  { id: "reset", dur: 400 },
+];
+
+const FEATURES = [
+  { Icon: QrCode, h: "QR on every receipt", d: "Auto-embedded on every 80mm print — zero extra setup." },
+  { Icon: Smartphone, h: "No app required", d: "Scan with the default camera on any iOS or Android phone." },
+  { Icon: ShieldCheck, h: "Dispute-proof records", d: "Transaction detail is cloud-locked — immutable and timestamped." },
+];  */
+
+/* export default function POSScanningFeature() {
+  const [phase, setPhase] = useState("scanning");
+  const timer = useRef(null);
+
+  useEffect(() => {
+    let i = 0;
+    const tick = () => {
+      const p = PHASES[i % PHASES.length];
+      setPhase(p.id);
+      i++;
+      timer.current = setTimeout(tick, p.dur);
+    };
+    timer.current = setTimeout(tick, 1800);
+    return () => clearTimeout(timer.current);
+  }, []);
+
+  const showCam = phase === "scanning" || phase === "scanned";
+  const isScanning = phase === "scanning";
+  const isScanned = phase === "scanned" || phase === "detail";
+  const showDetail = phase === "detail";
+
+  return (
+    <section className='rss'>
+      <div className='rss__wrap'>
+        <div className='rss__head'>
+          <span className='rss__ey'>
+            <span className='rss__ey-dot' />
+            Receipt intelligence
+          </span>
+          <h2 className='rss__title'>
+            Printed receipt.
+            <br />
+            <em>Digital record. Instantly.</em>
+          </h2>
+          <p className='rss__sub'>Every 80mm receipt prints a QR code. Scan it with any phone camera to pull up the full transaction — no app, no login.</p>
+        </div>
+
+        <div className='rss__scene'>
+          
+          <div className='rss__rcol'>
+            <div className='rss__printer'>
+              <span className='rss__printer-name'>STORELENSE</span>
+              <span className='rss__printer-led' />
+              <div className='rss__printer-slot' />
+            </div>
+            <div className='rss__feed' />
+            <Receipt scanned={isScanned} />
+          </div>
+
+          
+          <motion.div
+            className='rss__pcol'
+            initial={{ opacity: 0, x: 90 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.65, ease: [0.34, 1.56, 0.64, 1], delay: 1.6 }}
+          >
+            {" "}
+            <div className='rss__phone'>
+              <div className='rss__notch' />
+              <div className='rss__screen'>
+                <AnimatePresence mode='wait'>
+                  {showCam ? (
+                    <motion.div
+                      key='cam'
+                      style={{ position: "absolute", inset: 0 }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.4 }}
+                    >
+                      <CameraView scanning={isScanning} />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key='detail'
+                      style={{ position: "absolute", inset: 0 }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.45 }}
+                    >
+                      <DetailView />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+              <div className='rss__phone-bar' />
+            </div>
+          </motion.div>
+        </div>
+
+       
+        <div className='rss__feats'>
+          {FEATURES.map(({ Icon, h, d }, i) => (
+            <motion.div
+              key={h}
+              className='rss__feat'
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.08 }}
+              whileHover={{ y: -3 }}
+            >
+              <div className='rss__feat-ic'>
+                <Icon size={18} color='#2563EB' strokeWidth={2} />
+              </div>
+              <div>
+                <div className='rss__feat-h'>{h}</div>
+                <div className='rss__feat-d'>{d}</div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+} */
