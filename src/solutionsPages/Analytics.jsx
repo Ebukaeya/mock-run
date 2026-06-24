@@ -48,7 +48,7 @@ const FEATS = [
     color: "#37B4C5",
     bg: "#37B4C518",
     title: "Custom date ranges",
-    desc: "Compare any two periods — last week vs this week, Q1 vs Q2. Full flexibility.",
+    desc: "Compare any two periods; last week vs this week, Q1 vs Q2. Full flexibility.",
   },
 ];
 const PRODUCTS = [

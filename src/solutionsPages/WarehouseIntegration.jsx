@@ -22,7 +22,7 @@ const FEATS = [
     title: "Stock transfers",
     desc: "Move inventory between locations in the app. Track quantity, who moved it and when.",
   },
-  { icon: MapPin, color: "#16A34A", bg: "#16A34A18", title: "Multi-location", desc: "Lagos, Abuja, Enugu — manage every branch from one dashboard." },
+  { icon: MapPin, color: "#16A34A", bg: "#16A34A18", title: "Multi-location", desc: "Lagos, Abuja, Enugu; manage every branch from one dashboard." },
   { icon: Bell, color: "#F5A623", bg: "#F5A62318", title: "Restock alerts", desc: "Get notified when a warehouse SKU drops below your threshold." },
   { icon: Package, color: "#2563EB", bg: "#2563EB18", title: "Batch tracking", desc: "Receive goods in batches with dates and supplier info." },
   {
@@ -30,7 +30,7 @@ const FEATS = [
     color: "#37B4C5",
     bg: "#37B4C518",
     title: "Warehouse dashboard",
-    desc: "Dedicated view — inbound, outbound and current on-hand, all in one screen.",
+    desc: "Dedicated view, inbound, outbound and current on-hand, all in one screen.",
   },
 ];
 const LOCS = [
@@ -54,7 +54,7 @@ const STEPS = [
     icon: RefreshCw,
     col: "#16A34A",
     title: "Receive stock inbound",
-    body: "Log deliveries — counts update the moment you confirm receipt.",
+    body: "Log deliveries; counts update the moment you confirm receipt.",
     badge: "Auto-calculates totals",
   },
   {
@@ -62,7 +62,7 @@ const STEPS = [
     icon: ArrowRightLeft,
     col: "#2563EB",
     title: "Transfer between locations",
-    body: "Deducts from the source, adds to the destination — automatically.",
+    body: "Deducts from the source, adds to the destination; automatically.",
   },
   {
     n: "05",
@@ -138,7 +138,7 @@ export default function WarehouseIntegration() {
               }}
               className='slpsh__hero-sub'
             >
-              Connect your warehouse to every store branch. When stock moves — sale, transfer or delivery — every location knows instantly.
+              Connect your warehouse to every store branch. When stock moves, sale, transfer or delivery, every location knows instantly.
             </p>
             <div className='slpsh__actions'>
               <Link to='/sign-up' className='slpsh__btn slpsh__btn--primary'>

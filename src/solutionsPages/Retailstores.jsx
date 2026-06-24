@@ -27,7 +27,7 @@ const FEATS = [
     color: "#F5A623",
     bg: "rgba(245,166,35,.18)",
     title: "80mm receipts",
-    desc: "Branded receipts print the moment a sale confirms — no app, no QR, no confusion.",
+    desc: "Branded receipts print the moment a sale confirms; no app, no QR, no confusion.",
   },
   {
     icon: Wifi,
@@ -57,7 +57,7 @@ const STEPS = [
     icon: Zap,
     col: "#37B4C5",
     title: "Plug in and power on",
-    body: "Arrives pre-configured. Connect to power — ready in 60 seconds.",
+    body: "Arrives pre-configured. Connect to power; ready in 60 seconds.",
     badge: "✓ No IT required",
     btype: "done",
   },
@@ -75,7 +75,7 @@ const STEPS = [
     icon: CheckCircle,
     col: "#16A34A",
     title: "Start selling",
-    body: "Tap a product, choose quantity, accept payment — first sale ready to print.",
+    body: "Tap a product, choose quantity, accept payment; first sale ready to print.",
     badge: "✓ You're live",
     btype: "done",
   },
@@ -132,7 +132,7 @@ export default function RetailStores() {
               The POS your shop has been <em>waiting for</em>
             </h1>
             <p className='slpsh__hero-sub'>
-              From a boutique in Lekki to a supermarket in Enugu — StoreLense runs your checkout, tracks your stock and protects your cash, all from one
+              From a boutique in Lekki to a supermarket in Enugu, StoreLense runs your checkout, tracks your stock and protects your cash, all from one
               terminal.
             </p>
             <div className='slpsh__actions'>

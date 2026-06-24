@@ -34,7 +34,7 @@ const FEATS = [
     color: "#16A34A",
     bg: "rgba(22,163,74,.18)",
     title: "Product variants",
-    desc: "Sizes, colours, weights — each variant tracked independently with its own stock count.",
+    desc: "Sizes, colours, weights; each variant tracked independently with its own stock count.",
   },
   {
     icon: Archive,
@@ -139,7 +139,7 @@ export default function InventoryManagement() {
               Never sell what <em>you don't have</em>
             </h1>
             <p className='slpsh__hero-sub'>
-              Real-time stock counts that update with every sale, transfer and delivery. Know exactly what's on your shelf — before your customer asks.
+              Real-time stock counts that update with every sale, transfer and delivery. Know exactly what's on your shelf; before your customer asks.
             </p>
             <div className='slpsh__actions'>
               <Link to='/sign-up' className='slpsh__btn slpsh__btn--primary'>

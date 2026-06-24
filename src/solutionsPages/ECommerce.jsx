@@ -358,7 +358,7 @@ const STEPS = [
     icon: Package,
     col: "#37B4C5",
     title: "Your catalogue is already synced",
-    body: "StoreLense is automatically connected to Shurplug. Your entire product catalogue — names, prices, photos and stock levels — is pre-loaded in Shurplug the moment you sign up. No import. No configuration.",
+    body: "StoreLense is automatically connected to Shurplug. Your entire product catalogue; names, prices, photos and stock levels;  is pre-loaded in Shurplug the moment you sign up. No import. No configuration.",
     badge: "✓ Zero setup required",
     btype: "done",
     tip: "Check your Shurplug dashboard any time to see your products already listed there.",
@@ -377,7 +377,7 @@ const STEPS = [
     icon: ToggleRight,
     col: "#16A34A",
     title: "Hit 'Sell Online' on the product",
-    body: "Toggle 'Sell Online' on the product card. The product goes live on your Shurplug storefront immediately — customers can see it, add it to their cart and checkout right away.",
+    body: "Toggle 'Sell Online' on the product card. The product goes live on your Shurplug storefront immediately; customers can see it, add it to their cart and checkout right away.",
     badge: "✓ Goes live instantly",
     btype: "done",
     tip: "You can toggle products on and off any time. Out-of-stock items auto-hide so customers never see what's unavailable.",
@@ -395,7 +395,7 @@ const STEPS = [
     n: "05",
     icon: Globe,
     col: "#37B4C5",
-    title: "Hit 'Publish Online' — you're live",
+    title: "Hit 'Publish Online'; you're live",
     body: "One tap and your Shurplug store goes public. Share your store link on WhatsApp, Instagram and with your regulars. Every order automatically deducts stock exactly like an in-store sale.",
     badge: "✓ You're live",
     btype: "done",
@@ -505,7 +505,7 @@ export default function ECommerce() {
               Your store, <em>live online</em> in minutes
             </h1>
             <p className='slpsh__hero-sub'>
-              StoreLense automatically syncs your catalogue with Shurplug. Set a delivery fee, hit Sell Online, then publish your store — no developer, no
+              StoreLense automatically syncs your catalogue with Shurplug. Set a delivery fee, hit Sell Online, then publish your store; no developer, no
               import, no new account.
             </p>
             <div className='slpsh__actions'>
