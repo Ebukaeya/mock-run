@@ -26,7 +26,9 @@ const MobileAppDownload = () => {
   const handleAndroidDownload = () => {
     setDownloadStarted(true);
     // Replace with your actual APK download URL
-    const apkUrl = "https://expo.dev/artifacts/eas/skfmDMtH1hazJVjdCtVtqi.tar.gz";
+    const apkUrl = "https://app-assit-web-store.vercel.app/storelenseApp.apk";
+    /*   const apkUrl = "https://expo.dev/artifacts/eas/skfmDMtH1hazJVjdCtVtqi.tar.gz"; */
+
     window.location.href = apkUrl;
 
     setTimeout(() => {
@@ -290,7 +292,8 @@ const MobileAppDownload = () => {
           left: 0;
           right: 0;
           bottom: 0;
-          background: radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+          background:
+            radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
             radial-gradient(circle at 70% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
           pointer-events: none;
         }
