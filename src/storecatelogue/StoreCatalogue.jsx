@@ -1,5 +1,6 @@
 import { useState, useMemo, useCallback, useEffect } from "react";
 import { Phone, MessageCircle, MapPin, Search, ShoppingBag, Star, Plus, ImageOff, Clock, Bike, Users } from "lucide-react";
+import Loader from "./storelensSpiner/StorelenseSpinner";
 import ProductDetailOverlay from "./ProductDetailOverlay";
 import CartOverlay from "./CartOverlay";
 import MediaViewerOverlay from "./MediaViewerOverlay";
@@ -463,8 +464,16 @@ export default function StoreCatalogue(/* { store, products, onSendQuotation } *
 
   if (isLoading || !store) {
     return (
-      <div className='slc-loading'>
-        <p>Loading store data...</p>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100vh",
+        }}
+      >
+        <Loader size={70} />
       </div>
     );
   }

@@ -1,0 +1,44 @@
+.sl-loader {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sl-loader__logo {
+  width: 62%;
+  height: 62%;
+  object-fit: contain;
+}
+
+.sl-loader__ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 50% 50%;
+  animation: sl-loader-spin 1.6s ease-in-out infinite;
+}
+
+.sl-loader__arc {
+  stroke: #1d6fd8;
+  stroke-dasharray: 72 217;
+  stroke-dashoffset: 0;
+}
+
+.sl-loader__label {
+  position: absolute;
+  bottom: -28px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  color: #0f2a47;
+  white-space: nowrap;
+}
+
+@keyframes sl-loader-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
