@@ -1,0 +1,478 @@
+.slc-page {
+  min-height: 100vh;
+
+  font-family:
+    "Nunito",
+    -apple-system,
+    sans-serif;
+  color: #0f2a47;
+  padding-bottom: 40px;
+}
+
+/* ---------- Header ---------- */
+
+.slc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 6;
+  background: #f7f9fb;
+  transition: padding 0.2s ease;
+}
+
+.slc-icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #e7ecf2;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f2a47;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.slc-icon-btn:hover {
+  border-color: #c7d0db;
+}
+
+.slc-icon-btn:active {
+  transform: scale(0.94);
+}
+
+.slc-header-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid #e7ecf2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition:
+    width 0.2s ease,
+    height 0.2s ease,
+    border-radius 0.2s ease;
+}
+
+.slc-header--stuck .slc-header-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+}
+
+.slc-header--stuck .slc-header-logo span {
+  font-size: 14px;
+}
+
+.slc-header-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slc-header-logo span {
+  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #37b4c5;
+}
+
+.slc-cart-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 9px;
+  background: #1d6fd8;
+  color: #ffffff;
+  font-family: "Nunito", monospace;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #f7f9fb;
+}
+
+/* ---------- Header info (title + category + meta, beside the logo) ---------- */
+
+.slc-header-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.slc-header-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.slc-header-title-row h1 {
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.01em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.slc-category-pill {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: #37b4c5;
+  background: rgba(55, 180, 197, 0.12);
+  padding: 2px 9px;
+  border-radius: 100px;
+}
+
+.slc-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  font-size: 11.5px;
+  color: #6b7a8d;
+  margin-top: 3px;
+}
+
+.slc-meta-row span {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.slc-meta-icon {
+  color: #9daab9;
+}
+
+.slc-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: #0f2a47;
+  font-weight: 600;
+}
+
+.slc-star-icon {
+  fill: #f5a524;
+  stroke: #f5a524;
+}
+
+/* ---------- Action row ---------- */
+
+.slc-actions-row {
+  display: flex;
+  gap: 10px;
+  padding: 6px 16px 4px;
+}
+
+.slc-action-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 8px;
+  border-radius: 12px;
+  border: 1px solid #e7ecf2;
+  background: #ffffff;
+  font-family: "Nunito", sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #0f2a47;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    transform 0.1s ease;
+}
+
+.slc-action-btn:hover {
+  border-color: #37b4c5;
+  color: #1d6fd8;
+}
+
+.slc-action-btn:active {
+  transform: scale(0.97);
+}
+
+/* ---------- Sections ---------- */
+
+.slc-section {
+  padding: 18px 16px 0;
+}
+
+.slc-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.slc-section-head h2 {
+  font-family: "Nunito", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.slc-popular-row-wrap {
+  position: relative;
+}
+
+.slc-popular-row-wrap::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 6px;
+  width: 28px;
+  background: linear-gradient(to right, rgba(247, 249, 251, 0), #f7f9fb);
+  pointer-events: none;
+}
+
+.slc-popular-row {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: none;
+  scroll-snap-type: x proximity;
+}
+
+.slc-popular-row::-webkit-scrollbar {
+  display: none;
+}
+
+.slc-popular-row .slc-card--compact {
+  flex: 0 0 128px;
+  scroll-snap-align: start;
+}
+
+/* ---------- Category chips ---------- */
+
+.slc-category-row {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scrollbar-width: none;
+}
+
+.slc-category-row::-webkit-scrollbar {
+  display: none;
+}
+
+.slc-chip {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: 1px solid #e7ecf2;
+  background: #ffffff;
+  font-family: "Nunito", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b7a8d;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.slc-chip--active {
+  background: #0f2a47;
+  border-color: #0f2a47;
+  color: #ffffff;
+}
+
+/* ---------- Product grid & cards ---------- */
+
+.slc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  padding-bottom: 10px;
+}
+
+@media (min-width: 420px) {
+  .slc-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+.slc-empty {
+  text-align: center;
+  padding: 40px 0;
+  color: #6b7a8d;
+  font-size: 14px;
+}
+
+.slc-card {
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.slc-card:hover {
+  transform: translateY(-2px);
+}
+
+.slc-card-media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e7ecf2;
+  transition:
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.slc-card:hover .slc-card-media {
+  border-color: #d7dee6;
+  box-shadow: 0 10px 22px rgba(15, 42, 71, 0.09);
+}
+
+.slc-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.slc-card-media-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slc-badge-sale {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #1d6fd8;
+  color: #ffffff;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 100px;
+}
+
+.slc-add-btn {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: #37b4c5;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.12s ease;
+}
+
+.slc-add-btn:active {
+  transform: scale(0.88);
+}
+
+.slc-card-outofstock {
+  position: absolute;
+  inset: 0;
+  background: rgba(247, 249, 251, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #6b7a8d;
+  text-transform: uppercase;
+}
+
+.slc-card-price {
+  font-family: "DM Mono", monospace;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #0f2a47;
+  margin-top: 8px;
+}
+
+.slc-card-name {
+  font-size: 12.5px;
+  color: #6b7a8d;
+  margin-top: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 1.35;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (min-width: 600px) {
+  .slc-page {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 900px) {
+  .slc-page {
+    max-width: 900px;
+  }
+
+  .slc-grid {
+    gap: 18px;
+  }
+
+  .slc-header {
+    /* padding: 16px 0; */
+  }
+
+  .slc-actions-row,
+  .slc-section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .slc-actions-row {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .slc-page {
+    max-width: 1120px;
+  }
+}
+@media (max-width: 420px) {
+  .slc-icon-btn-cart {
+    position: fixed;
+    bottom: 14px;
+    right: 14px;
+  }
+}

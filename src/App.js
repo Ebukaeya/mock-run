@@ -23,6 +23,7 @@ import Analytics from "./solutionsPages/Analytics.jsx";
 import InventoryManagement from "./solutionsPages/InventoryManagement.jsx";
 import ECommerce from "./solutionsPages/ECommerce.jsx";
 import WarehouseIntegration from "./solutionsPages/WarehouseIntegration.jsx";
+import StoreCatalogue from "./storecatelogue/StoreCatalogue.jsx";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -84,6 +85,7 @@ function App() {
         <Route path='/solutions/warehouse-integration' element={<WarehouseIntegration />} />
         <Route path='/portals' element={<PortalSelection />} />
         <Route path='/bookedOrders/' element={<BookOrder />} />
+        <Route path='/stores/:storeID' element={<StoreCatalogue />} />
         <Route path='/check-out/' element={<HardwareCheckoutPage />} />
         <Route path='*' element={<div> 404 Not Found</div>} />
       </Routes>

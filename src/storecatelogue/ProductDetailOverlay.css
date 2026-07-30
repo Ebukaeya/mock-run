@@ -1,0 +1,373 @@
+.pdo-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 42, 71, 0.45);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  animation: pdo-fade-in 0.2s ease;
+}
+
+@keyframes pdo-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.pdo-sheet {
+  width: 100%;
+  max-width: 480px;
+  max-height: 94vh;
+  background: #ffffff;
+  border-radius: 22px 22px 0 0;
+  overflow-y: auto;
+  position: relative;
+  font-family:
+    "Nunito",
+    -apple-system,
+    sans-serif;
+  color: #0f2a47;
+  animation: pdo-slide-up 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes pdo-slide-up {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.pdo-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(15, 42, 71, 0.55);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+}
+
+/* ---------- Media carousel ---------- */
+
+.pdo-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #eef2f6;
+  overflow: hidden;
+  border-radius: 22px 22px 0 0;
+}
+
+.pdo-media-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pdo-media-item {
+  flex: 0 0 100%;
+  height: 100%;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: none;
+  cursor: zoom-in;
+  position: relative;
+}
+
+.pdo-media-item img,
+.pdo-media-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pdo-media-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdo-play-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(15, 42, 71, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdo-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.pdo-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.pdo-dot--active {
+  background: #ffffff;
+  width: 16px;
+  border-radius: 4px;
+}
+
+/* ---------- Body ---------- */
+
+.pdo-body {
+  padding: 18px 20px 8px;
+}
+
+.pdo-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.pdo-title-row h2 {
+  font-family: "Nunito", sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.pdo-stock {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.pdo-stock--in {
+  color: #1fa96a;
+  background: rgba(31, 169, 106, 0.12);
+}
+
+.pdo-stock--out {
+  color: #d64545;
+  background: rgba(214, 69, 69, 0.12);
+}
+
+.pdo-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.pdo-price-label {
+  font-size: 11.5px;
+  color: #6b7a8d;
+  margin-bottom: 2px;
+}
+
+.pdo-price {
+  font-family: "DM Mono", monospace;
+  font-size: 21px;
+  font-weight: 700;
+  color: #0f2a47;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.pdo-price-strike {
+  font-size: 13px;
+  font-weight: 500;
+  color: #a6b2c0;
+  text-decoration: line-through;
+}
+
+.pdo-stepper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #e7ecf2;
+  border-radius: 100px;
+  padding: 6px 12px;
+}
+
+.pdo-stepper button {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background: #f7f9fb;
+  color: #0f2a47;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.pdo-stepper span {
+  font-family: "Nunito", monospace;
+  font-weight: 600;
+  min-width: 14px;
+  text-align: center;
+}
+
+/* ---------- Sub-units ---------- */
+
+.pdo-subunits {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.pdo-subunit-chip {
+  padding: 7px 14px;
+  border-radius: 100px;
+  border: 1px solid #e7ecf2;
+  background: #ffffff;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #6b7a8d;
+  cursor: pointer;
+}
+
+.pdo-subunit-chip--active {
+  border-color: #37b4c5;
+  color: #1d6fd8;
+  background: rgba(55, 180, 197, 0.1);
+}
+
+/* ---------- Badges ---------- */
+
+.pdo-badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.pdo-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #0f2a47;
+  background: #f7f9fb;
+  border: 1px solid #e7ecf2;
+  padding: 7px 12px;
+  border-radius: 12px;
+}
+
+/* ---------- Description ---------- */
+
+.pdo-description {
+  margin-top: 18px;
+  padding-bottom: 90px;
+}
+
+.pdo-description h3 {
+  font-family: "Nunito", sans-serif;
+  font-size: 14.5px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.pdo-description p {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #47566b;
+  margin: 0;
+}
+
+.pdo-readmore {
+  border: none;
+  background: none;
+  color: #1d6fd8;
+  font-weight: 700;
+  font-size: 13.5px;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* ---------- Footer CTA ---------- */
+
+.pdo-footer {
+  position: sticky;
+  bottom: 0;
+  padding: 12px 20px calc(14px + env(safe-area-inset-bottom));
+  background: linear-gradient(to top, #ffffff 70%, rgba(255, 255, 255, 0));
+}
+
+.pdo-add-btn {
+  width: 100%;
+  padding: 15px;
+  border-radius: 14px;
+  border: none;
+  background: #37b4c5;
+  color: #ffffff;
+  font-family: "Nunito", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.1s ease,
+    background 0.15s ease;
+}
+
+.pdo-add-btn:active {
+  transform: scale(0.98);
+}
+
+.pdo-add-btn:disabled {
+  background: #c7d0db;
+  cursor: not-allowed;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (min-width: 640px) {
+  .pdo-overlay {
+    align-items: center;
+  }
+
+  .pdo-sheet {
+    border-radius: 24px;
+    max-height: 88vh;
+  }
+
+  .pdo-media {
+    border-radius: 24px 24px 0 0;
+  }
+}
