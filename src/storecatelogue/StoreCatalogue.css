@@ -129,9 +129,16 @@
   font-weight: 700;
   margin: 0;
   letter-spacing: -0.01em;
+
+  max-width: 150px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Maximum of 2 lines */
+  -webkit-box-orient: vertical;
+
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal; /* Allow wrapping */
 }
 
 .slc-category-pill {
