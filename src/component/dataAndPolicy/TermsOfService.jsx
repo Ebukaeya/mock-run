@@ -61,8 +61,8 @@ const styles = `
   .sb p:last-child{margin-bottom:0;}
   .sb strong{color:var(--sl-h);font-weight:700;}
 
-  .card{margin-top:14px;padding:16px 18px;background:var(--sl-bg);border-radius:9px;border:1px solid var(--sl-border);box-shadow:var(--sh1);}
-  .ct{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--sl-teal-dark);font-weight:600;margin-bottom:10px;;}
+  .cardwe44{margin-top:14px;padding:16px 18px;background:var(--sl-bg);border-radius:9px;border:1px solid var(--sl-border);box-shadow:var(--sh1);}
+  .ctasaa33{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--sl-teal-dark);font-weight:600;margin-bottom:10px;;}
 
   .chips{display:flex;flex-direction:column;gap:7px;margin-top:10px;}
   .chip{display:flex;align-items:flex-start;gap:9px;padding:9px 13px;background:var(--sl-white);border-radius:7px;font-size:12px;color:var(--sl-b);border:1px solid var(--sl-border);box-shadow:var(--sh1);line-height:1.5;transition:border-color .2s;}
@@ -171,7 +171,7 @@ function useActive() {
         entries.forEach((e) => {
           if (e.isIntersecting) setA(e.target.id);
         }),
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
     secs.forEach(({ id }) => {
       const el = document.getElementById(id);
@@ -190,7 +190,7 @@ function Sec({ id, num, title, children }) {
       ([e]) => {
         if (e.isIntersecting) r.current.classList.add("vis");
       },
-      { threshold: 0.05 }
+      { threshold: 0.05 },
     );
     obs.observe(r.current);
     return () => obs.disconnect();
@@ -313,8 +313,8 @@ export default function TermsOfService() {
                 We grant you a <strong>limited, non-exclusive, non-transferable, revocable license</strong> to access and use Storelense solely for your
                 internal business operations.
               </p>
-              <div className='card'>
-                <p className='ct'>You agree NOT to:</p>
+              <div className='cardwe44'>
+                <p className='ctasaa33'>You agree NOT to:</p>
                 <div className='chips' style={{ marginTop: 0 }}>
                   <Chip d='dr' text='Reverse engineer or copy the platform' />
                   <Chip d='dr' text='Resell or sublicense the Service to third parties' />
