@@ -24,6 +24,8 @@ import InventoryManagement from "./solutionsPages/InventoryManagement.jsx";
 import ECommerce from "./solutionsPages/ECommerce.jsx";
 import WarehouseIntegration from "./solutionsPages/WarehouseIntegration.jsx";
 import StoreCatalogue from "./storecatelogue/StoreCatalogue.jsx";
+import VenueStorefront from "./restaurantCatalogue/client/VenueStorefront.jsx";
+import TrackOrder from "./restaurantCatalogue/client/TrackOrder.jsx";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -87,6 +89,12 @@ function App() {
         <Route path='/bookedOrders/' element={<BookOrder />} />
         <Route path='/stores/:storeID' element={<StoreCatalogue />} />
         <Route path='/check-out/' element={<HardwareCheckoutPage />} />
+        //hospitality
+        <Route path='/restaurant/:venueId' element={<VenueStorefront venueType='restaurant' />} />
+        <Route path='/bar/:venueId' element={<VenueStorefront venueType='bar' />} />
+        <Route path='/cafe/:venueId' element={<VenueStorefront venueType='cafe' />} />
+        <Route path='/track' element={<TrackOrder />} />
+        <Route path='/track/:trackingCode' element={<TrackOrder />} />
         <Route path='*' element={<div> 404 Not Found</div>} />
       </Routes>
     </BrowserRouter>

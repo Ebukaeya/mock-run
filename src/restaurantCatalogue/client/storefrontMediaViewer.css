@@ -1,0 +1,200 @@
+/* ─── Storefront: a dish's photos and videos, full screen ─────────
+   Prefix: slhShopView */
+
+.slhShopView {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  background: #0B0F17;
+  font-family: "Nunito", system-ui, sans-serif;
+  color: #FFFFFF;
+  animation: slhShopViewIn 0.18s ease-out;
+}
+
+.slhShopView *,
+.slhShopView *::before,
+.slhShopView *::after {
+  box-sizing: border-box;
+}
+
+@keyframes slhShopViewIn {
+  from {
+    opacity: 0;
+  }
+}
+
+.slhShopView__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  padding-top: calc(14px + env(safe-area-inset-top));
+}
+
+.slhShopView__title {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  min-width: 0;
+}
+
+.slhShopView__title b {
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.slhShopView__title span {
+  flex-shrink: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #A9B6C8;
+}
+
+.slhShopView__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.slhShopView__btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.slhShopView__btn:focus-visible,
+.slhShopView__thumb:focus-visible {
+  outline: 3px solid #A9C8F0;
+  outline-offset: 2px;
+}
+
+.slhShopView__stage {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  padding: 0 72px;
+  touch-action: pan-y;
+}
+
+.slhShopView__media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  animation: slhShopViewIn 0.2s ease-out;
+}
+
+.slhShopView__nav {
+  position: absolute;
+  top: 50%;
+  width: 48px;
+  height: 48px;
+  margin-top: -24px;
+}
+
+.slhShopView__nav--prev {
+  left: 14px;
+}
+
+.slhShopView__nav--next {
+  right: 14px;
+}
+
+.slhShopView__strip {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 18px;
+  padding-bottom: calc(16px + env(safe-area-inset-bottom));
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.slhShopView__strip::-webkit-scrollbar {
+  display: none;
+}
+
+.slhShopView__thumb {
+  position: relative;
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  overflow: hidden;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background: #1F2937;
+  opacity: 0.55;
+  cursor: pointer;
+  transition: opacity 0.15s, border-color 0.15s;
+}
+
+.slhShopView__thumb:hover {
+  opacity: 0.85;
+}
+
+.slhShopView__thumb--on {
+  border-color: #FFFFFF;
+  opacity: 1;
+}
+
+.slhShopView__thumb img,
+.slhShopView__thumb video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.slhShopView__play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  color: #FFFFFF;
+}
+
+/* Phones: swipe instead of the side arrows */
+@media (max-width: 640px) {
+  .slhShopView__stage {
+    padding: 0;
+  }
+
+  .slhShopView__nav {
+    display: none;
+  }
+
+  .slhShopView__strip {
+    justify-content: flex-start;
+  }
+
+  .slhShopView__thumb {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slhShopView,
+  .slhShopView__media {
+    animation: none;
+  }
+}

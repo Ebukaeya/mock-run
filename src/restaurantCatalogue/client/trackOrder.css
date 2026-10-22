@@ -1,0 +1,867 @@
+/* ─── Track an order ──────────────────────────────────────────────
+   Prefix: slhTrack */
+
+.slhTrack {
+  min-height: 100vh;
+  background: #F5F7FA;
+  font-family: "Nunito", system-ui, sans-serif;
+  color: #1F2A37;
+}
+
+.slhTrack *,
+.slhTrack *::before,
+.slhTrack *::after {
+  box-sizing: border-box;
+}
+
+.slhTrack button,
+.slhTrack input {
+  font-family: inherit;
+}
+
+.slhTrack button:focus-visible,
+.slhTrack a:focus-visible,
+.slhTrack input:focus-visible {
+  outline: 3px solid #A9C8F0;
+  outline-offset: 2px;
+}
+
+.slhTrack__bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid #E8EDF3;
+}
+
+.slhTrack__barIn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  max-width: 760px;
+  height: 58px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.slhTrack__venue {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  text-decoration: none;
+}
+
+.slhTrack__venue img,
+.slhTrack__venue span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: #1E3A5F;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.slhTrack__venue b {
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 800;
+  color: #1E3A5F;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.slhTrack__refresh {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: #F1F5F9;
+  color: #334155;
+  cursor: pointer;
+}
+
+.slhTrack__spinning {
+  animation: slhTrackSpin 0.9s linear infinite;
+}
+
+@keyframes slhTrackSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.slhTrack__wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 20px 20px 40px;
+}
+
+/* ─── Status ─── */
+.slhTrack__hero {
+  padding: 26px 24px 22px;
+  border-radius: 20px;
+  background: #FFFFFF;
+  border: 1px solid #E8EDF3;
+  text-align: center;
+}
+
+.slhTrack__heroIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+}
+
+.slhTrack__hero--wait .slhTrack__heroIcon {
+  background: #FFF4E0;
+  color: #D97706;
+}
+
+.slhTrack__hero--busy .slhTrack__heroIcon {
+  background: #EAF2FD;
+  color: #1D6FD8;
+  animation: slhTrackPulse 2s ease-in-out infinite;
+}
+
+.slhTrack__hero--go .slhTrack__heroIcon {
+  background: #E0F2FE;
+  color: #0369A1;
+}
+
+.slhTrack__hero--done .slhTrack__heroIcon {
+  background: #DCFCE7;
+  color: #16A34A;
+}
+
+.slhTrack__hero--bad .slhTrack__heroIcon {
+  background: #FEE2E2;
+  color: #DC2626;
+}
+
+@keyframes slhTrackPulse {
+  50% {
+    box-shadow: 0 0 0 10px rgba(29, 111, 216, 0.08);
+  }
+}
+
+.slhTrack__order {
+  margin: 14px 0 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #64748B;
+}
+
+.slhTrack__hero h1 {
+  margin: 4px 0 0;
+  font-size: clamp(22px, 4vw, 28px);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #1E3A5F;
+}
+
+.slhTrack__heroSub {
+  max-width: 460px;
+  margin: 6px auto 0;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #475569;
+}
+
+.slhTrack__eta {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 14px 0 0;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #EAF2FD;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #1D6FD8;
+}
+
+.slhTrack__eta--late {
+  background: #FFF4E0;
+  color: #B26F00;
+}
+
+.slhTrack__steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slhTrack__step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+/* the line between dots */
+.slhTrack__step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: calc(50% + 18px);
+  right: calc(-50% + 18px);
+  height: 3px;
+  border-radius: 3px;
+  background: #E2E8F0;
+}
+
+.slhTrack__step--done:not(:last-child)::after {
+  background: #1D6FD8;
+}
+
+.slhTrack__dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #F1F5F9;
+  font-size: 13px;
+  font-weight: 800;
+  color: #94A3B8;
+}
+
+.slhTrack__step--done .slhTrack__dot {
+  background: #1D6FD8;
+  color: #FFFFFF;
+}
+
+.slhTrack__step--now .slhTrack__dot {
+  background: #FFFFFF;
+  color: #1D6FD8;
+  box-shadow: inset 0 0 0 3px #1D6FD8, 0 0 0 5px rgba(29, 111, 216, 0.15);
+}
+
+.slhTrack__step--bad .slhTrack__dot {
+  background: #DC2626;
+  color: #FFFFFF;
+}
+
+.slhTrack__stepText {
+  display: flex;
+  flex-direction: column;
+}
+
+.slhTrack__stepText b {
+  font-size: 13px;
+  font-weight: 700;
+  color: #64748B;
+}
+
+.slhTrack__step--done b,
+.slhTrack__step--now b {
+  color: #1E3A5F;
+}
+
+.slhTrack__stepText em {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  color: #94A3B8;
+}
+
+/* ─── Cards ─── */
+.slhTrack__card {
+  margin-top: 14px;
+  padding: 16px 18px;
+  border: 1px solid #E8EDF3;
+  border-radius: 16px;
+  background: #FFFFFF;
+}
+
+.slhTrack__card h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #64748B;
+}
+
+.slhTrack__card h2 svg {
+  color: #1D6FD8;
+}
+
+.slhTrack__card p {
+  margin: 0;
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #1F2A37;
+}
+
+.slhTrack__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.slhTrack__grid .slhTrack__card {
+  margin-top: 14px;
+}
+
+.slhTrack__rider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.slhTrack__rider > div {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+
+.slhTrack__rider > div span {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #64748B;
+}
+
+.slhTrack__rider > div b {
+  font-size: 16px;
+  font-weight: 800;
+  color: #1E3A5F;
+}
+
+.slhTrack__riderIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #E0F2FE;
+  color: #0369A1;
+}
+
+.slhTrack__call {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 12px;
+  background: #1D6FD8;
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.slhTrack__payRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1F2A37;
+}
+
+.slhTrack__badge {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.slhTrack__badge--ok {
+  background: #DCFCE7;
+  color: #15803D;
+}
+
+.slhTrack__badge--wait {
+  background: #FFF4E0;
+  color: #B26F00;
+}
+
+.slhTrack__badge--bad {
+  background: #FEE2E2;
+  color: #B91C1C;
+}
+
+.slhTrack__badge--info {
+  background: #EAF2FD;
+  color: #1D6FD8;
+}
+
+.slhTrack__transfer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #FFF8EC;
+}
+
+.slhTrack__transfer p {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #5C3B00;
+}
+
+.slhTrack__account {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: #FFFFFF;
+}
+
+.slhTrack__account > span {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.slhTrack__account em {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  color: #64748B;
+}
+
+.slhTrack__account button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border: 1px solid #F1D9A8;
+  border-radius: 8px;
+  background: #FFFBF3;
+  font-size: 14.5px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: #1F2A37;
+  cursor: pointer;
+}
+
+.slhTrack .slhTrack__muted {
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748B;
+}
+
+.slhTrack .slhTrack__error {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #B91C1C;
+}
+
+.slhTrack__code {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 12px;
+  background: #1E3A5F;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.slhTrack__code i {
+  position: absolute;
+  top: -26px;
+  right: 0;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: #0F172A;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.slhTrack__linkRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.slhTrack__items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slhTrack__items li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid #F1F5F9;
+  font-size: 14.5px;
+}
+
+.slhTrack__qty {
+  flex-shrink: 0;
+  min-width: 26px;
+  font-weight: 800;
+  color: #1D6FD8;
+}
+
+.slhTrack__itemText {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.slhTrack__itemText b {
+  font-weight: 700;
+}
+
+.slhTrack__itemText em {
+  font-style: normal;
+  font-weight: 600;
+  color: #64748B;
+}
+
+.slhTrack__itemText small {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #64748B;
+}
+
+.slhTrack__ready {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #DCFCE7;
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #15803D;
+}
+
+.slhTrack__amount {
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+.slhTrack__totals {
+  margin: 10px 0 0;
+}
+
+.slhTrack__totals div {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.slhTrack__totals dt,
+.slhTrack__totals dd {
+  margin: 0;
+}
+
+.slhTrack__totals .slhTrack__total {
+  margin-top: 4px;
+  font-size: 17px;
+  font-weight: 800;
+  color: #1E3A5F;
+}
+
+.slhTrack__where {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.slhTrack__where .slhTrack__ghost {
+  margin-top: 10px;
+}
+
+/* Buttons */
+.slhTrack__primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 50px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 14px;
+  background: #1D6FD8;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.slhTrack__primary:hover {
+  background: #1760C0;
+}
+
+.slhTrack__primary:disabled {
+  background: #B9CDE6;
+  cursor: default;
+}
+
+.slhTrack__primary--wide {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.slhTrack__again {
+  margin-top: 18px;
+}
+
+.slhTrack__ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 38px;
+  padding: 0 12px;
+  border: 1.5px solid #D6E4F5;
+  border-radius: 10px;
+  background: #FFFFFF;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1D6FD8;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.slhTrack__ghost:hover {
+  background: #F3F8FE;
+}
+
+.slhTrack__placed {
+  margin: 18px 0 0;
+  font-size: 12.5px;
+  font-weight: 600;
+  text-align: center;
+  color: #94A3B8;
+}
+
+.slhTrack__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 26px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #94A3B8;
+}
+
+.slhTrack__footer img {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+}
+
+.slhTrack__footer b {
+  font-weight: 800;
+  color: #1E3A5F;
+}
+
+/* ─── Not found / find an order ─── */
+.slhTrack--state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+.slhTrack__state,
+.slhTrack__find {
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.slhTrack__find {
+  padding: 28px 22px;
+  border: 1px solid #E8EDF3;
+  border-radius: 20px;
+  background: #FFFFFF;
+}
+
+.slhTrack__stateIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #EAF2FD;
+  color: #1D6FD8;
+}
+
+.slhTrack__state h1,
+.slhTrack__find h1 {
+  margin: 14px 0 6px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #1E3A5F;
+}
+
+.slhTrack__state p,
+.slhTrack__find p {
+  margin: 0 0 16px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #64748B;
+}
+
+.slhTrack__stateActions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.slhTrack__stateActions .slhTrack__ghost {
+  height: 50px;
+  padding: 0 18px;
+}
+
+.slhTrack__find input {
+  width: 100%;
+  height: 54px;
+  padding: 0 16px;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 14px;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
+  color: #1E3A5F;
+}
+
+.slhTrack__find input::placeholder {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: #A3B4C8;
+}
+
+.slhTrack__find input:focus {
+  border-color: #1D6FD8;
+  outline: none;
+}
+
+.slhTrack__recent {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.slhTrack__recent > span {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #94A3B8;
+}
+
+.slhTrack__recent a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #F8FAFC;
+  text-decoration: none;
+  color: #1E3A5F;
+}
+
+.slhTrack__recent b {
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.slhTrack__recent em {
+  flex: 1 1 auto;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  color: #64748B;
+}
+
+/* ─── Phones ─── */
+@media (max-width: 640px) {
+  .slhTrack__barIn {
+    padding: 0 16px;
+  }
+
+  .slhTrack__wrap {
+    padding: 14px 16px 32px;
+  }
+
+  .slhTrack__hero {
+    padding: 22px 14px 18px;
+  }
+
+  .slhTrack__stepText b {
+    font-size: 11.5px;
+  }
+
+  .slhTrack__grid,
+  .slhTrack__where {
+    grid-template-columns: 1fr;
+  }
+
+  .slhTrack__grid {
+    gap: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slhTrack__spinning,
+  .slhTrack__hero--busy .slhTrack__heroIcon {
+    animation: none;
+  }
+}
