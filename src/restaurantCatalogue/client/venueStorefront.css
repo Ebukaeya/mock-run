@@ -3,9 +3,9 @@
 
 .slhShop {
   min-height: 100vh;
-  background: #F5F7FA;
+  background: #f5f7fa;
   font-family: "Nunito", system-ui, sans-serif;
-  color: #1F2A37;
+  color: #1f2a37;
 }
 
 .slhShop *,
@@ -22,7 +22,7 @@
 .slhShop button:focus-visible,
 .slhShop a:focus-visible,
 .slhShop input:focus-visible {
-  outline: 3px solid #A9C8F0;
+  outline: 3px solid #a9c8f0;
   outline-offset: 2px;
 }
 
@@ -34,7 +34,7 @@
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid #E8EDF3;
+  border-bottom: 1px solid #e8edf3;
 }
 
 .slhShop__barIn {
@@ -62,7 +62,7 @@
   flex-shrink: 0;
   border-radius: 10px;
   object-fit: cover;
-  background: #1E3A5F;
+  background: #1e3a5f;
 }
 
 .slhShop__barLogo {
@@ -70,14 +70,14 @@
   align-items: center;
   justify-content: center;
   font-weight: 800;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .slhShop__barVenue b {
   overflow: hidden;
   font-size: 16px;
   font-weight: 800;
-  color: #1E3A5F;
+  color: #1e3a5f;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -91,13 +91,13 @@
   border-radius: 999px;
   font-size: 14px;
   font-weight: 700;
-  color: #1E3A5F;
+  color: #1e3a5f;
   text-decoration: none;
   white-space: nowrap;
 }
 
 .slhShop__barTrack:hover {
-  background: #F1F5F9;
+  background: #f1f5f9;
 }
 
 .slhShop__barCart {
@@ -109,8 +109,8 @@
   height: 42px;
   border: 0;
   border-radius: 50%;
-  background: #EAF2FD;
-  color: #1D6FD8;
+  background: #eaf2fd;
+  color: #1d6fd8;
   cursor: pointer;
 }
 
@@ -121,13 +121,13 @@
   min-width: 20px;
   height: 20px;
   padding: 0 5px;
-  border: 2px solid #FFFFFF;
+  border: 2px solid #ffffff;
   border-radius: 999px;
-  background: #1D6FD8;
+  background: #1d6fd8;
   font-size: 11px;
   font-weight: 800;
   line-height: 16px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /* ─── Hero ─── */
@@ -135,16 +135,15 @@
   position: relative;
   min-height: 300px;
   overflow: hidden;
-  background: #1E3A5F;
-  color: #FFFFFF;
+  background: #1e3a5f;
+  color: #ffffff;
 }
 
 .slhShop__hero--plain {
   min-height: 0;
   background:
     radial-gradient(circle at 85% 10%, rgba(29, 111, 216, 0.55) 0%, rgba(29, 111, 216, 0) 45%),
-    radial-gradient(circle at 10% 100%, rgba(255, 190, 110, 0.18) 0%, rgba(255, 190, 110, 0) 40%),
-    linear-gradient(160deg, #1E3A5F 0%, #13253F 100%);
+    radial-gradient(circle at 10% 100%, rgba(255, 190, 110, 0.18) 0%, rgba(255, 190, 110, 0) 40%), linear-gradient(160deg, #1e3a5f 0%, #13253f 100%);
 }
 
 .slhShop__cover {
@@ -184,10 +183,10 @@
   width: 96px;
   height: 96px;
   overflow: hidden;
-  border: 4px solid #FFFFFF;
+  border: 4px solid #ffffff;
   border-radius: 24px;
-  background: #FFFFFF;
-  color: #1E3A5F;
+  background: #ffffff;
+  color: #1e3a5f;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
@@ -214,7 +213,7 @@
 
 .slhShop__verified {
   flex-shrink: 0;
-  color: #6FD3E0;
+  color: #6fd3e0;
 }
 
 .slhShop__meta {
@@ -225,14 +224,14 @@
   margin: 8px 0 0;
   font-size: 14.5px;
   font-weight: 600;
-  color: #DCE6F2;
+  color: #dce6f2;
 }
 
 .slhShop__meta i {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9DB3CF;
+  background: #9db3cf;
 }
 
 .slhShop__desc {
@@ -241,7 +240,7 @@
   font-size: 14.5px;
   font-weight: 500;
   line-height: 1.5;
-  color: #E2E8F0;
+  color: #e2e8f0;
 }
 
 .slhShop__chips {
@@ -266,11 +265,11 @@
 .slhShop__chip {
   background: rgba(255, 255, 255, 0.14);
   border: 1px solid rgba(255, 255, 255, 0.22);
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .slhShop__open {
-  background: #FFFFFF;
+  background: #ffffff;
 }
 
 .slhShop__open span {
@@ -280,20 +279,20 @@
 }
 
 .slhShop__open--yes {
-  color: #15803D;
+  color: #15803d;
 }
 
 .slhShop__open--yes span {
-  background: #22C55E;
+  background: #22c55e;
   box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
 }
 
 .slhShop__open--no {
-  color: #B91C1C;
+  color: #b91c1c;
 }
 
 .slhShop__open--no span {
-  background: #EF4444;
+  background: #ef4444;
 }
 
 /* ─── Body ─── */
@@ -311,9 +310,9 @@
 
 .slhShop__card {
   padding: 16px 18px;
-  border: 1px solid #E8EDF3;
+  border: 1px solid #e8edf3;
   border-radius: 16px;
-  background: #FFFFFF;
+  background: #ffffff;
 }
 
 .slhShop__card h2 {
@@ -325,18 +324,18 @@
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #64748B;
+  color: #64748b;
 }
 
 .slhShop__card h2 svg {
-  color: #1D6FD8;
+  color: #1d6fd8;
 }
 
 .slhShop__big {
   margin: 0;
   font-size: 16px;
   font-weight: 700;
-  color: #1E3A5F;
+  color: #1e3a5f;
 }
 
 .slhShop__link {
@@ -349,7 +348,7 @@
   background: none;
   font-size: 13.5px;
   font-weight: 700;
-  color: #1D6FD8;
+  color: #1d6fd8;
   cursor: pointer;
 }
 
@@ -374,12 +373,12 @@
 
 .slhShop__week b {
   font-weight: 700;
-  color: #1F2A37;
+  color: #1f2a37;
 }
 
 .slhShop__week .slhShop__weekToday,
 .slhShop__week .slhShop__weekToday b {
-  color: #1D6FD8;
+  color: #1d6fd8;
 }
 
 .slhShop__facts {
@@ -396,13 +395,13 @@
 
 .slhShop__facts dt {
   font-weight: 600;
-  color: #64748B;
+  color: #64748b;
 }
 
 .slhShop__facts dd {
   margin: 0;
   font-weight: 700;
-  color: #1E3A5F;
+  color: #1e3a5f;
   text-align: right;
 }
 
@@ -411,7 +410,7 @@
   font-size: 14.5px;
   font-weight: 600;
   line-height: 1.45;
-  color: #1F2A37;
+  color: #1f2a37;
 }
 
 .slhShop__actions {
@@ -427,24 +426,24 @@
   gap: 6px;
   height: 36px;
   padding: 0 12px;
-  border: 1.5px solid #D6E4F5;
+  border: 1.5px solid #d6e4f5;
   border-radius: 10px;
-  background: #FFFFFF;
+  background: #ffffff;
   font-size: 13.5px;
   font-weight: 700;
-  color: #1D6FD8;
+  color: #1d6fd8;
   text-decoration: none;
 }
 
 .slhShop__ghost:hover {
-  background: #F3F8FE;
+  background: #f3f8fe;
 }
 
 .slhShop__phone {
   margin: 8px 0 0;
   font-size: 13px;
   font-weight: 600;
-  color: #64748B;
+  color: #64748b;
 }
 
 .slhShop__closed {
@@ -454,10 +453,10 @@
   margin: 16px 0 0;
   padding: 12px 16px;
   border-radius: 14px;
-  background: #FFF6E5;
+  background: #fff6e5;
   font-size: 14.5px;
   font-weight: 600;
-  color: #6B4500;
+  color: #6b4500;
 }
 
 .slhShop__recent {
@@ -466,17 +465,17 @@
   gap: 10px;
   margin-top: 14px;
   padding: 12px 16px;
-  border: 1.5px solid #D6E4F5;
+  border: 1.5px solid #d6e4f5;
   border-radius: 14px;
-  background: #F5F9FE;
+  background: #f5f9fe;
   font-size: 14px;
   font-weight: 600;
-  color: #1E3A5F;
+  color: #1e3a5f;
   text-decoration: none;
 }
 
 .slhShop__recent svg {
-  color: #1D6FD8;
+  color: #1d6fd8;
 }
 
 .slhShop__recent span {
@@ -486,7 +485,7 @@
 .slhShop__recent em {
   font-style: normal;
   font-weight: 800;
-  color: #1D6FD8;
+  color: #1d6fd8;
 }
 
 /* ─── Search and categories ─── */
@@ -511,14 +510,14 @@
   flex: 0 0 300px;
   height: 44px;
   padding: 0 12px;
-  border: 1.5px solid #E2E8F0;
+  border: 1.5px solid #e2e8f0;
   border-radius: 12px;
-  background: #FFFFFF;
-  color: #94A3B8;
+  background: #ffffff;
+  color: #94a3b8;
 }
 
 .slhShop__search:focus-within {
-  border-color: #1D6FD8;
+  border-color: #1d6fd8;
 }
 
 .slhShop__search input {
@@ -529,7 +528,7 @@
   background: transparent;
   font-size: 14.5px;
   font-weight: 600;
-  color: #1F2A37;
+  color: #1f2a37;
 }
 
 .slhShop__search button {
@@ -537,7 +536,7 @@
   padding: 4px;
   border: 0;
   border-radius: 50%;
-  background: #F1F5F9;
+  background: #f1f5f9;
   color: #475569;
   cursor: pointer;
 }
@@ -561,9 +560,9 @@
   flex-shrink: 0;
   height: 38px;
   padding: 0 14px;
-  border: 1.5px solid #E2E8F0;
+  border: 1.5px solid #e2e8f0;
   border-radius: 999px;
-  background: #FFFFFF;
+  background: #ffffff;
   font-size: 14px;
   font-weight: 700;
   color: #475569;
@@ -572,17 +571,17 @@
 }
 
 .slhShop__cats button:hover {
-  border-color: #A9C8F0;
+  border-color: #a9c8f0;
 }
 
 .slhShop__cats .slhShop__catOn {
-  border-color: #1E3A5F;
-  background: #1E3A5F;
-  color: #FFFFFF;
+  border-color: #1e3a5f;
+  background: #1e3a5f;
+  color: #ffffff;
 }
 
 .slhShop__cats .slhShop__catOn svg {
-  color: #FFC978;
+  color: #ffc978;
 }
 
 /* ─── Menu + cart ─── */
@@ -605,17 +604,17 @@
   margin: 0 0 12px;
   font-size: 20px;
   font-weight: 800;
-  color: #1E3A5F;
+  color: #1e3a5f;
 }
 
 .slhShop__section h2 svg {
-  color: #F59E0B;
+  color: #f59e0b;
 }
 
 .slhShop__section h2 span {
   font-size: 13px;
   font-weight: 700;
-  color: #94A3B8;
+  color: #94a3b8;
 }
 
 .slhShop__grid {
@@ -628,19 +627,21 @@
   position: relative;
   display: flex;
   align-items: stretch;
-  border: 1.5px solid #E8EDF3;
+  border: 1.5px solid #e8edf3;
   border-radius: 16px;
-  background: #FFFFFF;
-  transition: border-color 0.12s, box-shadow 0.12s;
+  background: #ffffff;
+  transition:
+    border-color 0.12s,
+    box-shadow 0.12s;
 }
 
 .slhShop__item:hover {
-  border-color: #CFDDF0;
+  border-color: #cfddf0;
   box-shadow: 0 6px 18px rgba(30, 58, 95, 0.07);
 }
 
 .slhShop__item--in {
-  border-color: #A9C8F0;
+  border-color: #a9c8f0;
 }
 
 .slhShop__itemMain {
@@ -667,7 +668,7 @@
   font-size: 15.5px;
   font-weight: 700;
   line-height: 1.3;
-  color: #1F2A37;
+  color: #1f2a37;
 }
 
 .slhShop__itemDesc {
@@ -677,7 +678,7 @@
   font-size: 13.5px;
   font-weight: 500;
   line-height: 1.45;
-  color: #64748B;
+  color: #64748b;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
@@ -694,27 +695,27 @@
 .slhShop__price {
   font-size: 15px;
   font-weight: 800;
-  color: #1E3A5F;
+  color: #1e3a5f;
 }
 
 .slhShop__tag {
   padding: 2px 8px;
   border-radius: 999px;
-  background: #EAF2FD;
+  background: #eaf2fd;
   font-size: 11.5px;
   font-style: normal;
   font-weight: 700;
-  color: #1D6FD8;
+  color: #1d6fd8;
 }
 
 .slhShop__tag--few {
-  background: #FFF4E0;
-  color: #B26F00;
+  background: #fff4e0;
+  color: #b26f00;
 }
 
 .slhShop__tag--out {
-  background: #F1F5F9;
-  color: #64748B;
+  background: #f1f5f9;
+  color: #64748b;
 }
 
 .slhShop__thumb {
@@ -731,8 +732,8 @@
   overflow: hidden;
   border: 0;
   border-radius: 12px;
-  background: #EEF3F9;
-  color: #A3B4C8;
+  background: #eef3f9;
+  color: #a3b4c8;
 }
 
 button.slhShop__thumb {
@@ -769,7 +770,7 @@ button.slhShop__thumb:hover img {
   background: rgba(15, 23, 42, 0.7);
   font-size: 11px;
   font-weight: 800;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .slhShop__item--out .slhShop__thumb img,
@@ -792,17 +793,19 @@ button.slhShop__thumb:hover img {
   min-width: 38px;
   height: 38px;
   padding: 0 10px;
-  border: 3px solid #FFFFFF;
+  border: 3px solid #ffffff;
   border-radius: 999px;
-  background: #1D6FD8;
-  color: #FFFFFF;
+  background: #1d6fd8;
+  color: #ffffff;
   box-shadow: 0 4px 12px rgba(29, 111, 216, 0.35);
   cursor: pointer;
-  transition: background 0.15s, transform 0.1s;
+  transition:
+    background 0.15s,
+    transform 0.1s;
 }
 
 .slhShop__add:hover {
-  background: #1760C0;
+  background: #1760c0;
 }
 
 .slhShop__add:active {
@@ -820,23 +823,23 @@ button.slhShop__thumb:hover img {
   align-items: center;
   gap: 6px;
   padding: 48px 16px;
-  border: 1.5px dashed #D6E0EB;
+  border: 1.5px dashed #d6e0eb;
   border-radius: 16px;
   margin-top: 18px;
   text-align: center;
-  color: #94A3B8;
+  color: #94a3b8;
 }
 
 .slhShop__empty b {
   font-size: 16px;
   font-weight: 800;
-  color: #1E3A5F;
+  color: #1e3a5f;
 }
 
 .slhShop__empty span {
   font-size: 14px;
   font-weight: 500;
-  color: #64748B;
+  color: #64748b;
 }
 
 /* Cart aside */
@@ -847,9 +850,9 @@ button.slhShop__thumb:hover img {
 }
 
 .slhShop__asideCard {
-  border: 1px solid #E8EDF3;
+  border: 1px solid #e8edf3;
   border-radius: 18px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0 8px 24px rgba(30, 58, 95, 0.06);
   overflow: hidden;
 }
@@ -859,7 +862,7 @@ button.slhShop__thumb:hover img {
   padding: 16px 18px 6px;
   font-size: 18px;
   font-weight: 800;
-  color: #1E3A5F;
+  color: #1e3a5f;
 }
 
 .slhShop__asideCard .slhShop__cart ul {
@@ -890,7 +893,7 @@ button.slhShop__thumb:hover img {
   align-items: flex-start;
   gap: 12px;
   padding: 12px 0;
-  border-bottom: 1px solid #F1F5F9;
+  border-bottom: 1px solid #f1f5f9;
 }
 
 .slhShop__cartText {
@@ -904,19 +907,19 @@ button.slhShop__thumb:hover img {
 .slhShop__cartText b {
   font-size: 14.5px;
   font-weight: 700;
-  color: #1F2A37;
+  color: #1f2a37;
 }
 
 .slhShop__cartText b em {
   font-style: normal;
   font-weight: 600;
-  color: #64748B;
+  color: #64748b;
 }
 
 .slhShop__cartText span {
   font-size: 12.5px;
   font-weight: 500;
-  color: #64748B;
+  color: #64748b;
 }
 
 .slhShop__cartText .slhShop__cartNote {
@@ -927,7 +930,7 @@ button.slhShop__thumb:hover img {
   margin-top: 2px;
   font-size: 14px;
   font-weight: 800;
-  color: #1E3A5F;
+  color: #1e3a5f;
 }
 
 .slhShop__stepper {
@@ -935,7 +938,7 @@ button.slhShop__thumb:hover img {
   align-items: center;
   flex-shrink: 0;
   height: 34px;
-  border: 1.5px solid #E2E8F0;
+  border: 1.5px solid #e2e8f0;
   border-radius: 999px;
 }
 
@@ -947,7 +950,7 @@ button.slhShop__thumb:hover img {
   height: 100%;
   border: 0;
   background: transparent;
-  color: #1E3A5F;
+  color: #1e3a5f;
   cursor: pointer;
 }
 
@@ -968,7 +971,7 @@ button.slhShop__thumb:hover img {
   padding: 3px 0;
   font-size: 14px;
   font-weight: 700;
-  color: #1E3A5F;
+  color: #1e3a5f;
 }
 
 .slhShop__cart dt,
@@ -978,7 +981,7 @@ button.slhShop__thumb:hover img {
 
 .slhShop__cart .slhShop__cartSoft {
   font-weight: 600;
-  color: #64748B;
+  color: #64748b;
 }
 
 .slhShop__clear {
@@ -988,12 +991,12 @@ button.slhShop__thumb:hover img {
   background: none;
   font-size: 13px;
   font-weight: 700;
-  color: #94A3B8;
+  color: #94a3b8;
   cursor: pointer;
 }
 
 .slhShop__clear:hover {
-  color: #DC2626;
+  color: #dc2626;
 }
 
 .slhShop__cartEmpty {
@@ -1003,20 +1006,20 @@ button.slhShop__thumb:hover img {
   gap: 4px;
   padding: 28px 18px 30px;
   text-align: center;
-  color: #A3B4C8;
+  color: #a3b4c8;
 }
 
 .slhShop__cartEmpty b {
   margin-top: 4px;
   font-size: 15px;
   font-weight: 800;
-  color: #1E3A5F;
+  color: #1e3a5f;
 }
 
 .slhShop__cartEmpty span {
   font-size: 13.5px;
   font-weight: 500;
-  color: #64748B;
+  color: #64748b;
 }
 
 /* Buttons */
@@ -1029,20 +1032,20 @@ button.slhShop__thumb:hover img {
   padding: 0 22px;
   border: 0;
   border-radius: 14px;
-  background: #1D6FD8;
+  background: #1d6fd8;
   font-size: 15.5px;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   transition: background 0.15s;
 }
 
 .slhShop__primary:hover {
-  background: #1760C0;
+  background: #1760c0;
 }
 
 .slhShop__primary:disabled {
-  background: #B9CDE6;
+  background: #b9cde6;
   cursor: default;
 }
 
@@ -1064,8 +1067,8 @@ button.slhShop__thumb:hover img {
   padding: 0 18px 0 10px;
   border: 0;
   border-radius: 16px;
-  background: #1D6FD8;
-  color: #FFFFFF;
+  background: #1d6fd8;
+  color: #ffffff;
   box-shadow: 0 12px 28px rgba(29, 111, 216, 0.4);
   cursor: pointer;
   animation: slhShopUp 0.25s ease-out;
@@ -1111,10 +1114,10 @@ button.slhShop__thumb:hover img {
   margin: 0;
   padding: 11px 18px;
   border-radius: 12px;
-  background: #0F172A;
+  background: #0f172a;
   font-size: 14px;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #ffffff;
   transform: translateX(-50%);
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.25);
   animation: slhShopUp 0.2s ease-out;
@@ -1129,7 +1132,7 @@ button.slhShop__thumb:hover img {
   margin-top: 48px;
   font-size: 13px;
   font-weight: 600;
-  color: #94A3B8;
+  color: #94a3b8;
 }
 
 .slhShop__footer img {
@@ -1140,7 +1143,7 @@ button.slhShop__thumb:hover img {
 
 .slhShop__footer b {
   font-weight: 800;
-  color: #1E3A5F;
+  color: #1e3a5f;
 }
 
 /* Not found / error */
@@ -1163,22 +1166,22 @@ button.slhShop__thumb:hover img {
   width: 68px;
   height: 68px;
   border-radius: 50%;
-  background: #EAF2FD;
-  color: #1D6FD8;
+  background: #eaf2fd;
+  color: #1d6fd8;
 }
 
 .slhShop__state h1 {
   margin: 16px 0 6px;
   font-size: 22px;
   font-weight: 800;
-  color: #1E3A5F;
+  color: #1e3a5f;
 }
 
 .slhShop__state p {
   margin: 0 0 18px;
   font-size: 15px;
   font-weight: 500;
-  color: #64748B;
+  color: #64748b;
 }
 
 /* Phones: one button instead of the three cards */
@@ -1188,16 +1191,16 @@ button.slhShop__thumb:hover img {
   gap: 12px;
   width: 100%;
   padding: 12px 14px;
-  border: 1px solid #E8EDF3;
+  border: 1px solid #e8edf3;
   border-radius: 16px;
-  background: #FFFFFF;
+  background: #ffffff;
   text-align: left;
-  color: #94A3B8;
+  color: #94a3b8;
   cursor: pointer;
 }
 
 .slhShop__infoBtn:active {
-  background: #F8FAFC;
+  background: #f8fafc;
 }
 
 .slhShop__infoBtnIcon {
@@ -1208,8 +1211,8 @@ button.slhShop__thumb:hover img {
   width: 40px;
   height: 40px;
   border-radius: 12px;
-  background: #EAF2FD;
-  color: #1D6FD8;
+  background: #eaf2fd;
+  color: #1d6fd8;
 }
 
 .slhShop__infoBtnText {
@@ -1222,7 +1225,7 @@ button.slhShop__thumb:hover img {
 .slhShop__infoBtnText b {
   font-size: 15px;
   font-weight: 700;
-  color: #1E3A5F;
+  color: #1e3a5f;
 }
 
 .slhShop__infoBtnText em {
@@ -1230,7 +1233,7 @@ button.slhShop__thumb:hover img {
   font-size: 13px;
   font-style: normal;
   font-weight: 600;
-  color: #64748B;
+  color: #64748b;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -1241,7 +1244,7 @@ button.slhShop__thumb:hover img {
   flex-direction: column;
   gap: 10px;
   padding: 14px 16px 20px;
-  background: #F5F7FA;
+  background: #f5f7fa;
 }
 
 /* ─── Tablets: the cart moves to the bar ─── */
@@ -1303,7 +1306,7 @@ button.slhShop__thumb:hover img {
     width: 42px;
     padding: 0;
     justify-content: center;
-    background: #F1F5F9;
+    background: #f1f5f9;
   }
 
   .slhShop__hero {
@@ -1363,4 +1366,25 @@ button.slhShop__thumb:hover img {
   .slhShop__toast {
     animation: none;
   }
+}
+
+/* ─── Rating chip in the header: opens the reviews ─── */
+.slhShop__rateChip {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.slhShop__rateChip em {
+  font-style: normal;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.slhShop__rateChip:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.slhShop__rateChip:focus-visible {
+  outline: 3px solid #a9c8f0;
+  outline-offset: 2px;
 }

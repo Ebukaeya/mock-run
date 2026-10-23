@@ -34,4 +34,16 @@ export const storefrontApi = {
 
   /* → { authorizationUrl } */
   payAgain: (code) => call(`${storefrontUrl}/track/${encodeURIComponent(code)}/pay`, { method: "POST", body: "{}" }),
+
+  /* → { summary, reviews, more } ; rating: 1–5 or null for all, before: the last review's createdAt */
+  reviews: (venueType, venueId, { rating, before } = {}) => {
+    const q = new URLSearchParams();
+    if (rating) q.set("rating", rating);
+    if (before) q.set("before", before);
+    return call(`${storefrontUrl}/${encodeURIComponent(venueType)}/${encodeURIComponent(venueId)}/reviews${q.toString() ? `?${q}` : ""}`);
+  },
+
+  /* → { review, canReview, reviewUntil, reviewName } ; once delivered, sending again changes it */
+  rateOrder: (code, { rating, comment }) =>
+    call(`${storefrontUrl}/track/${encodeURIComponent(code)}/review`, { method: "POST", body: JSON.stringify({ rating, comment }) }),
 };

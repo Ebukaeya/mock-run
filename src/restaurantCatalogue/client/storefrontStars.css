@@ -1,0 +1,29 @@
+/* ─── Star rating (display) ───────────────────────────────────────
+   Prefix: slhStars */
+
+.slhStars {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  line-height: 0;
+  vertical-align: middle;
+}
+
+.slhStars__one {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.slhStars__one svg {
+  display: block;
+}
+
+.slhStars__fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+}

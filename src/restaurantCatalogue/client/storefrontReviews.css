@@ -1,0 +1,476 @@
+/* ─── Online order page: ratings and reviews ──────────────────────
+   Prefix: slhShopRev */
+
+.slhShopRev {
+  margin-top: 28px;
+  font-family: "Nunito", system-ui, sans-serif;
+  color: #1F2A37;
+  scroll-margin-top: 130px;
+}
+
+.slhShopRev *,
+.slhShopRev *::before,
+.slhShopRev *::after {
+  box-sizing: border-box;
+}
+
+.slhShopRev button {
+  font-family: inherit;
+}
+
+.slhShopRev button:focus-visible {
+  outline: 3px solid #A9C8F0;
+  outline-offset: 2px;
+}
+
+.slhShopRev__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.slhShopRev__head h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  color: #1E3A5F;
+}
+
+/* ─── The score and the spread ─── */
+.slhShopRev__top {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  align-items: center;
+  gap: 22px;
+  padding: 18px 20px;
+  border: 1px solid #E8EDF3;
+  border-radius: 16px;
+  background: #FFFFFF;
+}
+
+.slhShopRev__score {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.slhShopRev__score strong {
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #1E3A5F;
+}
+
+.slhShopRev__score > span:last-child {
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748B;
+}
+
+.slhShopRev__bars {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slhShopRev__bars li {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) 34px;
+  align-items: center;
+  gap: 10px;
+}
+
+.slhShopRev__barStar {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #475569;
+}
+
+.slhShopRev__bar {
+  height: 8px;
+  border-radius: 8px;
+  background: #EEF2F6;
+  overflow: hidden;
+}
+
+.slhShopRev__bar span {
+  display: block;
+  height: 100%;
+  min-width: 0;
+  border-radius: 8px;
+  background: #F59E0B;
+}
+
+.slhShopRev__barN {
+  font-size: 12.5px;
+  font-weight: 700;
+  text-align: right;
+  color: #94A3B8;
+}
+
+/* ─── Reviews ─── */
+.slhShopRev__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slhShopRev__list--sheet {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  margin: 0;
+}
+
+.slhShopRev__card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  padding: 14px 16px;
+  border: 1px solid #E8EDF3;
+  border-radius: 16px;
+  background: #FFFFFF;
+}
+
+.slhShopRev__list--sheet .slhShopRev__card {
+  padding: 16px 0;
+  border: 0;
+  border-bottom: 1px solid #EEF2F6;
+  border-radius: 0;
+}
+
+.slhShopRev__list--sheet .slhShopRev__card:last-child {
+  border-bottom: 0;
+}
+
+.slhShopRev__who {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.slhShopRev__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #EAF2FD;
+  font-size: 14px;
+  font-weight: 800;
+  color: #1D6FD8;
+}
+
+.slhShopRev__whoText {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.slhShopRev__whoText b {
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #1F2A37;
+}
+
+.slhShopRev__meta {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 2px;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  margin-top: 2px;
+}
+
+.slhShopRev__whoText em {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  color: #94A3B8;
+}
+
+.slhShopRev__comment {
+  margin: 0;
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #334155;
+  overflow-wrap: anywhere;
+}
+
+.slhShopRev__comment--clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+.slhShopRev__items {
+  margin: 0;
+  overflow: hidden;
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #64748B;
+}
+
+.slhShopRev__reply {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #F5F8FC;
+}
+
+.slhShopRev__reply b {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #1E3A5F;
+}
+
+.slhShopRev__reply p {
+  margin: 4px 0 0;
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: #334155;
+}
+
+.slhShopRev__all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 46px;
+  margin-top: 12px;
+  border: 1.5px solid #D6E4F5;
+  border-radius: 12px;
+  background: #FFFFFF;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #1D6FD8;
+  cursor: pointer;
+}
+
+.slhShopRev__all:hover {
+  background: #F3F8FE;
+}
+
+.slhShopRev__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1D6FD8;
+  cursor: pointer;
+}
+
+.slhShopRev__muted {
+  margin: 12px 0 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #94A3B8;
+}
+
+.slhShopRev__muted--center {
+  padding: 18px 0;
+  text-align: center;
+}
+
+.slhShopRev__error {
+  margin: 12px 0 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #B91C1C;
+}
+
+/* ─── No ratings yet ─── */
+.slhShopRev__empty {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border: 1px dashed #D6DEE8;
+  border-radius: 16px;
+  background: #FFFFFF;
+}
+
+.slhShopRev__emptyIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #FFF6E5;
+  color: #F59E0B;
+}
+
+.slhShopRev__empty > span:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.slhShopRev__empty b {
+  font-size: 15px;
+  font-weight: 800;
+  color: #1E3A5F;
+}
+
+.slhShopRev__empty em {
+  font-size: 13.5px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.45;
+  color: #64748B;
+}
+
+/* ─── The sheet with every review ─── */
+.slhShopRev__sheet {
+  padding: 4px 20px 20px;
+  font-family: "Nunito", system-ui, sans-serif;
+}
+
+.slhShopRev__filters {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  gap: 8px;
+  margin: 0 -20px;
+  padding: 6px 20px 12px;
+  overflow-x: auto;
+  background: #FFFFFF;
+  border-bottom: 1px solid #EEF2F6;
+  scrollbar-width: none;
+}
+
+.slhShopRev__filters::-webkit-scrollbar {
+  display: none;
+}
+
+.slhShopRev__filters button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  height: 34px;
+  padding: 0 14px;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 999px;
+  background: #FFFFFF;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #334155;
+  cursor: pointer;
+}
+
+.slhShopRev__filters button svg {
+  color: #F59E0B;
+}
+
+.slhShopRev__filters .slhShopRev__filterOn {
+  border-color: #1E3A5F;
+  background: #1E3A5F;
+  color: #FFFFFF;
+}
+
+.slhShopRev__filters .slhShopRev__filterOn svg {
+  color: #FBBF24;
+}
+
+.slhShopRev__sheet .slhShopRev__all,
+.slhShopRev__sheet .slhShopRev__error,
+.slhShopRev__sheet .slhShopRev__muted {
+  font-family: inherit;
+}
+
+.slhShopRev__sheet .slhShopRev__all {
+  border: 1.5px solid #D6E4F5;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+
+/* Tablets: two reviews side by side */
+@media (max-width: 1023px) {
+  .slhShopRev__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .slhShopRev__list .slhShopRev__card:nth-child(3) {
+    display: none;
+  }
+
+  .slhShopRev__list--sheet .slhShopRev__card:nth-child(3) {
+    display: flex;
+  }
+}
+
+/* Phones: one column, the score above the bars */
+@media (max-width: 640px) {
+  .slhShopRev {
+    margin-top: 22px;
+  }
+
+  .slhShopRev__head h2 {
+    font-size: 18px;
+  }
+
+  .slhShopRev__top {
+    grid-template-columns: 104px minmax(0, 1fr);
+    gap: 14px;
+    padding: 14px;
+  }
+
+  .slhShopRev__score strong {
+    font-size: 36px;
+  }
+
+  .slhShopRev__list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .slhShopRev__list .slhShopRev__card:nth-child(3) {
+    display: flex;
+  }
+
+  .slhShopRev__sheet {
+    padding: 4px 16px calc(18px + env(safe-area-inset-bottom));
+  }
+
+  .slhShopRev__filters {
+    margin: 0 -16px;
+    padding: 6px 16px 12px;
+  }
+}

@@ -22,6 +22,7 @@ import {
   Store,
   Trash2,
   UtensilsCrossed,
+  Star,
   X,
 } from "lucide-react";
 import Loader from "../../storecatelogue/storelensSpiner/StorelenseSpinner"; // TODO: match your path
@@ -49,6 +50,7 @@ import {
   whatsappLink,
 } from "./storefrontTools";
 import "./venueStorefront.css";
+import StorefrontReviews from "./StorefrontReviews";
 
 /*
 |--------------------------------------------------------------------------
@@ -92,6 +94,7 @@ export default function VenueStorefront({ venueType: typeProp, venueId: idProp, 
   const toastTimer = useRef(null);
   const sectionRefs = useRef({});
   const chipsRef = useRef(null);
+  const reviewsRef = useRef(null);
 
   /* ─── Load ─── */
   useEffect(() => {
@@ -222,6 +225,11 @@ export default function VenueStorefront({ venueType: typeProp, venueId: idProp, 
     setActive(id);
   };
 
+  const jumpToReviews = () => {
+    const el = reviewsRef.current;
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 128, behavior: "smooth" });
+  };
+
   const recent = useMemo(() => store.get(ORDERS_KEY, []).find((o) => o.venueId === String(venueId) && Date.now() - o.at < 2 * 86400000), [venueId, checkout]);
 
   /* ─── States ─── */
@@ -261,6 +269,7 @@ export default function VenueStorefront({ venueType: typeProp, venueId: idProp, 
   const directions = mapsLink(venue);
   const offersDelivery = venue.fulfilment.includes("delivery");
   const offersPickup = venue.fulfilment.includes("pickup");
+  const rating = data.reviews?.summary;
 
   /* The three cards: inline on laptops and tablets, in a slide-up panel on phones */
   const infoCards = (
@@ -423,6 +432,16 @@ export default function VenueStorefront({ venueType: typeProp, venueId: idProp, 
                     ? `Closed · opens ${venue.hours.opensAt.label} ${niceTime(venue.hours.opensAt.time)}`
                     : "Closed"}
               </span>
+              {rating?.count > 0 && (
+                <button
+                  type='button'
+                  className='slhShop__chip slhShop__rateChip'
+                  onClick={jumpToReviews}
+                  aria-label={`Rated ${rating.average.toFixed(1)} out of 5 from ${rating.count} ratings. See reviews`}
+                >
+                  <Star size={15} strokeWidth={0} fill='#FBBF24' /> {rating.average.toFixed(1)} <em>({rating.count})</em>
+                </button>
+              )}
               {offersDelivery && (
                 <span className='slhShop__chip'>
                   <Bike size={15} /> {range(venue.deliveryMinutes)}
@@ -534,6 +553,9 @@ export default function VenueStorefront({ venueType: typeProp, venueId: idProp, 
                 </section>
               ))
             )}
+
+            {/* ─── Ratings and reviews ─── */}
+            <StorefrontReviews ref={reviewsRef} data={data.reviews} venueName={venue.name} venueType={venueType} venueId={venueId} api={api} />
           </main>
 
           {/* ─── Your order (laptops) ─── */}

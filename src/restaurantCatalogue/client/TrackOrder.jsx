@@ -22,6 +22,7 @@ import {
 import Loader from "../../storecatelogue/storelensSpiner/StorelenseSpinner"; // TODO: match your path
 import storelenseMark from "../../assessStatic/pictures/storelenseMark.webp"; // TODO: same image as SignIn.jsx
 import { storefrontApi } from "./storefrontApi";
+import StorefrontRateOrder from "./StorefrontRateOrder";
 import { ORDERS_KEY, clockOf, copyText, mapsLink, moneyIn, paymentLabel, shareLink, store, telLink, whatsappLink } from "./storefrontTools";
 import "./trackOrder.css";
 
@@ -230,6 +231,11 @@ export default function TrackOrder({ api = storefrontApi, trackPath = "/track" }
           </ol>
         </section>
 
+        {/* ─── Rate it (once delivered) ─── */}
+        {(order.canReview || order.review) && (
+          <StorefrontRateOrder key={order.trackingCode} order={order} venueName={venue.name} api={api} onSaved={(res) => setOrder((o) => ({ ...o, ...res }))} />
+        )}
+
         {/* ─── Rider ─── */}
         {order.rider && (
           <section className='slhTrack__card slhTrack__rider'>
@@ -361,7 +367,6 @@ export default function TrackOrder({ api = storefrontApi, trackPath = "/track" }
             </div>
           </dl>
         </section>
-        {console.log(order.serviceFee)}
 
         {/* ─── Where and who ─── */}
         <section className='slhTrack__card slhTrack__where'>

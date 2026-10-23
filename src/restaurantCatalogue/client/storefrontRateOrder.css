@@ -1,0 +1,288 @@
+/* ─── Tracking page: rate the order ───────────────────────────────
+   Prefix: slhShopRate */
+
+.slhShopRate {
+  margin-top: 14px;
+  padding: 20px 18px 18px;
+  border: 1.5px solid #FCE3B0;
+  border-radius: 16px;
+  background: #FFFBF2;
+  font-family: "Nunito", system-ui, sans-serif;
+  text-align: center;
+  color: #1F2A37;
+}
+
+.slhShopRate *,
+.slhShopRate *::before,
+.slhShopRate *::after {
+  box-sizing: border-box;
+}
+
+.slhShopRate button,
+.slhShopRate textarea {
+  font-family: inherit;
+}
+
+.slhShopRate button:focus-visible,
+.slhShopRate textarea:focus-visible {
+  outline: 3px solid #A9C8F0;
+  outline-offset: 2px;
+}
+
+.slhShopRate h2 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 800;
+  color: #1E3A5F;
+}
+
+.slhShopRate__sub {
+  margin: 4px 0 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #64748B;
+}
+
+/* ─── The stars ─── */
+.slhShopRate__stars {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.slhShopRate__star {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: none;
+  color: #CBD5E1;
+  cursor: pointer;
+  transition: transform 0.12s ease, color 0.12s ease;
+}
+
+.slhShopRate__star svg {
+  fill: #FFFFFF;
+  transition: fill 0.12s ease;
+}
+
+.slhShopRate__star--on {
+  color: #F59E0B;
+}
+
+.slhShopRate__star--on svg {
+  fill: #F59E0B;
+}
+
+.slhShopRate__star:active {
+  transform: scale(0.9);
+}
+
+.slhShopRate__label {
+  min-height: 20px;
+  margin: 4px 0 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #94A3B8;
+}
+
+.slhShopRate__label--on {
+  color: #B26F00;
+}
+
+/* ─── The comment ─── */
+.slhShopRate__field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 14px;
+  text-align: left;
+}
+
+.slhShopRate__field > span {
+  font-size: 13px;
+  font-weight: 700;
+  color: #334155;
+}
+
+.slhShopRate__field textarea {
+  width: 100%;
+  min-height: 92px;
+  padding: 12px 14px 24px;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 12px;
+  background: #FFFFFF;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: #1F2A37;
+  resize: vertical;
+}
+
+.slhShopRate__field textarea:focus {
+  border-color: #1D6FD8;
+  outline: none;
+}
+
+.slhShopRate__field em {
+  position: absolute;
+  right: 12px;
+  bottom: 8px;
+  font-size: 11.5px;
+  font-style: normal;
+  font-weight: 600;
+  color: #94A3B8;
+}
+
+.slhShopRate__note {
+  margin: 8px 0 0;
+  font-size: 12.5px;
+  font-weight: 600;
+  text-align: left;
+  color: #94A3B8;
+}
+
+.slhShopRate__error {
+  margin: 10px 0 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #B91C1C;
+}
+
+.slhShopRate__actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.slhShopRate__primary {
+  flex: 1 1 auto;
+  height: 50px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 14px;
+  background: #1D6FD8;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.slhShopRate__primary:hover {
+  background: #1760C0;
+}
+
+.slhShopRate__primary:disabled {
+  background: #B9CDE6;
+  cursor: default;
+}
+
+.slhShopRate__ghost {
+  height: 44px;
+  padding: 0 18px;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 12px;
+  background: #FFFFFF;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #334155;
+  cursor: pointer;
+}
+
+.slhShopRate__actions .slhShopRate__ghost {
+  height: 50px;
+  border-radius: 14px;
+}
+
+/* ─── Already rated ─── */
+.slhShopRate--done {
+  border-color: #E8EDF3;
+  background: #FFFFFF;
+  text-align: left;
+}
+
+.slhShopRate__doneHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.slhShopRate__doneIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #F0FDF4;
+  color: #16A34A;
+}
+
+.slhShopRate__doneHead > span:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.slhShopRate__doneHead b {
+  font-size: 16px;
+  font-weight: 800;
+  color: #1E3A5F;
+}
+
+.slhShopRate__doneHead em {
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  color: #64748B;
+}
+
+.slhShopRate__mine {
+  margin: 12px 0 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #F8FAFC;
+}
+
+.slhShopRate__mine p {
+  margin: 8px 0 0;
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #334155;
+  overflow-wrap: anywhere;
+}
+
+.slhShopRate--done > .slhShopRate__ghost {
+  margin-top: 12px;
+}
+
+@media (max-width: 640px) {
+  .slhShopRate {
+    padding: 18px 14px 16px;
+  }
+
+  .slhShopRate__stars {
+    gap: 2px;
+  }
+
+  .slhShopRate__star {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slhShopRate__star,
+  .slhShopRate__star svg {
+    transition: none;
+  }
+}
