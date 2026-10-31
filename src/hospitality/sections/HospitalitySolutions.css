@@ -1,0 +1,435 @@
+.slh-sol {
+  padding: 40px 0 120px;
+  background: #ffffff;
+}
+
+.slh-sol__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 44px;
+}
+
+.slh-sol__head > div {
+  min-width: 0;
+}
+
+.slh-sol__jump {
+  display: flex;
+  flex-shrink: 0;
+  gap: 8px;
+}
+
+.slh-sol__jump a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 99px;
+  background: #f5f7fa;
+  font-size: 14px;
+  font-weight: 800;
+  color: #003366;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.slh-sol__jump a:hover {
+  background: #003366;
+  color: #ffffff;
+}
+
+.slh-sol__stack {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Each panel sticks a little lower than the one before, so they stack */
+.slh-sol__panel {
+  position: sticky;
+  display: flex;
+  align-items: center;
+  min-height: 600px;
+  margin-bottom: 40px;
+  border-radius: 36px;
+  overflow: hidden;
+  box-shadow: 0 -10px 40px rgba(0, 25, 60, 0.12);
+}
+
+.slh-sol__panel:last-child {
+  margin-bottom: 0;
+}
+
+.slh-sol__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slh-sol__panel.has-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(0, 20, 45, 0.88) 0%, rgba(0, 20, 45, 0.55) 55%, rgba(0, 20, 45, 0.2) 100%);
+}
+
+.slh-sol__art {
+  position: absolute;
+  left: -60px;
+  bottom: -90px;
+  width: 460px;
+  height: 460px;
+  opacity: 0.09;
+  pointer-events: none;
+}
+
+.slh-sol__inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  padding: 64px;
+}
+
+.slh-sol__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 99px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.slh-sol__title {
+  margin: 20px 0 0;
+  font-size: clamp(30px, 3.6vw, 48px);
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+}
+
+.slh-sol__text {
+  margin: 18px 0 0;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.slh-sol__list {
+  display: grid;
+  gap: 12px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slh-sol__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.slh-sol__list svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.slh-sol__badge {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* Devices inside a panel */
+.slh-sol__devs {
+  position: relative;
+  aspect-ratio: 6 / 5;
+}
+
+.slh-sol__d1,
+.slh-sol__d2 {
+  position: absolute;
+  transition:
+    transform 1s cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 1s ease;
+  opacity: 0;
+}
+
+.slh-sol__d1 {
+  transform: translateY(50px);
+}
+
+.slh-sol__d2 {
+  transform: translateY(90px);
+  transition-delay: 0.15s;
+}
+
+.slh-sol__panel.is-in .slh-sol__d1,
+.slh-sol__panel.is-in .slh-sol__d2 {
+  opacity: 1;
+  transform: none;
+}
+
+.slh-sol__devs--rest .slh-sol__d1 {
+  top: 12%;
+  left: 0;
+  width: 86%;
+}
+
+.slh-sol__devs--rest .slh-sol__d2 {
+  right: 0;
+  bottom: -2%;
+  width: 28%;
+}
+
+.slh-sol__devs--cafe .slh-sol__d1 {
+  left: 0;
+  bottom: 2%;
+  width: 62%;
+}
+
+.slh-sol__devs--cafe .slh-sol__d2 {
+  right: 2%;
+  top: 4%;
+  width: 28%;
+  z-index: 2;
+}
+
+.slh-sol__devs--bar .slh-sol__d1 {
+  top: 14%;
+  left: 0;
+  width: 88%;
+}
+
+.slh-sol__devs--bar .slh-sol__d2 {
+  right: 0;
+  bottom: -4%;
+  width: 29%;
+}
+
+.slh-sol__devs--hotel .slh-sol__d1 {
+  top: 10%;
+  right: 0;
+  width: 90%;
+}
+
+.slh-sol__devs--hotel .slh-sol__d2 {
+  left: 0;
+  bottom: -4%;
+  width: 27%;
+}
+
+/* ----- Restaurant: warm, dark ----- */
+.slh-sol__panel--restaurant {
+  background:
+    radial-gradient(circle at 85% 20%, #8a3a14 0%, rgba(138, 58, 20, 0) 50%),
+    linear-gradient(135deg, #1c0e08 0%, #2e140a 60%, #120806 100%);
+  color: #fdf1e8;
+}
+
+.slh-sol__panel--restaurant .slh-sol__art {
+  color: #ffb98a;
+}
+
+.slh-sol__panel--restaurant .slh-sol__kicker {
+  background: rgba(255, 185, 138, 0.14);
+  color: #ffc9a3;
+}
+
+.slh-sol__panel--restaurant .slh-sol__text {
+  color: #e7cfc0;
+}
+
+.slh-sol__panel--restaurant .slh-sol__list svg {
+  color: #ff9a5a;
+}
+
+/* ----- Cafe: light cream ----- */
+.slh-sol__panel--cafe {
+  background: radial-gradient(circle at 80% 80%, #ead9c6 0%, rgba(234, 217, 198, 0) 55%), #f6efe7;
+  color: #3b2414;
+}
+
+.slh-sol__panel--cafe .slh-sol__art {
+  color: #7c4a21;
+}
+
+.slh-sol__panel--cafe .slh-sol__kicker {
+  background: #ead9c6;
+  color: #6b3c18;
+}
+
+.slh-sol__panel--cafe .slh-sol__title {
+  color: #2b170a;
+}
+
+.slh-sol__panel--cafe .slh-sol__text {
+  color: #6b5444;
+}
+
+.slh-sol__panel--cafe .slh-sol__list svg {
+  color: #1d6fd8;
+}
+
+/* ----- Bar: night, electric blue ----- */
+.slh-sol__panel--bar {
+  background:
+    radial-gradient(circle at 75% 30%, rgba(29, 111, 216, 0.55) 0%, rgba(29, 111, 216, 0) 50%),
+    radial-gradient(circle at 10% 100%, rgba(29, 111, 216, 0.3) 0%, rgba(29, 111, 216, 0) 40%), #040c18;
+  color: #eaf1ff;
+}
+
+.slh-sol__panel--bar .slh-sol__art {
+  color: #8fb0ff;
+  opacity: 0.12;
+}
+
+.slh-sol__panel--bar .slh-sol__kicker {
+  background: rgba(143, 176, 255, 0.14);
+  color: #b8ccff;
+}
+
+.slh-sol__panel--bar .slh-sol__title {
+  text-shadow: 0 0 40px rgba(29, 111, 216, 0.6);
+}
+
+.slh-sol__panel--bar .slh-sol__text {
+  color: #b3c3df;
+}
+
+.slh-sol__panel--bar .slh-sol__list svg {
+  color: #8fb0ff;
+}
+
+/* ----- Hotel: calm light blue ----- */
+.slh-sol__panel--hotel {
+  background:
+    radial-gradient(circle at 20% 15%, #ffffff 0%, rgba(255, 255, 255, 0) 45%),
+    linear-gradient(160deg, #eaf0fb 0%, #dce6f7 100%);
+  color: #003366;
+}
+
+.slh-sol__panel--hotel .slh-sol__inner {
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+}
+
+.slh-sol__panel--hotel .slh-sol__copy {
+  order: 2;
+}
+
+.slh-sol__panel--hotel .slh-sol__art {
+  left: auto;
+  right: -60px;
+  color: #1d6fd8;
+}
+
+.slh-sol__panel--hotel .slh-sol__kicker {
+  background: #ffffff;
+  color: #1d6fd8;
+}
+
+.slh-sol__panel--hotel .slh-sol__text {
+  color: #4a5b70;
+}
+
+.slh-sol__panel--hotel .slh-sol__list svg {
+  color: #1d6fd8;
+}
+
+.slh-sol__panel--hotel .slh-sol__badge {
+  background: #fff4e5;
+  color: #b45309;
+}
+
+/* With a real photo, copy is always light on the dark overlay */
+.slh-sol__panel.has-photo,
+.slh-sol__panel.has-photo .slh-sol__title {
+  color: #ffffff;
+}
+
+.slh-sol__panel.has-photo .slh-sol__text {
+  color: #dbe5f6;
+}
+
+@media (max-width: 1000px) {
+  .slh-sol__head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .slh-sol__jump {
+    flex-wrap: wrap;
+  }
+
+  .slh-sol__panel {
+    position: relative;
+    top: auto !important;
+    min-height: 0;
+    margin-bottom: 20px;
+    border-radius: 28px;
+  }
+
+  .slh-sol__inner,
+  .slh-sol__panel--hotel .slh-sol__inner {
+    grid-template-columns: 1fr;
+    padding: 44px 32px 36px;
+  }
+
+  .slh-sol__panel--hotel .slh-sol__copy {
+    order: 0;
+  }
+
+  .slh-sol__devs {
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  /* Room for the receipt rising out of StoreLense POS */
+  .slh-sol__devs--cafe {
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 560px) {
+  .slh-sol {
+    padding-bottom: 80px;
+  }
+
+  .slh-sol__stack {
+    padding: 0 12px;
+  }
+
+  .slh-sol__inner,
+  .slh-sol__panel--hotel .slh-sol__inner {
+    padding: 34px 20px 26px;
+    gap: 28px;
+  }
+
+  .slh-sol__text {
+    font-size: 16px;
+  }
+
+  .slh-sol__art {
+    width: 280px;
+    height: 280px;
+  }
+}

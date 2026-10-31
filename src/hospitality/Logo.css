@@ -1,0 +1,89 @@
+.slh-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: "Nunito", sans-serif;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.slh-logo__mark {
+  display: block;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ffffff;
+  object-fit: contain;
+}
+
+.slh-logo__text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.slh-logo__word {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #1d6fd8;
+}
+
+.slh-logo__word em {
+  font-style: normal;
+  color: #37b4c5;
+}
+
+.slh-logo small {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #003366;
+}
+
+/* On dark backgrounds */
+.slh-logo--light .slh-logo__word {
+  color: #ffffff;
+}
+
+.slh-logo--light .slh-logo__word em {
+  color: #7fd6e2;
+}
+
+.slh-logo--light small {
+  color: #a9c4ee;
+}
+
+/* Sizes */
+.slh-logo--sm {
+  gap: 7px;
+}
+
+.slh-logo--sm .slh-logo__mark {
+  width: 26px;
+  height: 26px;
+}
+
+.slh-logo--sm .slh-logo__word {
+  font-size: 14px;
+}
+
+.slh-logo--sm small {
+  font-size: 7px;
+  letter-spacing: 0.18em;
+}
+
+.slh-logo--lg .slh-logo__mark {
+  width: 46px;
+  height: 46px;
+}
+
+.slh-logo--lg .slh-logo__word {
+  font-size: 24px;
+}
+
+.slh-logo--lg small {
+  font-size: 10px;
+}

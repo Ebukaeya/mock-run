@@ -1,0 +1,326 @@
+.slw-price {
+  padding: 110px 0;
+  background: linear-gradient(180deg, #f5f7fa 0%, #ffffff 100%);
+}
+
+.slw-price__head {
+  max-width: 700px;
+  margin: 0 auto 52px;
+  text-align: center;
+}
+
+.slw-price__head .slw-lead {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slw-price__cards {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.slw-price__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 26px 22px;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: inset 0 0 0 1.5px #e3e9f2;
+}
+
+.slw-price__card--starter {
+  background: #f5f7fa;
+  box-shadow: none;
+}
+
+.slw-price__card.is-featured {
+  background: #003366;
+  color: #ffffff;
+  box-shadow: 0 30px 60px rgba(0, 51, 102, 0.25);
+  transform: translateY(-10px);
+}
+
+.slw-price__flag {
+  position: absolute;
+  top: -12px;
+  left: 22px;
+  padding: 5px 12px;
+  border-radius: 99px;
+  background: #1d6fd8;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.slw-price__name {
+  font-size: 20px;
+  font-weight: 900;
+  color: #003366;
+}
+
+.slw-price__blurb {
+  min-height: 40px;
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #5b6b80;
+}
+
+.slw-price__amount {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #003366;
+  font-variant-numeric: tabular-nums;
+}
+
+.slw-price__amount s {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: #9aa8ba;
+}
+
+.slw-price__per {
+  font-size: 12px;
+  font-weight: 700;
+  color: #7a8899;
+}
+
+.slw-price__card.is-featured .slw-price__name,
+.slw-price__card.is-featured .slw-price__amount {
+  color: #ffffff;
+}
+
+.slw-price__card.is-featured .slw-price__blurb,
+.slw-price__card.is-featured .slw-price__per,
+.slw-price__card.is-featured .slw-price__amount s {
+  color: #a9c1e6;
+}
+
+.slw-price__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  height: 46px;
+  margin-top: 18px;
+  border-radius: 13px;
+  background: #ffffff;
+  box-shadow: inset 0 0 0 1.5px #cfdaea;
+  color: #003366;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.slw-price__cta:hover {
+  box-shadow: inset 0 0 0 1.5px #1d6fd8;
+}
+
+.slw-price__cta--main {
+  background: #1d6fd8;
+  box-shadow: none;
+  color: #ffffff;
+}
+
+.slw-price__cta--main:hover {
+  background: #1a5fc0;
+  box-shadow: none;
+}
+
+.slw-price__cta--wa {
+  background: #25d366;
+  box-shadow: none;
+  color: #ffffff;
+}
+
+.slw-price__cta--wa:hover {
+  background: #1fb857;
+  box-shadow: none;
+}
+
+.slw-price__limits {
+  margin: 20px 0 0;
+  padding: 0;
+}
+
+.slw-price__limits div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 0;
+  border-top: 1px solid #e6ebf2;
+}
+
+.slw-price__limits dt {
+  font-size: 13px;
+  font-weight: 700;
+  color: #5b6b80;
+}
+
+.slw-price__limits dd {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 900;
+  color: #003366;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.slw-price__limits .is-none dd {
+  font-weight: 700;
+  color: #9aa8ba;
+}
+
+.slw-price__card.is-featured .slw-price__limits div {
+  border-top-color: #1d4a7a;
+}
+
+.slw-price__card.is-featured .slw-price__limits dt {
+  color: #b9cbe6;
+}
+
+.slw-price__card.is-featured .slw-price__limits dd {
+  color: #ffffff;
+}
+
+.slw-price__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 6px 0 0;
+  padding: 16px 0 0;
+  border-top: 1px solid #e6ebf2;
+  list-style: none;
+}
+
+.slw-price__card.is-featured .slw-price__list {
+  border-top-color: #1d4a7a;
+}
+
+.slw-price__list li {
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #34465c;
+}
+
+.slw-price__card.is-featured .slw-price__list li {
+  color: #e2ebf8;
+}
+
+.slw-price__list svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #1d6fd8;
+}
+
+.slw-price__card.is-featured .slw-price__list svg {
+  color: #7fd6e2;
+}
+
+.slw-price__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.slw-price__foot p {
+  margin: 0;
+  font-size: 14px;
+  color: #7a8899;
+}
+
+.slw-price__foot a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 15px;
+  font-weight: 800;
+  color: #128c4a;
+  text-decoration: none;
+}
+
+@media (max-width: 1180px) {
+  .slw-price__cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 24px;
+  }
+
+  .slw-price__card--enterprise {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 700px) {
+  .slw-price {
+    padding: 80px 0;
+  }
+
+  .slw-price__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .slw-price__card.is-featured {
+    transform: none;
+  }
+
+  .slw-price__blurb {
+    min-height: 0;
+  }
+}
+
+/* Monthly / every 6 months */
+.slw-price__toggle {
+  display: inline-flex;
+  margin-top: 24px;
+  padding: 4px;
+  border-radius: 14px;
+  background: #f2f6fd;
+}
+
+.slw-price__toggle button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 800;
+  color: #4a5b70;
+  cursor: pointer;
+}
+
+.slw-price__toggle button.is-on {
+  background: #ffffff;
+  color: #0f2a47;
+}
+
+.slw-price__toggle em {
+  padding: 2px 8px;
+  border-radius: 99px;
+  background: #e7f6ec;
+  color: #1f7a3f;
+  font-style: normal;
+  font-size: 11px;
+}

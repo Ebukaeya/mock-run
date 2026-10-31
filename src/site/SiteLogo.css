@@ -1,0 +1,47 @@
+.slw-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: "Nunito", sans-serif;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.slw-logo__mark {
+  display: block;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ffffff;
+  object-fit: contain;
+}
+
+.slw-logo__word {
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #1d6fd8;
+}
+
+.slw-logo__word em {
+  font-style: normal;
+  color: #37b4c5;
+}
+
+.slw-logo--light .slw-logo__word {
+  color: #ffffff;
+}
+
+.slw-logo--light .slw-logo__word em {
+  color: #7fd6e2;
+}
+
+.slw-logo--lg .slw-logo__mark {
+  width: 46px;
+  height: 46px;
+}
+
+.slw-logo--lg .slw-logo__word {
+  font-size: 26px;
+}

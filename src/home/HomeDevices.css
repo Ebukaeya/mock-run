@@ -1,0 +1,59 @@
+/* Screenshot fill for the shared device frames */
+.slw-shot {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  background: #f5f7fa;
+}
+
+.slw-shot--natural {
+  height: auto;
+}
+
+.slw-ratio-16-10 {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  max-width: 100%;
+}
+
+.slw-ratio-phone {
+  position: relative;
+  aspect-ratio: 390 / 844;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.slw-ratio-phone .slw-shot {
+  flex: 1;
+  min-height: 0;
+}
+
+.slw-ratio-mini {
+  position: relative;
+  aspect-ratio: 360 / 600;
+  max-width: 100%;
+}
+
+/* Status bar above phone screenshots (they start below the system bar) */
+.slw-statusbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  height: 9%;
+  padding: 0 12% 0 13%;
+  background: #f7f9fc;
+  font-family: "Nunito", sans-serif;
+  font-size: 11px;
+  color: #0f2a47;
+}
+
+.slw-statusbar i {
+  width: 22px;
+  height: 9px;
+  border-radius: 3px;
+  border: 1.5px solid #0f2a47;
+}

@@ -1,0 +1,342 @@
+.slh-price {
+  padding: 120px 0;
+  background: #ffffff;
+}
+
+.slh-price__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.slh-price__toggle {
+  display: flex;
+  flex-shrink: 0;
+  padding: 4px;
+  border-radius: 14px;
+  background: #f2f6fd;
+}
+
+.slh-price__toggle button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 800;
+  color: #4a5b70;
+  cursor: pointer;
+}
+
+.slh-price__toggle button.is-on {
+  background: #ffffff;
+  color: #003366;
+}
+
+.slh-price__toggle em {
+  padding: 2px 8px;
+  border-radius: 99px;
+  background: #e7f6ec;
+  color: #1f7a3f;
+  font-style: normal;
+  font-size: 11px;
+}
+
+.slh-price__cards {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+
+.slh-price__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 26px 22px;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: inset 0 0 0 1.5px #e3e9f2;
+}
+
+.slh-price__card.is-featured {
+  background: #003366;
+  box-shadow: 0 30px 60px rgba(0, 51, 102, 0.25);
+  color: #ffffff;
+  transform: translateY(-10px);
+}
+
+.slh-price__card--starter {
+  background: #f5f7fa;
+  box-shadow: none;
+}
+
+.slh-price__flag {
+  position: absolute;
+  top: -12px;
+  left: 22px;
+  padding: 5px 12px;
+  border-radius: 99px;
+  background: #1d6fd8;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.slh-price__name {
+  font-size: 20px;
+  font-weight: 900;
+  color: #003366;
+}
+
+.slh-price__card.is-featured .slh-price__name {
+  color: #ffffff;
+}
+
+.slh-price__blurb {
+  min-height: 40px;
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #5b6b80;
+}
+
+.slh-price__card.is-featured .slh-price__blurb {
+  color: #b9cbe6;
+}
+
+.slh-price__amount {
+  display: block;
+  margin-top: 16px;
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #003366;
+  font-variant-numeric: tabular-nums;
+}
+
+.slh-price__card.is-featured .slh-price__amount {
+  color: #ffffff;
+}
+
+.slh-price__amount small {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: #7a8899;
+}
+
+.slh-price__card.is-featured .slh-price__amount small {
+  color: #9db4d6;
+}
+
+.slh-price__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  height: 46px;
+  margin-top: 18px;
+  border-radius: 13px;
+  box-shadow: inset 0 0 0 1.5px #cfdaea;
+  background: #ffffff;
+  color: #003366;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.slh-price__cta:hover {
+  box-shadow: inset 0 0 0 1.5px #1d6fd8;
+}
+
+.slh-price__cta--main {
+  background: #1d6fd8;
+  box-shadow: none;
+  color: #ffffff;
+}
+
+.slh-price__cta--main:hover {
+  background: #1a5fc0;
+  box-shadow: none;
+}
+
+.slh-price__cta--wa {
+  background: #25d366;
+  box-shadow: none;
+  color: #ffffff;
+}
+
+.slh-price__cta--wa:hover {
+  background: #1fb857;
+  box-shadow: none;
+}
+
+/* Plan limits: same rows in the same order on every card */
+.slh-price__limits {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0 0;
+  padding: 0;
+}
+
+.slh-price__limits div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 0;
+  border-top: 1px solid #e6ebf2;
+}
+
+.slh-price__limits dt {
+  font-size: 13px;
+  font-weight: 700;
+  color: #5b6b80;
+}
+
+.slh-price__limits dd {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 900;
+  color: #003366;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.slh-price__limits div.is-none dd {
+  font-weight: 700;
+  color: #9aa8ba;
+}
+
+.slh-price__card.is-featured .slh-price__limits div {
+  border-top-color: #1d4a7a;
+}
+
+.slh-price__card.is-featured .slh-price__limits dt {
+  color: #b9cbe6;
+}
+
+.slh-price__card.is-featured .slh-price__limits dd {
+  color: #ffffff;
+}
+
+.slh-price__card.is-featured .slh-price__limits div.is-none dd {
+  color: #7f97ba;
+}
+
+.slh-price__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 6px 0 0;
+  padding: 16px 0 0;
+  border-top: 1px solid #e6ebf2;
+  list-style: none;
+}
+
+.slh-price__card.is-featured .slh-price__list {
+  border-top-color: #1d4a7a;
+}
+
+.slh-price__list li {
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #34465c;
+}
+
+.slh-price__card.is-featured .slh-price__list li {
+  color: #e2ebf8;
+}
+
+.slh-price__list svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #1d6fd8;
+}
+
+.slh-price__card.is-featured .slh-price__list svg {
+  color: #7fd6e2;
+}
+
+.slh-price__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.slh-price__foot p {
+  margin: 0;
+  font-size: 14px;
+  color: #7a8899;
+}
+
+.slh-price__foot a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 15px;
+  font-weight: 800;
+  color: #128c4a;
+  text-decoration: none;
+}
+
+@media (max-width: 1180px) {
+  .slh-price__cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 24px;
+  }
+}
+
+@media (max-width: 760px) {
+  .slh-price {
+    padding: 90px 0;
+  }
+
+  .slh-price__head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .slh-price__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .slh-price__card.is-featured {
+    transform: none;
+  }
+
+  .slh-price__blurb {
+    min-height: 0;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1180px) {
+  .slh-price__cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .slh-price__card--enterprise {
+    grid-column: 1 / -1;
+  }
+}

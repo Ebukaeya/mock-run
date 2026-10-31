@@ -3,7 +3,6 @@ import "./App.css";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import { useLayoutEffect, useEffect } from "react";
-import Webstore from "./component/Webstore.jsx";
 import PosSetup from "./component/PosSetup/PosSetup.jsx";
 import Services from "./component/Services.jsx";
 import Contact from "./component/Contact.jsx";
@@ -26,6 +25,9 @@ import WarehouseIntegration from "./solutionsPages/WarehouseIntegration.jsx";
 import StoreCatalogue from "./storecatelogue/StoreCatalogue.jsx";
 import VenueStorefront from "./restaurantCatalogue/client/VenueStorefront.jsx";
 import TrackOrder from "./restaurantCatalogue/client/TrackOrder.jsx";
+import HomePage from "./home/HomePage.jsx";
+import HospitalityPage from "./hospitality/HospitalityPage.jsx";
+import "./styles/backNav.css";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -68,7 +70,8 @@ function App() {
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
-        <Route path='/' element={<Webstore />} />
+        <Route path='/' element={<HomePage />} />
+        <Route path='/hospitality' element={<HospitalityPage />} />
         <Route path='/pos-setup' element={<PosSetup />} />
         <Route path='/data-policy' element={<StorelensePrivacyPolicy />} />
         <Route path='/terms' element={<TermsOfService />} />
@@ -89,7 +92,7 @@ function App() {
         <Route path='/bookedOrders/' element={<BookOrder />} />
         <Route path='/stores/:storeID' element={<StoreCatalogue />} />
         <Route path='/check-out/' element={<HardwareCheckoutPage />} />
-        //hospitality
+        {/* hospitality: venue ordering pages */}
         <Route path='/restaurant/:venueId' element={<VenueStorefront venueType='restaurant' />} />
         <Route path='/bar/:venueId' element={<VenueStorefront venueType='bar' />} />
         <Route path='/cafe/:venueId' element={<VenueStorefront venueType='cafe' />} />

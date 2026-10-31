@@ -1,0 +1,523 @@
+/* ===== Shared scaler ===== */
+.slh-dev-fit {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slh-dev-fit__inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  transition: opacity 0.3s ease;
+}
+
+/* ===== Laptop ===== */
+.slh-dev-laptop {
+  position: relative;
+  width: 100%;
+  filter: drop-shadow(0 30px 40px rgba(0, 25, 60, 0.28));
+}
+
+.slh-dev-laptop__lid {
+  position: relative;
+  margin: 0 7%;
+  padding: 2.2% 1.6% 2.4%;
+  background: linear-gradient(180deg, #2b3340 0%, #12161d 100%);
+  border-radius: 14px 14px 4px 4px;
+  box-shadow: inset 0 0 0 1px #3b4452;
+}
+
+.slh-dev-laptop__cam {
+  position: absolute;
+  top: 0.9%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  border-radius: 50%;
+  background: #0a0d12;
+  box-shadow: inset 0 0 0 1px #3a4250;
+}
+
+.slh-dev-laptop__screen {
+  border-radius: 3px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.slh-dev-laptop__base {
+  position: relative;
+  height: 0;
+  padding-bottom: 3.2%;
+  background: linear-gradient(180deg, #e3e8ef 0%, #b9c2cf 55%, #8d97a6 100%);
+  border-radius: 2px 2px 14px 14px;
+}
+
+.slh-dev-laptop__notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 16%;
+  height: 40%;
+  margin-left: -8%;
+  background: #a6b0be;
+  border-radius: 0 0 8px 8px;
+}
+
+/* ===== Tablet ===== */
+.slh-dev-tablet {
+  position: relative;
+  width: 100%;
+  padding: 3.4%;
+  background: linear-gradient(145deg, #2a313b 0%, #0f1318 100%);
+  border-radius: 28px;
+  box-shadow:
+    0 30px 50px rgba(0, 25, 60, 0.3),
+    inset 0 0 0 2px #404957;
+}
+
+.slh-dev-tablet__cam {
+  position: absolute;
+  top: 50%;
+  left: 1.5%;
+  width: 7px;
+  height: 7px;
+  margin-top: -3px;
+  border-radius: 50%;
+  background: #05070a;
+  box-shadow: inset 0 0 0 1px #434c5a;
+}
+
+.slh-dev-tablet__screen {
+  border-radius: 10px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+/* ===== Phone ===== */
+.slh-dev-phone {
+  position: relative;
+  width: 100%;
+  padding: 4.4%;
+  background: linear-gradient(145deg, #39424f 0%, #12161c 60%, #232a34 100%);
+  border-radius: 15% / 7%;
+  box-shadow:
+    0 30px 50px rgba(0, 25, 60, 0.32),
+    inset 0 0 0 2px #4b5563;
+}
+
+.slh-dev-phone__btn {
+  position: absolute;
+  left: -2px;
+  width: 3px;
+  background: #2a313b;
+  border-radius: 2px 0 0 2px;
+}
+
+.slh-dev-phone__btn--a {
+  top: 18%;
+  height: 7%;
+}
+
+.slh-dev-phone__btn--b {
+  top: 28%;
+  height: 11%;
+}
+
+.slh-dev-phone__screen {
+  position: relative;
+  border-radius: 12% / 5.6%;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.slh-dev-phone__island {
+  position: absolute;
+  top: 1.4%;
+  left: 50%;
+  z-index: 3;
+  width: 30%;
+  height: 3.4%;
+  transform: translateX(-50%);
+  background: #05070a;
+  border-radius: 20px;
+}
+
+/* ===== StoreLense POS (sizes follow the device width via cqw) ===== */
+.slh-dev-slpos {
+  position: relative;
+  width: 100%;
+  container-type: inline-size;
+  filter: drop-shadow(0 28px 34px rgba(0, 25, 60, 0.3)) drop-shadow(0 4px 6px rgba(0, 25, 60, 0.18));
+}
+
+.slh-dev-slpos__body {
+  position: relative;
+  padding: 3.2cqw 3.4cqw 3.6cqw;
+  border-radius: 4.2cqw;
+  background: linear-gradient(180deg, #d9dee3 0%, #c3c9cf 38%, #aeb5bc 100%);
+  box-shadow:
+    inset 0 0.35cqw 0 rgba(255, 255, 255, 0.85),
+    inset 0 -0.6cqw 0 rgba(0, 0, 0, 0.14),
+    inset 0.35cqw 0 0 rgba(255, 255, 255, 0.4),
+    inset -0.35cqw 0 0 rgba(0, 0, 0, 0.08);
+}
+
+/* Top band: customer display + printer */
+.slh-dev-slpos__band {
+  display: flex;
+  align-items: stretch;
+  gap: 4cqw;
+  height: 19cqw;
+  margin-bottom: 3cqw;
+}
+
+.slh-dev-slpos__cd {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4cqw;
+  width: 37%;
+  padding: 1.8cqw;
+  border-radius: 1.6cqw;
+  background: linear-gradient(180deg, #343b44 0%, #252b32 100%);
+  box-shadow: inset 0 0 0 0.2cqw #4a525c;
+}
+
+.slh-dev-slpos__lcd {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 1cqw 1.6cqw;
+  border-radius: 0.8cqw;
+  background: linear-gradient(180deg, #c9d4bd 0%, #b3c0a6 100%);
+  box-shadow: inset 0 0.3cqw 0.6cqw rgba(0, 0, 0, 0.25);
+  font-family: "Courier New", monospace;
+  color: #27301f;
+}
+
+.slh-dev-slpos__lcd span {
+  font-size: 1.9cqw;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.slh-dev-slpos__lcd b {
+  font-size: 3.3cqw;
+  font-weight: 900;
+}
+
+.slh-dev-slpos__cdRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  padding: 0 0.6cqw;
+}
+
+.slh-dev-slpos__nfc {
+  display: flex;
+  align-items: center;
+  gap: 0.5cqw;
+  padding: 0.7cqw 1.4cqw;
+  border-radius: 99px;
+  box-shadow: inset 0 0 0 0.25cqw #8a939d;
+}
+
+.slh-dev-slpos__nfc i {
+  width: 0.8cqw;
+  border: 0.3cqw solid #b7c0ca;
+  border-left: 0;
+  border-radius: 0 3cqw 3cqw 0;
+}
+
+.slh-dev-slpos__nfc i:nth-child(1) {
+  height: 1.4cqw;
+}
+
+.slh-dev-slpos__nfc i:nth-child(2) {
+  height: 2.1cqw;
+}
+
+.slh-dev-slpos__nfc i:nth-child(3) {
+  height: 2.8cqw;
+}
+
+.slh-dev-slpos__card {
+  width: 8cqw;
+  height: 3.6cqw;
+  border-radius: 0.6cqw;
+  background: linear-gradient(180deg, #e7eaed 0%, #c9ced3 100%);
+  box-shadow: inset 0 -0.5cqw 0 #8e969f;
+}
+
+/* Receipt printer: dark lid on top, blue front, paper comes out of the slot */
+.slh-dev-slpos__printer {
+  position: relative;
+  flex: 1;
+  margin-left: auto;
+  border-radius: 1.6cqw;
+  background: linear-gradient(180deg, #3b424b 0%, #2c3239 100%);
+  box-shadow:
+    inset 0 0 0 0.2cqw #4f5862,
+    0 0.5cqw 0.8cqw rgba(0, 0, 0, 0.18);
+}
+
+.slh-dev-slpos__hinge {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3.2cqw;
+  border-radius: 1.6cqw 0 0 1.6cqw;
+  background: linear-gradient(90deg, #262b31 0%, #353c44 100%);
+}
+
+.slh-dev-slpos__lid {
+  position: absolute;
+  left: 3.2cqw;
+  right: 0;
+  top: 0;
+  height: 54%;
+  border-radius: 0 1.6cqw 0 0;
+  background: linear-gradient(180deg, #48505a 0%, #3a414a 100%);
+  box-shadow: inset 0 0.3cqw 0 rgba(255, 255, 255, 0.12);
+}
+
+.slh-dev-slpos__slot {
+  position: absolute;
+  left: 9%;
+  right: 6%;
+  top: 54%;
+  z-index: 2;
+  height: 0.9cqw;
+  margin-top: -0.45cqw;
+  border-radius: 0.4cqw;
+  background: #0b0e11;
+}
+
+.slh-dev-slpos__front {
+  position: absolute;
+  left: 3.2cqw;
+  right: 0;
+  bottom: 0;
+  height: 40%;
+  border-radius: 0 0 1.6cqw 0;
+  background: linear-gradient(180deg, #2a7be6 0%, #1d6fd8 50%, #1658b0 100%);
+  box-shadow: inset 0 0.3cqw 0 rgba(255, 255, 255, 0.25);
+}
+
+.slh-dev-slpos__paper {
+  position: absolute;
+  left: 20%;
+  right: 16%;
+  bottom: 46%;
+  z-index: 1;
+  height: 0;
+  overflow: hidden;
+  background: #fbfbf8;
+  box-shadow: 0 -0.6cqw 1.6cqw rgba(0, 0, 0, 0.14);
+  container-type: inline-size;
+  transition: height 2.4s cubic-bezier(0.3, 0.7, 0.3, 1);
+}
+
+.slh-dev-slpos.is-printing .slh-dev-slpos__paper {
+  height: 36cqw;
+}
+
+/* Screen */
+.slh-dev-slpos__bezel {
+  padding: 1.8cqw;
+  border-radius: 2.2cqw;
+  background: #0d1014;
+  box-shadow: inset 0 0 0 0.25cqw #22272d;
+}
+
+.slh-dev-slpos__screen {
+  position: relative;
+  border-radius: 0.6cqw;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.slh-dev-slpos__glare,
+.slh-dev-mini__glare {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.16) 0%,
+    rgba(255, 255, 255, 0.04) 32%,
+    rgba(255, 255, 255, 0) 33%
+  );
+  pointer-events: none;
+}
+
+/* ===== StoreLense Mini (handheld) ===== */
+.slh-dev-mini {
+  position: relative;
+  width: 100%;
+  container-type: inline-size;
+  filter: drop-shadow(0 26px 30px rgba(0, 25, 60, 0.32)) drop-shadow(0 4px 6px rgba(0, 25, 60, 0.18));
+}
+
+.slh-dev-mini__head {
+  position: relative;
+  height: 40cqw;
+  border-radius: 22cqw 22cqw 4cqw 4cqw;
+  background: linear-gradient(180deg, #6b747e 0%, #555e68 45%, #474f58 100%);
+  box-shadow:
+    inset 0 0.8cqw 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1cqw 0 rgba(0, 0, 0, 0.18);
+}
+
+.slh-dev-mini__nfc {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  display: flex;
+  align-items: center;
+  gap: 1.6cqw;
+  padding: 2.6cqw 5cqw;
+  border-radius: 99px;
+  transform: translate(-50%, -50%);
+  box-shadow: inset 0 0 0 0.9cqw #8d969f;
+}
+
+.slh-dev-mini__nfc i {
+  width: 2.6cqw;
+  border: 1cqw solid #b6bec7;
+  border-left: 0;
+  border-radius: 0 10cqw 10cqw 0;
+}
+
+.slh-dev-mini__nfc i:nth-child(1) {
+  height: 4.4cqw;
+}
+
+.slh-dev-mini__nfc i:nth-child(2) {
+  height: 7cqw;
+}
+
+.slh-dev-mini__nfc i:nth-child(3) {
+  height: 9.6cqw;
+}
+
+/* Paper slot between the printer head and the handle */
+.slh-dev-mini__slotBar {
+  position: relative;
+  height: 8cqw;
+  margin: 0 3cqw;
+  background: linear-gradient(180deg, #2f353c 0%, #3e454d 100%);
+}
+
+.slh-dev-mini__slot {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 50%;
+  z-index: 3;
+  height: 2.2cqw;
+  margin-top: -1.1cqw;
+  border-radius: 1cqw;
+  background: #0b0e11;
+}
+
+.slh-dev-mini__paper {
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  bottom: 50%;
+  z-index: 2;
+  height: 0;
+  overflow: hidden;
+  background: #fbfbf8;
+  box-shadow: 0 -2cqw 4cqw rgba(0, 0, 0, 0.16);
+  container-type: inline-size;
+  transition: height 2.4s cubic-bezier(0.3, 0.7, 0.3, 1);
+}
+
+.slh-dev-mini.is-printing .slh-dev-mini__paper {
+  height: 78cqw;
+}
+
+.slh-dev-mini__body {
+  margin: 0 3cqw;
+  padding: 5cqw 5cqw 0;
+  border-radius: 4cqw 4cqw 14cqw 14cqw;
+  background: linear-gradient(180deg, #4a525b 0%, #3b424a 60%, #444c55 100%);
+  box-shadow:
+    inset 0.8cqw 0 0 rgba(255, 255, 255, 0.08),
+    inset -0.8cqw 0 0 rgba(0, 0, 0, 0.12);
+}
+
+.slh-dev-mini__screen {
+  position: relative;
+  border-radius: 2.4cqw;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 0 0 2.2cqw #0d1014;
+}
+
+.slh-dev-mini__chin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20cqw;
+}
+
+.slh-dev-mini__logo {
+  width: 11cqw !important;
+  height: 11cqw !important;
+  opacity: 0.9;
+}
+
+/* ===== Browser window ===== */
+.slh-dev-browser {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow:
+    0 40px 80px rgba(0, 25, 60, 0.22),
+    0 0 0 1px #dfe5ee;
+}
+
+.slh-dev-browser__bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 40px;
+  padding: 0 16px;
+  background: #eef2f7;
+  border-bottom: 1px solid #dfe5ee;
+}
+
+.slh-dev-browser__dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #c9d2de;
+}
+
+.slh-dev-browser__url {
+  flex: 1;
+  max-width: 340px;
+  margin-left: 14px;
+  padding: 5px 14px;
+  font-family: "Nunito", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #5b6b80;
+  background: #ffffff;
+  border-radius: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.slh-dev-browser__body {
+  position: relative;
+}

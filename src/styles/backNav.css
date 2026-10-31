@@ -1,0 +1,59 @@
+/*
+ * "Back to Home" bar used by the Contact, Services, Demo, Delete account,
+ * Forgot password and Booked quotation pages. These styles used to live in
+ * PosSetup.css.
+ */
+button {
+  cursor: pointer;
+  font-family: "Nunito", sans-serif;
+}
+
+.sl-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid #e3e9f2;
+  padding: 1rem 0;
+  font-family: "Nunito", sans-serif;
+}
+
+.sl-nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sl-nav-back {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #1d6fd8;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+  background: #eaf2fd;
+}
+
+.sl-nav-back:hover {
+  background: #dbe8fb;
+  transform: translateX(-4px);
+}
+
+.sl-nav-logo {
+  height: 2.5rem;
+}
+
+@media (max-width: 480px) {
+  .sl-nav-container {
+    padding: 0 1rem;
+  }
+}

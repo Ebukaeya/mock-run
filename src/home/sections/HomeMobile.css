@@ -1,0 +1,203 @@
+.slw-mob {
+  position: relative;
+  padding: 110px 0;
+  background:
+    radial-gradient(circle at 80% 40%, rgba(55, 180, 197, 0.28) 0%, rgba(55, 180, 197, 0) 45%),
+    linear-gradient(160deg, #0f2a47 0%, #0b1e33 100%);
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.slw-mob__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 40px;
+}
+
+.slw-mob__eyebrow {
+  color: #7fd6e2;
+}
+
+.slw-mob__title {
+  color: #ffffff;
+}
+
+.slw-mob__lead {
+  color: #b9c9e0;
+}
+
+.slw-mob__list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 28px;
+}
+
+.slw-mob__list button {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  width: 100%;
+  padding: 14px 16px;
+  border: 0;
+  border-radius: 16px;
+  background: transparent;
+  text-align: left;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.slw-mob__list button:hover,
+.slw-mob__list button.is-on {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.slw-mob__list b {
+  display: block;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.slw-mob__list small {
+  display: block;
+  margin-top: 3px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #9fb3cf;
+}
+
+.slw-mob__ic {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #7fd6e2;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.slw-mob__list button.is-on .slw-mob__ic {
+  background: #37b4c5;
+  color: #0b1e33;
+}
+
+.slw-mob__find {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 22px;
+  padding: 12px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.slw-mob__find img {
+  flex-shrink: 0;
+  width: 92px;
+  border-radius: 12px;
+}
+
+.slw-mob__find span {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #b9c9e0;
+}
+
+.slw-mob__find svg {
+  display: block;
+  margin-bottom: 6px;
+  color: #7fd6e2;
+}
+
+.slw-mob__find b {
+  color: #ffffff;
+}
+
+/* Fanned phones */
+.slw-mob__stage {
+  position: relative;
+  height: 640px;
+}
+
+.slw-mob__phone {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 270px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  transition:
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 0.5s ease,
+    filter 0.5s ease;
+}
+
+.slw-mob__phone--p0 {
+  z-index: 4;
+  transform: translate(-50%, -50%);
+  cursor: default;
+}
+
+.slw-mob__phone--p1 {
+  z-index: 3;
+  transform: translate(-6%, -46%) scale(0.84) rotate(7deg);
+  filter: brightness(0.7);
+}
+
+.slw-mob__phone--p2 {
+  z-index: 1;
+  transform: translate(-50%, -50%) scale(0.7);
+  opacity: 0;
+}
+
+.slw-mob__phone--p3 {
+  z-index: 3;
+  transform: translate(-94%, -46%) scale(0.84) rotate(-7deg);
+  filter: brightness(0.7);
+}
+
+@media (max-width: 980px) {
+  .slw-mob {
+    padding: 80px 0;
+  }
+
+  .slw-mob__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .slw-mob__stage {
+    order: -1;
+    height: 520px;
+  }
+
+  .slw-mob__phone {
+    width: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slw-mob__stage {
+    height: 430px;
+  }
+
+  .slw-mob__phone {
+    width: 180px;
+  }
+
+  .slw-mob__phone--p1 {
+    transform: translate(-14%, -46%) scale(0.8) rotate(7deg);
+  }
+
+  .slw-mob__phone--p3 {
+    transform: translate(-86%, -46%) scale(0.8) rotate(-7deg);
+  }
+}

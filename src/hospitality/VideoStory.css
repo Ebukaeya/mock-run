@@ -1,0 +1,123 @@
+.slh-video {
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+}
+
+.slh-video__frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  max-width: 100%;
+  border-radius: 26px;
+  overflow: hidden;
+  background: #021b36;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+.slh-video__frame video,
+.slh-video__frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #000000;
+}
+
+.slh-video__poster {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.slh-video__poster img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.slh-video__poster:hover img {
+  transform: scale(1.04);
+}
+
+.slh-video__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 20, 45, 0) 35%, rgba(0, 20, 45, 0.85) 100%);
+}
+
+.slh-video__play {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  display: grid;
+  place-items: center;
+  width: 84px;
+  height: 84px;
+  margin: -42px 0 0 -42px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #1d6fd8;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.slh-video__play svg {
+  margin-left: 4px;
+}
+
+.slh-video__poster:hover .slh-video__play {
+  transform: scale(1.08);
+}
+
+.slh-video__poster:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: -6px;
+}
+
+.slh-video__text {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #ffffff;
+}
+
+.slh-video__text b {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.slh-video__text small {
+  font-size: 14px;
+  font-weight: 600;
+  color: #d4e1f5;
+}
+
+@media (max-width: 560px) {
+  .slh-video__frame {
+    border-radius: 18px;
+  }
+
+  .slh-video__play {
+    width: 64px;
+    height: 64px;
+    margin: -32px 0 0 -32px;
+  }
+
+  .slh-video__text b {
+    font-size: 16px;
+  }
+}

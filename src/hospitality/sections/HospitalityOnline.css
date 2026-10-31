@@ -1,0 +1,367 @@
+.slh-online {
+  position: relative;
+  padding: 120px 0;
+  background:
+    radial-gradient(circle at 15% 0%, #dbe9fc 0%, rgba(219, 233, 252, 0) 40%),
+    radial-gradient(circle at 90% 30%, #e3f6f8 0%, rgba(227, 246, 248, 0) 35%), #f7faff;
+  overflow: hidden;
+}
+
+.slh-online__head {
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.slh-online__live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 99px;
+  background: #e7f6ec;
+  color: #1f7a3f;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.slh-online__live i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: slh-online-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes slh-online-pulse {
+  50% {
+    box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.2);
+  }
+}
+
+.slh-online__title {
+  margin: 18px 0 0;
+  font-size: clamp(34px, 5vw, 64px);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: #003366;
+  text-wrap: balance;
+}
+
+.slh-online__title span {
+  display: block;
+  color: #1d6fd8;
+}
+
+.slh-online__lead {
+  max-width: 640px;
+  margin: 20px auto 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #4a5b70;
+}
+
+/* The address bar */
+.slh-online__url {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 640px;
+  margin: 34px auto 0;
+  padding: 8px 8px 8px 10px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow:
+    0 20px 50px rgba(0, 51, 102, 0.12),
+    0 0 0 1px #dbe5f2;
+}
+
+.slh-online__lock {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  background: #eaf2fd;
+  color: #1d6fd8;
+}
+
+.slh-online__addr {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-align: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 18px;
+  font-weight: 700;
+  color: #4a5b70;
+}
+
+.slh-online__proto {
+  color: #9aa8ba;
+}
+
+.slh-online__addr b {
+  color: #003366;
+  font-weight: 900;
+}
+
+.slh-online__caret {
+  display: inline-block;
+  width: 2px;
+  height: 20px;
+  margin-left: 1px;
+  vertical-align: -3px;
+  background: #1d6fd8;
+  animation: slh-online-caret 1s steps(1) infinite;
+}
+
+@keyframes slh-online-caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+.slh-online__url button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+  height: 44px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 13px;
+  background: #1d6fd8;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.slh-online__url button.is-done {
+  background: #1f7a3f;
+}
+
+.slh-online__channels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slh-online__channels li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 13px;
+  border-radius: 99px;
+  background: #ffffff;
+  box-shadow: inset 0 0 0 1px #dbe5f2;
+  font-size: 13px;
+  font-weight: 700;
+  color: #34465c;
+}
+
+.slh-online__channels svg {
+  color: #1d6fd8;
+}
+
+/* Phone · flow · laptop */
+.slh-online__stage {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr) minmax(0, 1.5fr);
+  align-items: center;
+  gap: 40px;
+  margin-top: 70px;
+}
+
+.slh-online__tag {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7a8899;
+  text-align: center;
+}
+
+.slh-online__flow {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slh-online__flow::before {
+  content: "";
+  position: absolute;
+  left: 21px;
+  top: 22px;
+  bottom: 22px;
+  width: 2px;
+  background: repeating-linear-gradient(180deg, #9cc0f0 0 6px, transparent 6px 12px);
+}
+
+.slh-online__flow li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  opacity: 0;
+  transform: translateX(-14px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.slh-online__flow li.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.slh-online__flowIc {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #1d6fd8;
+  box-shadow:
+    0 8px 18px rgba(0, 51, 102, 0.1),
+    inset 0 0 0 1px #dbe5f2;
+}
+
+.slh-online__flow li:nth-child(3) .slh-online__flowIc {
+  background: #1d6fd8;
+  color: #ffffff;
+}
+
+.slh-online__flow b {
+  display: block;
+  font-size: 16px;
+  font-weight: 800;
+  color: #003366;
+}
+
+.slh-online__flow small {
+  display: block;
+  margin-top: 2px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #5b6b80;
+}
+
+/* Ads band */
+.slh-online__ads {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  align-items: center;
+  gap: 40px;
+  margin-top: 80px;
+  padding: 40px;
+  border-radius: 30px;
+  background: #ffffff;
+  box-shadow: 0 30px 60px rgba(0, 51, 102, 0.08);
+}
+
+.slh-online__ads h3 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #003366;
+}
+
+.slh-online__ads p {
+  margin: 14px 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #4a5b70;
+}
+
+.slh-online__ads .slh-online__fee {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #f2f6fd;
+  font-size: 14px;
+  font-weight: 700;
+  color: #34465c;
+}
+
+.slh-online__ads img {
+  display: block;
+  width: 100%;
+  border-radius: 20px;
+}
+
+@media (max-width: 1000px) {
+  .slh-online {
+    padding: 90px 0;
+  }
+
+  .slh-online__stage {
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .slh-online__laptop {
+    grid-column: 1 / -1;
+  }
+
+  .slh-online__ads {
+    grid-template-columns: 1fr;
+    padding: 28px;
+  }
+}
+
+@media (max-width: 600px) {
+  .slh-online__lead {
+    font-size: 16px;
+  }
+
+  .slh-online__addr {
+    font-size: 14px;
+  }
+
+  .slh-online__proto {
+    display: none;
+  }
+
+  .slh-online__url button {
+    padding: 0 12px;
+  }
+
+  .slh-online__stage {
+    grid-template-columns: 1fr;
+    margin-top: 50px;
+  }
+
+  .slh-online__phone {
+    width: 230px;
+    margin: 0 auto;
+  }
+
+  .slh-online__ads {
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 22px;
+  }
+
+  .slh-online__ads h3 {
+    font-size: 24px;
+  }
+}

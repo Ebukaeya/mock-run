@@ -1,0 +1,139 @@
+.slw-explain {
+  padding: 100px 0;
+  background: #ffffff;
+}
+
+.slw-explain__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 56px;
+}
+
+.slw-explain__player .slh-video__frame {
+  box-shadow: none;
+}
+
+/* Placeholder until the YouTube link is set */
+.slw-explain__soon {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 26px;
+  overflow: hidden;
+  background: #0f2a47;
+}
+
+.slw-explain__soon img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: blur(2px);
+  transform: scale(1.04);
+}
+
+.slw-explain__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(150deg, rgba(29, 111, 216, 0.82) 0%, rgba(15, 42, 71, 0.92) 100%);
+}
+
+.slw-explain__play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 84px;
+  height: 84px;
+  margin: -42px 0 0 -42px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #1d6fd8;
+}
+
+.slw-explain__play svg {
+  margin-left: 4px;
+}
+
+.slw-explain__badge {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  padding: 7px 14px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.slw-explain__text .slw-h2 {
+  margin-bottom: 0;
+}
+
+.slw-explain__len {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 14px 0 0;
+  font-size: 15px;
+  font-weight: 800;
+  color: #1d6fd8;
+}
+
+.slw-explain__text ul {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slw-explain__text li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.45;
+  color: #24384f;
+}
+
+.slw-explain__text li span {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: #eaf2fd;
+  color: #1d6fd8;
+}
+
+@media (max-width: 900px) {
+  .slw-explain {
+    padding: 80px 0;
+  }
+
+  .slw-explain__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 520px) {
+  .slw-explain__soon {
+    border-radius: 20px;
+  }
+
+  .slw-explain__play {
+    width: 64px;
+    height: 64px;
+    margin: -32px 0 0 -32px;
+  }
+}

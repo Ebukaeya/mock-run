@@ -1,0 +1,209 @@
+.slh-how {
+  padding: 120px 0 130px;
+  background: #ffffff;
+}
+
+.slh-how__head {
+  max-width: 720px;
+  margin: 0 auto 70px;
+  text-align: center;
+}
+
+.slh-how__head .slh-eyebrow::after {
+  content: "";
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+
+.slh-how__list {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.slh-how__line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  margin-left: -2px;
+  border-radius: 4px;
+  background: #e6ecf5;
+  overflow: hidden;
+}
+
+.slh-how__line i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(180deg, #1d6fd8 0%, #003366 100%);
+  transform-origin: 50% 0;
+  transition: transform 0.15s linear;
+}
+
+.slh-how__step {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 calc(50% + 48px) 0 0;
+  margin-bottom: 36px;
+}
+
+.slh-how__step:last-child {
+  margin-bottom: 0;
+}
+
+.slh-how__step + .slh-how__step {
+  margin-top: -110px;
+}
+
+.slh-how__step--r {
+  justify-content: flex-end;
+  padding: 0 0 0 calc(50% + 48px);
+}
+
+.slh-how__dot {
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-left: -26px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: inset 0 0 0 3px #e6ecf5;
+  color: #9aa8ba;
+  transition:
+    background 0.5s ease,
+    color 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+.slh-how__step.is-in .slh-how__dot {
+  background: #1d6fd8;
+  color: #ffffff;
+  box-shadow: 0 0 0 8px #eaf0fd;
+}
+
+.slh-how__card {
+  width: 100%;
+  padding: 26px 28px;
+  border-radius: 22px;
+  background: #f5f7fa;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    background 0.3s ease;
+}
+
+.slh-how__step--r .slh-how__card {
+  transform: translateX(30px);
+}
+
+.slh-how__step.is-in .slh-how__card {
+  opacity: 1;
+  transform: none;
+}
+
+.slh-how__card:hover {
+  background: #eaf0fd;
+}
+
+.slh-how__n {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1d6fd8;
+}
+
+.slh-how__card h3 {
+  margin: 8px 0 0;
+  font-size: 23px;
+  font-weight: 900;
+  color: #003366;
+}
+
+.slh-how__card p {
+  margin: 8px 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #5b6b80;
+}
+
+.slh-how__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.slh-how__tags span {
+  padding: 5px 11px;
+  border-radius: 99px;
+  background: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  color: #003366;
+  box-shadow: inset 0 0 0 1px #dbe3ee;
+}
+
+@media (max-width: 760px) {
+  .slh-how {
+    padding: 90px 0;
+  }
+
+  .slh-how__head {
+    text-align: left;
+    margin-bottom: 44px;
+  }
+
+  .slh-how__head .slh-eyebrow::after {
+    display: none;
+  }
+
+  .slh-how__line {
+    left: 22px;
+  }
+
+  .slh-how__step,
+  .slh-how__step--r {
+    padding: 0 0 0 64px;
+    margin-bottom: 20px;
+  }
+
+  .slh-how__step + .slh-how__step {
+    margin-top: 0;
+  }
+
+  .slh-how__dot {
+    left: 22px;
+    top: 18px;
+    width: 44px;
+    height: 44px;
+    margin-left: -22px;
+  }
+
+  .slh-how__card,
+  .slh-how__step--r .slh-how__card {
+    padding: 20px;
+    transform: translateY(20px);
+  }
+
+  .slh-how__card h3 {
+    font-size: 20px;
+  }
+
+  .slh-how__card p {
+    font-size: 15px;
+  }
+}

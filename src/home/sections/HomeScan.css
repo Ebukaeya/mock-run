@@ -1,0 +1,68 @@
+/*
+ * Restyles the existing scan animations to the new look without changing
+ * their code. Selectors are prefixed with .slw-legacy so they win over the
+ * components' own styles.
+ */
+.slw-legacy,
+.slw-legacy * {
+  font-family: "Nunito", sans-serif;
+}
+
+.slw-legacy .slpos-receipt-printing,
+.slw-legacy .slpos-receipt-printing *,
+.slw-legacy .r-table,
+.slw-legacy .r-table * {
+  font-family: "Courier New", monospace;
+}
+
+/* Scan → receipt (dark band) */
+.slw-legacy .slpos-feature-wrapper {
+  padding: 110px 20px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(29, 111, 216, 0.35) 0%, rgba(29, 111, 216, 0) 45%),
+    linear-gradient(180deg, #0f2a47 0%, #0b1e33 100%);
+}
+
+.slw-legacy .slpos-main-title {
+  background: none;
+  -webkit-text-fill-color: #ffffff;
+  color: #ffffff;
+  font-size: clamp(32px, 4.4vw, 52px);
+  letter-spacing: -0.02em;
+}
+
+.slw-legacy .slpos-subtitle {
+  color: #b9c9e0;
+}
+
+.slw-legacy .slpos-badge {
+  background: rgba(55, 180, 197, 0.16);
+  border-color: rgba(55, 180, 197, 0.35);
+  color: #7fd6e2;
+}
+
+.slw-legacy .slpos-feature-card {
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.slw-legacy .slpos-feature-title {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.slw-legacy .slpos-feature-text {
+  color: #9fb3cf;
+}
+
+/* Receipt QR lookup (light band) */
+.slw-legacy .rss {
+  background: #f5f8fc;
+}
+
+/* No shadows on buttons inside the older animated sections */
+.slw-legacy button,
+.slw-legacy [class*="btn"] {
+  box-shadow: none !important;
+}

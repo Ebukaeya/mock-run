@@ -1,0 +1,210 @@
+.slw-sys {
+  padding: 110px 0 120px;
+  background: #ffffff;
+}
+
+.slw-sys__head {
+  max-width: 760px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+.slw-sys__head .slw-eyebrow {
+  justify-content: center;
+}
+
+.slw-sys__tabs {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 34px;
+  padding: 6px;
+  border-radius: 18px;
+  background: #f2f6fb;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.slw-sys__tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.slw-sys__tabs button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  height: 44px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 13px;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 800;
+  color: #4a5b70;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.slw-sys__tabs button:hover {
+  color: #0f2a47;
+}
+
+.slw-sys__tabs button.is-on {
+  background: #0f2a47;
+  color: #ffffff;
+}
+
+.slw-sys__tabs button i {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background: #37b4c5;
+  transform-origin: 0 50%;
+  animation: slw-sys-progress linear forwards;
+}
+
+@keyframes slw-sys-progress {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+/* Stage: big window with a caption card overlapping its corner */
+.slw-sys__stage {
+  position: relative;
+  padding: 0 0 0 0;
+}
+
+.slw-sys__window {
+  position: relative;
+  width: 82%;
+  margin-left: auto;
+  animation: slw-sys-in 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@keyframes slw-sys-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+.slw-sys__overlay {
+  position: absolute;
+  left: 34%;
+  top: 12%;
+  width: 34%;
+  border-radius: 18px;
+  box-shadow: 0 30px 60px rgba(15, 42, 71, 0.35);
+  animation: slw-sys-pop 0.6s 0.2s cubic-bezier(0.2, 0.8, 0.2, 1.2) both;
+}
+
+@keyframes slw-sys-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+.slw-sys__card {
+  position: absolute;
+  left: 0;
+  bottom: -40px;
+  width: 360px;
+  padding: 26px;
+  border-radius: 24px;
+  background: #0f2a47;
+  color: #ffffff;
+  box-shadow: 0 30px 60px rgba(15, 42, 71, 0.3);
+  animation: slw-sys-in 0.6s 0.1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.slw-sys__card h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.slw-sys__card p {
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #c3d1e6;
+}
+
+.slw-sys__card ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slw-sys__card li {
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.slw-sys__card li svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: #37b4c5;
+}
+
+@media (max-width: 980px) {
+  .slw-sys {
+    padding: 90px 0;
+  }
+
+  .slw-sys__tabs {
+    justify-content: flex-start;
+    width: auto;
+  }
+
+  .slw-sys__window {
+    width: 100%;
+  }
+
+  .slw-sys__card {
+    position: relative;
+    bottom: auto;
+    width: auto;
+    margin: 14px 0 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .slw-sys__head {
+    text-align: left;
+  }
+
+  .slw-sys__head .slw-eyebrow {
+    justify-content: flex-start;
+  }
+
+  .slw-sys__card {
+    margin: -16px 0 0;
+    padding: 22px 20px;
+  }
+
+  .slw-sys__overlay {
+    left: 30%;
+    width: 42%;
+    border-radius: 10px;
+  }
+}

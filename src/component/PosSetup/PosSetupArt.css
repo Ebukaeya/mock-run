@@ -1,0 +1,176 @@
+/* Setup illustrations: a 16:10 stage, everything placed in % of it */
+.slw-art {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+}
+
+.slw-art-svg {
+  position: absolute;
+  display: block;
+  height: auto;
+  filter: drop-shadow(0 10px 12px rgba(15, 42, 71, 0.18));
+}
+
+/* Main device on the left, accessories on the right */
+.slw-art__main {
+  position: absolute;
+  left: 4%;
+  bottom: 12%;
+  width: 56%;
+}
+
+.slw-art--android .slw-art__main,
+.slw-art--windows .slw-art__main {
+  left: 5%;
+  bottom: 8%;
+  width: 52%;
+}
+
+.slw-art__printer {
+  right: 4%;
+  bottom: 9%;
+  width: 24%;
+}
+
+.slw-art__scanner {
+  right: 27%;
+  bottom: 7%;
+  width: 15%;
+  transform: rotate(-10deg);
+}
+
+.slw-art__label {
+  right: 8%;
+  top: 9%;
+  width: 16%;
+}
+
+/* StoreLense POS: the terminal, with the Mini beside it */
+.slw-art__slpos {
+  position: absolute;
+  left: 14%;
+  bottom: 8%;
+  width: 50%;
+}
+
+.slw-art__mini {
+  position: absolute;
+  right: 12%;
+  bottom: 8%;
+  width: 17%;
+}
+
+/* Tablet on its stand, centred */
+.slw-art__tablet {
+  position: absolute;
+  left: 50%;
+  bottom: 6%;
+  width: 58%;
+  transform: translateX(-50%);
+}
+
+/* ---------- Touch terminal on a stand ---------- */
+.slw-art-term {
+  position: relative;
+  container-type: inline-size;
+  filter: drop-shadow(0 22px 26px rgba(15, 42, 71, 0.25));
+}
+
+.slw-art-term__screen {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 16 / 10;
+  padding: 2.6cqw;
+  border-radius: 4cqw;
+  background: #e9edf3;
+  box-shadow: inset 0 0 0 0.6cqw #d5dde8;
+}
+
+.slw-art-term.is-dark .slw-art-term__screen {
+  background: #141b24;
+  box-shadow: none;
+}
+
+.slw-art-term__screen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 1.8cqw;
+}
+
+.slw-art-term__neck {
+  display: block;
+  width: 14cqw;
+  height: 12cqw;
+  margin: -1cqw auto 0;
+  background: linear-gradient(90deg, #8a98aa 0%, #c9d3e0 50%, #8a98aa 100%);
+}
+
+.slw-art-term.is-dark .slw-art-term__neck {
+  background: linear-gradient(90deg, #1f2a37 0%, #3a4656 50%, #1f2a37 100%);
+}
+
+.slw-art-term__base {
+  display: block;
+  width: 46cqw;
+  height: 4.4cqw;
+  margin: 0 auto;
+  border-radius: 3cqw 3cqw 1.4cqw 1.4cqw;
+  background: #b9c6d8;
+}
+
+.slw-art-term.is-dark .slw-art-term__base {
+  background: #2a3644;
+}
+
+/* ---------- Tablet on a stand ---------- */
+.slw-art-tab {
+  position: relative;
+  container-type: inline-size;
+  filter: drop-shadow(0 22px 26px rgba(15, 42, 71, 0.25));
+}
+
+.slw-art-tab__body {
+  position: relative;
+  z-index: 1;
+  padding: 3cqw;
+  border-radius: 5cqw;
+  background: #1b2430;
+  transform: perspective(600px) rotateX(8deg);
+  transform-origin: bottom center;
+}
+
+.slw-art-tab__screen {
+  aspect-ratio: 16 / 10;
+  border-radius: 2cqw;
+  overflow: hidden;
+}
+
+.slw-art-tab__screen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.slw-art-tab__arm {
+  display: block;
+  width: 7cqw;
+  height: 13cqw;
+  margin: -2cqw auto 0;
+  border-radius: 0 0 2cqw 2cqw;
+  background: linear-gradient(90deg, #8a98aa 0%, #d5dde8 50%, #8a98aa 100%);
+}
+
+.slw-art-tab__base {
+  display: block;
+  width: 36cqw;
+  height: 5cqw;
+  margin: 0 auto;
+  border-radius: 3cqw;
+  background: #8a98aa;
+}

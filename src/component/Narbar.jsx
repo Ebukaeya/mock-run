@@ -1,300 +1,173 @@
-/* import React, { useState } from "react";
-import { Menu, X, Shield } from "lucide-react";
-import "../styles/Navbar.css";
-import DiscountBanner from "./ui/DiscountCOmp";
+import { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { ArrowRight, BarChart3, ChevronDown, Globe, Menu, MessageCircle, Package, ShoppingBag, UtensilsCrossed, Warehouse, X } from "lucide-react";
+import SiteLogo from "../site/SiteLogo";
+import { contact, links, solutions } from "../site/siteConfig";
+import "../styles/siteNav.css";
 
-import { useNavigate } from "react-router-dom";
-
-const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navigate = useNavigate();
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  return (
-    <nav className='navbar'>
-        <DiscountBanner endDate='2025-12-31T23:59:59' /> 
-      <div className='nav-container'>
-      
-        <div className='nav-logo'>
-       
-          <img className='myLogo' src='https://res.cloudinary.com/ebuka1122/image/upload/v1747600616/StorelenseLogos/Group_2823_fsprsy.png' />
-        </div>
-
-        <div className='nav-links'>
-          <a href='#home' className='nav-link'>
-            Home
-          </a>
-          <a href='#heroSections' className='nav-link'>
-            Features
-          </a>
-          <a href='/services' className='nav-link'>
-            Services
-          </a>
-          <a href='#pricing' className='nav-link'>
-            Pricing
-          </a>
-
-          <a href='/contact' className='nav-link'>
-            Contact
-          </a>
-        </div>
-
-       
-        <div className='nav-cta'>
-          <button
-            onClick={() => {
-              navigate("/portals");
-            }}
-            className='cta-button gtaBtn'
-          >
-            Get Started
-          </button>
-        </div>
-
-       
-        <button className='mobile-menu-btn' onClick={toggleMenu}>
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      <div className={`mobile-menu ${isMenuOpen ? "mobile-menu-open" : ""}`}>
-        <a href='#home' className='mobile-nav-link' onClick={toggleMenu}>
-          Home
-        </a>
-        <a href='#heroSections' className='mobile-nav-link' onClick={toggleMenu}>
-          Features
-        </a>
-        <a href='/services' className='mobile-nav-link' onClick={toggleMenu}>
-          Services
-        </a>
-        <a href='#pricing' className='mobile-nav-link' onClick={toggleMenu}>
-          Pricing
-        </a>
-        <a href='/contact' className='mobile-nav-link' onClick={toggleMenu}>
-          Contact
-        </a>
-        <button
-          onClick={() => {
-            navigate("/portals");
-          }}
-          className='mobile-cta-button'
-        >
-          Get Started
-        </button>
-      </div>
-    </nav>
-  );
+const ICONS = {
+  retail: ShoppingBag,
+  inventory: Package,
+  warehouse: Warehouse,
+  analytics: BarChart3,
+  ecommerce: Globe,
 };
 
-export default Navbar;
- */
-
-import React, { useState, useRef, useEffect, useCallback } from "react";
-import { Menu, X, ChevronDown, ShoppingBag, Warehouse, Package, BarChart3, Globe } from "lucide-react";
-import { useNavigate, Link, useLocation } from "react-router-dom";
-import "../styles/Navbar.css";
-
-const SOLUTIONS = [
-  {
-    icon: ShoppingBag,
-    label: "Retail Stores",
-    desc: "POS terminal built for Nigerian retail",
-    path: "/solutions/retail-stores",
-    color: "#2563EB",
-    bg: "rgba(37,99,235,.09)",
-  },
-  {
-    icon: Warehouse,
-    label: "Warehouse Integration",
-    desc: "Connect every location to one stock pool",
-    path: "/solutions/warehouse-integration",
-    color: "#37B4C5",
-    bg: "rgba(55,180,197,.09)",
-  },
-  {
-    icon: Package,
-    label: "Inventory Management",
-    desc: "Real-time stock counts with every sale",
-    path: "/solutions/inventory-management",
-    color: "#16A34A",
-    bg: "rgba(22,163,74,.09)",
-  },
-  {
-    icon: BarChart3,
-    label: "Analytics",
-    desc: "Sales trends, margins and peak hours",
-    path: "/solutions/analytics",
-    color: "#F5A623",
-    bg: "rgba(245,166,35,.09)",
-  },
-  {
-    icon: Globe,
-    label: "E-Commerce",
-    desc: "Sell online via Shurplug in minutes",
-    path: "/solutions/ecommerce",
-    color: "#37B4C5",
-    bg: "rgba(55,180,197,.09)",
-  },
-];
-
+/* Site-wide navigation (used by the home, solutions, services and POS setup pages) */
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSolOpen, setIsSolOpen] = useState(false);
-  const [isMobileSolOpen, setIsMobileSolOpen] = useState(false);
-
-  const solRef = useRef(null);
-  const hoverTimer = useRef(null);
-  const navigate = useNavigate();
+  const [solOpen, setSolOpen] = useState(false);
+  const [mobile, setMobile] = useState(false);
+  const [stuck, setStuck] = useState(false);
+  const ref = useRef(null);
+  const timer = useRef(null);
   const location = useLocation();
 
-  // close dropdown on route change
   useEffect(() => {
-    setIsMenuOpen(false);
-    setIsSolOpen(false);
-    setIsMobileSolOpen(false);
+    setSolOpen(false);
+    setMobile(false);
   }, [location.pathname]);
 
-  // close dropdown when clicking outside
   useEffect(() => {
-    const handler = (e) => {
-      if (solRef.current && !solRef.current.contains(e.target)) {
-        setIsSolOpen(false);
+    const onScroll = () => setStuck(window.scrollY > 8);
+    const onDown = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) setSolOpen(false);
+    };
+    const onKey = (e) => {
+      if (e.key === "Escape") {
+        setSolOpen(false);
+        setMobile(false);
       }
     };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    document.addEventListener("mousedown", onDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      document.removeEventListener("mousedown", onDown);
+      document.removeEventListener("keydown", onKey);
+    };
   }, []);
 
-  // slight delay before hiding so cursor can reach the dropdown
-  const handleSolEnter = () => {
-    clearTimeout(hoverTimer.current);
-    setIsSolOpen(true);
+  const enter = () => {
+    clearTimeout(timer.current);
+    setSolOpen(true);
   };
-  const handleSolLeave = () => {
-    hoverTimer.current = setTimeout(() => setIsSolOpen(false), 120);
+  const leave = () => {
+    timer.current = setTimeout(() => setSolOpen(false), 140);
   };
-
-  const toggleMenu = () => {
-    setIsMenuOpen((v) => !v);
-    if (isMenuOpen) setIsMobileSolOpen(false);
+  const close = () => {
+    setSolOpen(false);
+    setMobile(false);
   };
 
   return (
-    <nav className='navbar'>
-      <div className='nav-container'>
-        {/* ── Logo ─────────────────────────────────── */}
-        <Link to='/' className='nav-logo'>
-          <img className='myLogo' src='https://res.cloudinary.com/ebuka1122/image/upload/v1747600616/StorelenseLogos/Group_2823_fsprsy.png' alt='StoreLense' />
+    <header className={`slw-nav ${stuck ? "is-stuck" : ""} ${mobile ? "is-open" : ""}`} ref={ref}>
+      <div className='slw-nav__bar'>
+        <Link to='/' className='slw-nav__brand' aria-label='StoreLense home' onClick={close}>
+          <SiteLogo />
         </Link>
 
-        {/* ── Desktop links ────────────────────────── */}
-        <div className='nav-links'>
-          {/* Solutions mega-link with dropdown */}
-          <div className='nav-solutions' ref={solRef} onMouseEnter={handleSolEnter} onMouseLeave={handleSolLeave}>
+        <nav className='slw-nav__links' aria-label='Main'>
+          <div className='slw-nav__sol' onMouseEnter={enter} onMouseLeave={leave}>
             <button
-              className={`nav-link nav-solutions-btn${isSolOpen ? " nav-link--active" : ""}`}
-              onClick={() => setIsSolOpen((v) => !v)}
-              aria-expanded={isSolOpen}
-              aria-haspopup='true'
+              type='button'
+              className={`slw-nav__link ${solOpen ? "is-on" : ""}`}
+              aria-expanded={solOpen}
+              aria-controls='slw-nav-sol'
+              onClick={() => setSolOpen(!solOpen)}
             >
-              Solutions
-              <ChevronDown size={15} className={`nav-chevron${isSolOpen ? " nav-chevron--open" : ""}`} />
+              Solutions <ChevronDown size={16} />
             </button>
+          </div>
+          <Link to={links.posSetup} className='slw-nav__link'>
+            Hardware
+          </Link>
+          <a href='/#payments' className='slw-nav__link'>
+            Payments
+          </a>
+          <a href='/#pricing' className='slw-nav__link'>
+            Pricing
+          </a>
+          <Link to={links.hospitality} className='slw-nav__link slw-nav__link--hosp'>
+            Hospitality <i>New</i>
+          </Link>
+          <Link to={links.contact} className='slw-nav__link'>
+            Contact
+          </Link>
+        </nav>
 
-            {/* Dropdown panel */}
-            <div className={`sol-dropdown${isSolOpen ? " sol-dropdown--open" : ""}`} role='menu'>
-              <div className='sol-dropdown-inner'>
-                <p className='sol-dropdown-title'>Our Solutions</p>
-                <div className='sol-grid'>
-                  {SOLUTIONS.map(({ icon: Icon, label, desc, path, color, bg }) => (
-                    <Link key={path} to={path} className='sol-item' role='menuitem' onClick={() => setIsSolOpen(false)}>
-                      <span className='sol-item-ic' style={{ background: bg }}>
-                        <Icon size={18} color={color} strokeWidth={2} />
-                      </span>
-                      <span className='sol-item-text'>
-                        <span className='sol-item-label'>{label}</span>
-                        <span className='sol-item-desc'>{desc}</span>
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
+        <div className='slw-nav__actions'>
+          <a className='slw-nav__wa' href={contact.whatsappSales} target='_blank' rel='noopener noreferrer'>
+            <MessageCircle size={17} /> Talk to sales
+          </a>
+          <Link className='slw-nav__cta' to={links.getStarted}>
+            Get started
+          </Link>
+          <button
+            type='button'
+            className='slw-nav__burger'
+            aria-label={mobile ? "Close menu" : "Open menu"}
+            aria-expanded={mobile}
+            onClick={() => setMobile(!mobile)}
+          >
+            {mobile ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Solutions menu (desktop dropdown, and the whole menu on phones) */}
+      <div id='slw-nav-sol' className={`slw-nav__menu ${solOpen || mobile ? "is-open" : ""}`} onMouseEnter={enter} onMouseLeave={leave}>
+        <div className='slw-nav__menuInner'>
+          <div className='slw-nav__mobileLinks'>
+            <Link to={links.posSetup} onClick={close}>
+              Hardware
+            </Link>
+            <a href='/#payments' onClick={close}>
+              Payments
+            </a>
+            <a href='/#pricing' onClick={close}>
+              Pricing
+            </a>
+            <Link to={links.contact} onClick={close}>
+              Contact
+            </Link>
+          </div>
+
+          <div className='slw-nav__group'>
+            <span className='slw-nav__groupTitle'>For stores</span>
+            <div className='slw-nav__items'>
+              {solutions.map((s) => {
+                const Icon = ICONS[s.key];
+                return (
+                  <Link key={s.key} to={s.path} className='slw-nav__item' onClick={close}>
+                    <span className='slw-nav__itemIc'>
+                      <Icon size={18} />
+                    </span>
+                    <span>
+                      <b>{s.label}</b>
+                      <small>{s.desc}</small>
+                    </span>
+                  </Link>
+                );
+              })}
             </div>
           </div>
 
-          <a href='#heroSections' className='nav-link'>
-            Features
-          </a>
-          <a href='/services' className='nav-link'>
-            Services
-          </a>
-          <a href='#pricing' className='nav-link'>
-            Pricing
-          </a>
-          <a href='/contact' className='nav-link'>
-            Contact
-          </a>
+          <Link to={links.hospitality} className='slw-nav__hosp' onClick={close}>
+            <span className='slw-nav__hospTag'>New</span>
+            <span className='slw-nav__hospIc'>
+              <UtensilsCrossed size={22} />
+            </span>
+            <b>StoreLense Hospitality</b>
+            <small>For restaurants, cafés, bars and hotels: tables, kitchen display and online ordering.</small>
+            <span className='slw-nav__hospGo'>
+              Explore <ArrowRight size={16} />
+            </span>
+          </Link>
         </div>
-
-        {/* ── Desktop CTA ──────────────────────────── */}
-        <div className='nav-cta'>
-          <button className='cta-button gtaBtn' onClick={() => navigate("/portals")}>
-            Get Started
-          </button>
-        </div>
-
-        {/* ── Mobile hamburger ─────────────────────── */}
-        <button className='mobile-menu-btn' onClick={toggleMenu} aria-label={isMenuOpen ? "Close menu" : "Open menu"} aria-expanded={isMenuOpen}>
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
       </div>
-
-      {/* ── Mobile menu ──────────────────────────────── */}
-      <div className={`mobile-menu${isMenuOpen ? " mobile-menu-open" : ""}`} aria-hidden={!isMenuOpen}>
-        {/* Solutions accordion */}
-        <button className='mobile-nav-link mobile-sol-toggle' onClick={() => setIsMobileSolOpen((v) => !v)} aria-expanded={isMobileSolOpen}>
-          <span>Solutions</span>
-          <ChevronDown size={16} className={`nav-chevron${isMobileSolOpen ? " nav-chevron--open" : ""}`} />
-        </button>
-
-        <div className={`mobile-sol-list${isMobileSolOpen ? " mobile-sol-list--open" : ""}`}>
-          {SOLUTIONS.map(({ icon: Icon, label, desc, path, color, bg }) => (
-            <Link key={path} to={path} className='mobile-sol-item' onClick={toggleMenu}>
-              <span className='mobile-sol-ic' style={{ background: bg }}>
-                <Icon size={16} color={color} strokeWidth={2} />
-              </span>
-              <span className='mobile-sol-label'>{label}</span>
-            </Link>
-          ))}
-        </div>
-
-        <a href='#heroSections' className='mobile-nav-link' onClick={toggleMenu}>
-          Features
-        </a>
-        <a href='/services' className='mobile-nav-link' onClick={toggleMenu}>
-          Services
-        </a>
-        <a href='#pricing' className='mobile-nav-link' onClick={toggleMenu}>
-          Pricing
-        </a>
-        <a href='/contact' className='mobile-nav-link' onClick={toggleMenu}>
-          Contact
-        </a>
-
-        <button
-          className='mobile-cta-button'
-          onClick={() => {
-            navigate("/portals");
-            toggleMenu();
-          }}
-        >
-          Get Started
-        </button>
-      </div>
-    </nav>
+    </header>
   );
 };
 
