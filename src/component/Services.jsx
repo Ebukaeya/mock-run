@@ -1,280 +1,194 @@
-import { useEffect, useRef } from "react";
-import { Crown, Shield, Target, ArrowRight, Star, Settings, GraduationCap, BarChart3, Headphones, Camera, ArrowLeft } from "lucide-react";
-import { Button } from "./ui/button";
-import "../styles/Service.css";
-import Footer from "./Footer";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { ArrowRight, BarChart3, Camera, Check, Crown, GraduationCap, Headphones, MessageCircle, Phone, Settings, Shield, Target } from "lucide-react";
+import Navbar from "./Narbar.jsx";
+import Footer from "./Footer.jsx";
+import { contact, wa } from "../site/siteConfig";
+import "../home/HomePage.css";
+import "../styles/Service.css";
 
+const SERVICES = [
+  {
+    name: "Free POS installation & setup",
+    icon: Settings,
+    description: "We install and configure your POS system at no cost, so your business is ready to sell.",
+    features: ["Professional installation", "System configuration", "Hardware setup", "First-sale testing"],
+  },
+  {
+    name: "Free staff training",
+    icon: GraduationCap,
+    description: "Hands-on training for your team on how to get the best out of StoreLense.",
+    features: ["Hands-on sessions", "User manual provided", "Best-practice guidance", "Ongoing support"],
+  },
+  {
+    name: "Product listing service",
+    icon: Camera,
+    description: "We photograph your products and set them up in your POS, ready to sell.",
+    features: ["Product photography", "Product descriptions", "Price setup", "Inventory setup"],
+    hasPrice: true,
+  },
+  {
+    name: "Customer support",
+    icon: Headphones,
+    description: "Dedicated customer service and technical support for all your POS needs.",
+    features: ["Technical troubleshooting", "Software updates", "User assistance", "Remote support"],
+  },
+  {
+    name: "End-of-year performance analysis",
+    icon: BarChart3,
+    description: "A yearly report on how your business performed, with clear insights.",
+    features: ["Sales performance review", "Trend analysis", "Custom reports", "Business insights"],
+  },
+];
+
+const DISCOUNTS = [
+  { name: "Basic User", discount: "2%", icon: Shield, text: "off any service you choose." },
+  { name: "Super User", discount: "10%", icon: Target, text: "off any service you choose.", popular: true },
+  { name: "Premium", discount: "30%", icon: Crown, text: "off any service you choose." },
+];
+
+const STATS = [
+  { number: "Free", label: "Setup", icon: Settings },
+  { number: "24/7", label: "Support", icon: Headphones },
+  { number: "Free", label: "Training", icon: GraduationCap },
+  { number: "Yearly", label: "Reports", icon: BarChart3 },
+];
+
+/* Services (route: /services) */
 const Services = () => {
-  const heroRef = useRef(null);
-  const servicesRef = useRef(null);
-  const discountsRef = useRef(null);
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("services-animate-fade-in");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const elements = [heroRef.current, servicesRef.current, discountsRef.current];
-    elements.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
-    return () => {
-      elements.forEach((el) => {
-        if (el) observer.unobserve(el);
-      });
-    };
+    document.title = "Services – StoreLense";
   }, []);
 
-  const services = [
-    {
-      name: "Free POS Installation & Configuration",
-      icon: <Settings className='services-card-icon' />,
-      description: "Complete POS system setup and configuration at no cost to get your business running smoothly",
-      features: ["Professional installation", "System configuration", "Hardware setup", "Initial testing"],
-      iconClass: "blue",
-    },
-    {
-      name: "Free Staff Training",
-      icon: <GraduationCap className='services-card-icon' />,
-      description: "Comprehensive training for your personnel to effectively use the POS software",
-      features: ["Hands-on training sessions", "User manual provided", "Best practices guidance", "Ongoing support"],
-      iconClass: "emerald",
-    },
-    {
-      name: "Product Listing Service",
-      icon: <Camera className='services-card-icon' />,
-      description: "Professional product photography and listing setup in your POS system",
-      features: ["Professional product photography", "Detailed product descriptions", "Price configuration", "Inventory setup"],
-      iconClass: "slate",
-      hasPrice: true,
-    },
-    {
-      name: "Customer Support",
-      icon: <Headphones className='services-card-icon' />,
-      description: "Dedicated customer service and technical support for all your POS needs",
-      features: ["Technical troubleshooting", "Software updates", "User assistance", "Remote support"],
-      iconClass: "blue",
-    },
-    {
-      name: "End of Year Performance Analysis",
-      icon: <BarChart3 className='services-card-icon' />,
-      description: "Comprehensive yearly business performance report and analytics",
-      features: ["Sales performance review", "Trend analysis", "Custom reports", "Business insights"],
-      iconClass: "emerald",
-    },
-  ];
-
-  const discountTiers = [
-    {
-      name: "Basic Package",
-      discount: "2%",
-      icon: <Shield className='services-discount-icon' />,
-      description: "Basic Users get 2% discount for any service selected.",
-      iconClass: "blue",
-      textColor: "blue",
-    },
-    {
-      name: "Super Package",
-      discount: "10%",
-      icon: <Target className='services-discount-icon' />,
-      description: "Super Users get 10% discount for any service selected.",
-      popular: true,
-      iconClass: "emerald",
-      textColor: "emerald",
-    },
-    {
-      name: "Premium Package",
-      discount: "30%",
-      icon: <Crown className='services-discount-icon' />,
-      description: "Premium Users get 30% discount for any service selected.",
-      iconClass: "gradient",
-      textColor: "slate",
-    },
-  ];
-
-  const stats = [
-    { number: "100%", label: "Free Setup", icon: <Settings className='services-stat-icon' /> },
-    { number: "24/7", label: "Support", icon: <Headphones className='services-stat-icon' /> },
-    { number: "Free", label: "Training", icon: <GraduationCap className='services-stat-icon' /> },
-    { number: "Annual", label: "Reports", icon: <BarChart3 className='services-stat-icon' /> },
-  ];
-
-  const handleViewPricing = () => {
-    console.log("Opening price catalog...");
-  };
-
   return (
-    <div className='services-container'>
-      <nav className='sl-nav'>
-        <div className='sl-nav-container'>
-          <Link to='/' className='sl-nav-back'>
-            <ArrowLeft className='w-5 h-5' />
-            <span>Back to Home</span>
-          </Link>
-          <img
-            src='https://res.cloudinary.com/ebuka1122/image/upload/v1747600616/StorelenseLogos/Group_2823_fsprsy.png'
-            alt='StoreLense'
-            className='sl-nav-logo'
-          />
-        </div>
-      </nav>
-      {/* Hero Section */}
-      <div ref={heroRef} className='services-hero'>
-        <div className='services-hero-bg'>
-          <div className='services-hero-bg-element-1'></div>
-          <div className='services-hero-bg-element-2'></div>
-        </div>
-
-        <div className='services-hero-content'>
-          <div className='services-hero-badge'>
-            <Star className='services-hero-badge-icon' />
-            Professional POS Solutions
-          </div>
-
-          <h1 className='services-hero-title'>
-            Complete POS
-            <span className='services-hero-title-highlight'>Services</span>
-          </h1>
-
-          <p className='services-hero-description'>
-            From free installation to comprehensive support, we provide everything you need to run your business efficiently with our inventory management
-            system.
-          </p>
-
-          <div className='services-hero-cta'>
-            <button
-              onClick={() => {
-                window.location.href = "/contact"; // Redirect to sign-up page
-              }}
-              className='services-hero-button'
-            >
-              Talk to us Today
-              <ArrowRight className='services-hero-button-icon' />
-            </button>
-          </div>
-
-          {/* Stats */}
-          <div className='services-stats-grid'>
-            {stats.map((stat, index) => (
-              <div key={index} className='services-stat-card'>
-                <div className='services-stat-icon-wrapper'>{stat.icon}</div>
-                <div className='services-stat-number'>{stat.number}</div>
-                <div className='services-stat-label'>{stat.label}</div>
+    <div className='slw-page'>
+      <Navbar />
+      <main>
+        {/* Hero */}
+        <section className='slw-svc-hero'>
+          <div className='slw-wrap'>
+            <div className='slw-svc-hero__inner'>
+              <span className='slw-eyebrow'>Services</span>
+              <h1 className='slw-svc-hero__title'>
+                Everything around your POS, <em>taken care of.</em>
+              </h1>
+              <p className='slw-lead'>
+                From free installation to training and support, we give you everything you need to run your business smoothly with StoreLense.
+              </p>
+              <div className='slw-svc-hero__ctas'>
+                <a className='slw-btn slw-btn--wa' href={contact.whatsappSales} target='_blank' rel='noopener noreferrer'>
+                  <MessageCircle size={17} /> Talk to us today
+                </a>
+                <a className='slw-btn slw-btn--line' href={contact.phoneHref}>
+                  <Phone size={17} /> {contact.phoneDisplay}
+                </a>
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Services Section */}
-      <div ref={servicesRef} className='services-section'>
-        <div className='services-section-container'>
-          <div className='services-section-header'>
-            <h2 className='services-section-title'>
-              Our Complete
-              <span className='services-section-title-highlight'>Service Portfolio</span>
-            </h2>
-            <p className='services-section-description'>
-              Everything you need to get your POS system up and running, plus ongoing support to help your business thrive.
-            </p>
-          </div>
-
-          <div className='services-grid'>
-            {services.map((service, index) => (
-              <div key={index} className='services-card'>
-                <div className='services-card-header'>
-                  <div className={`services-card-icon-wrapper ${service.iconClass}`}>{service.icon}</div>
-                  <h3 className='services-card-title'>{service.name}</h3>
-                  <p className='services-card-description'>{service.description}</p>
+            </div>
+            <div className='slw-svc-stats'>
+              {STATS.map(({ number, label, icon: Icon }) => (
+                <div key={label}>
+                  <span>
+                    <Icon size={20} />
+                  </span>
+                  <b>{number}</b>
+                  <small>{label}</small>
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-                <div className='services-card-content'>
-                  <div className='services-card-features'>
-                    {service.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className='services-card-feature'>
-                        <div className='services-card-feature-dot'></div>
-                        {feature}
-                      </div>
+        {/* Services */}
+        <section className='slw-svc-list'>
+          <div className='slw-wrap'>
+            <div className='slw-svc-head'>
+              <span className='slw-eyebrow'>What we do</span>
+              <h2 className='slw-h2'>Our full service list.</h2>
+              <p className='slw-lead'>Everything you need to get your POS up and running, plus ongoing support to help your business grow.</p>
+            </div>
+            <div className='slw-svc-grid'>
+              {SERVICES.map(({ name, icon: Icon, description, features, hasPrice }) => (
+                <article key={name} className='slw-svc-card'>
+                  <span className='slw-svc-card__ic'>
+                    <Icon size={24} />
+                  </span>
+                  <h3>{name}</h3>
+                  <p>{description}</p>
+                  <ul>
+                    {features.map((f) => (
+                      <li key={f}>
+                        <Check size={15} strokeWidth={3} /> {f}
+                      </li>
                     ))}
-                  </div>
-
-                  {service.hasPrice && (
-                    <button onClick={handleViewPricing} className='services-card-button'>
-                      View Price Catalog
-                    </button>
+                  </ul>
+                  {hasPrice && (
+                    <a
+                      className='slw-svc-card__price'
+                      href={wa(`Hi StoreLense, please send me the price list for the ${name.toLowerCase()}.`)}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      Get the price list <ArrowRight size={16} />
+                    </a>
                   )}
-                </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Discounts */}
+        <section className='slw-svc-disc'>
+          <div className='slw-wrap'>
+            <div className='slw-svc-head slw-svc-head--center'>
+              <span className='slw-eyebrow'>Discounts</span>
+              <h2 className='slw-h2'>Pay less on a bigger plan.</h2>
+              <p className='slw-lead'>Depending on your plan, you get a discount on every service you choose.</p>
+            </div>
+            <div className='slw-svc-disc__grid'>
+              {DISCOUNTS.map(({ name, discount, icon: Icon, text, popular }) => (
+                <article key={name} className={`slw-svc-disc__card ${popular ? "is-popular" : ""}`}>
+                  {popular && <span className='slw-svc-disc__badge'>Most popular</span>}
+                  <span className='slw-svc-disc__ic'>
+                    <Icon size={24} />
+                  </span>
+                  <h3>{name}</h3>
+                  <p className='slw-svc-disc__num'>
+                    <b>{discount}</b>
+                    <span>discount</span>
+                  </p>
+                  <p className='slw-svc-disc__text'>
+                    {name} customers get {discount} {text}
+                  </p>
+                </article>
+              ))}
+            </div>
+            <Link className='slw-svc-disc__all' to='/#pricing'>
+              Compare plans and prices <ArrowRight size={16} />
+            </Link>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className='slw-svc-cta'>
+          <div className='slw-wrap'>
+            <div className='slw-svc-cta__panel'>
+              <div>
+                <h2>Ready to get started?</h2>
+                <p>Talk to us today about your free POS installation and setup.</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Discount Information Section */}
-      <div ref={discountsRef} className='services-discount-section'>
-        <div className='services-section-container'>
-          <div className='services-section-header'>
-            <h2 className='services-section-title'>
-              Discount Tiers
-              <span className='services-section-title-highlight'>For Users</span>
-            </h2>
-            <p className='services-section-description'>
-              Depending on the user package you have shown, we are happy to offer you discounts on each service that fits your business needs.
-            </p>
-          </div>
-
-          <div className='services-discount-grid'>
-            {discountTiers.map((tier, index) => (
-              <div key={index} className={`services-discount-card ${tier.popular ? "popular" : ""}`}>
-                {tier.popular && <div className='services-discount-popular-badge'>Most Popular</div>}
-
-                <div className={`services-discount-card-header ${tier.popular ? "has-popular" : ""}`}>
-                  <div className={`services-discount-icon-wrapper ${tier.iconClass}`}>{tier.icon}</div>
-                  <h3 className='services-discount-title'>{tier.name}</h3>
-                  <div className='services-discount-percentage'>
-                    <span className={`services-discount-number ${tier.textColor}`}>{tier.discount}</span>
-                    <span className='services-discount-label'>discount</span>
-                  </div>
-                  <p className='services-discount-description'>{tier.description}</p>
-                </div>
+              <div className='slw-svc-cta__btns'>
+                <a className='slw-btn slw-btn--white' href={contact.whatsappSales} target='_blank' rel='noopener noreferrer'>
+                  <MessageCircle size={17} /> Chat on WhatsApp
+                </a>
+                <a className='slw-btn slw-btn--ghost' href={contact.phoneHref}>
+                  <Phone size={17} /> {contact.phoneDisplay}
+                </a>
               </div>
-            ))}
+            </div>
           </div>
-        </div>
-      </div>
-
-      {/* CTA Section */}
-      <div className='services-cta-section'>
-        <div className='services-cta-bg'>
-          <div className='services-cta-bg-element-1'></div>
-          <div className='services-cta-bg-element-2'></div>
-        </div>
-
-        <div className='services-cta-container'>
-          <h2 className='services-cta-title'>Ready to Get Started?</h2>
-          <p className='services-cta-description'>
-            Contact us today for your free POS installation and setup. Let's get your business running efficiently with our comprehensive solutions.
-          </p>
-          <button
-            onClick={() => {
-              window.location.href = "/contact"; // Redirect to contact page
-            }}
-            className='services-cta-button'
-          >
-            Contact Us Today
-            <ArrowRight className='services-cta-button-icon' />
-          </button>
-        </div>
-      </div>
+        </section>
+      </main>
       <Footer />
     </div>
   );
