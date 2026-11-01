@@ -143,12 +143,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 560px;
+  height: 600px;
   padding: 40px;
   border-radius: 36px;
-  background:
-    radial-gradient(circle at 50% 40%, #ffffff 0%, rgba(255, 255, 255, 0) 70%),
-    linear-gradient(160deg, #dfe8f7 0%, #eef2f8 100%);
+  background: radial-gradient(circle at 50% 40%, #ffffff 0%, rgba(255, 255, 255, 0) 70%), linear-gradient(160deg, #dfe8f7 0%, #eef2f8 100%);
   overflow: hidden;
 }
 
@@ -271,9 +269,10 @@
     height: 28px;
   }
 
+  /* Fixed height so switching tabs never moves the rest of the page */
   .slh-feat__stage {
     flex-direction: column;
-    min-height: 0;
+    height: 640px;
     padding: 36px 20px 24px;
     border-radius: 26px;
   }
@@ -298,8 +297,12 @@
     padding: 4px 16px 10px;
   }
 
+  .slh-feat__stage {
+    height: 500px;
+  }
+
   .slh-feat__device--phone {
-    width: 200px;
+    width: 160px;
   }
 
   .slh-feat__points li {

@@ -75,7 +75,7 @@ export const clients = [
   { src: clientDeskClose, name: "CJP Watches", tag: "Confirming payment on the spot" },
   { src: clientTeam, name: "CJP Watches", tag: "Terminal handover day" },
   { src: clientPhone, name: "Phone Accessories Store", tag: "Setting up at the counter", wide: true },
-  { src: clientInteriors, name: "Home Interiors Store", tag: "Running checkout between customers" },
+  { src: clientInteriors, name: "DMARK Interiors", tag: "Running checkout between customers" },
 
   /*
    * Space for more owners. Import the photo at the top of this file, then set
@@ -212,7 +212,7 @@ export const pricing = {
       sixMonths: 55000,
       blurb: "For growing businesses.",
       featured: true,
-      limits: { stores: 2, warehouses: 3, products: 1500, adHours: 60 },
+      limits: { stores: 2, warehouses: 1, products: 1500, adHours: 60 },
       extras: ["Free hardware installation", "Hardware leasing options", "10% off extra services"],
       planCode: "PLN_gz3p2q94b9r0apg",
     },
@@ -223,7 +223,7 @@ export const pricing = {
       wasMonthly: 35500,
       sixMonths: 125000,
       blurb: "For groups with many locations.",
-      limits: { stores: 5, warehouses: 6, products: 11200, adHours: 150 },
+      limits: { stores: 5, warehouses: 3, products: 11200, adHours: 150 },
       extras: ["Free hardware installation", "30% off extra services"],
       planCode: "PLN_o0yjesxw73ffcvr",
     },

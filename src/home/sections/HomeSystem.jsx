@@ -1,14 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  BarChart3,
-  Building2,
-  Check,
-  LayoutDashboard,
-  ReceiptText,
-  ScanLine,
-  ShoppingCart,
-  Wallet,
-} from "lucide-react";
+import { BarChart3, Building2, Check, LayoutDashboard, ReceiptText, ScanLine, ShoppingCart, Wallet } from "lucide-react";
 import { Browser } from "../HomeDevices";
 import { screens } from "../homeConfig";
 import "./HomeSystem.css";
@@ -20,11 +11,7 @@ const TABS = [
     label: "Sales Point",
     title: "Ring up a sale in seconds.",
     text: "Tap products or search by name, brand or barcode. Change a price, add a serial number, apply a discount and VAT, then check out.",
-    points: [
-      "Hold a sale and come back to it",
-      "Cash, transfer, POS and part payment",
-      "Keyboard shortcuts for busy counters",
-    ],
+    points: ["Hold a sale and come back to it", "Cash, transfer, POS and part payment", "Keyboard shortcuts for busy counters"],
     shot: "salesPoint",
     url: "app.storelense.com/sales-point",
   },
@@ -84,11 +71,7 @@ const TABS = [
     label: "Reports",
     title: "Know what actually made money.",
     text: "Revenue, gross and net profit, trends and cash-flow channels, then download a report for your accountant.",
-    points: [
-      "Executive, operational and financial views",
-      "Cash, card, transfer and credit split",
-      "Download reports as PDF",
-    ],
+    points: ["Executive, operational and financial views", "Cash, card, transfer and credit split", "Download reports as PDF"],
     shot: "analytics",
     url: "app.storelense.com/analytics",
   },
@@ -143,18 +126,23 @@ export default function HomeSystem() {
 
         <div className='slw-sys__stage' onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
           <div className='slw-sys__window' key={t.id}>
-            <Browser src={screens[t.shot]} alt={`StoreLense ${t.label} screen`} url={t.url} />
+            <Browser className='slw-sys__browser' src={screens[t.shot]} alt={`StoreLense ${t.label} screen`} url={t.url} />
           </div>
-          <div className='slw-sys__card' key={`c-${t.id}`}>
-            <h3>{t.title}</h3>
-            <p>{t.text}</p>
-            <ul>
-              {t.points.map((p) => (
-                <li key={p}>
-                  <Check size={16} strokeWidth={3} /> {p}
-                </li>
-              ))}
-            </ul>
+          {/* Every card is rendered in the same spot, so the box is always as tall as the longest one */}
+          <div className='slw-sys__cards'>
+            {TABS.map((x, i) => (
+              <div key={x.id} className={`slw-sys__card ${i === active ? "is-on" : ""}`} aria-hidden={i !== active}>
+                <h3>{x.title}</h3>
+                <p>{x.text}</p>
+                <ul>
+                  {x.points.map((p) => (
+                    <li key={p}>
+                      <Check size={16} strokeWidth={3} /> {p}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </div>

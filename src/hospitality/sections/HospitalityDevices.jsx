@@ -46,19 +46,13 @@ const DEVICES = [
     icon: Smartphone,
     name: "Mobile app",
     sub: "Android and iPhone",
-    points: [
-      "Waiters take orders at the table",
-      "Owners check sales from anywhere",
-      "Online orders arrive with a sound",
-      "Works through short network drops",
-    ],
+    points: ["Waiters take orders at the table", "Owners check sales from anywhere", "Online orders arrive with a sound", "Works through short network drops"],
   },
 ];
 
 /* 7. Devices: floating mockups of every device, plus our own hardware */
 export default function HospitalityDevices() {
   const [active, setActive] = useState("pos");
-  const d = DEVICES.find((x) => x.id === active);
 
   return (
     <section className='slh-devs' id='slh-devices'>
@@ -66,43 +60,21 @@ export default function HospitalityDevices() {
         <div className='slh-devs__head'>
           <span className='slh-eyebrow'>Devices & hardware</span>
           <h2 className='slh-h2'>Runs on our hardware, and yours.</h2>
-          <p className='slh-lead'>
-            One account on every device. A sale rung up on a StoreLense POS shows on the owner's phone a second later.
-          </p>
+          <p className='slh-lead'>One account on every device. A sale rung up on a StoreLense POS shows on the owner's phone a second later.</p>
         </div>
 
         <div className={`slh-devs__stage is-${active}`}>
           <span className='slh-devs__floor' aria-hidden='true' />
-          <button
-            type='button'
-            className='slh-devs__dev slh-devs__dev--windows'
-            onClick={() => setActive("windows")}
-            aria-label='Windows app'
-          >
+          <button type='button' className='slh-devs__dev slh-devs__dev--windows' onClick={() => setActive("windows")} aria-label='Windows app'>
             <Laptop screen='dashboard' />
           </button>
-          <button
-            type='button'
-            className='slh-devs__dev slh-devs__dev--pos'
-            onClick={() => setActive("pos")}
-            aria-label='StoreLense POS'
-          >
+          <button type='button' className='slh-devs__dev slh-devs__dev--pos' onClick={() => setActive("pos")} aria-label='StoreLense POS'>
             <PosTerminal screen='salesPoint' printing={active === "pos"} />
           </button>
-          <button
-            type='button'
-            className='slh-devs__dev slh-devs__dev--mini'
-            onClick={() => setActive("mini")}
-            aria-label='StoreLense Mini'
-          >
+          <button type='button' className='slh-devs__dev slh-devs__dev--mini' onClick={() => setActive("mini")} aria-label='StoreLense Mini'>
             <PosMini printing={active === "mini"} />
           </button>
-          <button
-            type='button'
-            className='slh-devs__dev slh-devs__dev--mobile'
-            onClick={() => setActive("mobile")}
-            aria-label='Mobile app'
-          >
+          <button type='button' className='slh-devs__dev slh-devs__dev--mobile' onClick={() => setActive("mobile")} aria-label='Mobile app'>
             <Phone screen='onlineOrdersMobile' />
           </button>
         </div>
@@ -126,19 +98,24 @@ export default function HospitalityDevices() {
               );
             })}
           </div>
-          <div className='slh-devs__detail' key={d.id}>
-            <div>
-              <b>{d.name}</b>
-              <span>{d.sub}</span>
-            </div>
-            <ul>
-              {d.points.map((p) => (
-                <li key={p}>
-                  <Check size={16} strokeWidth={3} />
-                  {p}
-                </li>
-              ))}
-            </ul>
+          {/* Every detail is rendered in the same spot, so the panel is always as tall as the longest one */}
+          <div className='slh-devs__details'>
+            {DEVICES.map((x) => (
+              <div key={x.id} className={`slh-devs__detail ${x.id === active ? "is-on" : ""}`} aria-hidden={x.id !== active}>
+                <div>
+                  <b>{x.name}</b>
+                  <span>{x.sub}</span>
+                </div>
+                <ul>
+                  {x.points.map((p) => (
+                    <li key={p}>
+                      <Check size={16} strokeWidth={3} />
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -148,11 +125,7 @@ export default function HospitalityDevices() {
             <figcaption>StoreLense POS, delivered ready to sell</figcaption>
           </figure>
           <figure>
-            <img
-              src={images.devices}
-              alt='Three StoreLense POS devices and a StoreLense Mini on a table'
-              loading='lazy'
-            />
+            <img src={images.devices} alt='Three StoreLense POS devices and a StoreLense Mini on a table' loading='lazy' />
             <figcaption>StoreLense POS and StoreLense Mini</figcaption>
           </figure>
         </div>

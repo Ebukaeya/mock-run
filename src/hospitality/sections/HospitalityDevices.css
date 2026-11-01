@@ -163,11 +163,23 @@
   color: #ffffff;
 }
 
+.slh-devs__details {
+  display: grid;
+}
+
 .slh-devs__detail {
+  grid-area: 1 / 1;
   display: grid;
   grid-template-columns: 240px 1fr;
   gap: 28px;
   padding: 26px 24px 18px;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.slh-devs__detail.is-on {
+  visibility: visible;
+  opacity: 1;
   animation: slh-devs-detail 0.5s ease;
 }
 
