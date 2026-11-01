@@ -1,212 +1,364 @@
-/* ============================================================
-   slpan__ — Analytics Page  (LIGHT THEME)
-   ============================================================ */
-.slpan__page {
-  background: #f7f9fc;
+/* Solutions: Analytics (/solutions/analytics). Shared helpers (.slw-wrap, .slw-btn...) come from home/HomePage.css */
+
+.slw-ana-head {
+  max-width: 680px;
+  margin-bottom: 40px;
 }
-.slpan__hero-blob {
-  position: absolute;
-  top: -180px;
-  right: -140px;
-  width: 700px;
-  height: 700px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, rgba(37, 99, 235, 0.12), transparent 65%),
-    radial-gradient(circle at 70% 70%, rgba(55, 180, 197, 0.07), transparent 60%);
-  pointer-events: none;
-}
-.slpan__section {
-  padding: clamp(52px, 8vw, 96px) 0;
-  background: #f7f9fc;
-}
-.slpan__section-alt {
-  padding: clamp(52px, 8vw, 96px) 0;
-  background: #fff;
-}
-.slpan__chart-card {
-  background: #fff;
-  border: 1px solid #e4e9f0;
-  border-radius: 16px;
-  padding: clamp(16px, 2.5vw, 20px);
-  box-shadow: 0 14px 28px -16px rgba(15, 23, 42, 0.14);
-}
-.slpan__chart-hdr {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: clamp(14px, 2.5vw, 20px);
-}
-.slpan__chart-ttl {
-  /* font-family: "Space Grotesk", sans-serif; */
-  font-size: 14px;
-  font-weight: 800;
-  color: #11161d;
-  margin-bottom: 4px;
-}
-.slpan__chart-val {
-  font-family: "DM Mono", monospace;
-  font-size: clamp(18px, 3vw, 22px);
-  font-weight: 500;
-  color: #11161d;
-}
-.slpan__chart-delta {
-  font-family: "DM Mono", monospace;
-  font-size: 11px;
-  color: #16a34a;
-  background: #e7f8ee;
-  padding: 3px 8px;
-  border-radius: 100px;
-  flex: none;
-}
-.slpan__area {
-  height: 90px;
+
+/* ----- Hero ----- */
+.slw-ana-hero {
+  padding: 70px 0 100px;
+  background: radial-gradient(circle at 90% 10%, rgba(55, 180, 197, 0.16) 0%, rgba(55, 180, 197, 0) 40%), linear-gradient(180deg, #f5f8fc 0%, #ffffff 100%);
   overflow: hidden;
 }
-.slpan__area svg {
-  width: 100%;
-  height: 100%;
-}
-.slpan__legend {
-  display: flex;
-  gap: 14px;
-  margin-top: 12px;
-  flex-wrap: wrap;
-}
-.slpan__legend-item {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 11.5px;
-  color: #5b6472;
-}
-.slpan__legend-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  flex: none;
-}
-.slpan__insights {
-  margin-top: 12px;
+
+.slw-ana-hero__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(8px, 1.5vw, 10px);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 56px;
 }
-.slpan__insight-card {
-  background: #fff;
-  border: 1px solid #e4e9f0;
-  border-radius: 12px;
-  padding: clamp(10px, 2vw, 12px) clamp(12px, 2vw, 14px);
+
+.slw-ana-hero__title {
+  margin: 16px 0 0;
+  font-size: clamp(38px, 5.2vw, 62px);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: #0f2a47;
 }
-.slpan__insight-lbl {
-  /*   font-family: "DM Mono", monospace; */
-  font-size: 10px;
-  color: #5b6472;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin-bottom: 4px;
+
+.slw-ana-hero__title em {
+  font-style: normal;
+  color: #1d6fd8;
 }
-.slpan__insight-val {
-  font-size: clamp(13px, 2.2vw, 15px);
-  font-weight: 600;
-  color: #11161d;
+
+.slw-ana-hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
 }
-.slpan__rank-list {
+
+.slw-ana-hero__visual {
+  position: relative;
+  padding: 0 0 40px;
+}
+
+.slw-ana-hero__visual .slh-dev-browser__body {
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+}
+
+.slw-ana-hero__visual .slh-dev-browser__body img {
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.slw-ana-hero__phone {
+  position: absolute;
+  right: -10px;
+  bottom: 0;
+  width: 26%;
+  min-width: 120px;
+}
+
+/* ----- Split sections ----- */
+.slw-ana-split {
+  padding: 100px 0;
+  background: #ffffff;
+}
+
+.slw-ana-split--alt {
+  background: #f5f8fc;
+}
+
+.slw-ana-split__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 56px;
+}
+
+.slw-ana-split__grid--rev {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.slw-ana-split__shot .slh-dev-browser__body {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.slw-ana-split__shot .slh-dev-browser__body img {
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.slw-ana-list {
   display: flex;
   flex-direction: column;
-  gap: clamp(10px, 2vw, 14px);
+  gap: 12px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
 }
-.slpan__rank-item {
+
+.slw-ana-list li {
   display: flex;
-  align-items: center;
-  gap: clamp(10px, 2vw, 14px);
-  background: #fff;
-  border: 1px solid #e4e9f0;
-  border-radius: 12px;
-  padding: clamp(11px, 2vw, 14px) clamp(12px, 2.5vw, 16px);
-}
-.slpan__rank-n {
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
-  background: #eaf1ff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Space Grotesk", sans-serif;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 16px;
   font-weight: 700;
-  font-size: 13px;
-  color: #2563eb;
-  flex: none;
+  line-height: 1.45;
+  color: #24384f;
 }
-.slpan__rank-body {
+
+.slw-ana-list svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: #22c55e;
+}
+
+/* ----- Features ----- */
+.slw-ana-feat {
+  padding: 100px 0;
+  background: #f5f8fc;
+}
+
+.slw-ana-feat__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.slw-ana-feat__card {
+  padding: 28px;
+  border-radius: 24px;
+  background: #ffffff;
+  border: 1px solid #e3e9f2;
+}
+
+.slw-ana-feat__card > span {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
+  background: #eaf2fd;
+  color: #1d6fd8;
+}
+
+.slw-ana-feat__card h3 {
+  margin: 18px 0 0;
+  font-size: 20px;
+  font-weight: 900;
+  color: #0f2a47;
+}
+
+.slw-ana-feat__card p {
+  margin: 8px 0 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #4a5b70;
+}
+
+/* ----- Top products card ----- */
+.slw-ana-top {
+  padding: 24px;
+  border-radius: 26px;
+  background: #ffffff;
+  border: 1px solid #e3e9f2;
+}
+
+.slw-ana-top__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.slw-ana-top__head b {
+  font-size: 18px;
+  font-weight: 900;
+  color: #0f2a47;
+}
+
+.slw-ana-top__head small {
+  font-size: 12px;
+  font-weight: 800;
+  color: #9aa7b8;
+}
+
+.slw-ana-top ol {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slw-ana-top li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: #f5f8fc;
+}
+
+.slw-ana-top__n {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  background: #1d6fd8;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.slw-ana-top__body {
   flex: 1;
   min-width: 0;
 }
-.slpan__rank-name {
-  font-weight: 600;
-  font-size: clamp(12.5px, 1.8vw, 14px);
-  color: #11161d;
-  margin-bottom: 5px;
-  white-space: nowrap;
+
+.slw-ana-top__body b {
+  display: block;
   overflow: hidden;
+  font-size: 14px;
+  font-weight: 800;
+  color: #0f2a47;
+  white-space: nowrap;
   text-overflow: ellipsis;
 }
-.slpan__rank-bar {
-  height: 4px;
-  background: #f0f3f7;
-  border-radius: 2px;
+
+.slw-ana-top__body i {
+  display: block;
+  height: 5px;
+  margin-top: 7px;
+  border-radius: 5px;
+  background: #e3e9f2;
   overflow: hidden;
 }
-.slpan__rank-fill {
+
+.slw-ana-top__body em {
+  display: block;
   height: 100%;
-  border-radius: 2px;
-  background: linear-gradient(90deg, #7aa9f2, #2563eb);
+  border-radius: 5px;
+  background: #1d6fd8;
 }
-.slpan__rank-right {
-  text-align: right;
+
+.slw-ana-top__val {
   flex-shrink: 0;
+  text-align: right;
 }
-.slpan__rank-rev {
-  font-family: "DM Mono", monospace;
-  font-size: clamp(12px, 1.8vw, 13px);
-  font-weight: 500;
-  color: #11161d;
+
+.slw-ana-top__val b {
+  display: block;
+  font-size: 14px;
+  font-weight: 900;
+  color: #0f2a47;
 }
-.slpan__rank-units {
-  font-family: "DM Mono", monospace;
-  font-size: 11px;
-  color: #5b6472;
+
+.slw-ana-top__val small {
+  font-size: 12px;
+  font-weight: 700;
+  color: #7a8899;
 }
-.slpan__month-bars {
+
+/* ----- CTA ----- */
+.slw-ana-cta {
+  padding: 100px 0;
+  background: #ffffff;
+}
+
+.slw-ana-cta__panel {
   display: flex;
-  align-items: flex-end;
-  gap: clamp(4px, 1vw, 6px);
-  height: 100px;
-  margin-top: 8px;
-}
-.slpan__month-bar {
-  flex: 1;
-  border-radius: 3px 3px 0 0;
-  transition: opacity 0.2s;
-}
-.slpan__month-bar:hover {
-  opacity: 0.7;
-}
-.slpan__month-lbls {
-  display: flex;
+  align-items: center;
   justify-content: space-between;
-  margin-top: 8px;
-  font-family: "DM Mono", monospace;
-  font-size: 10px;
-  color: #9fb0c2;
+  gap: 24px;
+  padding: 44px 48px;
+  border-radius: 30px;
+  background: linear-gradient(140deg, #1d6fd8 0%, #0f4fa8 55%, #0f2a47 100%);
+  color: #ffffff;
 }
-@media (max-width: 580px) {
-  .slpan__insights {
-    grid-template-columns: 1fr 1fr;
+
+.slw-ana-cta__panel h2 {
+  margin: 0;
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.slw-ana-cta__panel p {
+  margin: 10px 0 0;
+  font-size: 16px;
+  color: #dbe7fb;
+}
+
+.slw-ana-cta__btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.slw-ana-cta__btns .slw-btn--white {
+  color: #1d6fd8;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 1000px) {
+  .slw-ana-hero__grid,
+  .slw-ana-split__grid,
+  .slw-ana-split__grid--rev {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .slw-ana-feat__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .slw-ana-cta__panel {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 36px 28px;
   }
 }
-@media (max-width: 380px) {
-  .slpan__insights {
+
+@media (max-width: 640px) {
+  .slw-ana-hero {
+    padding: 44px 0 72px;
+  }
+
+  .slw-ana-split,
+  .slw-ana-feat,
+  .slw-ana-cta {
+    padding: 72px 0;
+  }
+
+  .slw-ana-feat__grid {
     grid-template-columns: 1fr;
+  }
+
+  .slw-ana-hero__ctas .slw-btn,
+  .slw-ana-cta__btns .slw-btn {
+    width: 100%;
+  }
+
+  .slw-ana-hero__phone {
+    right: 0;
+    width: 30%;
+    min-width: 96px;
+  }
+
+  .slw-ana-top {
+    padding: 16px;
   }
 }

@@ -1,316 +1,272 @@
-// InventoryManagement.jsx — dark theme
-import { motion } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
-import { ArrowLeft, Package, RefreshCw, AlertTriangle, ScanLine, Tag, Archive } from "lucide-react";
+// InventoryManagement.jsx — Solutions: Inventory management (route: /solutions/inventory-management). Dark theme.
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { AlertTriangle, Archive, ArrowRight, Check, MessageCircle, Package, RefreshCw, ScanLine, Tag } from "lucide-react";
+import Navbar from "../component/Narbar.jsx";
+import Footer from "../component/Footer.jsx";
 import WorldGlobe from "./WorldGlobe";
-import "./solutions.css";
+import { Browser, Phone } from "../home/HomeDevices";
+import { screens } from "../home/homeConfig";
+import { contact } from "../site/siteConfig";
+import "../home/HomePage.css";
 import "./InventoryManagement.css";
-import Footer from "../component/Footer";
 
 const FEATS = [
   {
     icon: RefreshCw,
-    color: "#37B4C5",
-    bg: "rgba(55,180,197,.18)",
     title: "Real-time counts",
-    desc: "Every sale deducts inventory the moment the transaction confirms. No overnight batch jobs.",
+    desc: "Every sale deducts stock the moment it's confirmed. No end-of-day counting.",
   },
   {
     icon: AlertTriangle,
-    color: "#F5A623",
-    bg: "rgba(245,166,35,.18)",
     title: "Low stock alerts",
-    desc: "Set minimum thresholds per product. Get notified before you run out, not after.",
+    desc: "Set a minimum for each product and get told before you run out, not after.",
   },
   {
     icon: ScanLine,
-    color: "#37B4C5",
-    bg: "rgba(55,180,197,.18)",
     title: "Barcode scanning",
-    desc: "Scan products to add to a sale or look up stock levels. No typing, no mistakes.",
+    desc: "Scan products to add them to a sale or check their stock. No typing, no mistakes.",
   },
   {
     icon: Tag,
-    color: "#16A34A",
-    bg: "rgba(22,163,74,.18)",
     title: "Product variants",
-    desc: "Sizes, colours, weights; each variant tracked independently with its own stock count.",
+    desc: "Sizes, colours and weights, each tracked with its own stock count.",
   },
   {
     icon: Archive,
-    color: "#2563EB",
-    bg: "rgba(37,99,235,.18)",
     title: "Batch management",
-    desc: "Receive goods in named batches with supplier and date info. Trace any unit to source.",
+    desc: "Receive goods in batches with supplier and date details, and trace any unit to its source.",
   },
   {
     icon: Package,
-    color: "#37B4C5",
-    bg: "rgba(55,180,197,.18)",
-    title: "Dead stock visibility",
-    desc: "See products that haven't moved in 30, 60 or 90 days. Mark down before they pile up.",
+    title: "Slow stock",
+    desc: "See products that haven't moved in 30, 60 or 90 days, and mark them down before they pile up.",
   },
 ];
+
+/* Example stock, shown as an illustration */
 const PRODUCTS = [
   { name: "Ariel Detergent 1kg", sku: "ARD-1KG", qty: 84, min: 20, pct: 84, low: false },
   { name: "Indomie Chicken 70g", sku: "IND-CH70", qty: 12, min: 30, pct: 18, low: true },
   { name: "Sunlight Soap 200g", sku: "SNL-200G", qty: 210, min: 50, pct: 95, low: false },
   { name: "Peak Milk 400g", sku: "PKM-400G", qty: 5, min: 20, pct: 8, low: true },
 ];
+
 const RINGS = [
-  { name: "Total SKUs", val: "1,284", pct: 100, color: "#2563EB", track: "rgba(37,99,235,.15)" },
-  { name: "In stock", val: "1,198", pct: 93, color: "#16A34A", track: "rgba(22,163,74,.15)" },
-  { name: "Low stock", val: "72", pct: 6, color: "#F5A623", track: "rgba(245,166,35,.15)" },
-  { name: "Out of stock", val: "14", pct: 1, color: "#EF4444", track: "rgba(239,68,68,.15)" },
+  { name: "Total products", val: "1,284", pct: 100, tone: "blue" },
+  { name: "In stock", val: "1,198", pct: 93, tone: "green" },
+  { name: "Low stock", val: "72", pct: 6, tone: "amber" },
+  { name: "Out of stock", val: "14", pct: 1, tone: "red" },
 ];
-function RingCard({ name, val, pct, color, track }) {
-  const c = 2 * Math.PI * 20,
-    off = c - (pct / 100) * c;
+
+function Ring({ name, val, pct, tone }) {
+  const c = 2 * Math.PI * 20;
   return (
-    <div className='slpim__ring-card'>
-      <div className='slpim__ring-wrap'>
-        <svg width='52' height='52' viewBox='0 0 52 52'>
-          <circle cx='26' cy='26' r='20' fill='none' stroke={track} strokeWidth='6' />
+    <div className={`slw-im-ring slw-im-ring--${tone}`}>
+      <span className='slw-im-ring__chart'>
+        <svg width='54' height='54' viewBox='0 0 52 52' aria-hidden='true'>
+          <circle className='slw-im-ring__track' cx='26' cy='26' r='20' fill='none' strokeWidth='6' />
           <circle
+            className='slw-im-ring__fill'
             cx='26'
             cy='26'
             r='20'
             fill='none'
-            stroke={color}
             strokeWidth='6'
             strokeLinecap='round'
             strokeDasharray={c}
-            strokeDashoffset={off}
+            strokeDashoffset={c - (pct / 100) * c}
             transform='rotate(-90 26 26)'
           />
         </svg>
-        <div className='slpim__ring-pct'>{pct}%</div>
-      </div>
-      <div>
-        <div className='slpim__ring-name'>{name}</div>
-        <div className='slpim__ring-count'>{val} items</div>
-      </div>
+        <i>{pct}%</i>
+      </span>
+      <span>
+        <b>{name}</b>
+        <small>{val} items</small>
+      </span>
     </div>
   );
 }
-const cardV = { hidden: { opacity: 0, y: 18 }, visible: (i) => ({ opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut", delay: i * 0.08 } }) };
 
 export default function InventoryManagement() {
-  const navigate = useNavigate();
-  return (
-    <div className='slpsh__page slpim__page'>
-      <nav className='slpsh__nav'>
-        <div className='slpsh__nav-inner'>
-          <Link style={{ color: "white" }} to='/' className='slpsh__nav-back'>
-            <ArrowLeft size={18} />
-            <span>Home</span>
-          </Link>
-          {/*  <img
-            src='https://res.cloudinary.com/ebuka1122/image/upload/v1747600616/StorelenseLogos/Group_2823_fsprsy.png'
-            alt='StoreLense'
-            className='slpsh__nav-logo'
-          /> */}
-          <header>
-            <div style={styles.portalLogoSection}>
-              {/*  <div style={styles.portalLogoCircle}>
-            <div style={styles.portalLogoInner}></div>
-          </div> */}
-              <img
-                style={styles.portalLogoCircle}
-                src='https://res.cloudinary.com/ebuka1122/image/upload/v1752244790/StorelenseLogos/StorelenseLogo_tqya01.webp'
-              />
-              <span onClick={() => navigate("/")} style={styles.portalLogoText}>
-                Store<span style={styles.portalLogoAccent}>Lense</span>
-              </span>
-            </div>
-          </header>
-        </div>
-      </nav>
+  useEffect(() => {
+    document.title = "Inventory management – StoreLense";
+  }, []);
 
-      <section className='slpsh__hero'>
-        <WorldGlobe />
-        <div className='slpsh__wrap slpsh__hero-grid'>
-          <motion.div className='slpsh__hero-text' initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <div className='slpsh__eyebrow'>
-              <span className='slpsh__eyebrow-dot' />
-              Inventory Management
+  return (
+    <div className='slw-page slw-im'>
+      <Navbar />
+      <main>
+        {/* Hero */}
+        <section className='slw-im-hero'>
+          <WorldGlobe />
+          <div className='slw-wrap slw-im-hero__grid'>
+            <div>
+              <span className='slw-im-eyebrow'>Inventory management</span>
+              <h1 className='slw-im-hero__title'>
+                Never sell what <em>you don't have.</em>
+              </h1>
+              <p className='slw-im-lead'>
+                Stock counts that update with every sale, transfer and delivery. Know exactly what's on your shelf, before your customer asks.
+              </p>
+              <div className='slw-im-hero__ctas'>
+                <Link className='slw-btn slw-btn--blue' to='/sign-up'>
+                  <Package size={17} /> Get started
+                </Link>
+                <Link className='slw-btn slw-btn--ghost' to='/demo'>
+                  See a demo
+                </Link>
+              </div>
             </div>
-            <h1 className='slpsh__h1'>
-              Never sell what <em>you don't have</em>
-            </h1>
-            <p className='slpsh__hero-sub'>
-              Real-time stock counts that update with every sale, transfer and delivery. Know exactly what's on your shelf; before your customer asks.
-            </p>
-            <div className='slpsh__actions'>
-              <Link to='/sign-up' className='slpsh__btn slpsh__btn--primary'>
-                <Package size={16} />
-                Get started
-              </Link>
-              <Link to='/contact' className='slpsh__btn slpsh__btn--ghost'>
-                Learn more
-              </Link>
-            </div>
-          </motion.div>
-          <motion.div
-            className='slpsh__hero-visual'
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-          >
-            <div style={{ width: "100%", maxWidth: 420, position: "relative" }}>
-              <div className='slpim__ring-grid'>
+            <div className='slw-im-hero__visual' aria-label='Example stock overview'>
+              <div className='slw-im-alert' aria-hidden='true'>
+                <span>
+                  <AlertTriangle size={15} />
+                </span>
+                <p>
+                  <small>Low stock</small>
+                  <b>Peak Milk 400g · 5 left</b>
+                </p>
+              </div>
+              <div className='slw-im-rings'>
                 {RINGS.map((r) => (
-                  <RingCard key={r.name} {...r} />
+                  <Ring key={r.name} {...r} />
                 ))}
               </div>
             </div>
-          </motion.div>
-        </div>
-      </section>
-
-      <div className='slpim__section-alt'>
-        <div className='slpsh__wrap'>
-          <div className='slpsh__section-head slpsh__section-head--center'>
-            <div className='slpsh__section-label'>Live stock view</div>
-            <h2 className='slpsh__section-title'>
-              Your shelf, <em>in real time</em>
-            </h2>
-            <p className='slpsh__section-sub'>Every row updates the moment a sale is made. Colour indicators flag what needs attention.</p>
           </div>
-          <div className='slpim__table-wrap'>
-            <table className='slpim__table'>
-              <thead>
-                <tr>
-                  <th>Product</th>
-                  <th>SKU</th>
-                  <th>On hand</th>
-                  <th>Min.</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {PRODUCTS.map(({ name, sku, qty, min, pct, low }) => (
-                  <tr key={sku}>
-                    <td className='slpim__td-name'>{name}</td>
-                    <td>
-                      <span className='slpim__sku'>{sku}</span>
-                    </td>
-                    <td>
-                      <div className='slpim__qty-cell'>
-                        <span style={{ fontFamily: "DM Mono,monospace", fontWeight: 500, color: low ? "#EF4444" : "#F0F4FF" }}>{qty}</span>
-                        <div className='slpim__qty-bar'>
-                          <div className='slpim__qty-fill' style={{ width: `${pct}%`, background: low ? "#EF4444" : pct > 70 ? "#16A34A" : "#F5A623" }} />
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <span className='slpim__sku'>{min}</span>
-                    </td>
-                    <td>
-                      {low ? (
-                        <span className='slpim__status slpim__status--low'>⚠ Low</span>
-                      ) : (
-                        <span className='slpim__status slpim__status--ok'>✓ In stock</span>
-                      )}
-                    </td>
+        </section>
+
+        {/* Live stock table */}
+        <section className='slw-im-sec slw-im-sec--alt'>
+          <div className='slw-wrap'>
+            <div className='slw-im-head slw-im-head--center'>
+              <span className='slw-im-eyebrow'>Live stock view</span>
+              <h2 className='slw-im-h2'>
+                Your shelf, <em>in real time.</em>
+              </h2>
+              <p className='slw-im-lead'>Every row updates the moment a sale is made. Colours flag what needs attention.</p>
+            </div>
+            <div className='slw-im-table'>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>SKU</th>
+                    <th>On hand</th>
+                    <th>Min.</th>
+                    <th>Status</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {PRODUCTS.map(({ name, sku, qty, min, pct, low }) => (
+                    <tr key={sku}>
+                      <td className='slw-im-table__name'>{name}</td>
+                      <td className='slw-im-table__sku'>{sku}</td>
+                      <td>
+                        <span className={`slw-im-table__qty ${low ? "is-low" : pct > 70 ? "is-ok" : "is-mid"}`}>
+                          <b>{qty}</b>
+                          <i>
+                            <em style={{ width: `${pct}%` }} />
+                          </i>
+                        </span>
+                      </td>
+                      <td className='slw-im-table__sku'>{min}</td>
+                      <td>
+                        {low ? (
+                          <span className='slw-im-status slw-im-status--low'>
+                            <AlertTriangle size={13} /> Low
+                          </span>
+                        ) : (
+                          <span className='slw-im-status slw-im-status--ok'>
+                            <Check size={13} strokeWidth={3} /> In stock
+                          </span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className='slw-im-note'>Example stock</p>
           </div>
-        </div>
-      </div>
+        </section>
 
-      <section className='slpim__section'>
-        <div className='slpsh__wrap'>
-          <div className='slpsh__section-head'>
-            <div className='slpsh__section-label'>Features</div>
-            <h2 className='slpsh__section-title'>
-              Everything that keeps your <em>stock honest</em>
-            </h2>
-          </div>
-          <div className='slpsh__feat-grid'>
-            {FEATS.map(({ icon: Icon, color, bg, title, desc }, i) => (
-              <motion.div
-                key={title}
-                className='slpsh__feat-card'
-                custom={i}
-                variants={cardV}
-                initial='hidden'
-                whileInView='visible'
-                viewport={{ once: true, amount: 0.2 }}
-                whileHover={{ y: -4 }}
-              >
-                <div className='slpsh__feat-ic' style={{ background: bg }}>
-                  <Icon size={20} color={color} strokeWidth={2} />
-                </div>
-                <h3>{title}</h3>
-                <p>{desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-        <div style={{ background: "transparent" }} className='slpsh__cta-band'>
-          <div className='slpsh__wrap'>
-            <h2>Stop counting stock by hand.</h2>
-            <p>Let StoreLense do it automatically, with every sale.</p>
-            <div className='slpsh__cta-actions'>
-              <Link to='/sign-up' className='slpsh__btn slpsh__btn--primary'>
-                Start managing smarter
-              </Link>
+        {/* Real screens */}
+        <section className='slw-im-sec'>
+          <div className='slw-wrap slw-im-split'>
+            <div className='slw-im-split__shots'>
+              <Browser src={screens.scan} alt='Scanning a barcode into a sale in StoreLense' url='app.storelense.com/sales-point' />
+              <div className='slw-im-split__phone'>
+                <Phone src={screens.mProducts} alt='Products and stock levels in the StoreLense mobile app' />
+              </div>
+            </div>
+            <div>
+              <span className='slw-im-eyebrow'>Scan &amp; count</span>
+              <h2 className='slw-im-h2'>
+                Scan it in, <em>see it everywhere.</em>
+              </h2>
+              <p className='slw-im-lead'>Use the camera or a handheld scanner at the counter, then check stock from your phone wherever you are.</p>
+              <ul className='slw-im-list'>
+                <li>
+                  <Check size={16} strokeWidth={3} /> Camera or handheld scanner
+                </li>
+                <li>
+                  <Check size={16} strokeWidth={3} /> Stock levels on every product
+                </li>
+                <li>
+                  <Check size={16} strokeWidth={3} /> The same numbers on the POS, web and phone
+                </li>
+              </ul>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* Features */}
+        <section className='slw-im-sec slw-im-sec--alt'>
+          <div className='slw-wrap'>
+            <div className='slw-im-head'>
+              <span className='slw-im-eyebrow'>Features</span>
+              <h2 className='slw-im-h2'>
+                Everything that keeps your <em>stock honest.</em>
+              </h2>
+            </div>
+            <div className='slw-im-feat'>
+              {FEATS.map(({ icon: Icon, title, desc }) => (
+                <article key={title}>
+                  <span>
+                    <Icon size={22} />
+                  </span>
+                  <h3>{title}</h3>
+                  <p>{desc}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className='slw-im-sec'>
+          <div className='slw-wrap'>
+            <div className='slw-im-cta'>
+              <div>
+                <h2>Stop counting stock by hand.</h2>
+                <p>Let StoreLense do it for you, with every sale.</p>
+              </div>
+              <div className='slw-im-cta__btns'>
+                <Link className='slw-btn slw-btn--white' to='/sign-up'>
+                  Start free <ArrowRight size={17} />
+                </Link>
+                <a className='slw-btn slw-btn--wa' href={contact.whatsappSales} target='_blank' rel='noopener noreferrer'>
+                  <MessageCircle size={17} /> Chat on WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
       <Footer />
     </div>
   );
 }
-
-const styles = {
-  portalHeader: {
-    padding: "1.5rem 2rem",
-    background: "rgba(26, 31, 46, 0.8)",
-    backdropFilter: "blur(10px)",
-    boxShadow: "0 2px 10px rgba(0, 0, 0, 0.5)",
-    position: "sticky",
-    top: 0,
-    zIndex: 100,
-    borderBottom: "1px solid rgba(255, 255, 255, 0.05)",
-  },
-  portalLogoSection: {
-    display: "flex",
-    alignItems: "center",
-    gap: "0.75rem",
-    maxWidth: "1400px",
-    margin: "0 auto",
-    cursor: "pointer",
-  },
-  portalLogoCircle: {
-    width: "40px",
-    height: "40px",
-    borderRadius: "50%",
-    /* background: "linear-gradient(135deg,rgba(59, 155, 174, 0.14) 0%,rgba(45, 123, 140, 0.12) 100%)", */
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    boxShadow: "0 4px 12px rgba(59, 155, 174, 0.01)",
-  },
-  portalLogoInner: {
-    width: "20px",
-    height: "20px",
-    borderRadius: "50%",
-    border: "2.5px solid white",
-    borderLeftColor: "transparent",
-    borderBottomColor: "transparent",
-    transform: "rotate(-45deg)",
-  },
-  portalLogoText: {
-    fontSize: "1.5rem",
-    fontWeight: "600",
-    color: "#e8eef5",
-  },
-  portalLogoAccent: {
-    color: "#3b9aae",
-  },
-};

@@ -1,47 +1,40 @@
-import React from "react";
-import { ArrowRight, Play, Star } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowRight, Check, MessageCircle, Phone } from "lucide-react";
+import { contact, links } from "../../site/siteConfig";
 
+/* Closing call to action */
 const DemoCTA = () => {
   return (
-    <div className='demo-cta'>
-      <div className='demo-cta__container'>
-        <div className='demo-cta__content'>
-          <div className='demo-cta__badge'>
-            <Star className='demo-cta__badge-icon' />
-            <span>Ready to Get Started?</span>
+    <section className='slw-demo-cta'>
+      <div className='slw-wrap'>
+        <div className='slw-demo-cta__panel'>
+          <h2>Ready to get started?</h2>
+          <p>Start on the free Starter plan, or let us show you around first.</p>
+          <div className='slw-demo-cta__btns'>
+            <Link className='slw-btn slw-btn--white' to={links.signUp}>
+              Start free <ArrowRight size={17} />
+            </Link>
+            <a className='slw-btn slw-btn--wa' href={contact.whatsappDemo} target='_blank' rel='noopener noreferrer'>
+              <MessageCircle size={17} /> Book a free demo
+            </a>
+            <a className='slw-btn slw-btn--ghost' href={contact.phoneHref}>
+              <Phone size={17} /> {contact.phoneDisplay}
+            </a>
           </div>
-
-          <h2 className='demo-cta__title'>Start Your Free Trial Today</h2>
-
-          <p className='demo-cta__description'>
-            Join over 10,000 companies already using our platform to streamline their operations and boost productivity. No credit card required.
-          </p>
-
-          <div className='demo-cta__buttons'>
-            <button
-              onClick={() => {
-                window.location.href = "https://storelense.com/sign-up/"; // Redirect to sign-up page
-              }}
-              className='demo-cta__primary-btn'
-            >
-              Start Free Trial
-              <ArrowRight className='demo-cta__btn-icon' />
-            </button>
-            <button className='demo-cta__secondary-btn'>
-              <Play className='demo-cta__btn-icon' />
-              Watch More Demos
-            </button>
-          </div>
-
-          <div className='demo-cta__features'>
-            <div className='demo-cta__feature'>✓ 7-day free trial</div>
-            <div className='demo-cta__feature'>✓ No credit card required</div>
-            <div className='demo-cta__feature'>✓ Full feature access</div>
-            <div className='demo-cta__feature'>✓ 24/7 customer support</div>
-          </div>
+          <ul>
+            <li>
+              <Check size={16} strokeWidth={3} /> Free Starter plan
+            </li>
+            <li>
+              <Check size={16} strokeWidth={3} /> Setup &amp; training
+            </li>
+            <li>
+              <Check size={16} strokeWidth={3} /> 24/7 support
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
