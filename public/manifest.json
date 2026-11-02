@@ -1,6 +1,7 @@
 {
   "short_name": "StoreLense",
-  "name": "StoreLense- Inventory Manager",
+  "name": "StoreLense: POS & Inventory for Stores, Restaurants and Hotels",
+  "description": "POS and inventory for retail stores, supermarkets, restaurants, cafés, bars and hotels.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,12 +9,12 @@
       "type": "image/x-icon"
     },
     {
-      "src": "/public/favicon-192.png",
+      "src": "favicon-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/public/favicon-512.png",
+      "src": "favicon-512.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any maskable"
@@ -21,6 +22,6 @@
   ],
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#0f2a47",
   "background_color": "#ffffff"
 }

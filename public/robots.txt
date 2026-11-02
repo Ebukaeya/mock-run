@@ -1,3 +1,15 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Account, checkout and tracking pages: nothing for search engines here
+Disallow: /check-out/
+Disallow: /sign-up/
+Disallow: /verify_email/
+Disallow: /delete-account
+Disallow: /bookedOrders/
+Disallow: /portals
+Disallow: /track
+Disallow: /demo/spashScreen/
+
+Sitemap: https://storelense.com/sitemap.xml

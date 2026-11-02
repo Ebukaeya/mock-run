@@ -28,6 +28,7 @@ import TrackOrder from "./restaurantCatalogue/client/TrackOrder.jsx";
 import HomePage from "./home/HomePage.jsx";
 import HospitalityPage from "./hospitality/HospitalityPage.jsx";
 import "./styles/backNav.css";
+import SeoManager from "./site/SeoManager.jsx";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -69,6 +70,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <SeoManager />
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/hospitality' element={<HospitalityPage />} />

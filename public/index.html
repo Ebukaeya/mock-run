@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-NG">
   <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TR3E44X4MS"></script>
@@ -13,6 +13,47 @@
       gtag("config", "G-TR3E44X4MS");
     </script>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Primary SEO (the home page; other pages update these as you move around the site) -->
+    <title>StoreLense | POS & Inventory for Shops, Supermarkets, Restaurants and Hotels</title>
+    <meta
+      name="description"
+      content="StoreLense is a POS and inventory system for Nigerian businesses: retail stores, supermarkets, warehouses, restaurants, cafés, bars and hotels. Sell faster, track stock in real time and accept payments with Kuda."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="Pragma Solutions Ltd" />
+    <meta name="application-name" content="StoreLense" />
+    <meta name="theme-color" content="#0f2a47" />
+    <meta name="google-site-verification" content="NulijKw2vj8raqKAG_WgOE-Af-ZiLH-MP1vMQZ0emzo" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- Location -->
+    <meta name="geo.region" content="NG" />
+    <meta name="geo.placename" content="Abakaliki, Ebonyi State; Aba, Abia State" />
+
+    <!-- Open Graph (WhatsApp, Facebook, LinkedIn previews) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="StoreLense" />
+    <meta property="og:locale" content="en_NG" />
+    <meta property="og:title" content="StoreLense | POS & Inventory for Shops, Supermarkets, Restaurants and Hotels" />
+    <meta
+      property="og:description"
+      content="One system for retail stores, supermarkets, restaurants, cafés, bars and hotels. Sell, manage stock and see reports from your POS, phone or computer."
+    />
+    <meta property="og:image" content="https://storelense.com/og-storelense.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="StoreLense: POS and inventory for stores, restaurants and hotels" />
+
+    <!-- X / Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="StoreLense | POS & Inventory for Shops, Supermarkets, Restaurants and Hotels" />
+    <meta
+      name="twitter:description"
+      content="One system for retail stores, supermarkets, restaurants, cafés, bars and hotels. Sell, manage stock and see reports from anywhere."
+    />
+    <meta name="twitter:image" content="https://storelense.com/og-storelense.jpg" />
 
     <!-- PNG favicons -->
     <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16.png?v=3" />
@@ -22,41 +63,101 @@
 
     <!-- Apple touch icon -->
     <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/favicon-180.png?v=3" />
-    <!-- <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.ico" /> -->
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="google-site-verification" content="NulijKw2vj8raqKAG_WgOE-Af-ZiLH-MP1vMQZ0emzo" />
-    <meta name="description" content="Real time Inventory Manager" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>StoreLense - Inventory Manager</title>
+    <!-- Structured data: who StoreLense is, what it sells, and where -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://storelense.com/#organization",
+            "name": "StoreLense",
+            "legalName": "Pragma Solutions Ltd",
+            "url": "https://storelense.com/",
+            "logo": "https://storelense.com/StorelenseLogo.png",
+            "email": "storelense@pragmasolutions.co",
+            "telephone": "+2348159273522",
+            "sameAs": ["https://www.facebook.com/StorelensePos", "https://www.instagram.com/storelensepos", "https://www.tiktok.com/@storelensepos"],
+            "address": [
+              {
+                "@type": "PostalAddress",
+                "streetAddress": "Spera in Deo Park, Block 38",
+                "addressLocality": "Abakaliki",
+                "addressRegion": "Ebonyi State",
+                "addressCountry": "NG"
+              },
+              {
+                "@type": "PostalAddress",
+                "streetAddress": "68 Clifford Road",
+                "addressLocality": "Aba",
+                "addressRegion": "Abia State",
+                "addressCountry": "NG"
+              }
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+2348159273522",
+              "contactType": "sales",
+              "areaServed": "NG",
+              "availableLanguage": ["English"]
+            },
+            "areaServed": { "@type": "Country", "name": "Nigeria" }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://storelense.com/#website",
+            "url": "https://storelense.com/",
+            "name": "StoreLense",
+            "inLanguage": "en-NG",
+            "publisher": { "@id": "https://storelense.com/#organization" }
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://storelense.com/#stores",
+            "name": "StoreLense POS",
+            "url": "https://storelense.com/",
+            "applicationCategory": "BusinessApplication",
+            "applicationSubCategory": "Point of sale and inventory management",
+            "operatingSystem": "Web, Android, Windows",
+            "description": "POS and inventory management for retail stores, supermarkets and warehouses in Nigeria: sales, stock tracking, multiple stores and warehouses, reports and online selling.",
+            "audience": { "@type": "BusinessAudience", "audienceType": "Retail stores, supermarkets, wholesalers and warehouses" },
+            "publisher": { "@id": "https://storelense.com/#organization" }
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://storelense.com/hospitality#app",
+            "name": "StoreLense Hospitality",
+            "url": "https://storelense.com/hospitality",
+            "applicationCategory": "BusinessApplication",
+            "applicationSubCategory": "Restaurant and hotel point of sale",
+            "operatingSystem": "Web, Android, Windows",
+            "description": "POS for restaurants, cafés, bars and hotels in Nigeria: table and room orders, kitchen orders, food storage and stock, online ordering and reports.",
+            "audience": { "@type": "BusinessAudience", "audienceType": "Restaurants, cafés, bars and hotels" },
+            "publisher": { "@id": "https://storelense.com/#organization" }
+          }
+        ]
+      }
+    </script>
   </head>
-
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      <h1>StoreLense: POS and inventory for Nigerian businesses</h1>
+      <p>
+        StoreLense helps retail stores, supermarkets, warehouses, restaurants, cafés, bars and hotels sell faster, manage stock and see clear reports. Please
+        enable JavaScript to use the full site.
+      </p>
+      <ul>
+        <li><a href="/hospitality">StoreLense Hospitality: POS for restaurants, cafés, bars and hotels</a></li>
+        <li><a href="/solutions/retail-stores">POS for retail stores and supermarkets</a></li>
+        <li><a href="/solutions/inventory-management">Inventory management</a></li>
+        <li><a href="/solutions/warehouse-integration">Warehouse integration</a></li>
+        <li><a href="/pos-setup">POS hardware</a></li>
+        <li><a href="/contact">Contact us</a></li>
+      </ul>
+    </noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>
