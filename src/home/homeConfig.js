@@ -139,8 +139,8 @@ export const payments = {
 export const downloads = {
   pos: {
     name: "StoreLense POS app",
-    version: "1.0.1",
-    apkUrl: "https://github.com/Ebukaeya/storelense-POS-z100/releases/download/v1.01/StorlensePOS_z100.apk", // paste the StoreLense POS APK link (package com.storelense.storelensepos)
+    version: "1.0.2",
+    apkUrl: "https://github.com/Ebukaeya/storelense-POS-z100/releases/download/v1.02/StorlensePOS_z100.apk", // paste the StoreLense POS APK link (package com.storelense.storelensepos)
 
     fileSize: "107 MB",
     devices: ["StoreLense POS (built-in receipt printer)", "StoreLense Mini (handheld, tap-to-pay)"],
