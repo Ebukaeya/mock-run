@@ -1,0 +1,596 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap");
+
+/* Account deletion page. Class prefix: sdel__ */
+
+.sdel {
+  min-height: 100vh;
+  background: #f4f6f8;
+  font-family: "Nunito", sans-serif;
+  color: #334155;
+  padding-top: 60px;
+}
+
+.sdel__wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ─── Hero ─── */
+.sdel__hero {
+  padding: 64px 0 56px;
+  background: #0f2a47;
+  background-image: radial-gradient(circle at 85% 0%, #1d6fd8 0%, transparent 45%), radial-gradient(circle at 0% 100%, #134e6f 0%, transparent 50%);
+  color: #ffffff;
+}
+
+.sdel__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border: 1px solid #37b4c5;
+  border-radius: 999px;
+  background: #123a5c;
+  color: #9be3ec;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sdel__title {
+  margin: 18px 0 12px;
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.sdel__lead {
+  max-width: 600px;
+  margin: 0 0 28px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+.sdel__facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.sdel__fact {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid #24476d;
+  border-radius: 14px;
+  background: #13365a;
+  color: #37b4c5;
+}
+
+.sdel__fact span {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #94a3b8;
+}
+
+.sdel__fact b {
+  display: block;
+  font-size: 14px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+/* ─── Cards ─── */
+.sdel__main {
+  position: relative;
+  margin-top: -24px;
+  padding-bottom: 64px;
+}
+
+.sdel__card {
+  margin-bottom: 18px;
+  padding: 28px;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 8px 28px rgba(15, 42, 71, 0.06);
+}
+
+.sdel__h2 {
+  margin: 0 0 16px;
+  font-size: 22px;
+  font-weight: 900;
+  color: #0f2a47;
+  letter-spacing: -0.01em;
+}
+
+.sdel__h2--gap {
+  margin-top: 30px;
+}
+
+.sdel__p {
+  margin: -6px 0 18px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.sdel__note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 18px 0 0;
+  font-size: 13.5px;
+  color: #64748b;
+}
+
+.sdel__note svg {
+  flex: none;
+  color: #1d6fd8;
+}
+
+.sdel__link {
+  color: #1d6fd8;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.sdel__link:hover {
+  text-decoration: underline;
+}
+
+/* ─── Tabs and steps ─── */
+.sdel__tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 20px;
+  padding: 5px;
+  border-radius: 12px;
+  background: #eef2f7;
+}
+
+.sdel__tab {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.sdel__tab--on {
+  background: #ffffff;
+  color: #0f2a47;
+  box-shadow: 0 2px 8px rgba(15, 42, 71, 0.08);
+}
+
+.sdel__steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sdel__step {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  padding-bottom: 22px;
+}
+
+.sdel__step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  bottom: 4px;
+  left: 17px;
+  width: 2px;
+  background: #e2e8f0;
+}
+
+.sdel__stepNum {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #1d6fd8;
+  color: #ffffff;
+  font-weight: 900;
+}
+
+.sdel__step h3 {
+  margin: 6px 0 4px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f2a47;
+}
+
+.sdel__step p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+.sdel__ask p {
+  margin: 0 0 18px;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.sdel__ask strong {
+  color: #0f2a47;
+}
+
+.sdel__askBtns,
+.sdel__contactBtns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ─── Buttons ─── */
+.sdel__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 0 20px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.sdel__btn:hover {
+  transform: translateY(-1px);
+}
+
+.sdel__btn--blue {
+  background: #1d6fd8;
+  color: #ffffff;
+}
+
+.sdel__btn--teal {
+  background: #37b4c5;
+  color: #0f2a47;
+}
+
+.sdel__btn--ghost {
+  border-color: #cbd5e1;
+  background: #ffffff;
+  color: #0f2a47;
+}
+
+.sdel__btn--light {
+  border-color: #3a5a7d;
+  background: transparent;
+  color: #ffffff;
+}
+
+/* ─── Straight away ─── */
+.sdel__now {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sdel__now li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 14px;
+  background: #f8fafc;
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+
+.sdel__nowIcon {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #e3eefc;
+  color: #1d6fd8;
+}
+
+.sdel__alert {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 14px 16px;
+  border: 1px solid #fed7aa;
+  border-radius: 14px;
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.sdel__alert svg {
+  flex: none;
+  margin-top: 2px;
+}
+
+.sdel__alert p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #7c2d12;
+}
+
+/* ─── Timeline ─── */
+.sdel__timeline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.sdel__tl {
+  padding: 18px;
+  border: 1px solid #e2e8f0;
+  border-top-width: 1px;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+/* .sdel__tl--1 {
+  border-top-color: #1d6fd8;
+}
+
+.sdel__tl--2 {
+  border-top-color: #37b4c5;
+}
+
+.sdel__tl--3 {
+  border-top-color: #dc2626;
+} */
+
+.sdel__tlIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  background: #f1f5f9;
+  color: #0f2a47;
+}
+
+.sdel__tlWhen {
+  display: block;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #1d6fd8;
+}
+
+.sdel__tl--3 .sdel__tlWhen {
+  color: #dc2626;
+}
+
+.sdel__tl h3 {
+  margin: 4px 0 6px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f2a47;
+}
+
+.sdel__tl p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* ─── Deleted / kept ─── */
+.sdel__groups {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.sdel__group {
+  padding: 16px;
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.sdel__group h3 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 900;
+  color: #0f2a47;
+}
+
+.sdel__group ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sdel__group li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.sdel__group li svg {
+  flex: none;
+  margin-top: 2px;
+  color: #16a34a;
+}
+
+.sdel__kept {
+  display: grid;
+  gap: 12px;
+}
+
+.sdel__keptItem {
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid #fde68a;
+  border-radius: 14px;
+  background: #fffbeb;
+}
+
+.sdel__keptIcon {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.sdel__keptItem h3 {
+  margin: 2px 0 4px;
+  font-size: 15.5px;
+  font-weight: 800;
+  color: #0f2a47;
+}
+
+.sdel__keptItem p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* ─── FAQ ─── */
+.sdel__q {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.sdel__q button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  padding: 16px 0;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 15.5px;
+  font-weight: 800;
+  color: #0f2a47;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sdel__qSign {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #eef2f7;
+  color: #1d6fd8;
+  font-size: 18px;
+}
+
+.sdel__q--open .sdel__qSign {
+  background: #1d6fd8;
+  color: #ffffff;
+}
+
+.sdel__q p {
+  margin: -4px 0 16px;
+  font-size: 14.5px;
+  line-height: 1.65;
+}
+
+/* ─── Contact ─── */
+.sdel__contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 28px;
+  border-radius: 18px;
+  background: #0f2a47;
+  color: #ffffff;
+}
+
+.sdel__contact h2 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.sdel__contact p {
+  margin: 0;
+  font-size: 14.5px;
+  color: #cbd5e1;
+}
+
+/* ─── Phones ─── */
+@media (max-width: 760px) {
+  .sdel__hero {
+    padding: 44px 0 48px;
+  }
+
+  .sdel__title {
+    font-size: 32px;
+  }
+
+  .sdel__lead {
+    font-size: 16px;
+  }
+
+  .sdel__facts,
+  .sdel__now,
+  .sdel__timeline,
+  .sdel__groups {
+    grid-template-columns: 1fr;
+  }
+
+  .sdel__card {
+    padding: 22px 18px;
+  }
+
+  .sdel__tabs {
+    flex-direction: column;
+  }
+
+  .sdel__btn {
+    width: 100%;
+  }
+}

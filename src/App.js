@@ -16,7 +16,7 @@ import BookOrder from "./bookedQuotation/BookedQuaution.jsx";
 import ResetPassword from "./forgotPassword/ForgotPassword.jsx";
 import StorelensePrivacyPolicy from "./component/dataAndPolicy/StorelensePolicy.jsx";
 import TermsOfService from "./component/dataAndPolicy/TermsOfService.jsx";
-import AccountDeletion from "./deleteAccount/DelectAccount.jsx";
+import AccountDeletion from "./component/dataAndPolicy/AccountDeletion";
 import RetailStores from "./solutionsPages/Retailstores.jsx";
 import Analytics from "./solutionsPages/Analytics.jsx";
 import InventoryManagement from "./solutionsPages/InventoryManagement.jsx";
